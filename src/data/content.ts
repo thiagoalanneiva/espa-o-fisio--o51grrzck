@@ -479,38 +479,38 @@ export const units = [
 export const testimonials = [
   {
     id: 1,
-    name: 'Ricardo Almeida',
-    role: 'Paciente de Fisioterapia Ortopédica',
+    name: 'Ana Lúcia Ferreira',
+    role: 'Paciente de Fisioterapia',
     content:
-      'Minhas dores na coluna sumiram na terceira sessão. Excelente clínica, atendimento no horário e profissionais muito bem qualificados. Instalações de primeira linha.',
+      'Fui super bem atendida desde a recepção até a avaliação com o fisioterapeuta. Profissionais extremamente competentes e atenciosos. A clínica é linda e muito bem equipada. Minha dor no ombro melhorou 100%!',
     rating: 5,
-    image: 'https://img.usecurling.com/ppl/thumbnail?gender=male&seed=15',
+    image: 'https://img.usecurling.com/ppl/thumbnail?gender=female&seed=15',
   },
   {
     id: 2,
-    name: 'Juliana Costa',
+    name: 'Carlos Eduardo Santos',
     role: 'Paciente de RPG',
     content:
-      'Espaço maravilhoso, profissionais muito qualificados e atenciosos. Faço RPG há alguns meses e minha qualidade de vida melhorou absurdamente. Recomendo de olhos fechados.',
+      'Excelente espaço para reabilitação. Faço sessões de RPG e a melhora na minha postura foi notável em poucas semanas. Recomendo muito o Espaço Fisio para quem busca tratamento sério e de resultado.',
     rating: 5,
-    image: 'https://img.usecurling.com/ppl/thumbnail?gender=female&seed=22',
+    image: 'https://img.usecurling.com/ppl/thumbnail?gender=male&seed=22',
   },
   {
     id: 3,
-    name: 'Marcos Vinícius',
-    role: 'Paciente de Fisioterapia Esportiva',
+    name: 'Mariana Oliveira',
+    role: 'Aluna de Pilates',
     content:
-      'Fiz meu pós-operatório do joelho aqui e tive uma recuperação muito acima do esperado. Aparelhos modernos e foco total no paciente. A equipe é nota mil!',
+      'O melhor estúdio de Pilates da região! Os professores são super capacitados, as turmas são pequenas e o acompanhamento é bem personalizado. O ambiente é super agradável e muito limpo.',
     rating: 5,
-    image: 'https://img.usecurling.com/ppl/thumbnail?gender=male&seed=31',
+    image: 'https://img.usecurling.com/ppl/thumbnail?gender=female&seed=31',
   },
   {
     id: 4,
-    name: 'Amanda Silveira',
-    role: 'Aluna de Pilates',
+    name: 'Roberto Mendes',
+    role: 'Paciente de Acupuntura',
     content:
-      'Atendimento pontual e humanizado. A clínica tem ótima infraestrutura, ambiente super limpo e professores de pilates muito técnicos. Minha postura é outra!',
+      'Tinha crises constantes de enxaqueca e a acupuntura no Espaço Fisio salvou minha vida. Resultados rápidos e duradouros. A equipe é muito acolhedora e te deixa super à vontade.',
     rating: 5,
-    image: 'https://img.usecurling.com/ppl/thumbnail?gender=female&seed=44',
+    image: 'https://img.usecurling.com/ppl/thumbnail?gender=male&seed=44',
   },
 ]

@@ -1,87 +1,85 @@
 import { Link } from 'react-router-dom'
-import { CheckCircle2, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { services, contact } from '@/data/content'
+import { Card, CardContent } from '@/components/ui/card'
+import { services } from '@/data/content'
 
 export function Services() {
-  // Select a few prominent services to feature
-  const featuredIds = ['fisioterapia-ortopedica', 'pilates-postural', 'acupuntura-sistemica']
+  // Select a compact list of prominent services to feature
+  const featuredIds = [
+    'fisioterapia-ortopedica',
+    'pilates-postural',
+    'acupuntura-sistemica',
+    'rpg',
+    'quiropraxia',
+    'liberacao-miofascial',
+  ]
   const featuredServices = services.filter((s) => featuredIds.includes(s.id))
 
   return (
-    <section id="servicos" className="py-24 bg-white">
+    <section id="servicos" className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-sm font-bold text-gold-500 uppercase tracking-widest mb-3">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-sm font-bold text-gold-500 uppercase tracking-widest mb-3 font-sans">
             Nossos Tratamentos
           </h2>
           <h3 className="text-3xl md:text-5xl font-bold text-navy-900 mb-6 font-sans">
-            Abordagem Completa para sua Reabilitação
+            Soluções Completas em Reabilitação
           </h3>
-          <p className="text-lg text-gray-600">
-            Combinamos as melhores práticas da fisioterapia moderna com um atendimento humano e
-            especializado para devolver sua autonomia.
+          <p className="text-lg text-gray-600 font-medium">
+            Conheça nossos principais serviços desenvolvidos para tratar a causa da sua dor e
+            devolver a sua qualidade de vida com protocolos personalizados.
           </p>
         </div>
 
-        <div className="space-y-24 max-w-6xl mx-auto">
-          {featuredServices.map((service, index) => (
-            <div
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {featuredServices.map((service) => (
+            <Card
               key={service.id}
-              className={`flex flex-col lg:flex-row gap-12 lg:gap-20 items-center ${
-                index % 2 !== 0 ? 'lg:flex-row-reverse' : ''
-              }`}
+              className="overflow-hidden group flex flex-col h-full border-none shadow-lg hover:shadow-2xl transition-all duration-300 bg-white rounded-2xl"
             >
-              <div className="flex-1 relative w-full group">
-                <div className="absolute inset-0 bg-gold-500/10 rounded-[2rem] transform rotate-3 scale-105 transition-transform duration-500 group-hover:rotate-6 -z-10" />
-                <div className="overflow-hidden rounded-[2rem] shadow-xl">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full object-cover aspect-[4/3] transform transition-transform duration-700 group-hover:scale-105"
-                  />
+              <div className="h-56 overflow-hidden relative">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                  <span className="text-white font-bold font-sans text-lg flex items-center gap-2">
+                    Ver detalhes <ArrowRight className="w-5 h-5" />
+                  </span>
                 </div>
               </div>
-
-              <div className="flex-1 space-y-6">
-                <h4 className="text-3xl md:text-4xl font-bold text-navy-900 font-sans">
+              <CardContent className="p-8 flex flex-col flex-grow relative bg-white z-10">
+                <h4 className="text-2xl font-bold text-navy-900 font-sans mb-4 group-hover:text-gold-500 transition-colors">
                   {service.title}
                 </h4>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  {service.fullDescription.split('.')[0]}. {service.fullDescription.split('.')[1]}.
+                <p className="text-gray-600 mb-8 flex-grow leading-relaxed">
+                  {service.shortDescription}
                 </p>
-
-                <ul className="space-y-4 pt-4 mb-6">
-                  {service.benefits.slice(0, 4).map((benefit, i) => (
-                    <li key={i} className="flex items-center gap-3 text-navy-900">
-                      <CheckCircle2 className="w-6 h-6 text-health-500 shrink-0" />
-                      <span className="font-semibold">{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="pt-6 flex flex-col sm:flex-row gap-4">
-                  <Button
-                    size="lg"
-                    className="rounded-full font-sans font-bold text-base h-14 px-8 bg-navy-900 hover:bg-navy-800"
-                    asChild
-                  >
-                    <Link to={`/servico/${service.id}`}>Conhecer serviço</Link>
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="rounded-full font-sans font-bold text-base h-14 px-8 border-2 border-navy-900 text-navy-900 hover:bg-navy-50"
-                    asChild
-                  >
-                    <a href={contact.whatsapp} target="_blank" rel="noopener noreferrer">
-                      Agendar uma avaliação <ArrowRight className="w-5 h-5 ml-2" />
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </div>
+                <Button
+                  variant="outline"
+                  className="w-full font-bold font-sans border-2 border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white rounded-full h-12 transition-all"
+                  asChild
+                >
+                  <Link to={`/servico/${service.id}`}>Saber mais</Link>
+                </Button>
+              </CardContent>
+            </Card>
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <p className="text-gray-500 mb-6 font-medium">
+            Não encontrou o que procura? Temos uma equipe completa para te atender.
+          </p>
+          <Button
+            size="lg"
+            className="rounded-full font-sans font-bold text-lg h-14 px-10 shadow-lg bg-gold-500 hover:bg-gold-600 text-navy-900 transition-all hover:-translate-y-1"
+            asChild
+          >
+            <Link to="/#especialidades">Ver todas as especialidades</Link>
+          </Button>
         </div>
       </div>
     </section>

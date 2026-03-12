@@ -24956,35 +24956,35 @@ var units = [{
 var testimonials = [
 	{
 		id: 1,
-		name: "Ricardo Almeida",
-		role: "Paciente de Fisioterapia Ortopédica",
-		content: "Minhas dores na coluna sumiram na terceira sessão. Excelente clínica, atendimento no horário e profissionais muito bem qualificados. Instalações de primeira linha.",
+		name: "Ana Lúcia Ferreira",
+		role: "Paciente de Fisioterapia",
+		content: "Fui super bem atendida desde a recepção até a avaliação com o fisioterapeuta. Profissionais extremamente competentes e atenciosos. A clínica é linda e muito bem equipada. Minha dor no ombro melhorou 100%!",
 		rating: 5,
-		image: "https://img.usecurling.com/ppl/thumbnail?gender=male&seed=15"
+		image: "https://img.usecurling.com/ppl/thumbnail?gender=female&seed=15"
 	},
 	{
 		id: 2,
-		name: "Juliana Costa",
+		name: "Carlos Eduardo Santos",
 		role: "Paciente de RPG",
-		content: "Espaço maravilhoso, profissionais muito qualificados e atenciosos. Faço RPG há alguns meses e minha qualidade de vida melhorou absurdamente. Recomendo de olhos fechados.",
+		content: "Excelente espaço para reabilitação. Faço sessões de RPG e a melhora na minha postura foi notável em poucas semanas. Recomendo muito o Espaço Fisio para quem busca tratamento sério e de resultado.",
 		rating: 5,
-		image: "https://img.usecurling.com/ppl/thumbnail?gender=female&seed=22"
+		image: "https://img.usecurling.com/ppl/thumbnail?gender=male&seed=22"
 	},
 	{
 		id: 3,
-		name: "Marcos Vinícius",
-		role: "Paciente de Fisioterapia Esportiva",
-		content: "Fiz meu pós-operatório do joelho aqui e tive uma recuperação muito acima do esperado. Aparelhos modernos e foco total no paciente. A equipe é nota mil!",
+		name: "Mariana Oliveira",
+		role: "Aluna de Pilates",
+		content: "O melhor estúdio de Pilates da região! Os professores são super capacitados, as turmas são pequenas e o acompanhamento é bem personalizado. O ambiente é super agradável e muito limpo.",
 		rating: 5,
-		image: "https://img.usecurling.com/ppl/thumbnail?gender=male&seed=31"
+		image: "https://img.usecurling.com/ppl/thumbnail?gender=female&seed=31"
 	},
 	{
 		id: 4,
-		name: "Amanda Silveira",
-		role: "Aluna de Pilates",
-		content: "Atendimento pontual e humanizado. A clínica tem ótima infraestrutura, ambiente super limpo e professores de pilates muito técnicos. Minha postura é outra!",
+		name: "Roberto Mendes",
+		role: "Paciente de Acupuntura",
+		content: "Tinha crises constantes de enxaqueca e a acupuntura no Espaço Fisio salvou minha vida. Resultados rápidos e duradouros. A equipe é muito acolhedora e te deixa super à vontade.",
 		rating: 5,
-		image: "https://img.usecurling.com/ppl/thumbnail?gender=female&seed=44"
+		image: "https://img.usecurling.com/ppl/thumbnail?gender=male&seed=44"
 	}
 ];
 //#endregion
@@ -27852,153 +27852,138 @@ function Services() {
 	const featuredIds = [
 		"fisioterapia-ortopedica",
 		"pilates-postural",
-		"acupuntura-sistemica"
+		"acupuntura-sistemica",
+		"rpg",
+		"quiropraxia",
+		"liberacao-miofascial"
 	];
 	const featuredServices = services.filter((s) => featuredIds.includes(s.id));
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
-		"data-uid": "src/components/sections/Services.tsx:12:5",
+		"data-uid": "src/components/sections/Services.tsx:20:5",
 		"data-prohibitions": "[editContent]",
 		id: "servicos",
-		className: "py-24 bg-white",
+		className: "py-24 bg-gray-50",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			"data-uid": "src/components/sections/Services.tsx:13:7",
+			"data-uid": "src/components/sections/Services.tsx:21:7",
 			"data-prohibitions": "[editContent]",
 			className: "container mx-auto px-4",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				"data-uid": "src/components/sections/Services.tsx:14:9",
-				"data-prohibitions": "[]",
-				className: "text-center max-w-3xl mx-auto mb-20",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-						"data-uid": "src/components/sections/Services.tsx:15:11",
-						"data-prohibitions": "[]",
-						className: "text-sm font-bold text-gold-500 uppercase tracking-widest mb-3",
-						children: "Nossos Tratamentos"
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-						"data-uid": "src/components/sections/Services.tsx:18:11",
-						"data-prohibitions": "[]",
-						className: "text-3xl md:text-5xl font-bold text-navy-900 mb-6 font-sans",
-						children: "Abordagem Completa para sua Reabilitação"
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						"data-uid": "src/components/sections/Services.tsx:21:11",
-						"data-prohibitions": "[]",
-						className: "text-lg text-gray-600",
-						children: "Combinamos as melhores práticas da fisioterapia moderna com um atendimento humano e especializado para devolver sua autonomia."
-					})
-				]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				"data-uid": "src/components/sections/Services.tsx:27:9",
-				"data-prohibitions": "[editContent]",
-				className: "space-y-24 max-w-6xl mx-auto",
-				children: featuredServices.map((service, index) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					"data-uid": "src/components/sections/Services.tsx:29:13",
-					"data-prohibitions": "[editContent]",
-					className: `flex flex-col lg:flex-row gap-12 lg:gap-20 items-center ${index % 2 !== 0 ? "lg:flex-row-reverse" : ""}`,
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/components/sections/Services.tsx:35:15",
-						"data-prohibitions": "[]",
-						className: "flex-1 relative w-full group",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							"data-uid": "src/components/sections/Services.tsx:36:17",
-							"data-prohibitions": "[editContent]",
-							className: "absolute inset-0 bg-gold-500/10 rounded-[2rem] transform rotate-3 scale-105 transition-transform duration-500 group-hover:rotate-6 -z-10"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							"data-uid": "src/components/sections/Services.tsx:37:17",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					"data-uid": "src/components/sections/Services.tsx:22:9",
+					"data-prohibitions": "[]",
+					className: "text-center max-w-3xl mx-auto mb-16",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							"data-uid": "src/components/sections/Services.tsx:23:11",
 							"data-prohibitions": "[]",
-							className: "overflow-hidden rounded-[2rem] shadow-xl",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-								"data-uid": "src/components/sections/Services.tsx:38:19",
+							className: "text-sm font-bold text-gold-500 uppercase tracking-widest mb-3 font-sans",
+							children: "Nossos Tratamentos"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+							"data-uid": "src/components/sections/Services.tsx:26:11",
+							"data-prohibitions": "[]",
+							className: "text-3xl md:text-5xl font-bold text-navy-900 mb-6 font-sans",
+							children: "Soluções Completas em Reabilitação"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							"data-uid": "src/components/sections/Services.tsx:29:11",
+							"data-prohibitions": "[]",
+							className: "text-lg text-gray-600 font-medium",
+							children: "Conheça nossos principais serviços desenvolvidos para tratar a causa da sua dor e devolver a sua qualidade de vida com protocolos personalizados."
+						})
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					"data-uid": "src/components/sections/Services.tsx:35:9",
+					"data-prohibitions": "[editContent]",
+					className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto",
+					children: featuredServices.map((service) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
+						"data-uid": "src/components/sections/Services.tsx:37:13",
+						"data-prohibitions": "[editContent]",
+						className: "overflow-hidden group flex flex-col h-full border-none shadow-lg hover:shadow-2xl transition-all duration-300 bg-white rounded-2xl",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							"data-uid": "src/components/sections/Services.tsx:41:15",
+							"data-prohibitions": "[]",
+							className: "h-56 overflow-hidden relative",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+								"data-uid": "src/components/sections/Services.tsx:42:17",
 								"data-prohibitions": "[editContent]",
 								src: service.image,
 								alt: service.title,
-								className: "w-full object-cover aspect-[4/3] transform transition-transform duration-700 group-hover:scale-105"
-							})
-						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/components/sections/Services.tsx:46:15",
-						"data-prohibitions": "[editContent]",
-						className: "flex-1 space-y-6",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
+								className: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 								"data-uid": "src/components/sections/Services.tsx:47:17",
-								"data-prohibitions": "[editContent]",
-								className: "text-3xl md:text-4xl font-bold text-navy-900 font-sans",
-								children: service.title
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-								"data-uid": "src/components/sections/Services.tsx:50:17",
-								"data-prohibitions": "[editContent]",
-								className: "text-lg text-gray-600 leading-relaxed",
-								children: [
-									service.fullDescription.split(".")[0],
-									". ",
-									service.fullDescription.split(".")[1],
-									"."
-								]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
-								"data-uid": "src/components/sections/Services.tsx:54:17",
-								"data-prohibitions": "[editContent]",
-								className: "space-y-4 pt-4 mb-6",
-								children: service.benefits.slice(0, 4).map((benefit, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
-									"data-uid": "src/components/sections/Services.tsx:56:21",
-									"data-prohibitions": "[editContent]",
-									className: "flex items-center gap-3 text-navy-900",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, {
-										"data-uid": "src/components/sections/Services.tsx:57:23",
-										"data-prohibitions": "[editContent]",
-										className: "w-6 h-6 text-health-500 shrink-0"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										"data-uid": "src/components/sections/Services.tsx:58:23",
-										"data-prohibitions": "[editContent]",
-										className: "font-semibold",
-										children: benefit
-									})]
-								}, i))
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								"data-uid": "src/components/sections/Services.tsx:63:17",
 								"data-prohibitions": "[]",
-								className: "pt-6 flex flex-col sm:flex-row gap-4",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-									"data-uid": "src/components/sections/Services.tsx:64:19",
+								className: "absolute inset-0 bg-gradient-to-t from-navy-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									"data-uid": "src/components/sections/Services.tsx:48:19",
 									"data-prohibitions": "[]",
-									size: "lg",
-									className: "rounded-full font-sans font-bold text-base h-14 px-8 bg-navy-900 hover:bg-navy-800",
-									asChild: true,
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link$1, {
-										"data-uid": "src/components/sections/Services.tsx:69:21",
-										"data-prohibitions": "[]",
-										to: `/servico/${service.id}`,
-										children: "Conhecer serviço"
-									})
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-									"data-uid": "src/components/sections/Services.tsx:71:19",
+									className: "text-white font-bold font-sans text-lg flex items-center gap-2",
+									children: ["Ver detalhes ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight$1, {
+										"data-uid": "src/components/sections/Services.tsx:49:34",
+										"data-prohibitions": "[editContent]",
+										className: "w-5 h-5"
+									})]
+								})
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(CardContent, {
+							"data-uid": "src/components/sections/Services.tsx:53:15",
+							"data-prohibitions": "[editContent]",
+							className: "p-8 flex flex-col flex-grow relative bg-white z-10",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
+									"data-uid": "src/components/sections/Services.tsx:54:17",
+									"data-prohibitions": "[editContent]",
+									className: "text-2xl font-bold text-navy-900 font-sans mb-4 group-hover:text-gold-500 transition-colors",
+									children: service.title
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									"data-uid": "src/components/sections/Services.tsx:57:17",
+									"data-prohibitions": "[editContent]",
+									className: "text-gray-600 mb-8 flex-grow leading-relaxed",
+									children: service.shortDescription
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+									"data-uid": "src/components/sections/Services.tsx:60:17",
 									"data-prohibitions": "[]",
 									variant: "outline",
-									size: "lg",
-									className: "rounded-full font-sans font-bold text-base h-14 px-8 border-2 border-navy-900 text-navy-900 hover:bg-navy-50",
+									className: "w-full font-bold font-sans border-2 border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white rounded-full h-12 transition-all",
 									asChild: true,
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-										"data-uid": "src/components/sections/Services.tsx:77:21",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link$1, {
+										"data-uid": "src/components/sections/Services.tsx:65:19",
 										"data-prohibitions": "[]",
-										href: contact.whatsapp,
-										target: "_blank",
-										rel: "noopener noreferrer",
-										children: ["Agendar uma avaliação ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight$1, {
-											"data-uid": "src/components/sections/Services.tsx:78:45",
-											"data-prohibitions": "[editContent]",
-											className: "w-5 h-5 ml-2"
-										})]
+										to: `/servico/${service.id}`,
+										children: "Saber mais"
 									})
-								})]
-							})
-						]
+								})
+							]
+						})]
+					}, service.id))
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					"data-uid": "src/components/sections/Services.tsx:72:9",
+					"data-prohibitions": "[]",
+					className: "mt-16 text-center",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						"data-uid": "src/components/sections/Services.tsx:73:11",
+						"data-prohibitions": "[]",
+						className: "text-gray-500 mb-6 font-medium",
+						children: "Não encontrou o que procura? Temos uma equipe completa para te atender."
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+						"data-uid": "src/components/sections/Services.tsx:76:11",
+						"data-prohibitions": "[]",
+						size: "lg",
+						className: "rounded-full font-sans font-bold text-lg h-14 px-10 shadow-lg bg-gold-500 hover:bg-gold-600 text-navy-900 transition-all hover:-translate-y-1",
+						asChild: true,
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link$1, {
+							"data-uid": "src/components/sections/Services.tsx:81:13",
+							"data-prohibitions": "[]",
+							to: "/#especialidades",
+							children: "Ver todas as especialidades"
+						})
 					})]
-				}, service.id))
-			})]
+				})
+			]
 		})
 	});
 }
@@ -31487,7 +31472,7 @@ function Header() {
 											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
 												"data-uid": "src/components/layout/Header.tsx:62:31",
 												"data-prohibitions": "[editContent]",
-												className: "text-sm font-bold text-gold-500 uppercase tracking-wider border-b border-gray-100 pb-2",
+												className: "text-sm font-bold text-gold-500 uppercase tracking-wider border-b border-gray-100 pb-2 font-sans",
 												children: group.title
 											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
 												"data-uid": "src/components/layout/Header.tsx:65:31",
@@ -31504,7 +31489,7 @@ function Header() {
 															"data-uid": "src/components/layout/Header.tsx:69:39",
 															"data-prohibitions": "[editContent]",
 															to: subItem.href,
-															className: "block text-sm font-medium text-gray-700 hover:text-navy-900 hover:bg-gray-50 p-2 rounded-md transition-colors",
+															className: "block text-sm font-medium text-gray-700 hover:text-navy-900 hover:bg-gray-50 p-2 rounded-md transition-colors font-sans",
 															children: subItem.name
 														})
 													})
@@ -31535,7 +31520,7 @@ function Header() {
 													"data-uid": "src/components/layout/Header.tsx:94:33",
 													"data-prohibitions": "[editContent]",
 													to: subItem.href,
-													className: "block text-sm font-medium text-gray-700 hover:text-navy-900 hover:bg-gray-50 p-3 rounded-md transition-colors",
+													className: "block text-sm font-medium text-gray-700 hover:text-navy-900 hover:bg-gray-50 p-3 rounded-md transition-colors font-sans",
 													children: subItem.name
 												})
 											})
@@ -31558,88 +31543,101 @@ function Header() {
 						})
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						"data-uid": "src/components/layout/Header.tsx:121:11",
-						"data-prohibitions": "[]",
+						"data-prohibitions": "[editContent]",
 						className: "flex items-center gap-4 border-l border-gray-200 pl-6",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-							"data-uid": "src/components/layout/Header.tsx:122:13",
-							"data-prohibitions": "[]",
-							href: "https://www.instagram.com/espacofisioembu/",
-							target: "_blank",
-							rel: "noopener noreferrer",
-							className: "text-gray-400 hover:text-navy-900 transition-colors bg-gray-50 p-2 rounded-full hover:bg-gray-100",
-							"aria-label": "Instagram",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Instagram, {
-								"data-uid": "src/components/layout/Header.tsx:129:15",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								"data-uid": "src/components/layout/Header.tsx:122:13",
 								"data-prohibitions": "[editContent]",
-								className: "w-5 h-5"
-							})
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-							"data-uid": "src/components/layout/Header.tsx:132:13",
-							"data-prohibitions": "[]",
-							asChild: true,
-							className: "rounded-full font-semibold font-sans shadow-md bg-navy-900 hover:bg-navy-800 text-white",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-								"data-uid": "src/components/layout/Header.tsx:136:15",
+								className: "hidden xl:flex items-center gap-2 text-navy-900 font-bold font-sans",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, {
+									"data-uid": "src/components/layout/Header.tsx:123:15",
+									"data-prohibitions": "[editContent]",
+									className: "w-5 h-5 text-gold-500"
+								}), contact.phone]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+								"data-uid": "src/components/layout/Header.tsx:127:13",
 								"data-prohibitions": "[]",
-								href: contact.whatsapp,
+								href: "https://www.instagram.com/espacofisioembu/",
 								target: "_blank",
 								rel: "noopener noreferrer",
-								children: "Agendar uma avaliação"
+								className: "text-gray-400 hover:text-navy-900 transition-colors bg-gray-50 p-2 rounded-full hover:bg-gray-100",
+								"aria-label": "Instagram",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Instagram, {
+									"data-uid": "src/components/layout/Header.tsx:134:15",
+									"data-prohibitions": "[editContent]",
+									className: "w-5 h-5"
+								})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+								"data-uid": "src/components/layout/Header.tsx:137:13",
+								"data-prohibitions": "[]",
+								asChild: true,
+								className: "rounded-full font-bold font-sans shadow-md bg-navy-900 hover:bg-navy-800 text-white",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+									"data-uid": "src/components/layout/Header.tsx:141:15",
+									"data-prohibitions": "[]",
+									href: contact.whatsapp,
+									target: "_blank",
+									rel: "noopener noreferrer",
+									children: "Agendar uma avaliação"
+								})
 							})
-						})]
+						]
 					})]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-					"data-uid": "src/components/layout/Header.tsx:144:9",
+					"data-uid": "src/components/layout/Header.tsx:149:9",
 					"data-prohibitions": "[editContent]",
 					className: "lg:hidden z-50 p-2 text-navy-900",
 					onClick: () => setIsMobileMenuOpen(!isMobileMenuOpen),
 					children: isMobileMenuOpen ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, {
-						"data-uid": "src/components/layout/Header.tsx:148:31",
+						"data-uid": "src/components/layout/Header.tsx:153:31",
 						"data-prohibitions": "[editContent]",
 						className: "w-8 h-8"
 					}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Menu, {
-						"data-uid": "src/components/layout/Header.tsx:148:59",
+						"data-uid": "src/components/layout/Header.tsx:153:59",
 						"data-prohibitions": "[editContent]",
 						className: "w-8 h-8"
 					})
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					"data-uid": "src/components/layout/Header.tsx:152:9",
+					"data-uid": "src/components/layout/Header.tsx:157:9",
 					"data-prohibitions": "[editContent]",
 					className: cn$1("fixed inset-0 bg-white z-40 lg:hidden transition-transform duration-300 ease-in-out flex flex-col pt-24 px-6 overflow-y-auto", isMobileMenuOpen ? "translate-x-0" : "translate-x-full"),
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("nav", {
-						"data-uid": "src/components/layout/Header.tsx:158:11",
+						"data-uid": "src/components/layout/Header.tsx:163:11",
 						"data-prohibitions": "[editContent]",
 						className: "flex flex-col gap-6",
 						children: navigation$1.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							"data-uid": "src/components/layout/Header.tsx:160:15",
+							"data-uid": "src/components/layout/Header.tsx:165:15",
 							"data-prohibitions": "[editContent]",
 							className: "flex flex-col gap-2",
 							children: item.isMega && item.groups ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								"data-uid": "src/components/layout/Header.tsx:163:21",
+								"data-uid": "src/components/layout/Header.tsx:168:21",
 								"data-prohibitions": "[editContent]",
 								className: "text-xl font-bold text-navy-900 font-sans border-b border-gray-100 pb-2",
 								children: item.name
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								"data-uid": "src/components/layout/Header.tsx:166:21",
+								"data-uid": "src/components/layout/Header.tsx:171:21",
 								"data-prohibitions": "[editContent]",
 								className: "flex flex-col gap-6 pl-4 mt-2",
 								children: item.groups.map((group) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									"data-uid": "src/components/layout/Header.tsx:168:25",
+									"data-uid": "src/components/layout/Header.tsx:173:25",
 									"data-prohibitions": "[editContent]",
 									className: "flex flex-col gap-2",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										"data-uid": "src/components/layout/Header.tsx:169:27",
+										"data-uid": "src/components/layout/Header.tsx:174:27",
 										"data-prohibitions": "[editContent]",
-										className: "text-sm font-bold text-gold-500 uppercase",
+										className: "text-sm font-bold text-gold-500 uppercase font-sans",
 										children: group.title
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										"data-uid": "src/components/layout/Header.tsx:172:27",
+										"data-uid": "src/components/layout/Header.tsx:177:27",
 										"data-prohibitions": "[editContent]",
 										className: "flex flex-col gap-3 border-l-2 border-gray-100 pl-4",
 										children: group.items.map((subItem) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link$1, {
-											"data-uid": "src/components/layout/Header.tsx:174:31",
+											"data-uid": "src/components/layout/Header.tsx:179:31",
 											"data-prohibitions": "[editContent]",
 											to: subItem.href,
 											className: "text-gray-600 hover:text-navy-900 font-medium font-sans",
@@ -31649,16 +31647,16 @@ function Header() {
 									})]
 								}, group.title))
 							})] }) : item.items ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								"data-uid": "src/components/layout/Header.tsx:190:21",
+								"data-uid": "src/components/layout/Header.tsx:195:21",
 								"data-prohibitions": "[editContent]",
 								className: "text-xl font-bold text-navy-900 font-sans border-b border-gray-100 pb-2",
 								children: item.name
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								"data-uid": "src/components/layout/Header.tsx:193:21",
+								"data-uid": "src/components/layout/Header.tsx:198:21",
 								"data-prohibitions": "[editContent]",
 								className: "flex flex-col gap-3 pl-4 mt-2 border-l-2 border-gray-100 ml-4",
 								children: item.items.map((subItem) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link$1, {
-									"data-uid": "src/components/layout/Header.tsx:195:25",
+									"data-uid": "src/components/layout/Header.tsx:200:25",
 									"data-prohibitions": "[editContent]",
 									to: subItem.href,
 									className: "text-gray-600 hover:text-navy-900 font-medium font-sans py-1",
@@ -31666,7 +31664,7 @@ function Header() {
 									children: subItem.name
 								}, subItem.name))
 							})] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link$1, {
-								"data-uid": "src/components/layout/Header.tsx:207:19",
+								"data-uid": "src/components/layout/Header.tsx:212:19",
 								"data-prohibitions": "[editContent]",
 								to: item.href,
 								className: "text-xl font-bold text-navy-900 font-sans border-b border-gray-100 pb-2",
@@ -31675,41 +31673,54 @@ function Header() {
 							})
 						}, item.name))
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/components/layout/Header.tsx:219:11",
-						"data-prohibitions": "[]",
+						"data-uid": "src/components/layout/Header.tsx:224:11",
+						"data-prohibitions": "[editContent]",
 						className: "mt-8 pt-8 border-t flex flex-col gap-6 pb-12",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							"data-uid": "src/components/layout/Header.tsx:220:13",
-							"data-prohibitions": "[]",
-							className: "flex justify-center gap-4",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-								"data-uid": "src/components/layout/Header.tsx:221:15",
-								"data-prohibitions": "[]",
-								href: "https://www.instagram.com/espacofisioembu/",
-								target: "_blank",
-								rel: "noopener noreferrer",
-								className: "w-14 h-14 rounded-full bg-gray-50 flex items-center justify-center text-navy-900 hover:bg-navy-900 hover:text-white transition-colors shadow-sm",
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Instagram, {
-									"data-uid": "src/components/layout/Header.tsx:227:17",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								"data-uid": "src/components/layout/Header.tsx:225:13",
+								"data-prohibitions": "[editContent]",
+								className: "flex items-center justify-center gap-2 text-navy-900 font-bold font-sans mb-2",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, {
+									"data-uid": "src/components/layout/Header.tsx:226:15",
 									"data-prohibitions": "[editContent]",
-									className: "w-7 h-7"
+									className: "w-5 h-5 text-gold-500"
+								}), contact.phone]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								"data-uid": "src/components/layout/Header.tsx:230:13",
+								"data-prohibitions": "[]",
+								className: "flex justify-center gap-4",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+									"data-uid": "src/components/layout/Header.tsx:231:15",
+									"data-prohibitions": "[]",
+									href: "https://www.instagram.com/espacofisioembu/",
+									target: "_blank",
+									rel: "noopener noreferrer",
+									className: "w-14 h-14 rounded-full bg-gray-50 flex items-center justify-center text-navy-900 hover:bg-navy-900 hover:text-white transition-colors shadow-sm",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Instagram, {
+										"data-uid": "src/components/layout/Header.tsx:237:17",
+										"data-prohibitions": "[editContent]",
+										className: "w-7 h-7"
+									})
+								})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+								"data-uid": "src/components/layout/Header.tsx:241:13",
+								"data-prohibitions": "[]",
+								size: "lg",
+								asChild: true,
+								className: "w-full rounded-full font-bold font-sans text-lg bg-navy-900 text-white h-14",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+									"data-uid": "src/components/layout/Header.tsx:246:15",
+									"data-prohibitions": "[]",
+									href: contact.whatsapp,
+									target: "_blank",
+									rel: "noopener noreferrer",
+									children: "Agendar uma avaliação"
 								})
 							})
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-							"data-uid": "src/components/layout/Header.tsx:231:13",
-							"data-prohibitions": "[]",
-							size: "lg",
-							asChild: true,
-							className: "w-full rounded-full font-bold font-sans text-lg bg-navy-900 text-white h-14",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-								"data-uid": "src/components/layout/Header.tsx:236:15",
-								"data-prohibitions": "[]",
-								href: contact.whatsapp,
-								target: "_blank",
-								rel: "noopener noreferrer",
-								children: "Agendar uma avaliação"
-							})
-						})]
+						]
 					})]
 				})
 			]
@@ -32382,4 +32393,4 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 }));
 //#endregion
 
-//# sourceMappingURL=index-CLZkDqRm.js.map
+//# sourceMappingURL=index-DyaJRfhH.js.map

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import { Menu, X, Instagram } from 'lucide-react'
+import { Menu, X, Instagram, Phone } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import logoUrl from '@/assets/espacofisio_logo-fd933.png'
 import { navigation, contact } from '@/data/content'
@@ -59,7 +59,7 @@ export function Header() {
                         <div className="grid grid-cols-3 w-[700px] xl:w-[900px] gap-8 p-6 bg-white rounded-xl shadow-xl">
                           {item.groups.map((group) => (
                             <div key={group.title} className="space-y-4">
-                              <h4 className="text-sm font-bold text-gold-500 uppercase tracking-wider border-b border-gray-100 pb-2">
+                              <h4 className="text-sm font-bold text-gold-500 uppercase tracking-wider border-b border-gray-100 pb-2 font-sans">
                                 {group.title}
                               </h4>
                               <ul className="space-y-2">
@@ -68,7 +68,7 @@ export function Header() {
                                     <NavigationMenuLink asChild>
                                       <Link
                                         to={subItem.href}
-                                        className="block text-sm font-medium text-gray-700 hover:text-navy-900 hover:bg-gray-50 p-2 rounded-md transition-colors"
+                                        className="block text-sm font-medium text-gray-700 hover:text-navy-900 hover:bg-gray-50 p-2 rounded-md transition-colors font-sans"
                                       >
                                         {subItem.name}
                                       </Link>
@@ -93,7 +93,7 @@ export function Header() {
                               <NavigationMenuLink asChild>
                                 <Link
                                   to={subItem.href}
-                                  className="block text-sm font-medium text-gray-700 hover:text-navy-900 hover:bg-gray-50 p-3 rounded-md transition-colors"
+                                  className="block text-sm font-medium text-gray-700 hover:text-navy-900 hover:bg-gray-50 p-3 rounded-md transition-colors font-sans"
                                 >
                                   {subItem.name}
                                 </Link>
@@ -119,6 +119,11 @@ export function Header() {
           </NavigationMenu>
 
           <div className="flex items-center gap-4 border-l border-gray-200 pl-6">
+            <div className="hidden xl:flex items-center gap-2 text-navy-900 font-bold font-sans">
+              <Phone className="w-5 h-5 text-gold-500" />
+              {contact.phone}
+            </div>
+
             <a
               href="https://www.instagram.com/espacofisioembu/"
               target="_blank"
@@ -131,7 +136,7 @@ export function Header() {
 
             <Button
               asChild
-              className="rounded-full font-semibold font-sans shadow-md bg-navy-900 hover:bg-navy-800 text-white"
+              className="rounded-full font-bold font-sans shadow-md bg-navy-900 hover:bg-navy-800 text-white"
             >
               <a href={contact.whatsapp} target="_blank" rel="noopener noreferrer">
                 Agendar uma avaliação
@@ -166,7 +171,7 @@ export function Header() {
                     <div className="flex flex-col gap-6 pl-4 mt-2">
                       {item.groups.map((group) => (
                         <div key={group.title} className="flex flex-col gap-2">
-                          <span className="text-sm font-bold text-gold-500 uppercase">
+                          <span className="text-sm font-bold text-gold-500 uppercase font-sans">
                             {group.title}
                           </span>
                           <div className="flex flex-col gap-3 border-l-2 border-gray-100 pl-4">
@@ -217,6 +222,11 @@ export function Header() {
           </nav>
 
           <div className="mt-8 pt-8 border-t flex flex-col gap-6 pb-12">
+            <div className="flex items-center justify-center gap-2 text-navy-900 font-bold font-sans mb-2">
+              <Phone className="w-5 h-5 text-gold-500" />
+              {contact.phone}
+            </div>
+
             <div className="flex justify-center gap-4">
               <a
                 href="https://www.instagram.com/espacofisioembu/"
