@@ -10,12 +10,12 @@ export function WhatsAppButton() {
       aria-label="Fale conosco pelo WhatsApp"
     >
       <div className="absolute right-full mr-3 opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-300 pointer-events-none">
-        <div className="bg-white text-navy-900 text-sm font-semibold py-2 px-4 rounded-lg shadow-lg whitespace-nowrap">
+        <div className="bg-white text-navy-900 text-sm font-bold py-3 px-5 rounded-xl shadow-lg whitespace-nowrap">
           Fale Conosco
         </div>
       </div>
-      <div className="w-14 h-14 bg-whatsapp text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 relative before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-whatsapp before:animate-ping before:opacity-75">
-        <MessageCircle className="w-7 h-7 relative z-10" />
+      <div className="w-16 h-16 bg-whatsapp text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 relative before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-whatsapp before:animate-ping before:opacity-75">
+        <MessageCircle className="w-8 h-8 relative z-10" />
       </div>
     </a>
   )

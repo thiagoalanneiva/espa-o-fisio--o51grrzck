@@ -16027,6 +16027,11 @@ function useOutlet(context) {
 	let outlet = import_react.useContext(RouteContext).outlet;
 	return import_react.useMemo(() => outlet && /* @__PURE__ */ import_react.createElement(OutletContext.Provider, { value: context }, outlet), [outlet, context]);
 }
+function useParams() {
+	let { matches } = import_react.useContext(RouteContext);
+	let routeMatch = matches[matches.length - 1];
+	return routeMatch ? routeMatch.params : {};
+}
 function useResolvedPath(to, { relative } = {}) {
 	let { matches } = import_react.useContext(RouteContext);
 	let { pathname: locationPathname } = useLocation();
@@ -16350,6 +16355,30 @@ function DataRoutes({ routes, future, state, isStatic, onError }) {
 		onError,
 		future
 	});
+}
+function Navigate({ to, replace: replace2, state, relative }) {
+	invariant(useInRouterContext(), `<Navigate> may be used only in the context of a <Router> component.`);
+	let { static: isStatic } = import_react.useContext(NavigationContext);
+	warning(!isStatic, `<Navigate> must not be used on the initial render in a <StaticRouter>. This is a no-op, but you should modify your code so the <Navigate> is only ever rendered in response to some user interaction or state change.`);
+	let { matches } = import_react.useContext(RouteContext);
+	let { pathname: locationPathname } = useLocation();
+	let navigate = useNavigate();
+	let path = resolveTo(to, getResolveToMatches(matches), locationPathname, relative === "path");
+	let jsonPath = JSON.stringify(path);
+	import_react.useEffect(() => {
+		navigate(JSON.parse(jsonPath), {
+			replace: replace2,
+			state,
+			relative
+		});
+	}, [
+		navigate,
+		jsonPath,
+		relative,
+		replace2,
+		state
+	]);
+	return null;
 }
 function Outlet(props) {
 	return useOutlet(props.context);
@@ -19126,9 +19155,22 @@ var ChevronDown = createLucideIcon("chevron-down", [["path", {
 	d: "m6 9 6 6 6-6",
 	key: "qrunsl"
 }]]);
+var ChevronRight = createLucideIcon("chevron-right", [["path", {
+	d: "m9 18 6-6-6-6",
+	key: "mthhwq"
+}]]);
 var ChevronUp = createLucideIcon("chevron-up", [["path", {
 	d: "m18 15-6-6-6 6",
 	key: "153udz"
+}]]);
+var CircleCheck = createLucideIcon("circle-check", [["circle", {
+	cx: "12",
+	cy: "12",
+	r: "10",
+	key: "1mglay"
+}], ["path", {
+	d: "m9 12 2 2 4-4",
+	key: "dzmm74"
 }]]);
 var ClipboardList = createLucideIcon("clipboard-list", [
 	["rect", {
@@ -24503,7 +24545,7 @@ function Hero() {
 		"data-uid": "src/components/sections/Hero.tsx:6:5",
 		"data-prohibitions": "[editContent]",
 		id: "inicio",
-		className: "relative min-h-[90vh] flex items-center bg-navy-900 pt-20 overflow-hidden",
+		className: "relative min-h-[90vh] flex items-center bg-navy-900 pt-32 pb-20 overflow-hidden",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			"data-uid": "src/components/sections/Hero.tsx:11:7",
 			"data-prohibitions": "[]",
@@ -24511,7 +24553,7 @@ function Hero() {
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			"data-uid": "src/components/sections/Hero.tsx:13:7",
 			"data-prohibitions": "[editContent]",
-			className: "container relative z-10 grid lg:grid-cols-2 gap-12 items-center py-16",
+			className: "container relative z-10 grid lg:grid-cols-2 gap-12 items-center",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				"data-uid": "src/components/sections/Hero.tsx:14:9",
 				"data-prohibitions": "[]",
@@ -24520,7 +24562,7 @@ function Hero() {
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						"data-uid": "src/components/sections/Hero.tsx:15:11",
 						"data-prohibitions": "[]",
-						className: "inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 text-sm font-medium",
+						className: "inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 text-sm font-bold",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Star, {
 							"data-uid": "src/components/sections/Hero.tsx:16:13",
 							"data-prohibitions": "[editContent]",
@@ -24530,7 +24572,7 @@ function Hero() {
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h1", {
 						"data-uid": "src/components/sections/Hero.tsx:19:11",
 						"data-prohibitions": "[]",
-						className: "text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight",
+						className: "text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight",
 						children: ["Fisioterapia moderna para uma vida ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 							"data-uid": "src/components/sections/Hero.tsx:20:48",
 							"data-prohibitions": "[]",
@@ -24541,7 +24583,7 @@ function Hero() {
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 						"data-uid": "src/components/sections/Hero.tsx:23:11",
 						"data-prohibitions": "[]",
-						className: "text-lg text-white/80 max-w-lg leading-relaxed",
+						className: "text-lg text-white/80 max-w-lg leading-relaxed font-medium",
 						children: "Especialistas em reabilitação, pilates e terapias integrativas. Recupere seus movimentos e qualidade de vida com um atendimento humano e personalizado."
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -24552,75 +24594,77 @@ function Hero() {
 							"data-uid": "src/components/sections/Hero.tsx:29:13",
 							"data-prohibitions": "[]",
 							size: "lg",
-							className: "bg-gold-500 hover:bg-gold-400 text-white rounded-full px-8 shadow-lg shadow-gold-500/20 text-base h-14",
+							className: "bg-gold-500 hover:bg-gold-400 text-white rounded-full px-8 shadow-lg shadow-gold-500/20 font-bold text-base h-14",
+							onClick: () => window.open("https://wa.me/5511971664664", "_blank"),
 							children: "Agendar avaliação no WhatsApp"
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-							"data-uid": "src/components/sections/Hero.tsx:35:13",
+							"data-uid": "src/components/sections/Hero.tsx:36:13",
 							"data-prohibitions": "[]",
 							size: "lg",
 							variant: "outline",
-							className: "border-white/20 text-white hover:bg-white/10 rounded-full px-8 bg-transparent text-base h-14",
+							className: "border-white/20 text-white hover:bg-white/10 rounded-full px-8 bg-transparent font-bold text-base h-14",
+							onClick: () => document.getElementById("servicos")?.scrollIntoView({ behavior: "smooth" }),
 							children: "Conhecer tratamentos"
 						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/components/sections/Hero.tsx:44:11",
+						"data-uid": "src/components/sections/Hero.tsx:48:11",
 						"data-prohibitions": "[]",
 						className: "grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 border-t border-white/10",
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								"data-uid": "src/components/sections/Hero.tsx:45:13",
+								"data-uid": "src/components/sections/Hero.tsx:49:13",
 								"data-prohibitions": "[]",
 								className: "space-y-1",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-									"data-uid": "src/components/sections/Hero.tsx:46:15",
+									"data-uid": "src/components/sections/Hero.tsx:50:15",
 									"data-prohibitions": "[]",
-									className: "text-2xl font-bold text-white",
+									className: "text-3xl font-bold text-white",
 									children: "+1000"
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									"data-uid": "src/components/sections/Hero.tsx:47:15",
+									"data-uid": "src/components/sections/Hero.tsx:51:15",
 									"data-prohibitions": "[]",
-									className: "text-sm text-white/60",
+									className: "text-sm font-medium text-white/60",
 									children: "Pacientes Atendidos"
 								})]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								"data-uid": "src/components/sections/Hero.tsx:49:13",
+								"data-uid": "src/components/sections/Hero.tsx:53:13",
 								"data-prohibitions": "[]",
 								className: "space-y-1",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h4", {
-									"data-uid": "src/components/sections/Hero.tsx:50:15",
+									"data-uid": "src/components/sections/Hero.tsx:54:15",
 									"data-prohibitions": "[]",
-									className: "text-2xl font-bold text-white flex items-center gap-2",
+									className: "text-3xl font-bold text-white flex items-center gap-2",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Users, {
-										"data-uid": "src/components/sections/Hero.tsx:51:17",
+										"data-uid": "src/components/sections/Hero.tsx:55:17",
 										"data-prohibitions": "[editContent]",
-										className: "w-5 h-5 text-gold-500"
+										className: "w-6 h-6 text-gold-500"
 									}), " Equipe"]
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									"data-uid": "src/components/sections/Hero.tsx:53:15",
+									"data-uid": "src/components/sections/Hero.tsx:57:15",
 									"data-prohibitions": "[]",
-									className: "text-sm text-white/60",
+									className: "text-sm font-medium text-white/60",
 									children: "Especializada"
 								})]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								"data-uid": "src/components/sections/Hero.tsx:55:13",
+								"data-uid": "src/components/sections/Hero.tsx:59:13",
 								"data-prohibitions": "[]",
 								className: "space-y-1 hidden sm:block",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h4", {
-									"data-uid": "src/components/sections/Hero.tsx:56:15",
+									"data-uid": "src/components/sections/Hero.tsx:60:15",
 									"data-prohibitions": "[]",
-									className: "text-2xl font-bold text-white flex items-center gap-2",
+									className: "text-3xl font-bold text-white flex items-center gap-2",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MapPin, {
-										"data-uid": "src/components/sections/Hero.tsx:57:17",
+										"data-uid": "src/components/sections/Hero.tsx:61:17",
 										"data-prohibitions": "[editContent]",
-										className: "w-5 h-5 text-gold-500"
+										className: "w-6 h-6 text-gold-500"
 									}), " 2"]
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									"data-uid": "src/components/sections/Hero.tsx:59:15",
+									"data-uid": "src/components/sections/Hero.tsx:63:15",
 									"data-prohibitions": "[]",
-									className: "text-sm text-white/60",
+									className: "text-sm font-medium text-white/60",
 									children: "Unidades na Região"
 								})]
 							})
@@ -24628,48 +24672,48 @@ function Hero() {
 					})
 				]
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				"data-uid": "src/components/sections/Hero.tsx:64:9",
+				"data-uid": "src/components/sections/Hero.tsx:68:9",
 				"data-prohibitions": "[editContent]",
 				className: "relative animate-fade-in-up",
 				style: { animationDelay: "0.2s" },
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						"data-uid": "src/components/sections/Hero.tsx:65:11",
+						"data-uid": "src/components/sections/Hero.tsx:69:11",
 						"data-prohibitions": "[]",
 						className: "absolute -inset-4 bg-gold-500/20 rounded-[2.5rem] blur-2xl"
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-						"data-uid": "src/components/sections/Hero.tsx:66:11",
+						"data-uid": "src/components/sections/Hero.tsx:70:11",
 						"data-prohibitions": "[editContent]",
 						src: "https://img.usecurling.com/p/800/900?q=physiotherapist%20patient&color=blue",
 						alt: "Profissional realizando atendimento de fisioterapia",
 						className: "relative rounded-3xl shadow-2xl object-cover w-full h-[600px] border border-white/10"
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/components/sections/Hero.tsx:73:11",
+						"data-uid": "src/components/sections/Hero.tsx:77:11",
 						"data-prohibitions": "[]",
 						className: "absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-float",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							"data-uid": "src/components/sections/Hero.tsx:74:13",
+							"data-uid": "src/components/sections/Hero.tsx:78:13",
 							"data-prohibitions": "[]",
 							className: "w-12 h-12 bg-green-100 rounded-full flex items-center justify-center",
 							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Star, {
-								"data-uid": "src/components/sections/Hero.tsx:75:15",
+								"data-uid": "src/components/sections/Hero.tsx:79:15",
 								"data-prohibitions": "[editContent]",
 								className: "w-6 h-6 text-green-600 fill-green-600"
 							})
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							"data-uid": "src/components/sections/Hero.tsx:77:13",
+							"data-uid": "src/components/sections/Hero.tsx:81:13",
 							"data-prohibitions": "[]",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								"data-uid": "src/components/sections/Hero.tsx:78:15",
+								"data-uid": "src/components/sections/Hero.tsx:82:15",
 								"data-prohibitions": "[]",
 								className: "text-sm font-bold text-navy-900",
 								children: "Avaliação 5 Estrelas"
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								"data-uid": "src/components/sections/Hero.tsx:79:15",
+								"data-uid": "src/components/sections/Hero.tsx:83:15",
 								"data-prohibitions": "[]",
-								className: "text-xs text-muted-foreground",
+								className: "text-xs font-semibold text-muted-foreground",
 								children: "No Google Reviews"
 							})]
 						})]
@@ -26862,189 +26906,196 @@ SelectSeparator.displayName = Separator.displayName;
 //#endregion
 //#region src/components/sections/QuickSearch.tsx
 function QuickSearch() {
-	const scrollToServices = () => {
-		document.getElementById("servicos")?.scrollIntoView({ behavior: "smooth" });
+	const navigate = useNavigate();
+	const [dor, setDor] = (0, import_react.useState)("");
+	const [esp, setEsp] = (0, import_react.useState)("");
+	const [trat, setTrat] = (0, import_react.useState)("");
+	const handleSearch = () => {
+		if (trat) navigate(`/servico/${trat}`);
+		else if (esp) navigate(`/servico/${esp}`);
+		else if (dor) navigate(`/servico/${dor}`);
+		else document.getElementById("servicos")?.scrollIntoView({ behavior: "smooth" });
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
-		"data-uid": "src/components/sections/QuickSearch.tsx:18:5",
+		"data-uid": "src/components/sections/QuickSearch.tsx:28:5",
 		"data-prohibitions": "[]",
 		className: "relative z-20 -mt-12 container px-4 sm:px-8",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Card, {
-			"data-uid": "src/components/sections/QuickSearch.tsx:19:7",
+			"data-uid": "src/components/sections/QuickSearch.tsx:29:7",
 			"data-prohibitions": "[]",
 			className: "shadow-2xl border-0 rounded-2xl bg-white overflow-hidden",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CardContent, {
-				"data-uid": "src/components/sections/QuickSearch.tsx:20:9",
+				"data-uid": "src/components/sections/QuickSearch.tsx:30:9",
 				"data-prohibitions": "[]",
 				className: "p-2 sm:p-4",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					"data-uid": "src/components/sections/QuickSearch.tsx:21:11",
+					"data-uid": "src/components/sections/QuickSearch.tsx:31:11",
 					"data-prohibitions": "[]",
 					className: "flex flex-col lg:flex-row items-center gap-4",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/components/sections/QuickSearch.tsx:22:13",
+						"data-uid": "src/components/sections/QuickSearch.tsx:32:13",
 						"data-prohibitions": "[]",
 						className: "flex-1 w-full grid grid-cols-1 sm:grid-cols-3 gap-4",
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								"data-uid": "src/components/sections/QuickSearch.tsx:23:15",
+								"data-uid": "src/components/sections/QuickSearch.tsx:33:15",
 								"data-prohibitions": "[]",
 								className: "space-y-1 px-4 py-2 border-r-0 sm:border-r border-border/50",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-									"data-uid": "src/components/sections/QuickSearch.tsx:24:17",
+									"data-uid": "src/components/sections/QuickSearch.tsx:34:17",
 									"data-prohibitions": "[]",
-									className: "text-xs font-semibold text-muted-foreground uppercase tracking-wider",
+									className: "text-xs font-bold text-muted-foreground uppercase tracking-wider",
 									children: "Onde dói?"
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Select, {
-									"data-uid": "src/components/sections/QuickSearch.tsx:27:17",
+									"data-uid": "src/components/sections/QuickSearch.tsx:37:17",
 									"data-prohibitions": "[]",
+									onValueChange: setDor,
+									value: dor,
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectTrigger, {
-										"data-uid": "src/components/sections/QuickSearch.tsx:28:19",
+										"data-uid": "src/components/sections/QuickSearch.tsx:38:19",
 										"data-prohibitions": "[]",
-										className: "border-0 shadow-none p-0 h-auto focus:ring-0 text-navy-900 font-medium text-base",
+										className: "border-0 shadow-none p-0 h-auto focus:ring-0 text-navy-900 font-bold text-base",
 										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectValue, {
-											"data-uid": "src/components/sections/QuickSearch.tsx:29:21",
+											"data-uid": "src/components/sections/QuickSearch.tsx:39:21",
 											"data-prohibitions": "[editContent]",
 											placeholder: "Selecione a região"
 										})
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SelectContent, {
-										"data-uid": "src/components/sections/QuickSearch.tsx:31:19",
+										"data-uid": "src/components/sections/QuickSearch.tsx:41:19",
 										"data-prohibitions": "[]",
 										children: [
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:32:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:42:21",
 												"data-prohibitions": "[]",
-												value: "coluna",
+												value: "fisioterapia-ortopedica",
 												children: "Coluna (Costas/Pescoço)"
 											}),
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:33:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:43:21",
 												"data-prohibitions": "[]",
-												value: "ombro",
-												children: "Ombro"
+												value: "fisioterapia-esportiva",
+												children: "Ombro / Joelho"
 											}),
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:34:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:44:21",
 												"data-prohibitions": "[]",
-												value: "joelho",
-												children: "Joelho"
+												value: "fisioterapia-pelvica",
+												children: "Quadril / Pelve"
 											}),
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:35:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:45:21",
 												"data-prohibitions": "[]",
-												value: "quadril",
-												children: "Quadril"
-											}),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:36:21",
-												"data-prohibitions": "[]",
-												value: "outros",
-												children: "Outros"
+												value: "rpg",
+												children: "Dores posturais"
 											})
 										]
 									})]
 								})]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								"data-uid": "src/components/sections/QuickSearch.tsx:41:15",
+								"data-uid": "src/components/sections/QuickSearch.tsx:50:15",
 								"data-prohibitions": "[]",
 								className: "space-y-1 px-4 py-2 border-r-0 sm:border-r border-border/50",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-									"data-uid": "src/components/sections/QuickSearch.tsx:42:17",
+									"data-uid": "src/components/sections/QuickSearch.tsx:51:17",
 									"data-prohibitions": "[]",
-									className: "text-xs font-semibold text-muted-foreground uppercase tracking-wider",
+									className: "text-xs font-bold text-muted-foreground uppercase tracking-wider",
 									children: "Especialidade"
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Select, {
-									"data-uid": "src/components/sections/QuickSearch.tsx:45:17",
+									"data-uid": "src/components/sections/QuickSearch.tsx:54:17",
 									"data-prohibitions": "[]",
+									onValueChange: setEsp,
+									value: esp,
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectTrigger, {
-										"data-uid": "src/components/sections/QuickSearch.tsx:46:19",
+										"data-uid": "src/components/sections/QuickSearch.tsx:55:19",
 										"data-prohibitions": "[]",
-										className: "border-0 shadow-none p-0 h-auto focus:ring-0 text-navy-900 font-medium text-base",
+										className: "border-0 shadow-none p-0 h-auto focus:ring-0 text-navy-900 font-bold text-base",
 										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectValue, {
-											"data-uid": "src/components/sections/QuickSearch.tsx:47:21",
+											"data-uid": "src/components/sections/QuickSearch.tsx:56:21",
 											"data-prohibitions": "[editContent]",
 											placeholder: "Qualquer"
 										})
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SelectContent, {
-										"data-uid": "src/components/sections/QuickSearch.tsx:49:19",
+										"data-uid": "src/components/sections/QuickSearch.tsx:58:19",
 										"data-prohibitions": "[]",
 										children: [
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:50:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:59:21",
 												"data-prohibitions": "[]",
-												value: "ortopedia",
+												value: "fisioterapia-ortopedica",
 												children: "Ortopedia"
 											}),
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:51:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:60:21",
 												"data-prohibitions": "[]",
-												value: "neurologia",
+												value: "fisioterapia-neurologica",
 												children: "Neurologia"
 											}),
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:52:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:61:21",
 												"data-prohibitions": "[]",
-												value: "esportiva",
+												value: "fisioterapia-esportiva",
 												children: "Esportiva"
 											}),
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:53:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:62:21",
 												"data-prohibitions": "[]",
-												value: "rpg",
-												children: "RPG / Postura"
+												value: "fisioterapia-pediatrica",
+												children: "Pediatria"
 											})
 										]
 									})]
 								})]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								"data-uid": "src/components/sections/QuickSearch.tsx:58:15",
+								"data-uid": "src/components/sections/QuickSearch.tsx:67:15",
 								"data-prohibitions": "[]",
 								className: "space-y-1 px-4 py-2",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-									"data-uid": "src/components/sections/QuickSearch.tsx:59:17",
+									"data-uid": "src/components/sections/QuickSearch.tsx:68:17",
 									"data-prohibitions": "[]",
-									className: "text-xs font-semibold text-muted-foreground uppercase tracking-wider",
+									className: "text-xs font-bold text-muted-foreground uppercase tracking-wider",
 									children: "Tratamento"
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Select, {
-									"data-uid": "src/components/sections/QuickSearch.tsx:62:17",
+									"data-uid": "src/components/sections/QuickSearch.tsx:71:17",
 									"data-prohibitions": "[]",
+									onValueChange: setTrat,
+									value: trat,
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectTrigger, {
-										"data-uid": "src/components/sections/QuickSearch.tsx:63:19",
+										"data-uid": "src/components/sections/QuickSearch.tsx:72:19",
 										"data-prohibitions": "[]",
-										className: "border-0 shadow-none p-0 h-auto focus:ring-0 text-navy-900 font-medium text-base",
+										className: "border-0 shadow-none p-0 h-auto focus:ring-0 text-navy-900 font-bold text-base",
 										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectValue, {
-											"data-uid": "src/components/sections/QuickSearch.tsx:64:21",
+											"data-uid": "src/components/sections/QuickSearch.tsx:73:21",
 											"data-prohibitions": "[editContent]",
 											placeholder: "Escolher"
 										})
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SelectContent, {
-										"data-uid": "src/components/sections/QuickSearch.tsx:66:19",
+										"data-uid": "src/components/sections/QuickSearch.tsx:75:19",
 										"data-prohibitions": "[]",
 										children: [
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:67:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:76:21",
 												"data-prohibitions": "[]",
-												value: "fisioterapia",
+												value: "fisioterapia-ortopedica",
 												children: "Fisioterapia Convencional"
 											}),
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:68:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:79:21",
 												"data-prohibitions": "[]",
-												value: "pilates",
+												value: "pilates-postural",
 												children: "Pilates"
 											}),
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:69:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:80:21",
 												"data-prohibitions": "[]",
-												value: "acupuntura",
+												value: "acupuntura-sistemica",
 												children: "Acupuntura"
 											}),
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:70:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:81:21",
 												"data-prohibitions": "[]",
-												value: "massagem",
+												value: "liberacao-miofascial",
 												children: "Liberação Miofascial"
 											})
 										]
@@ -27053,15 +27104,15 @@ function QuickSearch() {
 							})
 						]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
-						"data-uid": "src/components/sections/QuickSearch.tsx:76:13",
+						"data-uid": "src/components/sections/QuickSearch.tsx:87:13",
 						"data-prohibitions": "[]",
-						onClick: scrollToServices,
-						className: "w-full lg:w-auto h-16 px-8 rounded-xl bg-navy-900 hover:bg-navy-800 text-white flex items-center gap-2 m-2",
+						onClick: handleSearch,
+						className: "w-full lg:w-auto h-16 px-8 rounded-xl bg-navy-900 hover:bg-navy-800 text-white font-bold flex items-center gap-2 m-2",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Search, {
-							"data-uid": "src/components/sections/QuickSearch.tsx:80:15",
+							"data-uid": "src/components/sections/QuickSearch.tsx:91:15",
 							"data-prohibitions": "[editContent]",
 							className: "w-5 h-5"
-						}), " Encontrar Tratamento"]
+						}), " Refinar Busca"]
 					})]
 				})
 			})
@@ -27313,111 +27364,120 @@ function Differentials() {
 var services = [
 	{
 		title: "Fisioterapia",
-		img: "https://img.usecurling.com/p/600/600?q=physiotherapy%20clinic"
-	},
-	{
-		title: "Pilates",
-		img: "https://img.usecurling.com/p/600/600?q=pilates%20studio"
+		slug: "fisioterapia-ortopedica",
+		img: "https://img.usecurling.com/p/600/800?q=physiotherapy%20clinic"
 	},
 	{
 		title: "Acupuntura",
-		img: "https://img.usecurling.com/p/600/600?q=acupuncture%20needles"
+		slug: "acupuntura-sistemica",
+		img: "https://img.usecurling.com/p/600/800?q=acupuncture%20needles"
+	},
+	{
+		title: "Pilates",
+		slug: "pilates-postural",
+		img: "https://img.usecurling.com/p/600/800?q=pilates%20studio"
 	},
 	{
 		title: "RPG",
-		img: "https://img.usecurling.com/p/600/600?q=posture%20therapy"
+		slug: "rpg",
+		img: "https://img.usecurling.com/p/600/800?q=posture%20therapy"
 	},
 	{
 		title: "Ventosaterapia",
-		img: "https://img.usecurling.com/p/600/600?q=cupping%20therapy"
-	},
-	{
-		title: "Drenagem Linfática",
-		img: "https://img.usecurling.com/p/600/600?q=lymphatic%20drainage"
+		slug: "ventosa",
+		img: "https://img.usecurling.com/p/600/800?q=cupping%20therapy"
 	},
 	{
 		title: "Liberação Miofascial",
-		img: "https://img.usecurling.com/p/600/600?q=myofascial%20release"
+		slug: "liberacao-miofascial",
+		img: "https://img.usecurling.com/p/600/800?q=myofascial%20release"
 	},
 	{
 		title: "Ondas de Choque",
-		img: "https://img.usecurling.com/p/600/600?q=shockwave%20therapy"
+		slug: "ondas-de-choque",
+		img: "https://img.usecurling.com/p/600/800?q=shockwave%20therapy"
+	},
+	{
+		title: "Laserterapia",
+		slug: "laser",
+		img: "https://img.usecurling.com/p/600/800?q=laser%20therapy"
 	}
 ];
 function Services() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
-		"data-uid": "src/components/sections/Services.tsx:22:5",
+		"data-uid": "src/components/sections/Services.tsx:45:5",
 		"data-prohibitions": "[editContent]",
 		id: "servicos",
 		className: "py-24 bg-gray-50",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			"data-uid": "src/components/sections/Services.tsx:23:7",
+			"data-uid": "src/components/sections/Services.tsx:46:7",
 			"data-prohibitions": "[editContent]",
 			className: "container",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				"data-uid": "src/components/sections/Services.tsx:24:9",
+				"data-uid": "src/components/sections/Services.tsx:47:9",
 				"data-prohibitions": "[]",
 				className: "flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					"data-uid": "src/components/sections/Services.tsx:25:11",
+					"data-uid": "src/components/sections/Services.tsx:48:11",
 					"data-prohibitions": "[]",
 					className: "max-w-2xl space-y-4",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-						"data-uid": "src/components/sections/Services.tsx:26:13",
+						"data-uid": "src/components/sections/Services.tsx:49:13",
 						"data-prohibitions": "[]",
 						className: "text-sm font-bold text-gold-500 uppercase tracking-widest",
 						children: "Catálogo de Terapias"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-						"data-uid": "src/components/sections/Services.tsx:29:13",
+						"data-uid": "src/components/sections/Services.tsx:52:13",
 						"data-prohibitions": "[]",
-						className: "text-3xl md:text-4xl font-serif font-bold text-navy-900",
+						className: "text-3xl md:text-5xl font-bold text-navy-900 leading-tight",
 						children: "Tratamentos e Terapias Completas"
 					})]
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-					"data-uid": "src/components/sections/Services.tsx:33:11",
+					"data-uid": "src/components/sections/Services.tsx:56:11",
 					"data-prohibitions": "[]",
 					href: "#contato",
-					className: "inline-flex items-center justify-center px-6 py-3 border-2 border-navy-900 text-navy-900 font-semibold rounded-full hover:bg-navy-900 hover:text-white transition-colors h-12",
+					className: "inline-flex items-center justify-center px-8 border-2 border-navy-900 text-navy-900 font-bold rounded-full hover:bg-navy-900 hover:text-white transition-colors h-14",
 					children: "Agendar Tratamento"
 				})]
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				"data-uid": "src/components/sections/Services.tsx:41:9",
+				"data-uid": "src/components/sections/Services.tsx:64:9",
 				"data-prohibitions": "[editContent]",
 				className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6",
-				children: services.map((svc, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					"data-uid": "src/components/sections/Services.tsx:43:13",
+				children: services.map((svc, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+					"data-uid": "src/components/sections/Services.tsx:66:13",
 					"data-prohibitions": "[editContent]",
-					className: "group relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer shadow-md hover:shadow-xl transition-all duration-300",
+					to: `/servico/${svc.slug}`,
+					className: "group relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 block",
 					children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-							"data-uid": "src/components/sections/Services.tsx:47:15",
+							"data-uid": "src/components/sections/Services.tsx:71:15",
 							"data-prohibitions": "[editContent]",
 							src: svc.img,
 							alt: svc.title,
 							className: "absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							"data-uid": "src/components/sections/Services.tsx:52:15",
+							"data-uid": "src/components/sections/Services.tsx:76:15",
 							"data-prohibitions": "[editContent]",
 							className: "absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300"
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							"data-uid": "src/components/sections/Services.tsx:54:15",
+							"data-uid": "src/components/sections/Services.tsx:78:15",
 							"data-prohibitions": "[editContent]",
 							className: "absolute bottom-0 left-0 w-full p-6 flex items-end justify-between translate-y-2 group-hover:translate-y-0 transition-transform duration-300",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-								"data-uid": "src/components/sections/Services.tsx:55:17",
+								"data-uid": "src/components/sections/Services.tsx:79:17",
 								"data-prohibitions": "[editContent]",
-								className: "text-white text-xl font-serif font-bold",
+								className: "text-white text-2xl font-bold",
 								children: svc.title
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								"data-uid": "src/components/sections/Services.tsx:56:17",
+								"data-uid": "src/components/sections/Services.tsx:80:17",
 								"data-prohibitions": "[]",
-								className: "w-10 h-10 rounded-full bg-gold-500/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300",
+								className: "w-12 h-12 rounded-full bg-gold-500/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shrink-0 ml-4",
 								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowUpRight, {
-									"data-uid": "src/components/sections/Services.tsx:57:19",
+									"data-uid": "src/components/sections/Services.tsx:81:19",
 									"data-prohibitions": "[editContent]",
-									className: "w-5 h-5"
+									className: "w-6 h-6"
 								})
 							})]
 						})
@@ -29568,135 +29628,142 @@ var units = [{
 	address: "Av. Elias Yazbek, 567 - Tingidor, Embu das Artes - SP",
 	phone: "(11) 97166-4664",
 	hours: "Seg a Sex: 08h - 20h | Sáb: 08h - 12h",
-	img: "https://img.usecurling.com/p/600/400?q=modern%20building%20clinic&color=blue",
-	link: "#"
+	img: "https://img.usecurling.com/p/800/600?q=modern%20building%20clinic&color=blue"
 }, {
 	name: "Espaço Fisio Taboão",
 	address: "R. Thereza Maria Luizetto, 220 - Taboão da Serra - SP",
 	phone: "(11) 97166-4664",
 	hours: "Seg a Sex: 08h - 20h | Sáb: 08h - 12h",
-	img: "https://img.usecurling.com/p/600/400?q=medical%20clinic%20exterior",
-	link: "#"
+	img: "https://img.usecurling.com/p/800/600?q=medical%20clinic%20exterior"
 }];
 function Units() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
-		"data-uid": "src/components/sections/Units.tsx:26:5",
+		"data-uid": "src/components/sections/Units.tsx:24:5",
 		"data-prohibitions": "[editContent]",
 		id: "unidades",
 		className: "py-24 bg-white",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			"data-uid": "src/components/sections/Units.tsx:27:7",
+			"data-uid": "src/components/sections/Units.tsx:25:7",
 			"data-prohibitions": "[editContent]",
 			className: "container",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				"data-uid": "src/components/sections/Units.tsx:28:9",
+				"data-uid": "src/components/sections/Units.tsx:26:9",
 				"data-prohibitions": "[]",
 				className: "text-center max-w-2xl mx-auto mb-16 space-y-4",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-					"data-uid": "src/components/sections/Units.tsx:29:11",
+					"data-uid": "src/components/sections/Units.tsx:27:11",
 					"data-prohibitions": "[]",
 					className: "text-sm font-bold text-gold-500 uppercase tracking-widest",
 					children: "Nossa Estrutura"
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-					"data-uid": "src/components/sections/Units.tsx:32:11",
+					"data-uid": "src/components/sections/Units.tsx:30:11",
 					"data-prohibitions": "[]",
-					className: "text-3xl md:text-4xl font-serif font-bold text-navy-900",
+					className: "text-3xl md:text-5xl font-bold text-navy-900 leading-tight",
 					children: "Duas unidades para melhor te atender"
 				})]
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				"data-uid": "src/components/sections/Units.tsx:37:9",
+				"data-uid": "src/components/sections/Units.tsx:35:9",
 				"data-prohibitions": "[editContent]",
 				className: "grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto",
 				children: units.map((unit, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
-					"data-uid": "src/components/sections/Units.tsx:39:13",
+					"data-uid": "src/components/sections/Units.tsx:37:13",
 					"data-prohibitions": "[editContent]",
-					className: "overflow-hidden border-0 shadow-elevation group",
+					className: "overflow-hidden border-0 shadow-elevation group rounded-[2rem]",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/components/sections/Units.tsx:40:15",
+						"data-uid": "src/components/sections/Units.tsx:41:15",
 						"data-prohibitions": "[editContent]",
 						className: "h-64 overflow-hidden relative",
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-								"data-uid": "src/components/sections/Units.tsx:41:17",
+								"data-uid": "src/components/sections/Units.tsx:42:17",
 								"data-prohibitions": "[editContent]",
 								src: unit.img,
 								alt: unit.name,
 								className: "w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								"data-uid": "src/components/sections/Units.tsx:46:17",
+								"data-uid": "src/components/sections/Units.tsx:47:17",
 								"data-prohibitions": "[]",
 								className: "absolute inset-0 bg-gradient-to-t from-navy-900/80 to-transparent"
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-								"data-uid": "src/components/sections/Units.tsx:47:17",
+								"data-uid": "src/components/sections/Units.tsx:48:17",
 								"data-prohibitions": "[editContent]",
-								className: "absolute bottom-6 left-6 text-2xl font-serif font-bold text-white",
+								className: "absolute bottom-6 left-6 text-3xl font-bold text-white",
 								children: unit.name
 							})
 						]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(CardContent, {
-						"data-uid": "src/components/sections/Units.tsx:51:15",
+						"data-uid": "src/components/sections/Units.tsx:52:15",
 						"data-prohibitions": "[editContent]",
-						className: "p-8 space-y-6",
+						className: "p-8 space-y-8 bg-white",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							"data-uid": "src/components/sections/Units.tsx:52:17",
+							"data-uid": "src/components/sections/Units.tsx:53:17",
 							"data-prohibitions": "[editContent]",
-							className: "space-y-4 text-muted-foreground",
+							className: "space-y-5 text-gray-600 font-medium",
 							children: [
 								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									"data-uid": "src/components/sections/Units.tsx:53:19",
+									"data-uid": "src/components/sections/Units.tsx:54:19",
 									"data-prohibitions": "[editContent]",
 									className: "flex items-start gap-3",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MapPin, {
-										"data-uid": "src/components/sections/Units.tsx:54:21",
-										"data-prohibitions": "[editContent]",
-										className: "w-5 h-5 text-gold-500 shrink-0 mt-0.5"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 										"data-uid": "src/components/sections/Units.tsx:55:21",
 										"data-prohibitions": "[editContent]",
+										className: "w-6 h-6 text-gold-500 shrink-0 mt-0.5"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										"data-uid": "src/components/sections/Units.tsx:56:21",
+										"data-prohibitions": "[editContent]",
+										className: "leading-relaxed",
 										children: unit.address
 									})]
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									"data-uid": "src/components/sections/Units.tsx:57:19",
+									"data-uid": "src/components/sections/Units.tsx:58:19",
 									"data-prohibitions": "[editContent]",
 									className: "flex items-center gap-3",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, {
-										"data-uid": "src/components/sections/Units.tsx:58:21",
-										"data-prohibitions": "[editContent]",
-										className: "w-5 h-5 text-gold-500 shrink-0"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 										"data-uid": "src/components/sections/Units.tsx:59:21",
+										"data-prohibitions": "[editContent]",
+										className: "w-6 h-6 text-gold-500 shrink-0"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										"data-uid": "src/components/sections/Units.tsx:60:21",
 										"data-prohibitions": "[editContent]",
 										children: unit.phone
 									})]
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									"data-uid": "src/components/sections/Units.tsx:61:19",
+									"data-uid": "src/components/sections/Units.tsx:62:19",
 									"data-prohibitions": "[editContent]",
 									className: "flex items-center gap-3",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Clock, {
-										"data-uid": "src/components/sections/Units.tsx:62:21",
-										"data-prohibitions": "[editContent]",
-										className: "w-5 h-5 text-gold-500 shrink-0"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 										"data-uid": "src/components/sections/Units.tsx:63:21",
+										"data-prohibitions": "[editContent]",
+										className: "w-6 h-6 text-gold-500 shrink-0"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										"data-uid": "src/components/sections/Units.tsx:64:21",
 										"data-prohibitions": "[editContent]",
 										children: unit.hours
 									})]
 								})
 							]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
-							"data-uid": "src/components/sections/Units.tsx:66:17",
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+							"data-uid": "src/components/sections/Units.tsx:67:17",
 							"data-prohibitions": "[]",
+							asChild: true,
 							variant: "outline",
-							className: "w-full border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white rounded-xl h-12 flex items-center justify-between px-6 group/btn",
-							children: ["Ver no Mapa", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {
-								"data-uid": "src/components/sections/Units.tsx:71:19",
-								"data-prohibitions": "[editContent]",
-								className: "w-4 h-4 group-hover/btn:translate-x-1 transition-transform"
-							})]
+							className: "w-full border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white rounded-xl h-14 flex items-center justify-between px-6 group/btn font-bold text-base",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+								"data-uid": "src/components/sections/Units.tsx:72:19",
+								"data-prohibitions": "[]",
+								href: `https://waze.com/ul?q=${encodeURIComponent(unit.address)}&navigate=yes`,
+								target: "_blank",
+								rel: "noopener noreferrer",
+								children: ["Ver no Mapa (Waze)", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {
+									"data-uid": "src/components/sections/Units.tsx:78:21",
+									"data-prohibitions": "[editContent]",
+									className: "w-5 h-5 group-hover/btn:translate-x-1 transition-transform"
+								})]
+							})
 						})]
 					})]
 				}, i))
@@ -30118,170 +30185,570 @@ var NotFound = () => {
 	});
 };
 //#endregion
+//#region src/data/content.ts
+var contentData = [
+	{
+		slug: "fisioterapia-ortopedica",
+		title: "Fisioterapia Ortopédica",
+		category: "Fisioterapia",
+		description: "Tratamento focado na reabilitação de disfunções osteomioarticulares e tendíneas para restaurar a mobilidade plena.",
+		image: "https://img.usecurling.com/p/800/600?q=orthopedic%20physiotherapy"
+	},
+	{
+		slug: "fisioterapia-neurologica",
+		title: "Fisioterapia Neurológica",
+		category: "Fisioterapia",
+		description: "Reabilitação dedicada a pacientes com distúrbios neurológicos, focada em restaurar e maximizar a funcionalidade motora.",
+		image: "https://img.usecurling.com/p/800/600?q=neurological%20rehabilitation"
+	},
+	{
+		slug: "fisioterapia-pelvica",
+		title: "Fisioterapia Pélvica",
+		category: "Fisioterapia",
+		description: "Tratamento de disfunções do assoalho pélvico para melhorar a qualidade de vida, continência e suporte muscular.",
+		image: "https://img.usecurling.com/p/800/600?q=pelvic%20physiotherapy"
+	},
+	{
+		slug: "fisioterapia-pediatrica",
+		title: "Fisioterapia Pediátrica",
+		category: "Fisioterapia",
+		description: "Cuidados especiais e lúdicos para bebês e crianças com alterações no desenvolvimento motor ou respiratório.",
+		image: "https://img.usecurling.com/p/800/600?q=pediatric%20physiotherapy"
+	},
+	{
+		slug: "fisioterapia-geriatrica",
+		title: "Fisioterapia Geriátrica",
+		category: "Fisioterapia",
+		description: "Foco na prevenção de quedas, manutenção da independência e tratamento de problemas relacionados ao envelhecimento.",
+		image: "https://img.usecurling.com/p/800/600?q=geriatric%20physiotherapy"
+	},
+	{
+		slug: "fisioterapia-gestante",
+		title: "Fisioterapia para Gestantes",
+		category: "Fisioterapia",
+		description: "Acompanhamento especializado para prevenir e tratar desconfortos posturais durante e após a gestação.",
+		image: "https://img.usecurling.com/p/800/600?q=pregnant%20physiotherapy"
+	},
+	{
+		slug: "fisioterapia-esportiva",
+		title: "Fisioterapia Esportiva",
+		category: "Fisioterapia",
+		description: "Prevenção e tratamento ágil de lesões em atletas amadores e profissionais para um retorno seguro ao esporte.",
+		image: "https://img.usecurling.com/p/800/600?q=sports%20physiotherapy"
+	},
+	{
+		slug: "acupuntura-auricular",
+		title: "Acupuntura Auricular",
+		category: "Acupuntura",
+		description: "Técnica terapêutica que estimula pontos no pavilhão auricular para tratar dores, ansiedade e distúrbios sistêmicos.",
+		image: "https://img.usecurling.com/p/800/600?q=auricular%20acupuncture"
+	},
+	{
+		slug: "acupuntura-sistemica",
+		title: "Acupuntura Sistêmica",
+		category: "Acupuntura",
+		description: "Equilíbrio da energia vital através da inserção de agulhas finas em pontos específicos distribuídos pelo corpo.",
+		image: "https://img.usecurling.com/p/800/600?q=systemic%20acupuncture"
+	},
+	{
+		slug: "dry-needling",
+		title: "Dry Needling",
+		category: "Acupuntura",
+		description: "Agulhamento a seco focado em desativar pontos gatilhos (trigger points) para alívio imediato de dores musculares profundas.",
+		image: "https://img.usecurling.com/p/800/600?q=dry%20needling"
+	},
+	{
+		slug: "rpg",
+		title: "RPG (Reeducação Postural Global)",
+		category: "RPG",
+		description: "Método fisioterapêutico que trata as desarmonias do corpo humano de forma global, corrigindo posturas e aliviando dores.",
+		image: "https://img.usecurling.com/p/800/600?q=posture%20correction"
+	},
+	{
+		slug: "pilates-gestante",
+		title: "Pilates para Gestantes",
+		category: "Pilates",
+		description: "Exercícios adaptados para o fortalecimento, alívio de tensões e preparação segura do corpo para o momento do parto.",
+		image: "https://img.usecurling.com/p/800/600?q=pregnant%20pilates"
+	},
+	{
+		slug: "pilates-idoso",
+		title: "Pilates para Idosos",
+		category: "Pilates",
+		description: "Prática focada na manutenção da mobilidade articular, equilíbrio e força muscular para a terceira idade.",
+		image: "https://img.usecurling.com/p/800/600?q=senior%20pilates"
+	},
+	{
+		slug: "pilates-kids",
+		title: "Pilates Kids",
+		category: "Pilates",
+		description: "Atividades dinâmicas e lúdicas desenhadas para o correto desenvolvimento motor e postural das crianças.",
+		image: "https://img.usecurling.com/p/800/600?q=kids%20pilates"
+	},
+	{
+		slug: "pilates-postural",
+		title: "Pilates Postural",
+		category: "Pilates",
+		description: "Exercícios focados no alinhamento da coluna, fortalecimento do core e conscientização corporal para alívio de dores.",
+		image: "https://img.usecurling.com/p/800/600?q=pilates%20studio"
+	},
+	{
+		slug: "liberacao-miofascial",
+		title: "Liberação Miofascial",
+		category: "Terapias Manuais",
+		description: "Técnica manual focada em relaxar a fáscia e os músculos, aliviando tensões crônicas e melhorando a flexibilidade.",
+		image: "https://img.usecurling.com/p/800/600?q=myofascial%20massage"
+	},
+	{
+		slug: "ventosa",
+		title: "Ventosaterapia",
+		category: "Terapias Alternativas",
+		description: "Utilização de copos para criar sucção na pele, promovendo aumento do fluxo sanguíneo local e alívio rápido de dores.",
+		image: "https://img.usecurling.com/p/800/600?q=cupping%20therapy"
+	},
+	{
+		slug: "laser",
+		title: "Laserterapia",
+		category: "Tratamentos",
+		description: "Uso de feixes de luz específicos para acelerar a cicatrização celular, reduzir inflamações e promover analgesia.",
+		image: "https://img.usecurling.com/p/800/600?q=laser%20therapy"
+	},
+	{
+		slug: "recupero",
+		title: "Recupero",
+		category: "Tratamentos",
+		description: "Tecnologia avançada importada para acelerar intensamente o processo de reabilitação celular, articular e muscular.",
+		image: "https://img.usecurling.com/p/800/600?q=recovery%20technology"
+	},
+	{
+		slug: "ondas-de-choque",
+		title: "Ondas de Choque",
+		category: "Tratamentos",
+		description: "Tratamento não invasivo altamente eficaz para patologias crônicas como tendinites, bursites e fascite plantar.",
+		image: "https://img.usecurling.com/p/800/600?q=shockwave%20therapy"
+	},
+	{
+		slug: "infra-vermelho",
+		title: "Infra Vermelho",
+		category: "Tratamentos",
+		description: "Terapia térmica superficial para promover relaxamento muscular profundo e aumento expressivo da circulação local.",
+		image: "https://img.usecurling.com/p/800/600?q=infrared%20therapy"
+	},
+	{
+		slug: "terapia-manual",
+		title: "Terapia Manual",
+		category: "Tratamentos",
+		description: "Conjunto de manobras manuais especializadas para restaurar o movimento natural das articulações e tecidos moles.",
+		image: "https://img.usecurling.com/p/800/600?q=manual%20therapy"
+	},
+	{
+		slug: "bandagens",
+		title: "Bandagens Funcionais",
+		category: "Tratamentos",
+		description: "Aplicação de fitas elásticas que proporcionam suporte muscular contínuo e alívio da dor sem limitar a amplitude de movimento.",
+		image: "https://img.usecurling.com/p/800/600?q=kinesio%20tape"
+	}
+];
+var menuItems = [
+	{
+		name: "Início",
+		href: "/#inicio"
+	},
+	{
+		name: "Serviços",
+		items: [
+			{
+				name: "Fisioterapia",
+				subItems: [
+					{
+						name: "Ortopédica",
+						href: "/servico/fisioterapia-ortopedica"
+					},
+					{
+						name: "Neurológica",
+						href: "/servico/fisioterapia-neurologica"
+					},
+					{
+						name: "Pélvica",
+						href: "/servico/fisioterapia-pelvica"
+					},
+					{
+						name: "Pediátrica",
+						href: "/servico/fisioterapia-pediatrica"
+					},
+					{
+						name: "Geriátrica",
+						href: "/servico/fisioterapia-geriatrica"
+					},
+					{
+						name: "Para Gestante",
+						href: "/servico/fisioterapia-gestante"
+					},
+					{
+						name: "Esportiva",
+						href: "/servico/fisioterapia-esportiva"
+					}
+				]
+			},
+			{
+				name: "Acupuntura",
+				subItems: [
+					{
+						name: "Auricular",
+						href: "/servico/acupuntura-auricular"
+					},
+					{
+						name: "Sistêmica",
+						href: "/servico/acupuntura-sistemica"
+					},
+					{
+						name: "Dry Needling",
+						href: "/servico/dry-needling"
+					}
+				]
+			},
+			{
+				name: "RPG",
+				href: "/servico/rpg"
+			},
+			{
+				name: "Pilates",
+				subItems: [
+					{
+						name: "Gestante",
+						href: "/servico/pilates-gestante"
+					},
+					{
+						name: "Idoso",
+						href: "/servico/pilates-idoso"
+					},
+					{
+						name: "Kids",
+						href: "/servico/pilates-kids"
+					},
+					{
+						name: "Postural",
+						href: "/servico/pilates-postural"
+					}
+				]
+			},
+			{
+				name: "Liberação Miofascial",
+				href: "/servico/liberacao-miofascial"
+			},
+			{
+				name: "Ventosa",
+				href: "/servico/ventosa"
+			}
+		]
+	},
+	{
+		name: "Tratamentos",
+		items: [
+			{
+				name: "Laser",
+				href: "/servico/laser"
+			},
+			{
+				name: "Recupero",
+				href: "/servico/recupero"
+			},
+			{
+				name: "Ondas de Choque",
+				href: "/servico/ondas-de-choque"
+			},
+			{
+				name: "Infra Vermelho",
+				href: "/servico/infra-vermelho"
+			},
+			{
+				name: "Terapia Manual",
+				href: "/servico/terapia-manual"
+			},
+			{
+				name: "Bandagens",
+				href: "/servico/bandagens"
+			}
+		]
+	},
+	{
+		name: "Unidades",
+		href: "/#unidades"
+	},
+	{
+		name: "Contato",
+		href: "/#contato"
+	}
+];
+//#endregion
 //#region src/components/layout/Header.tsx
 function Header() {
 	const [isScrolled, setIsScrolled] = (0, import_react.useState)(false);
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = (0, import_react.useState)(false);
 	(0, import_react.useEffect)(() => {
-		const handleScroll = () => {
-			setIsScrolled(window.scrollY > 50);
-		};
+		const handleScroll = () => setIsScrolled(window.scrollY > 20);
 		window.addEventListener("scroll", handleScroll);
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
-	const navLinks = [
-		{
-			name: "Início",
-			href: "#inicio"
-		},
-		{
-			name: "Especialidades",
-			href: "#especialidades"
-		},
-		{
-			name: "Serviços",
-			href: "#servicos"
-		},
-		{
-			name: "Unidades",
-			href: "#unidades"
-		},
-		{
-			name: "Contato",
-			href: "#contato"
-		}
-	];
 	const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("header", {
-		"data-uid": "src/components/layout/Header.tsx:29:5",
+		"data-uid": "src/components/layout/Header.tsx:21:5",
 		"data-prohibitions": "[editContent]",
-		className: cn$1("fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent", isScrolled ? "bg-navy-900/95 backdrop-blur-md shadow-md py-3 border-white/10" : "bg-transparent py-5"),
+		className: cn$1("fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-gray-100", isScrolled ? "shadow-md py-3" : "py-5"),
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			"data-uid": "src/components/layout/Header.tsx:37:7",
+			"data-uid": "src/components/layout/Header.tsx:27:7",
 			"data-prohibitions": "[editContent]",
 			className: "container flex items-center justify-between",
 			children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-					"data-uid": "src/components/layout/Header.tsx:39:9",
+					"data-uid": "src/components/layout/Header.tsx:28:9",
 					"data-prohibitions": "[]",
-					href: "#inicio",
+					href: "/#inicio",
 					className: "flex items-center gap-2 z-50 relative",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/components/layout/Header.tsx:40:11",
+						"data-uid": "src/components/layout/Header.tsx:29:11",
 						"data-prohibitions": "[]",
 						className: "flex flex-col",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-							"data-uid": "src/components/layout/Header.tsx:41:13",
+							"data-uid": "src/components/layout/Header.tsx:30:13",
 							"data-prohibitions": "[]",
-							className: "text-2xl font-serif font-bold text-white leading-none",
+							className: "text-2xl font-bold text-navy-900 leading-none",
 							children: ["Espaço ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								"data-uid": "src/components/layout/Header.tsx:42:22",
+								"data-uid": "src/components/layout/Header.tsx:31:22",
 								"data-prohibitions": "[]",
 								className: "text-gold-500",
 								children: "Fisio"
 							})]
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							"data-uid": "src/components/layout/Header.tsx:44:13",
+							"data-uid": "src/components/layout/Header.tsx:33:13",
 							"data-prohibitions": "[]",
-							className: "text-[10px] text-white/80 uppercase tracking-widest font-sans",
+							className: "text-[10px] text-gray-500 uppercase tracking-widest font-sans",
 							children: "Clínica de Reabilitação"
 						})]
 					})
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("nav", {
-					"data-uid": "src/components/layout/Header.tsx:51:9",
+					"data-uid": "src/components/layout/Header.tsx:40:9",
 					"data-prohibitions": "[editContent]",
-					className: "hidden md:flex items-center gap-8",
+					className: "hidden lg:flex items-center gap-8",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
-						"data-uid": "src/components/layout/Header.tsx:52:11",
+						"data-uid": "src/components/layout/Header.tsx:41:11",
 						"data-prohibitions": "[editContent]",
 						className: "flex items-center gap-6",
-						children: navLinks.map((link) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
-							"data-uid": "src/components/layout/Header.tsx:54:15",
+						children: menuItems.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
+							"data-uid": "src/components/layout/Header.tsx:43:15",
 							"data-prohibitions": "[editContent]",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-								"data-uid": "src/components/layout/Header.tsx:55:17",
+							className: "relative group/nav",
+							children: item.href ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+								"data-uid": "src/components/layout/Header.tsx:45:19",
 								"data-prohibitions": "[editContent]",
-								href: link.href,
-								className: "text-sm font-medium text-white/90 hover:text-gold-400 transition-colors",
-								children: link.name
-							})
-						}, link.name))
+								href: item.href,
+								className: "text-sm font-bold text-navy-900 hover:text-gold-500 py-6 inline-block",
+								children: item.name
+							}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+								"data-uid": "src/components/layout/Header.tsx:53:21",
+								"data-prohibitions": "[editContent]",
+								className: "text-sm font-bold text-navy-900 hover:text-gold-500 py-6 inline-flex items-center gap-1 cursor-pointer",
+								children: [
+									item.name,
+									" ",
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronDown, {
+										"data-uid": "src/components/layout/Header.tsx:54:35",
+										"data-prohibitions": "[editContent]",
+										className: "w-3 h-3"
+									})
+								]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+								"data-uid": "src/components/layout/Header.tsx:56:21",
+								"data-prohibitions": "[editContent]",
+								className: "absolute left-0 top-full hidden group-hover/nav:block bg-white shadow-xl min-w-[240px] border border-gray-100 rounded-xl py-2 z-50",
+								children: item.items?.map((sub) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
+									"data-uid": "src/components/layout/Header.tsx:58:25",
+									"data-prohibitions": "[editContent]",
+									className: "relative group/sub",
+									children: sub.href ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+										"data-uid": "src/components/layout/Header.tsx:60:29",
+										"data-prohibitions": "[editContent]",
+										to: sub.href,
+										className: "px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-navy-900 block",
+										children: sub.name
+									}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+										"data-uid": "src/components/layout/Header.tsx:68:31",
+										"data-prohibitions": "[editContent]",
+										className: "px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-navy-900 flex justify-between items-center cursor-pointer",
+										children: [
+											sub.name,
+											" ",
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronRight, {
+												"data-uid": "src/components/layout/Header.tsx:69:44",
+												"data-prohibitions": "[editContent]",
+												className: "w-4 h-4"
+											})
+										]
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+										"data-uid": "src/components/layout/Header.tsx:71:31",
+										"data-prohibitions": "[editContent]",
+										className: "absolute left-full top-0 hidden group-hover/sub:block bg-white shadow-xl min-w-[200px] border border-gray-100 rounded-xl py-2 -ml-2",
+										children: sub.subItems?.map((deep) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
+											"data-uid": "src/components/layout/Header.tsx:73:35",
+											"data-prohibitions": "[editContent]",
+											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+												"data-uid": "src/components/layout/Header.tsx:74:37",
+												"data-prohibitions": "[editContent]",
+												to: deep.href,
+												className: "px-5 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-navy-900 block",
+												children: deep.name
+											})
+										}, deep.name))
+									})] })
+								}, sub.name))
+							})] })
+						}, item.name))
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/components/layout/Header.tsx:64:11",
+						"data-uid": "src/components/layout/Header.tsx:93:11",
 						"data-prohibitions": "[]",
 						className: "flex items-center gap-4",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							"data-uid": "src/components/layout/Header.tsx:65:13",
+							"data-uid": "src/components/layout/Header.tsx:94:13",
 							"data-prohibitions": "[]",
-							className: "hidden lg:flex flex-col items-end",
+							className: "hidden xl:flex flex-col items-end",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								"data-uid": "src/components/layout/Header.tsx:66:15",
+								"data-uid": "src/components/layout/Header.tsx:95:15",
 								"data-prohibitions": "[]",
-								className: "text-xs text-white/70",
+								className: "text-xs text-gray-500 font-medium",
 								children: "Agende sua consulta"
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								"data-uid": "src/components/layout/Header.tsx:67:15",
+								"data-uid": "src/components/layout/Header.tsx:96:15",
 								"data-prohibitions": "[]",
-								className: "text-sm font-bold text-white flex items-center gap-1",
+								className: "text-sm font-bold text-navy-900 flex items-center gap-1",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, {
-									"data-uid": "src/components/layout/Header.tsx:68:17",
+									"data-uid": "src/components/layout/Header.tsx:97:17",
 									"data-prohibitions": "[editContent]",
 									className: "w-3 h-3 text-gold-500"
 								}), " (11) 97166-4664"]
 							})]
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-							"data-uid": "src/components/layout/Header.tsx:71:13",
+							"data-uid": "src/components/layout/Header.tsx:100:13",
 							"data-prohibitions": "[]",
-							className: "bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-white border-0 shadow-lg shadow-gold-500/20 rounded-full px-6",
+							className: "bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-white border-0 shadow-lg shadow-gold-500/20 rounded-full px-6 font-bold",
+							onClick: () => window.open("https://wa.me/5511971664664", "_blank"),
 							children: "Agendar Consulta"
 						})]
 					})]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-					"data-uid": "src/components/layout/Header.tsx:78:9",
+					"data-uid": "src/components/layout/Header.tsx:110:9",
 					"data-prohibitions": "[editContent]",
-					className: "md:hidden text-white z-50 relative p-2",
+					className: "lg:hidden text-navy-900 z-50 relative p-2",
 					onClick: toggleMobileMenu,
-					"aria-label": "Toggle menu",
+					"aria-label": "Menu",
 					children: isMobileMenuOpen ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, {
-						"data-uid": "src/components/layout/Header.tsx:83:31",
+						"data-uid": "src/components/layout/Header.tsx:115:31",
 						"data-prohibitions": "[editContent]",
 						size: 24
 					}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Menu, {
-						"data-uid": "src/components/layout/Header.tsx:83:49",
+						"data-uid": "src/components/layout/Header.tsx:115:49",
 						"data-prohibitions": "[editContent]",
 						size: 24
 					})
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					"data-uid": "src/components/layout/Header.tsx:87:9",
+					"data-uid": "src/components/layout/Header.tsx:119:9",
 					"data-prohibitions": "[editContent]",
-					className: cn$1("fixed inset-0 bg-navy-900 flex flex-col items-center justify-center transition-transform duration-300 ease-in-out md:hidden z-40", isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"),
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ul", {
-						"data-uid": "src/components/layout/Header.tsx:93:11",
+					className: cn$1("fixed inset-0 top-[72px] bg-white flex flex-col items-center justify-start pt-6 transition-transform duration-300 ease-in-out lg:hidden z-40 overflow-hidden", isMobileMenuOpen ? "translate-x-0" : "translate-x-full"),
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						"data-uid": "src/components/layout/Header.tsx:125:11",
 						"data-prohibitions": "[editContent]",
-						className: "flex flex-col items-center gap-8 text-center",
-						children: [navLinks.map((link) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
-							"data-uid": "src/components/layout/Header.tsx:95:15",
+						className: "w-full h-full overflow-y-auto px-6 pb-24",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+							"data-uid": "src/components/layout/Header.tsx:126:13",
 							"data-prohibitions": "[editContent]",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-								"data-uid": "src/components/layout/Header.tsx:96:17",
+							className: "flex flex-col gap-2 w-full",
+							children: menuItems.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
+								"data-uid": "src/components/layout/Header.tsx:128:17",
 								"data-prohibitions": "[editContent]",
-								href: link.href,
-								onClick: toggleMobileMenu,
-								className: "text-2xl font-serif text-white hover:text-gold-500 transition-colors",
-								children: link.name
-							})
-						}, link.name)), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
-							"data-uid": "src/components/layout/Header.tsx:105:13",
+								className: "w-full border-b border-gray-50 pb-2",
+								children: item.href ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+									"data-uid": "src/components/layout/Header.tsx:130:21",
+									"data-prohibitions": "[editContent]",
+									href: item.href,
+									onClick: toggleMobileMenu,
+									className: "text-lg font-bold text-navy-900 block py-3",
+									children: item.name
+								}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("details", {
+									"data-uid": "src/components/layout/Header.tsx:138:21",
+									"data-prohibitions": "[editContent]",
+									className: "group [&_summary::-webkit-details-marker]:hidden",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("summary", {
+										"data-uid": "src/components/layout/Header.tsx:139:23",
+										"data-prohibitions": "[editContent]",
+										className: "text-lg font-bold text-navy-900 py-3 flex justify-between items-center cursor-pointer list-none",
+										children: [item.name, /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronDown, {
+											"data-uid": "src/components/layout/Header.tsx:141:25",
+											"data-prohibitions": "[editContent]",
+											className: "w-5 h-5 group-open:rotate-180 transition-transform"
+										})]
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+										"data-uid": "src/components/layout/Header.tsx:143:23",
+										"data-prohibitions": "[editContent]",
+										className: "pl-4 mt-1 space-y-1 mb-2",
+										children: item.items?.map((sub) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
+											"data-uid": "src/components/layout/Header.tsx:145:27",
+											"data-prohibitions": "[editContent]",
+											children: sub.href ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+												"data-uid": "src/components/layout/Header.tsx:147:31",
+												"data-prohibitions": "[editContent]",
+												to: sub.href,
+												onClick: toggleMobileMenu,
+												className: "text-base font-semibold text-gray-700 block py-2",
+												children: sub.name
+											}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("details", {
+												"data-uid": "src/components/layout/Header.tsx:155:31",
+												"data-prohibitions": "[editContent]",
+												className: "group/sub [&_summary::-webkit-details-marker]:hidden",
+												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("summary", {
+													"data-uid": "src/components/layout/Header.tsx:156:33",
+													"data-prohibitions": "[editContent]",
+													className: "text-base font-semibold text-gray-700 py-2 flex justify-between items-center cursor-pointer list-none",
+													children: [sub.name, /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronDown, {
+														"data-uid": "src/components/layout/Header.tsx:158:35",
+														"data-prohibitions": "[editContent]",
+														className: "w-4 h-4 group-open/sub:rotate-180 transition-transform"
+													})]
+												}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+													"data-uid": "src/components/layout/Header.tsx:160:33",
+													"data-prohibitions": "[editContent]",
+													className: "pl-4 mt-1 space-y-1 border-l-2 border-gray-100 ml-2 mb-2",
+													children: sub.subItems?.map((deep) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
+														"data-uid": "src/components/layout/Header.tsx:162:37",
+														"data-prohibitions": "[editContent]",
+														children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+															"data-uid": "src/components/layout/Header.tsx:163:39",
+															"data-prohibitions": "[editContent]",
+															to: deep.href,
+															onClick: toggleMobileMenu,
+															className: "text-sm font-medium text-gray-500 block py-2",
+															children: deep.name
+														})
+													}, deep.name))
+												})]
+											})
+										}, sub.name))
+									})]
+								})
+							}, item.name))
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							"data-uid": "src/components/layout/Header.tsx:183:13",
 							"data-prohibitions": "[]",
-							className: "mt-8",
+							className: "mt-8 mb-8",
 							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-								"data-uid": "src/components/layout/Header.tsx:106:15",
+								"data-uid": "src/components/layout/Header.tsx:184:15",
 								"data-prohibitions": "[]",
-								onClick: toggleMobileMenu,
-								className: "bg-gold-500 hover:bg-gold-400 text-white rounded-full px-8 py-6 text-lg",
+								onClick: () => {
+									toggleMobileMenu();
+									window.open("https://wa.me/5511971664664", "_blank");
+								},
+								className: "w-full bg-gold-500 hover:bg-gold-400 text-white rounded-full py-6 text-lg font-bold",
 								children: "Agendar Agora"
 							})
 						})]
@@ -30662,17 +31129,17 @@ function WhatsAppButton() {
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				"data-uid": "src/components/layout/WhatsAppButton.tsx:13:9",
 				"data-prohibitions": "[]",
-				className: "bg-white text-navy-900 text-sm font-semibold py-2 px-4 rounded-lg shadow-lg whitespace-nowrap",
+				className: "bg-white text-navy-900 text-sm font-bold py-3 px-5 rounded-xl shadow-lg whitespace-nowrap",
 				children: "Fale Conosco"
 			})
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			"data-uid": "src/components/layout/WhatsAppButton.tsx:17:7",
 			"data-prohibitions": "[]",
-			className: "w-14 h-14 bg-whatsapp text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 relative before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-whatsapp before:animate-ping before:opacity-75",
+			className: "w-16 h-16 bg-whatsapp text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 relative before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-whatsapp before:animate-ping before:opacity-75",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, {
 				"data-uid": "src/components/layout/WhatsAppButton.tsx:18:9",
 				"data-prohibitions": "[editContent]",
-				className: "w-7 h-7 relative z-10"
+				className: "w-8 h-8 relative z-10"
 			})
 		})]
 	});
@@ -30710,51 +31177,199 @@ function Layout() {
 	});
 }
 //#endregion
+//#region src/pages/ServiceDetail.tsx
+function ServiceDetail() {
+	const { slug } = useParams();
+	const service = contentData.find((s) => s.slug === slug);
+	if (!service) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Navigate, {
+		"data-uid": "src/pages/ServiceDetail.tsx:10:24",
+		"data-prohibitions": "[editContent]",
+		to: "/404"
+	});
+	const ctaMessage = `Olá! Gostaria de agendar uma avaliação para ${service.title}.`;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		"data-uid": "src/pages/ServiceDetail.tsx:15:5",
+		"data-prohibitions": "[editContent]",
+		className: "pt-32 pb-24 min-h-screen bg-gray-50",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			"data-uid": "src/pages/ServiceDetail.tsx:16:7",
+			"data-prohibitions": "[editContent]",
+			className: "container max-w-6xl animate-fade-in-up",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+				"data-uid": "src/pages/ServiceDetail.tsx:17:9",
+				"data-prohibitions": "[]",
+				to: "/",
+				className: "inline-flex items-center text-navy-900 hover:text-gold-500 font-bold mb-8 transition-colors",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowLeft, {
+					"data-uid": "src/pages/ServiceDetail.tsx:21:11",
+					"data-prohibitions": "[editContent]",
+					className: "w-5 h-5 mr-2"
+				}), " Voltar para o início"]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				"data-uid": "src/pages/ServiceDetail.tsx:23:9",
+				"data-prohibitions": "[editContent]",
+				className: "bg-white rounded-[2rem] shadow-elevation overflow-hidden flex flex-col md:flex-row border border-gray-100",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					"data-uid": "src/pages/ServiceDetail.tsx:24:11",
+					"data-prohibitions": "[]",
+					className: "md:w-1/2 h-72 md:h-auto relative",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+						"data-uid": "src/pages/ServiceDetail.tsx:25:13",
+						"data-prohibitions": "[editContent]",
+						src: service.image,
+						alt: service.title,
+						className: "w-full h-full object-cover"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						"data-uid": "src/pages/ServiceDetail.tsx:26:13",
+						"data-prohibitions": "[editContent]",
+						className: "absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent md:hidden"
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					"data-uid": "src/pages/ServiceDetail.tsx:28:11",
+					"data-prohibitions": "[editContent]",
+					className: "md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center bg-white",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							"data-uid": "src/pages/ServiceDetail.tsx:29:13",
+							"data-prohibitions": "[editContent]",
+							className: "text-gold-500 font-bold uppercase tracking-widest text-sm mb-4 block",
+							children: service.category
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+							"data-uid": "src/pages/ServiceDetail.tsx:32:13",
+							"data-prohibitions": "[editContent]",
+							className: "text-4xl md:text-5xl font-bold text-navy-900 mb-6 leading-tight",
+							children: service.title
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							"data-uid": "src/pages/ServiceDetail.tsx:35:13",
+							"data-prohibitions": "[editContent]",
+							className: "text-gray-600 text-lg leading-relaxed mb-10",
+							children: service.description
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							"data-uid": "src/pages/ServiceDetail.tsx:36:13",
+							"data-prohibitions": "[]",
+							className: "space-y-4 mb-10 bg-gray-50 p-6 rounded-2xl",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									"data-uid": "src/pages/ServiceDetail.tsx:37:15",
+									"data-prohibitions": "[]",
+									className: "flex items-center gap-3",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, {
+										"data-uid": "src/pages/ServiceDetail.tsx:38:17",
+										"data-prohibitions": "[editContent]",
+										className: "w-6 h-6 text-gold-500 shrink-0"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										"data-uid": "src/pages/ServiceDetail.tsx:39:17",
+										"data-prohibitions": "[]",
+										className: "text-navy-900 font-semibold",
+										children: "Atendimento Personalizado"
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									"data-uid": "src/pages/ServiceDetail.tsx:41:15",
+									"data-prohibitions": "[]",
+									className: "flex items-center gap-3",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, {
+										"data-uid": "src/pages/ServiceDetail.tsx:42:17",
+										"data-prohibitions": "[editContent]",
+										className: "w-6 h-6 text-gold-500 shrink-0"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										"data-uid": "src/pages/ServiceDetail.tsx:43:17",
+										"data-prohibitions": "[]",
+										className: "text-navy-900 font-semibold",
+										children: "Profissionais Especializados"
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									"data-uid": "src/pages/ServiceDetail.tsx:45:15",
+									"data-prohibitions": "[]",
+									className: "flex items-center gap-3",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, {
+										"data-uid": "src/pages/ServiceDetail.tsx:46:17",
+										"data-prohibitions": "[editContent]",
+										className: "w-6 h-6 text-gold-500 shrink-0"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										"data-uid": "src/pages/ServiceDetail.tsx:47:17",
+										"data-prohibitions": "[]",
+										className: "text-navy-900 font-semibold",
+										children: "Tecnologia e Conforto"
+									})]
+								})
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+							"data-uid": "src/pages/ServiceDetail.tsx:50:13",
+							"data-prohibitions": "[]",
+							className: "w-full h-16 bg-whatsapp hover:bg-green-600 text-white text-lg font-bold rounded-xl shadow-lg shadow-whatsapp/20 flex items-center gap-3 group",
+							onClick: () => window.open(`https://wa.me/5511971664664?text=${encodeURIComponent(ctaMessage)}`, "_blank"),
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, {
+								"data-uid": "src/pages/ServiceDetail.tsx:59:15",
+								"data-prohibitions": "[editContent]",
+								className: "w-6 h-6 group-hover:scale-110 transition-transform"
+							}), "Agendar uma Avaliação"]
+						})
+					]
+				})]
+			})]
+		})
+	});
+}
+//#endregion
 //#region src/App.tsx
 var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
-	"data-uid": "src/App.tsx:10:3",
+	"data-uid": "src/App.tsx:11:3",
 	"data-prohibitions": "[]",
 	future: {
 		v7_startTransition: false,
 		v7_relativeSplatPath: false
 	},
 	children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TooltipProvider, {
-		"data-uid": "src/App.tsx:11:5",
+		"data-uid": "src/App.tsx:12:5",
 		"data-prohibitions": "[]",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Toaster$2, {
-				"data-uid": "src/App.tsx:12:7",
-				"data-prohibitions": "[editContent]"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Toaster, {
 				"data-uid": "src/App.tsx:13:7",
 				"data-prohibitions": "[editContent]"
 			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Routes, {
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Toaster, {
 				"data-uid": "src/App.tsx:14:7",
+				"data-prohibitions": "[editContent]"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Routes, {
+				"data-uid": "src/App.tsx:15:7",
 				"data-prohibitions": "[]",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-					"data-uid": "src/App.tsx:15:9",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
+					"data-uid": "src/App.tsx:16:9",
 					"data-prohibitions": "[]",
 					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Layout, {
-						"data-uid": "src/App.tsx:15:25",
+						"data-uid": "src/App.tsx:16:25",
 						"data-prohibitions": "[editContent]"
 					}),
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-						"data-uid": "src/App.tsx:16:11",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+						"data-uid": "src/App.tsx:17:11",
 						"data-prohibitions": "[editContent]",
 						path: "/",
 						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Index, {
-							"data-uid": "src/App.tsx:16:36",
+							"data-uid": "src/App.tsx:17:36",
 							"data-prohibitions": "[editContent]"
 						})
-					})
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+						"data-uid": "src/App.tsx:18:11",
+						"data-prohibitions": "[editContent]",
+						path: "/servico/:slug",
+						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ServiceDetail, {
+							"data-uid": "src/App.tsx:18:49",
+							"data-prohibitions": "[editContent]"
+						})
+					})]
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-					"data-uid": "src/App.tsx:18:9",
+					"data-uid": "src/App.tsx:20:9",
 					"data-prohibitions": "[editContent]",
 					path: "*",
 					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NotFound, {
-						"data-uid": "src/App.tsx:18:34",
+						"data-uid": "src/App.tsx:20:34",
 						"data-prohibitions": "[editContent]"
 					})
 				})]
@@ -30770,4 +31385,4 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 }));
 //#endregion
 
-//# sourceMappingURL=index-DdIY7Drx.js.map
+//# sourceMappingURL=index-Biy-avTj.js.map

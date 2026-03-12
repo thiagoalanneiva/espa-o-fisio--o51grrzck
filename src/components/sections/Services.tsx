@@ -1,20 +1,43 @@
+import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 
 const services = [
-  { title: 'Fisioterapia', img: 'https://img.usecurling.com/p/600/600?q=physiotherapy%20clinic' },
-  { title: 'Pilates', img: 'https://img.usecurling.com/p/600/600?q=pilates%20studio' },
-  { title: 'Acupuntura', img: 'https://img.usecurling.com/p/600/600?q=acupuncture%20needles' },
-  { title: 'RPG', img: 'https://img.usecurling.com/p/600/600?q=posture%20therapy' },
-  { title: 'Ventosaterapia', img: 'https://img.usecurling.com/p/600/600?q=cupping%20therapy' },
   {
-    title: 'Drenagem Linfática',
-    img: 'https://img.usecurling.com/p/600/600?q=lymphatic%20drainage',
+    title: 'Fisioterapia',
+    slug: 'fisioterapia-ortopedica',
+    img: 'https://img.usecurling.com/p/600/800?q=physiotherapy%20clinic',
+  },
+  {
+    title: 'Acupuntura',
+    slug: 'acupuntura-sistemica',
+    img: 'https://img.usecurling.com/p/600/800?q=acupuncture%20needles',
+  },
+  {
+    title: 'Pilates',
+    slug: 'pilates-postural',
+    img: 'https://img.usecurling.com/p/600/800?q=pilates%20studio',
+  },
+  { title: 'RPG', slug: 'rpg', img: 'https://img.usecurling.com/p/600/800?q=posture%20therapy' },
+  {
+    title: 'Ventosaterapia',
+    slug: 'ventosa',
+    img: 'https://img.usecurling.com/p/600/800?q=cupping%20therapy',
   },
   {
     title: 'Liberação Miofascial',
-    img: 'https://img.usecurling.com/p/600/600?q=myofascial%20release',
+    slug: 'liberacao-miofascial',
+    img: 'https://img.usecurling.com/p/600/800?q=myofascial%20release',
   },
-  { title: 'Ondas de Choque', img: 'https://img.usecurling.com/p/600/600?q=shockwave%20therapy' },
+  {
+    title: 'Ondas de Choque',
+    slug: 'ondas-de-choque',
+    img: 'https://img.usecurling.com/p/600/800?q=shockwave%20therapy',
+  },
+  {
+    title: 'Laserterapia',
+    slug: 'laser',
+    img: 'https://img.usecurling.com/p/600/800?q=laser%20therapy',
+  },
 ]
 
 export function Services() {
@@ -26,13 +49,13 @@ export function Services() {
             <h2 className="text-sm font-bold text-gold-500 uppercase tracking-widest">
               Catálogo de Terapias
             </h2>
-            <h3 className="text-3xl md:text-4xl font-serif font-bold text-navy-900">
+            <h3 className="text-3xl md:text-5xl font-bold text-navy-900 leading-tight">
               Tratamentos e Terapias Completas
             </h3>
           </div>
           <a
             href="#contato"
-            className="inline-flex items-center justify-center px-6 py-3 border-2 border-navy-900 text-navy-900 font-semibold rounded-full hover:bg-navy-900 hover:text-white transition-colors h-12"
+            className="inline-flex items-center justify-center px-8 border-2 border-navy-900 text-navy-900 font-bold rounded-full hover:bg-navy-900 hover:text-white transition-colors h-14"
           >
             Agendar Tratamento
           </a>
@@ -40,9 +63,10 @@ export function Services() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((svc, i) => (
-            <div
+            <Link
               key={i}
-              className="group relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer shadow-md hover:shadow-xl transition-all duration-300"
+              to={`/servico/${svc.slug}`}
+              className="group relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 block"
             >
               <img
                 src={svc.img}
@@ -52,12 +76,12 @@ export function Services() {
               <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
 
               <div className="absolute bottom-0 left-0 w-full p-6 flex items-end justify-between translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                <h4 className="text-white text-xl font-serif font-bold">{svc.title}</h4>
-                <div className="w-10 h-10 rounded-full bg-gold-500/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ArrowUpRight className="w-5 h-5" />
+                <h4 className="text-white text-2xl font-bold">{svc.title}</h4>
+                <div className="w-12 h-12 rounded-full bg-gold-500/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shrink-0 ml-4">
+                  <ArrowUpRight className="w-6 h-6" />
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
