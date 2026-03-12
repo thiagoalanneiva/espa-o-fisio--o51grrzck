@@ -1,150 +1,176 @@
-import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import logoUrl from '@/assets/espacofisio_logo-fd933.png'
+import { contact, socialLinks, navigation } from '@/data/content'
 
 export function Footer() {
   return (
-    <footer className="bg-navy-900 pt-16 pb-8 border-t border-navy-800 text-white/80">
-      <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-        {/* Brand */}
-        <div className="space-y-4">
-          <div className="flex flex-col">
-            <span className="text-3xl font-serif font-bold text-white leading-none">
-              Espaço <span className="text-gold-500">Fisio</span>
-            </span>
-            <span className="text-xs text-white/60 uppercase tracking-widest mt-1">
-              Clínica de Reabilitação
-            </span>
+    <footer className="bg-gray-900 text-gray-300 py-12 md:py-16">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Brand */}
+          <div className="space-y-6">
+            <div className="bg-white p-4 rounded-lg inline-block">
+              <img src={logoUrl} alt="Espaço Fisio" className="h-12 w-auto" />
+            </div>
+            <p className="text-gray-400">
+              Excelência em fisioterapia e reabilitação, proporcionando qualidade de vida e
+              bem-estar para nossos pacientes.
+            </p>
+            <div className="flex gap-4">
+              {socialLinks.map((social) => {
+                const Icon = social.icon
+                return (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300"
+                  >
+                    <Icon className="w-5 h-5" />
+                  </a>
+                )
+              })}
+            </div>
           </div>
-          <p className="text-sm leading-relaxed">
-            Nossa missão é promover qualidade de vida e bem-estar através de tratamentos
-            fisioterapêuticos personalizados, aliando tecnologia e atendimento humanizado.
-          </p>
-          <div className="flex gap-4 pt-2">
-            <a
-              href="#"
-              className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-gold-500 hover:text-white transition-colors text-white"
-            >
-              <Instagram className="w-5 h-5" />
-            </a>
-            <a
-              href="#"
-              className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-gold-500 hover:text-white transition-colors text-white"
-            >
-              <Facebook className="w-5 h-5" />
-            </a>
-            <a
-              href="#"
-              className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-gold-500 hover:text-white transition-colors text-white"
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-white text-lg font-bold font-sans mb-6">Links Rápidos</h3>
+            <ul className="space-y-4">
+              {navigation.map((item) => (
+                <li key={item.name}>
+                  {item.items ? (
+                    <div className="space-y-2">
+                      <span className="text-white font-medium">{item.name}</span>
+                      <ul className="pl-4 space-y-2 border-l border-gray-700">
+                        {item.items.slice(0, 4).map((sub) => (
+                          <li key={sub.name}>
+                            <Link
+                              to={sub.href}
+                              className="text-gray-400 hover:text-primary transition-colors text-sm"
+                            >
+                              {sub.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : (
+                    <Link to={item.href} className="hover:text-primary transition-colors">
+                      {item.name}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="text-white text-lg font-bold font-sans mb-6">Contato</h3>
+            <ul className="space-y-4">
+              <li className="flex items-center gap-3">
+                <span className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center shrink-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </span>
+                <span>{contact.phone}</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center shrink-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </span>
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="hover:text-primary transition-colors break-all"
+                >
+                  {contact.email}
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Map/Hours */}
+          <div>
+            <h3 className="text-white text-lg font-bold font-sans mb-6">
+              Horário de Funcionamento
+            </h3>
+            <ul className="space-y-4">
+              <li className="flex gap-3">
+                <span className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center shrink-0 text-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </span>
+                <div>
+                  <p className="text-white font-medium">Segunda a Sexta</p>
+                  <p className="text-gray-400">07:00 às 20:00</p>
+                </div>
+              </li>
+              <li className="flex gap-3">
+                <span className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center shrink-0 text-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </span>
+                <div>
+                  <p className="text-white font-medium">Sábado</p>
+                  <p className="text-gray-400">08:00 às 12:00</p>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Links */}
-        <div>
-          <h4 className="text-lg font-serif font-semibold text-white mb-6">Links Rápidos</h4>
-          <ul className="space-y-3 text-sm">
-            <li>
-              <a href="#inicio" className="hover:text-gold-500 transition-colors">
-                Início
-              </a>
-            </li>
-            <li>
-              <a href="#especialidades" className="hover:text-gold-500 transition-colors">
-                Especialidades
-              </a>
-            </li>
-            <li>
-              <a href="#equipe" className="hover:text-gold-500 transition-colors">
-                Nossa Equipe
-              </a>
-            </li>
-            <li>
-              <a href="#unidades" className="hover:text-gold-500 transition-colors">
-                Unidades
-              </a>
-            </li>
-            <li>
-              <a href="#contato" className="hover:text-gold-500 transition-colors">
-                Fale Conosco
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Tratamentos */}
-        <div>
-          <h4 className="text-lg font-serif font-semibold text-white mb-6">Tratamentos</h4>
-          <ul className="space-y-3 text-sm">
-            <li>
-              <a href="#servicos" className="hover:text-gold-500 transition-colors">
-                Fisioterapia Ortopédica
-              </a>
-            </li>
-            <li>
-              <a href="#servicos" className="hover:text-gold-500 transition-colors">
-                Pilates Clínico
-              </a>
-            </li>
-            <li>
-              <a href="#servicos" className="hover:text-gold-500 transition-colors">
-                Acupuntura
-              </a>
-            </li>
-            <li>
-              <a href="#servicos" className="hover:text-gold-500 transition-colors">
-                RPG
-              </a>
-            </li>
-            <li>
-              <a href="#servicos" className="hover:text-gold-500 transition-colors">
-                Liberação Miofascial
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Contact Info */}
-        <div>
-          <h4 className="text-lg font-serif font-semibold text-white mb-6">Contato</h4>
-          <ul className="space-y-4 text-sm">
-            <li className="flex items-start gap-3">
-              <Phone className="w-5 h-5 text-gold-500 shrink-0 mt-0.5" />
-              <div>
-                <p className="text-white">(11) 97166-4664</p>
-                <p className="text-xs text-white/50">Seg à Sex: 08h às 20h</p>
-              </div>
-            </li>
-            <li className="flex items-start gap-3">
-              <Mail className="w-5 h-5 text-gold-500 shrink-0 mt-0.5" />
-              <p className="text-white break-all">contato@espacofisio.com.br</p>
-            </li>
-            <li className="flex items-start gap-3">
-              <MapPin className="w-5 h-5 text-gold-500 shrink-0 mt-0.5" />
-              <div>
-                <p className="text-white font-medium mb-1">Unidade Embu</p>
-                <p className="text-xs text-white/70 leading-relaxed">
-                  Av. Elias Yazbek, 567 - Tingidor
-                  <br />
-                  Embu das Artes - SP
-                </p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="container">
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/50">
-          <p>&copy; {new Date().getFullYear()} Espaço Fisio. Todos os direitos reservados.</p>
-          <div className="flex gap-4">
-            <a href="#" className="hover:text-white transition-colors">
-              Termos de Uso
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Política de Privacidade
-            </a>
-          </div>
+        <div className="mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
+          <p>© {new Date().getFullYear()} Espaço Fisio. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

@@ -1,78 +1,67 @@
-import { Activity, Bone, Brain, Baby, HeartPulse, PersonStanding } from 'lucide-react'
-import { Card, CardContent } from '@/components/ui/card'
+import { Link } from 'react-router-dom'
+import { ArrowRight, Activity, Bone, Heart, Zap, Sparkles, Feather, Dna } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { services } from '@/data/content'
 
-const specialties = [
-  {
-    icon: Bone,
-    title: 'Fisioterapia Ortopédica',
-    description:
-      'Tratamento de lesões musculares, articulares, fraturas e pós-operatórios para restaurar a mobilidade plena.',
-  },
-  {
-    icon: Brain,
-    title: 'Fisioterapia Neurológica',
-    description:
-      'Reabilitação focada em pacientes com sequelas de AVC, Parkinson e outras condições neurológicas.',
-  },
-  {
-    icon: Activity,
-    title: 'Fisioterapia Esportiva',
-    description:
-      'Prevenção e tratamento rápido de lesões focadas no retorno de atletas e praticantes de exercícios.',
-  },
-  {
-    icon: PersonStanding,
-    title: 'Fisioterapia Geriátrica',
-    description:
-      'Cuidados dedicados à terceira idade, prevenindo quedas e mantendo a independência funcional.',
-  },
-  {
-    icon: HeartPulse,
-    title: 'Fisioterapia Pélvica',
-    description:
-      'Tratamento de disfunções do assoalho pélvico, incontinência e suporte em gestações.',
-  },
-  {
-    icon: Baby,
-    title: 'Fisioterapia Pediátrica',
-    description:
-      'Acompanhamento do desenvolvimento motor infantil com métodos lúdicos e especializados.',
-  },
-]
+const iconMap: Record<string, any> = {
+  Activity,
+  Bone,
+  Heart,
+  Zap,
+  Sparkles,
+  Feather,
+  Dna,
+}
 
 export function Specialties() {
   return (
-    <section id="especialidades" className="py-24 bg-background">
-      <div className="container">
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <h2 className="text-sm font-bold text-gold-500 uppercase tracking-widest">
-            Nossas Especialidades
+    <section id="especialidades" className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-sans">
+            Cuidados Especializados
           </h2>
-          <h3 className="text-3xl md:text-4xl font-serif font-bold text-navy-900">
-            Cuidado especializado para cada necessidade
-          </h3>
-          <p className="text-muted-foreground text-lg">
-            Atuamos em diversas áreas da fisioterapia, sempre com profissionais altamente
-            capacitados para oferecer o melhor tratamento.
+          <p className="text-lg text-gray-600">
+            Tratamentos personalizados para atender às suas necessidades específicas com a mais alta
+            tecnologia e técnicas comprovadas.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {specialties.map((item, i) => (
-            <Card
-              key={i}
-              className="group border-0 shadow-subtle hover:shadow-elevation transition-all duration-300 hover:-translate-y-1 overflow-hidden"
-            >
-              <CardContent className="p-8 space-y-4 relative">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/5 rounded-bl-full -z-10 group-hover:scale-110 transition-transform duration-500" />
-                <div className="w-14 h-14 rounded-2xl bg-navy-900/5 text-navy-900 flex items-center justify-center group-hover:bg-navy-900 group-hover:text-white transition-colors duration-300">
-                  <item.icon className="w-7 h-7" />
-                </div>
-                <h4 className="text-xl font-serif font-bold text-navy-900">{item.title}</h4>
-                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.slice(0, 6).map((service) => {
+            const Icon = iconMap[service.icon] || Activity
+
+            return (
+              <Card
+                key={service.id}
+                className="group hover:shadow-xl transition-all duration-300 border-none bg-white overflow-hidden"
+              >
+                <CardHeader className="p-6 pb-4 relative">
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    <Icon className="w-7 h-7" />
+                  </div>
+                  <CardTitle className="text-xl font-bold text-gray-900 font-sans">
+                    {service.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="p-6 pt-0">
+                  <CardDescription className="text-gray-600 text-base mb-6 line-clamp-3">
+                    {service.shortDescription}
+                  </CardDescription>
+                  <Button
+                    variant="ghost"
+                    className="p-0 text-primary hover:text-primary/80 hover:bg-transparent font-semibold font-sans group-hover:translate-x-2 transition-transform duration-300"
+                    asChild
+                  >
+                    <Link to={`/servicos/${service.id}`}>
+                      Saiba mais <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            )
+          })}
         </div>
       </div>
     </section>

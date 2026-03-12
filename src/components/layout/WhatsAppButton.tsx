@@ -1,22 +1,16 @@
 import { MessageCircle } from 'lucide-react'
+import { contact } from '@/data/content'
 
 export function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/5511971664664?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Espa%C3%A7o%20Fisio."
+      href={contact.whatsapp}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 group flex items-center gap-3"
-      aria-label="Fale conosco pelo WhatsApp"
+      className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300 animate-fade-in-up"
+      aria-label="Agendar uma avaliação pelo WhatsApp"
     >
-      <div className="absolute right-full mr-3 opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-300 pointer-events-none">
-        <div className="bg-white text-navy-900 text-sm font-bold py-3 px-5 rounded-xl shadow-lg whitespace-nowrap">
-          Fale Conosco
-        </div>
-      </div>
-      <div className="w-16 h-16 bg-whatsapp text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 relative before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-whatsapp before:animate-ping before:opacity-75">
-        <MessageCircle className="w-8 h-8 relative z-10" />
-      </div>
+      <MessageCircle className="w-8 h-8" />
     </a>
   )
 }

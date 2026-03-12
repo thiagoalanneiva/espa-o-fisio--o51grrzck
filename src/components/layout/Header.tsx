@@ -1,196 +1,202 @@
 import { useState, useEffect } from 'react'
-import { Menu, X, Phone, ChevronDown, ChevronRight } from 'lucide-react'
+import { Link, useLocation } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
+import { Menu, X, Phone } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { Link } from 'react-router-dom'
-import { menuItems } from '@/data/content'
+import logoUrl from '@/assets/espacofisio_logo-fd933.png'
+import { navigation, socialLinks, contact } from '@/data/content'
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from '@/components/ui/navigation-menu'
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20)
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10)
+    }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen)
+  useEffect(() => {
+    setIsMobileMenuOpen(false)
+  }, [location])
 
   return (
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-gray-100',
-        isScrolled ? 'shadow-md py-3' : 'py-5',
+        isScrolled ? 'py-2 shadow-md' : 'py-4',
       )}
     >
-      <div className="container flex items-center justify-between">
-        <a href="/#inicio" className="flex items-center gap-2 z-50 relative">
-          <div className="flex flex-col">
-            <span className="text-2xl font-bold text-navy-900 leading-none">
-              Espaço <span className="text-gold-500">Fisio</span>
-            </span>
-            <span className="text-[10px] text-gray-500 uppercase tracking-widest font-sans">
-              Clínica de Reabilitação
-            </span>
-          </div>
-        </a>
+      <div className="container mx-auto px-4 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-2 z-50">
+          <img src={logoUrl} alt="Espaço Fisio" className="h-12 md:h-16 w-auto object-contain" />
+        </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8">
-          <ul className="flex items-center gap-6">
-            {menuItems.map((item) => (
-              <li key={item.name} className="relative group/nav">
-                {item.href ? (
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex items-center gap-6">
+          <NavigationMenu>
+            <NavigationMenuList>
+              {navigation.map((item) => (
+                <NavigationMenuItem key={item.name}>
+                  {item.items ? (
+                    <>
+                      <NavigationMenuTrigger className="bg-transparent hover:bg-gray-100 text-gray-800 font-medium font-sans">
+                        {item.name}
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-white">
+                          {item.items.map((subItem) => (
+                            <li key={subItem.name}>
+                              <NavigationMenuLink asChild>
+                                <Link
+                                  to={subItem.href}
+                                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary/5 hover:text-primary focus:bg-primary/5 focus:text-primary"
+                                >
+                                  <div className="text-sm font-semibold leading-none font-sans">
+                                    {subItem.name}
+                                  </div>
+                                  {subItem.description && (
+                                    <p className="line-clamp-2 text-sm leading-snug text-gray-500 mt-1">
+                                      {subItem.description}
+                                    </p>
+                                  )}
+                                </Link>
+                              </NavigationMenuLink>
+                            </li>
+                          ))}
+                        </ul>
+                      </NavigationMenuContent>
+                    </>
+                  ) : (
+                    <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                      <Link
+                        to={item.href}
+                        className="bg-transparent hover:bg-gray-100 text-gray-800 font-medium font-sans cursor-pointer"
+                      >
+                        {item.name}
+                      </Link>
+                    </NavigationMenuLink>
+                  )}
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
+
+          <div className="flex items-center gap-4 border-l border-gray-200 pl-6">
+            <div className="flex gap-2">
+              {socialLinks.map((social) => {
+                const Icon = social.icon
+                return (
                   <a
-                    href={item.href}
-                    className="text-sm font-bold text-navy-900 hover:text-gold-500 py-6 inline-block"
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:text-primary transition-colors"
                   >
-                    {item.name}
+                    <Icon className="w-5 h-5" />
                   </a>
-                ) : (
-                  <>
-                    <span className="text-sm font-bold text-navy-900 hover:text-gold-500 py-6 inline-flex items-center gap-1 cursor-pointer">
-                      {item.name} <ChevronDown className="w-3 h-3" />
-                    </span>
-                    <ul className="absolute left-0 top-full hidden group-hover/nav:block bg-white shadow-xl min-w-[240px] border border-gray-100 rounded-xl py-2 z-50">
-                      {item.items?.map((sub) => (
-                        <li key={sub.name} className="relative group/sub">
-                          {sub.href ? (
-                            <Link
-                              to={sub.href}
-                              className="px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-navy-900 block"
-                            >
-                              {sub.name}
-                            </Link>
-                          ) : (
-                            <>
-                              <span className="px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-navy-900 flex justify-between items-center cursor-pointer">
-                                {sub.name} <ChevronRight className="w-4 h-4" />
-                              </span>
-                              <ul className="absolute left-full top-0 hidden group-hover/sub:block bg-white shadow-xl min-w-[200px] border border-gray-100 rounded-xl py-2 -ml-2">
-                                {sub.subItems?.map((deep) => (
-                                  <li key={deep.name}>
-                                    <Link
-                                      to={deep.href}
-                                      className="px-5 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-navy-900 block"
-                                    >
-                                      {deep.name}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            </>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  </>
-                )}
-              </li>
-            ))}
-          </ul>
-          <div className="flex items-center gap-4">
-            <div className="hidden xl:flex flex-col items-end">
-              <span className="text-xs text-gray-500 font-medium">Agende sua consulta</span>
-              <span className="text-sm font-bold text-navy-900 flex items-center gap-1">
-                <Phone className="w-3 h-3 text-gold-500" /> (11) 97166-4664
-              </span>
+                )
+              })}
             </div>
-            <Button
-              className="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-white border-0 shadow-lg shadow-gold-500/20 rounded-full px-6 font-bold"
-              onClick={() => window.open('https://wa.me/5511971664664', '_blank')}
-            >
-              Agendar Consulta
+
+            <div className="hidden xl:flex items-center gap-2 text-gray-700 font-semibold">
+              <Phone className="w-4 h-4 text-primary" />
+              <span>{contact.phone}</span>
+            </div>
+
+            <Button asChild className="rounded-full font-semibold font-sans shadow-sm">
+              <a href={contact.whatsapp} target="_blank" rel="noopener noreferrer">
+                Agendar uma avaliação
+              </a>
             </Button>
           </div>
-        </nav>
+        </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Menu Toggle */}
         <button
-          className="lg:hidden text-navy-900 z-50 relative p-2"
-          onClick={toggleMobileMenu}
-          aria-label="Menu"
+          className="lg:hidden z-50 p-2 text-gray-800"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
 
-        {/* Mobile Menu Overlay */}
+        {/* Mobile Navigation */}
         <div
           className={cn(
-            'fixed inset-0 top-[72px] bg-white flex flex-col items-center justify-start pt-6 transition-transform duration-300 ease-in-out lg:hidden z-40 overflow-hidden',
+            'fixed inset-0 bg-white z-40 lg:hidden transition-transform duration-300 ease-in-out flex flex-col pt-24 px-6 overflow-y-auto',
             isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full',
           )}
         >
-          <div className="w-full h-full overflow-y-auto px-6 pb-24">
-            <ul className="flex flex-col gap-2 w-full">
-              {menuItems.map((item) => (
-                <li key={item.name} className="w-full border-b border-gray-50 pb-2">
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      onClick={toggleMobileMenu}
-                      className="text-lg font-bold text-navy-900 block py-3"
-                    >
+          <nav className="flex flex-col gap-6">
+            {navigation.map((item) => (
+              <div key={item.name} className="flex flex-col gap-2">
+                {item.items ? (
+                  <>
+                    <span className="text-lg font-bold text-gray-800 font-sans border-b pb-2">
                       {item.name}
-                    </a>
-                  ) : (
-                    <details className="group [&_summary::-webkit-details-marker]:hidden">
-                      <summary className="text-lg font-bold text-navy-900 py-3 flex justify-between items-center cursor-pointer list-none">
-                        {item.name}
-                        <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform" />
-                      </summary>
-                      <ul className="pl-4 mt-1 space-y-1 mb-2">
-                        {item.items?.map((sub) => (
-                          <li key={sub.name}>
-                            {sub.href ? (
-                              <Link
-                                to={sub.href}
-                                onClick={toggleMobileMenu}
-                                className="text-base font-semibold text-gray-700 block py-2"
-                              >
-                                {sub.name}
-                              </Link>
-                            ) : (
-                              <details className="group/sub [&_summary::-webkit-details-marker]:hidden">
-                                <summary className="text-base font-semibold text-gray-700 py-2 flex justify-between items-center cursor-pointer list-none">
-                                  {sub.name}
-                                  <ChevronDown className="w-4 h-4 group-open/sub:rotate-180 transition-transform" />
-                                </summary>
-                                <ul className="pl-4 mt-1 space-y-1 border-l-2 border-gray-100 ml-2 mb-2">
-                                  {sub.subItems?.map((deep) => (
-                                    <li key={deep.name}>
-                                      <Link
-                                        to={deep.href}
-                                        onClick={toggleMobileMenu}
-                                        className="text-sm font-medium text-gray-500 block py-2"
-                                      >
-                                        {deep.name}
-                                      </Link>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </details>
-                            )}
-                          </li>
-                        ))}
-                      </ul>
-                    </details>
-                  )}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8 mb-8">
-              <Button
-                onClick={() => {
-                  toggleMobileMenu()
-                  window.open('https://wa.me/5511971664664', '_blank')
-                }}
-                className="w-full bg-gold-500 hover:bg-gold-400 text-white rounded-full py-6 text-lg font-bold"
-              >
-                Agendar Agora
-              </Button>
+                    </span>
+                    <div className="flex flex-col gap-3 pl-4">
+                      {item.items.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          to={subItem.href}
+                          className="text-gray-600 hover:text-primary transition-colors py-1 font-medium font-sans"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <Link
+                    to={item.href}
+                    className="text-lg font-bold text-gray-800 font-sans border-b pb-2 hover:text-primary transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </nav>
+
+          <div className="mt-8 pt-8 border-t flex flex-col gap-6 pb-12">
+            <div className="flex justify-center gap-4">
+              {socialLinks.map((social) => {
+                const Icon = social.icon
+                return (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <Icon className="w-6 h-6" />
+                  </a>
+                )
+              })}
             </div>
+
+            <Button size="lg" asChild className="w-full rounded-full font-semibold font-sans">
+              <a href={contact.whatsapp} target="_blank" rel="noopener noreferrer">
+                Agendar uma avaliação
+              </a>
+            </Button>
           </div>
         </div>
       </div>

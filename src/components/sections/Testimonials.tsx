@@ -1,5 +1,7 @@
-import { Star, Quote } from 'lucide-react'
+import { Star } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { testimonials } from '@/data/content'
 import {
   Carousel,
   CarouselContent,
@@ -7,81 +9,76 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import Autoplay from 'embla-carousel-autoplay'
-import { useRef } from 'react'
-
-const testimonials = [
-  {
-    name: 'Mariana Costa',
-    text: 'Cheguei na clínica com muita dor na lombar. Em poucas sessões de fisioterapia e RPG, já senti uma melhora absurda. O atendimento é super humanizado.',
-    service: 'RPG e Fisioterapia',
-  },
-  {
-    name: 'Roberto Almeida',
-    text: 'A infraestrutura é fantástica e a equipe muito competente. Estava me recuperando de uma cirurgia no joelho e o suporte deles foi essencial para minha volta ao esporte.',
-    service: 'Fisioterapia Esportiva',
-  },
-  {
-    name: 'Juliana Freitas',
-    text: 'Comecei o Pilates na Espaço Fisio por recomendação médica. Além de melhorar minha postura, o ambiente é muito tranquilo e acolhedor. Recomendo de olhos fechados!',
-    service: 'Pilates Clínico',
-  },
-  {
-    name: 'Fernando Souza',
-    text: 'Excelente profissionalismo desde a recepção até o consultório. A acupuntura me ajudou a tratar uma enxaqueca crônica que nenhum outro tratamento resolvia.',
-    service: 'Acupuntura',
-  },
-]
 
 export function Testimonials() {
-  const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }))
+  const googleReviewsUrl =
+    'https://www.google.com/search?sca_esv=014cb5ad1839ea23&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOUdhC7_dlVxW0vXR-Li8jlFsoSyoNkG3huvhlCh4xoq1mt_sFTyLxthPiYhhPEqa_jLCKK3ThErHlTzZ7N-2b7A6k7NK270SSZOj0fzf9lYBVHE3ow%3D%3D&q=Espa%C3%A7o+Fisioterapia+Embu+Coment%C3%A1rios&sa=X&ved=2ahUKEwjGr52qjZmTAxUvE7kGHco4FqsQ0bkNegQILRAF&biw=1920&bih=869&dpr=1'
 
   return (
-    <section className="py-24 bg-navy-900 text-white overflow-hidden relative">
-      <div className="absolute top-0 right-0 w-64 h-64 bg-gold-500 rounded-full blur-[120px] opacity-20 pointer-events-none"></div>
-
-      <div className="container">
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4 relative z-10">
-          <Quote className="w-12 h-12 text-gold-500 mx-auto mb-4 opacity-50" />
-          <h2 className="text-3xl md:text-4xl font-serif font-bold">
-            O que nossos pacientes dizem
+    <section id="depoimentos" className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-sans">
+            O Que Dizem Nossos Pacientes
           </h2>
-          <p className="text-white/70">
-            Histórias reais de recuperação e melhoria na qualidade de vida.
+          <p className="text-lg text-gray-600">
+            Histórias reais de recuperação e bem-estar de quem confiou em nosso trabalho.
           </p>
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto px-12 relative">
           <Carousel
-            plugins={[plugin.current]}
-            opts={{ align: 'center', loop: true }}
+            opts={{
+              align: 'start',
+              loop: true,
+            }}
             className="w-full"
           >
             <CarouselContent>
-              {testimonials.map((t, i) => (
-                <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/2 pl-4">
-                  <div className="p-2">
-                    <Card className="bg-white/5 border-white/10 text-white backdrop-blur-sm">
-                      <CardContent className="p-8 space-y-6">
-                        <div className="flex gap-1">
-                          {[...Array(5)].map((_, idx) => (
-                            <Star key={idx} className="w-4 h-4 text-gold-500 fill-gold-500" />
-                          ))}
-                        </div>
-                        <p className="text-white/90 italic leading-relaxed text-lg">"{t.text}"</p>
+              {testimonials.map((testimonial) => (
+                <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/3 pl-4">
+                  <Card className="h-full border-none shadow-lg bg-white">
+                    <CardContent className="p-6 flex flex-col h-full">
+                      <div className="flex gap-1 mb-4 text-yellow-400">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="w-5 h-5 fill-current" />
+                        ))}
+                      </div>
+                      <p className="text-gray-700 mb-6 flex-grow italic">"{testimonial.content}"</p>
+                      <div className="flex items-center gap-4 mt-auto">
+                        <img
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          className="w-12 h-12 rounded-full object-cover"
+                        />
                         <div>
-                          <p className="font-bold">{t.name}</p>
-                          <p className="text-sm text-gold-400">{t.service}</p>
+                          <h4 className="font-semibold text-gray-900 font-sans">
+                            {testimonial.name}
+                          </h4>
+                          <p className="text-sm text-gray-500">{testimonial.role}</p>
                         </div>
-                      </CardContent>
-                    </Card>
-                  </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex -left-12 bg-white/10 hover:bg-white border-white/20 text-white hover:text-navy-900" />
-            <CarouselNext className="hidden md:flex -right-12 bg-white/10 hover:bg-white border-white/20 text-white hover:text-navy-900" />
+            <CarouselPrevious className="-left-4 lg:-left-12" />
+            <CarouselNext className="-right-4 lg:-right-12" />
           </Carousel>
+        </div>
+
+        <div className="mt-12 text-center">
+          <Button
+            variant="outline"
+            size="lg"
+            asChild
+            className="rounded-full border-primary text-primary hover:bg-primary hover:text-white font-sans font-semibold"
+          >
+            <a href={googleReviewsUrl} target="_blank" rel="noopener noreferrer">
+              Ver mais avaliações no Google
+            </a>
+          </Button>
         </div>
       </div>
     </section>

@@ -1,87 +1,74 @@
 import { Link } from 'react-router-dom'
-import { ArrowUpRight } from 'lucide-react'
-
-const services = [
-  {
-    title: 'Fisioterapia',
-    slug: 'fisioterapia-ortopedica',
-    img: 'https://img.usecurling.com/p/600/800?q=physiotherapy%20clinic',
-  },
-  {
-    title: 'Acupuntura',
-    slug: 'acupuntura-sistemica',
-    img: 'https://img.usecurling.com/p/600/800?q=acupuncture%20needles',
-  },
-  {
-    title: 'Pilates',
-    slug: 'pilates-postural',
-    img: 'https://img.usecurling.com/p/600/800?q=pilates%20studio',
-  },
-  { title: 'RPG', slug: 'rpg', img: 'https://img.usecurling.com/p/600/800?q=posture%20therapy' },
-  {
-    title: 'Ventosaterapia',
-    slug: 'ventosa',
-    img: 'https://img.usecurling.com/p/600/800?q=cupping%20therapy',
-  },
-  {
-    title: 'Liberação Miofascial',
-    slug: 'liberacao-miofascial',
-    img: 'https://img.usecurling.com/p/600/800?q=myofascial%20release',
-  },
-  {
-    title: 'Ondas de Choque',
-    slug: 'ondas-de-choque',
-    img: 'https://img.usecurling.com/p/600/800?q=shockwave%20therapy',
-  },
-  {
-    title: 'Laserterapia',
-    slug: 'laser',
-    img: 'https://img.usecurling.com/p/600/800?q=laser%20therapy',
-  },
-]
+import { CheckCircle2 } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { services, contact } from '@/data/content'
 
 export function Services() {
+  const featuredServices = services.filter((s) =>
+    ['fisioterapia', 'pilates', 'acupuntura'].includes(s.id),
+  )
+
   return (
-    <section id="servicos" className="py-24 bg-gray-50">
-      <div className="container">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div className="max-w-2xl space-y-4">
-            <h2 className="text-sm font-bold text-gold-500 uppercase tracking-widest">
-              Catálogo de Terapias
-            </h2>
-            <h3 className="text-3xl md:text-5xl font-bold text-navy-900 leading-tight">
-              Tratamentos e Terapias Completas
-            </h3>
-          </div>
-          <a
-            href="#contato"
-            className="inline-flex items-center justify-center px-8 border-2 border-navy-900 text-navy-900 font-bold rounded-full hover:bg-navy-900 hover:text-white transition-colors h-14"
-          >
-            Agendar Tratamento
-          </a>
+    <section id="servicos" className="py-24 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-sans">
+            Nossos Serviços
+          </h2>
+          <p className="text-lg text-gray-600">
+            Abordagem completa e integrada para sua reabilitação e bem-estar.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((svc, i) => (
-            <Link
-              key={i}
-              to={`/servico/${svc.slug}`}
-              className="group relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 block"
+        <div className="space-y-24">
+          {featuredServices.map((service, index) => (
+            <div
+              key={service.id}
+              className={`flex flex-col lg:flex-row gap-12 items-center ${
+                index % 2 !== 0 ? 'lg:flex-row-reverse' : ''
+              }`}
             >
-              <img
-                src={svc.img}
-                alt={svc.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="flex-1 relative">
+                <div className="absolute inset-0 bg-primary/10 rounded-[2rem] transform rotate-3 scale-105 -z-10" />
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="rounded-[2rem] shadow-2xl object-cover w-full aspect-[4/3]"
+                />
+              </div>
 
-              <div className="absolute bottom-0 left-0 w-full p-6 flex items-end justify-between translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                <h4 className="text-white text-2xl font-bold">{svc.title}</h4>
-                <div className="w-12 h-12 rounded-full bg-gold-500/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shrink-0 ml-4">
-                  <ArrowUpRight className="w-6 h-6" />
+              <div className="flex-1 space-y-6">
+                <h3 className="text-3xl font-bold text-gray-900 font-sans">{service.title}</h3>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  {service.fullDescription.split('.')[0]}.
+                </p>
+
+                <ul className="space-y-4 pt-4">
+                  {service.benefits.slice(0, 4).map((benefit, i) => (
+                    <li key={i} className="flex items-center gap-3 text-gray-700">
+                      <CheckCircle2 className="w-6 h-6 text-primary shrink-0" />
+                      <span className="font-medium">{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="pt-6 flex flex-wrap gap-4">
+                  <Button size="lg" className="rounded-full font-sans font-semibold" asChild>
+                    <Link to={`/servicos/${service.id}`}>Conhecer serviço</Link>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="rounded-full font-sans font-semibold"
+                    asChild
+                  >
+                    <a href={contact.whatsapp} target="_blank" rel="noopener noreferrer">
+                      Agendar uma avaliação
+                    </a>
+                  </Button>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>
