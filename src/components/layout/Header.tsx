@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import { Menu, X, Phone } from 'lucide-react'
+import { Menu, X, Instagram } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import logoUrl from '@/assets/espacofisio_logo-fd933.png'
-import { navigation, socialLinks, contact } from '@/data/content'
+import { navigation, contact } from '@/data/content'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -50,28 +50,52 @@ export function Header() {
             <NavigationMenuList>
               {navigation.map((item) => (
                 <NavigationMenuItem key={item.name}>
-                  {item.items ? (
+                  {item.isMega && item.groups ? (
                     <>
-                      <NavigationMenuTrigger className="bg-transparent hover:bg-gray-100 text-gray-800 font-medium font-sans">
+                      <NavigationMenuTrigger className="bg-transparent hover:bg-gray-50 text-navy-900 font-semibold font-sans text-base">
                         {item.name}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-white">
+                        <div className="grid grid-cols-3 w-[700px] xl:w-[900px] gap-8 p-6 bg-white rounded-xl shadow-xl">
+                          {item.groups.map((group) => (
+                            <div key={group.title} className="space-y-4">
+                              <h4 className="text-sm font-bold text-gold-500 uppercase tracking-wider border-b border-gray-100 pb-2">
+                                {group.title}
+                              </h4>
+                              <ul className="space-y-2">
+                                {group.items.map((subItem) => (
+                                  <li key={subItem.name}>
+                                    <NavigationMenuLink asChild>
+                                      <Link
+                                        to={subItem.href}
+                                        className="block text-sm font-medium text-gray-700 hover:text-navy-900 hover:bg-gray-50 p-2 rounded-md transition-colors"
+                                      >
+                                        {subItem.name}
+                                      </Link>
+                                    </NavigationMenuLink>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      </NavigationMenuContent>
+                    </>
+                  ) : item.items ? (
+                    <>
+                      <NavigationMenuTrigger className="bg-transparent hover:bg-gray-50 text-navy-900 font-semibold font-sans text-base">
+                        {item.name}
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <ul className="w-[250px] p-2 bg-white rounded-xl shadow-xl space-y-1">
                           {item.items.map((subItem) => (
                             <li key={subItem.name}>
                               <NavigationMenuLink asChild>
                                 <Link
                                   to={subItem.href}
-                                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary/5 hover:text-primary focus:bg-primary/5 focus:text-primary"
+                                  className="block text-sm font-medium text-gray-700 hover:text-navy-900 hover:bg-gray-50 p-3 rounded-md transition-colors"
                                 >
-                                  <div className="text-sm font-semibold leading-none font-sans">
-                                    {subItem.name}
-                                  </div>
-                                  {subItem.description && (
-                                    <p className="line-clamp-2 text-sm leading-snug text-gray-500 mt-1">
-                                      {subItem.description}
-                                    </p>
-                                  )}
+                                  {subItem.name}
                                 </Link>
                               </NavigationMenuLink>
                             </li>
@@ -83,7 +107,7 @@ export function Header() {
                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                       <Link
                         to={item.href}
-                        className="bg-transparent hover:bg-gray-100 text-gray-800 font-medium font-sans cursor-pointer"
+                        className="bg-transparent hover:bg-gray-50 text-navy-900 font-semibold font-sans text-base cursor-pointer"
                       >
                         {item.name}
                       </Link>
@@ -95,29 +119,20 @@ export function Header() {
           </NavigationMenu>
 
           <div className="flex items-center gap-4 border-l border-gray-200 pl-6">
-            <div className="flex gap-2">
-              {socialLinks.map((social) => {
-                const Icon = social.icon
-                return (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-primary transition-colors"
-                  >
-                    <Icon className="w-5 h-5" />
-                  </a>
-                )
-              })}
-            </div>
+            <a
+              href="https://www.instagram.com/espacofisioembu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-navy-900 transition-colors bg-gray-50 p-2 rounded-full hover:bg-gray-100"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-5 h-5" />
+            </a>
 
-            <div className="hidden xl:flex items-center gap-2 text-gray-700 font-semibold">
-              <Phone className="w-4 h-4 text-primary" />
-              <span>{contact.phone}</span>
-            </div>
-
-            <Button asChild className="rounded-full font-semibold font-sans shadow-sm">
+            <Button
+              asChild
+              className="rounded-full font-semibold font-sans shadow-md bg-navy-900 hover:bg-navy-800 text-white"
+            >
               <a href={contact.whatsapp} target="_blank" rel="noopener noreferrer">
                 Agendar uma avaliação
               </a>
@@ -127,10 +142,10 @@ export function Header() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="lg:hidden z-50 p-2 text-gray-800"
+          className="lg:hidden z-50 p-2 text-navy-900"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
         </button>
 
         {/* Mobile Navigation */}
@@ -143,17 +158,44 @@ export function Header() {
           <nav className="flex flex-col gap-6">
             {navigation.map((item) => (
               <div key={item.name} className="flex flex-col gap-2">
-                {item.items ? (
+                {item.isMega && item.groups ? (
                   <>
-                    <span className="text-lg font-bold text-gray-800 font-sans border-b pb-2">
+                    <span className="text-xl font-bold text-navy-900 font-sans border-b border-gray-100 pb-2">
                       {item.name}
                     </span>
-                    <div className="flex flex-col gap-3 pl-4">
+                    <div className="flex flex-col gap-6 pl-4 mt-2">
+                      {item.groups.map((group) => (
+                        <div key={group.title} className="flex flex-col gap-2">
+                          <span className="text-sm font-bold text-gold-500 uppercase">
+                            {group.title}
+                          </span>
+                          <div className="flex flex-col gap-3 border-l-2 border-gray-100 pl-4">
+                            {group.items.map((subItem) => (
+                              <Link
+                                key={subItem.name}
+                                to={subItem.href}
+                                className="text-gray-600 hover:text-navy-900 font-medium font-sans"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                {subItem.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                ) : item.items ? (
+                  <>
+                    <span className="text-xl font-bold text-navy-900 font-sans border-b border-gray-100 pb-2">
+                      {item.name}
+                    </span>
+                    <div className="flex flex-col gap-3 pl-4 mt-2 border-l-2 border-gray-100 ml-4">
                       {item.items.map((subItem) => (
                         <Link
                           key={subItem.name}
                           to={subItem.href}
-                          className="text-gray-600 hover:text-primary transition-colors py-1 font-medium font-sans"
+                          className="text-gray-600 hover:text-navy-900 font-medium font-sans py-1"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           {subItem.name}
@@ -164,7 +206,7 @@ export function Header() {
                 ) : (
                   <Link
                     to={item.href}
-                    className="text-lg font-bold text-gray-800 font-sans border-b pb-2 hover:text-primary transition-colors"
+                    className="text-xl font-bold text-navy-900 font-sans border-b border-gray-100 pb-2"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.name}
@@ -176,23 +218,21 @@ export function Header() {
 
           <div className="mt-8 pt-8 border-t flex flex-col gap-6 pb-12">
             <div className="flex justify-center gap-4">
-              {socialLinks.map((social) => {
-                const Icon = social.icon
-                return (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors"
-                  >
-                    <Icon className="w-6 h-6" />
-                  </a>
-                )
-              })}
+              <a
+                href="https://www.instagram.com/espacofisioembu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-14 h-14 rounded-full bg-gray-50 flex items-center justify-center text-navy-900 hover:bg-navy-900 hover:text-white transition-colors shadow-sm"
+              >
+                <Instagram className="w-7 h-7" />
+              </a>
             </div>
 
-            <Button size="lg" asChild className="w-full rounded-full font-semibold font-sans">
+            <Button
+              size="lg"
+              asChild
+              className="w-full rounded-full font-bold font-sans text-lg bg-navy-900 text-white h-14"
+            >
               <a href={contact.whatsapp} target="_blank" rel="noopener noreferrer">
                 Agendar uma avaliação
               </a>

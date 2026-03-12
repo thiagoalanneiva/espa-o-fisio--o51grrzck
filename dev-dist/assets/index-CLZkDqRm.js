@@ -19018,7 +19018,7 @@ var ArrowLeft = createLucideIcon("arrow-left", [["path", {
 	d: "M19 12H5",
 	key: "x3x0zl"
 }]]);
-var ArrowRight = createLucideIcon("arrow-right", [["path", {
+var ArrowRight$1 = createLucideIcon("arrow-right", [["path", {
 	d: "M5 12h14",
 	key: "1ays0h"
 }], ["path", {
@@ -19245,10 +19245,6 @@ var Menu = createLucideIcon("menu", [
 		key: "1djgab"
 	}]
 ]);
-var MessageCircle = createLucideIcon("message-circle", [["path", {
-	d: "M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719",
-	key: "1sd12s"
-}]]);
 var Phone = createLucideIcon("phone", [["path", {
 	d: "M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384",
 	key: "9njp5v"
@@ -19261,6 +19257,13 @@ var Search = createLucideIcon("search", [["path", {
 	cy: "11",
 	r: "8",
 	key: "4ej97u"
+}]]);
+var ShieldCheck = createLucideIcon("shield-check", [["path", {
+	d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
+	key: "oel41y"
+}], ["path", {
+	d: "m9 12 2 2 4-4",
+	key: "dzmm74"
 }]]);
 var Shield = createLucideIcon("shield", [["path", {
 	d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
@@ -24456,14 +24459,8 @@ Button.displayName = "Button";
 var contact = {
 	phone: "(11) 97166-4664",
 	whatsapp: "https://wa.me/5511971664664",
-	email: "contato@espacofisioembu.com.br",
-	address: "Rua Exemplo, 123 - Centro, Embu das Artes - SP"
+	email: "contato@espacofisioembu.com.br"
 };
-var socialLinks = [{
-	name: "Instagram",
-	href: "https://www.instagram.com/espacofisioembu/",
-	icon: Instagram
-}];
 var navigation$1 = [
 	{
 		name: "Início",
@@ -24475,76 +24472,124 @@ var navigation$1 = [
 	},
 	{
 		name: "Serviços",
-		items: [
+		isMega: true,
+		groups: [
 			{
-				name: "Fisioterapia",
-				href: "/servicos/fisioterapia",
-				description: "Reabilitação e prevenção de lesões"
+				title: "Fisioterapia",
+				items: [
+					{
+						name: "Ortopédica",
+						href: "/servico/fisioterapia-ortopedica"
+					},
+					{
+						name: "Neurológica",
+						href: "/servico/fisioterapia-neurologica"
+					},
+					{
+						name: "Pélvica",
+						href: "/servico/fisioterapia-pelvica"
+					},
+					{
+						name: "Pediátrica",
+						href: "/servico/fisioterapia-pediatrica"
+					},
+					{
+						name: "Geriátrica",
+						href: "/servico/fisioterapia-geriatrica"
+					},
+					{
+						name: "Gestante",
+						href: "/servico/fisioterapia-gestante"
+					},
+					{
+						name: "Esportiva",
+						href: "/servico/fisioterapia-esportiva"
+					}
+				]
 			},
 			{
-				name: "Acupuntura",
-				href: "/servicos/acupuntura",
-				description: "Tratamento tradicional para dor"
+				title: "Acupuntura & Pilates",
+				items: [
+					{
+						name: "Acupuntura Sistêmica",
+						href: "/servico/acupuntura-sistemica"
+					},
+					{
+						name: "Acupuntura Auricular",
+						href: "/servico/acupuntura-auricular"
+					},
+					{
+						name: "Dryneedling",
+						href: "/servico/dryneedling"
+					},
+					{
+						name: "Pilates Postural",
+						href: "/servico/pilates-postural"
+					},
+					{
+						name: "Pilates Gestante",
+						href: "/servico/pilates-gestante"
+					},
+					{
+						name: "Pilates Idoso",
+						href: "/servico/pilates-idoso"
+					},
+					{
+						name: "Pilates Kids",
+						href: "/servico/pilates-kids"
+					}
+				]
 			},
 			{
-				name: "RPG",
-				href: "/servicos/rpg",
-				description: "Reeducação Postural Global"
-			},
-			{
-				name: "Pilates",
-				href: "/servicos/pilates",
-				description: "Fortalecimento e flexibilidade"
-			},
-			{
-				name: "Liberação Miofascial",
-				href: "/servicos/liberacao-miofascial",
-				description: "Alívio de tensões musculares"
-			},
-			{
-				name: "Ventosa",
-				href: "/servicos/ventosa",
-				description: "Terapia com ventosas"
-			},
-			{
-				name: "Quiropraxia",
-				href: "/servicos/quiropraxia",
-				description: "Ajustes articulares e alinhamento"
+				title: "Especialidades",
+				items: [
+					{
+						name: "RPG",
+						href: "/servico/rpg"
+					},
+					{
+						name: "Liberação Miofascial",
+						href: "/servico/liberacao-miofascial"
+					},
+					{
+						name: "Ventosa",
+						href: "/servico/ventosa"
+					},
+					{
+						name: "Quiropraxia",
+						href: "/servico/quiropraxia"
+					}
+				]
 			}
 		]
 	},
 	{
 		name: "Tratamentos",
+		isMega: false,
 		items: [
 			{
 				name: "Laser",
-				href: "/servicos/laser",
-				description: "Terapia a laser para inflamações"
+				href: "/servico/laser"
 			},
 			{
 				name: "Recupero",
-				href: "/servicos/recupero",
-				description: "Aceleração da recuperação tecidual"
+				href: "/servico/recupero"
 			},
 			{
 				name: "Ondas de Choque",
-				href: "/servicos/ondas-de-choque",
-				description: "Tratamento para dores crônicas"
+				href: "/servico/ondas-de-choque"
 			},
 			{
 				name: "Infra Vermelho",
-				href: "/servicos/infra-vermelho",
-				description: "Terapia térmica superficial"
+				href: "/servico/infra-vermelho"
 			},
 			{
 				name: "Terapia Manual",
-				href: "/servicos/terapia-manual",
-				description: "Técnicas de mobilização manual"
+				href: "/servico/terapia-manual"
 			},
 			{
 				name: "Bandagens",
-				href: "/servicos/bandagens",
-				description: "Suporte muscular e articular"
+				href: "/servico/bandagens"
 			}
 		]
 	},
@@ -24555,25 +24600,109 @@ var navigation$1 = [
 ];
 var services = [
 	{
-		id: "fisioterapia",
-		title: "Fisioterapia",
-		shortDescription: "Avaliação, diagnóstico e tratamento de disfunções do movimento humano com as melhores técnicas.",
-		fullDescription: "A Fisioterapia foca na reabilitação através de recursos físicos, manuais e exercícios terapêuticos. Nosso objetivo é restaurar, manter e promover a função física ótima, bem-estar e qualidade de vida do paciente.\n\nTratamos condições ortopédicas, neurológicas, respiratórias e desportivas, sempre com um plano de tratamento individualizado.",
-		image: "https://img.usecurling.com/p/800/600?q=physiotherapy",
+		id: "fisioterapia-ortopedica",
+		title: "Fisioterapia Ortopédica",
+		shortDescription: "Reabilitação especializada para lesões musculoesqueléticas, fraturas e dores articulares.",
+		fullDescription: "Focada no tratamento de disfunções do sistema musculoesquelético. Ideal para recuperação de cirurgias, fraturas, tendinites, bursites, lombalgias e outras dores que limitam o seu dia a dia. Utilizamos técnicas manuais e exercícios específicos para restaurar a função normal.",
+		image: "https://img.usecurling.com/p/800/600?q=physiotherapy%20clinic&color=blue",
 		benefits: [
-			"Alívio da dor",
-			"Recuperação de movimentos",
-			"Prevenção de lesões",
-			"Melhora da flexibilidade"
+			"Alívio rápido e eficaz da dor",
+			"Tratamento 100% personalizado",
+			"Recuperação da mobilidade",
+			"Prevenção de futuras lesões"
+		],
+		icon: "Bone"
+	},
+	{
+		id: "fisioterapia-neurologica",
+		title: "Fisioterapia Neurológica",
+		shortDescription: "Recuperação funcional para pacientes com distúrbios ou lesões neurológicas.",
+		fullDescription: "Tratamento direcionado a pacientes com AVC, Parkinson, esclerose múltipla, paralisia cerebral, entre outros. O foco é estimular a neuroplasticidade, melhorando o equilíbrio, a coordenação motora e a independência funcional.",
+		image: "https://img.usecurling.com/p/800/600?q=neurology&color=blue",
+		benefits: [
+			"Melhora do equilíbrio",
+			"Estímulo cognitivo-motor",
+			"Maior independência",
+			"Prevenção de contraturas"
 		],
 		icon: "Activity"
 	},
 	{
-		id: "acupuntura",
-		title: "Acupuntura",
-		shortDescription: "Terapia milenar chinesa para equilíbrio energético e tratamento de diversas patologias.",
-		fullDescription: "A Acupuntura é uma técnica milenar que consiste na inserção de agulhas finas em pontos específicos do corpo para estimular a cura natural, promover a saúde e aliviar a dor.\n\nÉ altamente eficaz no tratamento de dores crônicas, ansiedade, insônia, enxaqueca e problemas digestivos.",
-		image: "https://img.usecurling.com/p/800/600?q=acupuncture",
+		id: "fisioterapia-pelvica",
+		title: "Fisioterapia Pélvica",
+		shortDescription: "Tratamento de disfunções do assoalho pélvico para homens e mulheres.",
+		fullDescription: "Atua na prevenção e tratamento de incontinência urinária, disfunções sexuais, prolapsos e dores pélvicas crônicas. O tratamento fortalece a musculatura da região, devolvendo o controle e a qualidade de vida.",
+		image: "https://img.usecurling.com/p/800/600?q=anatomy&color=blue",
+		benefits: [
+			"Controle urinário",
+			"Fortalecimento muscular",
+			"Preparação para o parto",
+			"Alívio de dores"
+		],
+		icon: "Heart"
+	},
+	{
+		id: "fisioterapia-pediatrica",
+		title: "Fisioterapia Pediátrica",
+		shortDescription: "Cuidado especializado para o desenvolvimento motor de bebês e crianças.",
+		fullDescription: "Avaliação e intervenção em atrasos no desenvolvimento motor, problemas ortopédicos congênitos, alterações respiratórias e neurológicas infantis. Tudo feito de forma lúdica para engajar a criança.",
+		image: "https://img.usecurling.com/p/800/600?q=pediatrics&color=blue",
+		benefits: [
+			"Estímulo ao desenvolvimento",
+			"Correção postural infantil",
+			"Melhora respiratória",
+			"Atendimento lúdico"
+		],
+		icon: "Activity"
+	},
+	{
+		id: "fisioterapia-geriatrica",
+		title: "Fisioterapia Geriátrica",
+		shortDescription: "Manutenção da autonomia e qualidade de vida na terceira idade.",
+		fullDescription: "Foco na prevenção de quedas, tratamento de artrose, osteoporose e manutenção da força muscular em idosos. O objetivo principal é garantir um envelhecimento ativo e independente.",
+		image: "https://img.usecurling.com/p/800/600?q=elderly%20care&color=blue",
+		benefits: [
+			"Prevenção de quedas",
+			"Manutenção da força",
+			"Alívio de dores articulares",
+			"Maior autonomia"
+		],
+		icon: "Heart"
+	},
+	{
+		id: "fisioterapia-gestante",
+		title: "Fisioterapia para Gestantes",
+		shortDescription: "Preparação física para o parto e alívio das dores durante a gestação.",
+		fullDescription: "Acompanhamento especializado para reduzir desconfortos como dores lombares e inchaço, além de preparar a musculatura pélvica e a respiração para um parto mais tranquilo e uma recuperação pós-parto eficiente.",
+		image: "https://img.usecurling.com/p/800/600?q=pregnancy&color=blue",
+		benefits: [
+			"Redução de inchaços",
+			"Alívio da lombalgia",
+			"Preparação para o parto",
+			"Recuperação rápida"
+		],
+		icon: "Activity"
+	},
+	{
+		id: "fisioterapia-esportiva",
+		title: "Fisioterapia Esportiva",
+		shortDescription: "Prevenção de lesões e reabilitação acelerada para atletas e praticantes de esportes.",
+		fullDescription: "Focada na rápida recuperação de entorses, distensões e rupturas musculares, permitindo o retorno seguro à prática esportiva. Inclui trabalho preventivo para otimizar o desempenho do atleta.",
+		image: "https://img.usecurling.com/p/800/600?q=sports%20medicine&color=blue",
+		benefits: [
+			"Retorno rápido ao esporte",
+			"Aumento de performance",
+			"Prevenção de lesões",
+			"Reequilíbrio muscular"
+		],
+		icon: "Zap"
+	},
+	{
+		id: "acupuntura-sistemica",
+		title: "Acupuntura Sistêmica",
+		shortDescription: "Terapia milenar chinesa para equilíbrio energético e alívio de diversas patologias.",
+		fullDescription: "Técnica que utiliza agulhas extremamente finas em pontos específicos do corpo. É altamente eficaz no tratamento de dores crônicas, ansiedade, insônia, enxaqueca, tensões musculares e desequilíbrios sistêmicos.",
+		image: "https://img.usecurling.com/p/800/600?q=acupuncture&color=blue",
 		benefits: [
 			"Redução do estresse",
 			"Alívio de dores crônicas",
@@ -24583,2058 +24712,453 @@ var services = [
 		icon: "Feather"
 	},
 	{
-		id: "rpg",
-		title: "RPG (Reeducação Postural Global)",
-		shortDescription: "Método fisioterapêutico de correção postural através de posturas de alongamento.",
-		fullDescription: "A Reeducação Postural Global (RPG) é um método inovador de fisioterapia que consiste em ajustamentos na postura para reorganização dos segmentos do corpo humano.\n\nAtravés de posturas específicas de alongamento, tratamos desvios posturais, dores nas costas, hérnias de disco e lesões articulares.",
-		image: "https://img.usecurling.com/p/800/600?q=posture",
+		id: "acupuntura-auricular",
+		title: "Acupuntura Auricular",
+		shortDescription: "Estímulo de pontos no pavilhão auricular para tratar dores e ansiedade.",
+		fullDescription: "A auriculoterapia usa o mapa da orelha como um microssistema do corpo humano. Excelente técnica complementar para controle de peso, vício em tabaco, estresse profundo e distúrbios digestivos.",
+		image: "https://img.usecurling.com/p/800/600?q=ear%20acupuncture&color=blue",
 		benefits: [
-			"Correção postural",
-			"Alívio de dores na coluna",
-			"Melhora da respiração",
-			"Aumento da flexibilidade"
+			"Controle de ansiedade",
+			"Tratamento rápido",
+			"Sem contraindicações",
+			"Efeito contínuo"
 		],
-		icon: "Bone"
+		icon: "Feather"
 	},
 	{
-		id: "pilates",
-		title: "Pilates",
-		shortDescription: "Sistema de exercícios para melhorar flexibilidade, força e consciência corporal.",
-		fullDescription: "O Pilates é um método de condicionamento físico e mental que trabalha o corpo de forma global, enfatizando a respiração, a concentração, o controle, o centro de força, a precisão e a fluidez dos movimentos.\n\nIdeal para reabilitação, prevenção de lesões e melhora do condicionamento físico geral.",
-		image: "https://img.usecurling.com/p/800/600?q=pilates",
+		id: "dryneedling",
+		title: "Dry Needling (Agulhamento a Seco)",
+		shortDescription: "Desativação de pontos gatilho musculares para alívio imediato da dor.",
+		fullDescription: "Diferente da acupuntura tradicional, o agulhamento a seco foca diretamente na musculatura tensionada (pontos gatilho). É extremamente eficaz para dores miofasciais crônicas, torcicolos e tensões nos ombros e pescoço.",
+		image: "https://img.usecurling.com/p/800/600?q=dry%20needling&color=blue",
 		benefits: [
-			"Fortalecimento muscular",
-			"Melhora da postura",
-			"Aumento da flexibilidade",
-			"Consciência corporal"
+			"Alívio muscular imediato",
+			"Aumento da amplitude de movimento",
+			"Desativação de espasmos",
+			"Complemento à fisioterapia"
+		],
+		icon: "Zap"
+	},
+	{
+		id: "pilates-postural",
+		title: "Pilates Postural",
+		shortDescription: "Correção de desvios posturais e fortalecimento do centro de força (core).",
+		fullDescription: "O método foca no alinhamento da coluna e fortalecimento global. Indicado para quem passa muito tempo sentado, sente dores frequentes nas costas ou busca melhorar a consciência corporal e flexibilidade.",
+		image: "https://img.usecurling.com/p/800/600?q=pilates%20studio&color=blue",
+		benefits: [
+			"Melhora drástica da postura",
+			"Fortalecimento do core",
+			"Flexibilidade",
+			"Alívio de tensões"
+		],
+		icon: "Activity"
+	},
+	{
+		id: "pilates-gestante",
+		title: "Pilates para Gestantes",
+		shortDescription: "Exercícios seguros para fortalecer o corpo e facilitar a gestação.",
+		fullDescription: "Aulas adaptadas para cada trimestre da gravidez. O Pilates previne o excesso de ganho de peso, fortalece a musculatura pélvica, alivia as dores na coluna e melhora a circulação sanguínea da gestante.",
+		image: "https://img.usecurling.com/p/800/600?q=pregnancy%20exercise&color=blue",
+		benefits: [
+			"Controle da respiração",
+			"Fortalecimento seguro",
+			"Redução de dores",
+			"Bem-estar materno"
 		],
 		icon: "Heart"
 	},
 	{
+		id: "pilates-idoso",
+		title: "Pilates para a Terceira Idade",
+		shortDescription: "Mobilidade, equilíbrio e força muscular para um envelhecimento ativo.",
+		fullDescription: "O Pilates é um dos métodos mais seguros para idosos, pois possui baixo impacto articular. Auxilia muito na prevenção de quedas, combate à osteoporose e devolução da autonomia para atividades diárias.",
+		image: "https://img.usecurling.com/p/800/600?q=elderly%20fitness&color=blue",
+		benefits: [
+			"Segurança nos movimentos",
+			"Ganho de massa muscular",
+			"Socialização",
+			"Prevenção de lesões"
+		],
+		icon: "Activity"
+	},
+	{
+		id: "pilates-kids",
+		title: "Pilates Kids",
+		shortDescription: "Desenvolvimento motor e postural saudável para crianças e adolescentes.",
+		fullDescription: "De forma lúdica, trabalhamos a concentração, coordenação motora e prevenimos desvios posturais causados pelo excesso de uso de celulares e mochilas pesadas. Ideal para o desenvolvimento infantil.",
+		image: "https://img.usecurling.com/p/800/600?q=kids%20exercise&color=blue",
+		benefits: [
+			"Correção postural precoce",
+			"Foco e concentração",
+			"Gasto de energia",
+			"Consciência corporal"
+		],
+		icon: "Sparkles"
+	},
+	{
+		id: "rpg",
+		title: "RPG (Reeducação Postural Global)",
+		shortDescription: "Método de correção postural profunda através de posturas de alongamento e respiração.",
+		fullDescription: "A Reeducação Postural Global (RPG) trata a causa da dor atuando sobre os desvios posturais. O tratamento consiste em consultas individuais onde o fisioterapeuta aplica posturas específicas para realinhar a coluna e as articulações.",
+		image: "https://img.usecurling.com/p/800/600?q=posture%20correction&color=blue",
+		benefits: [
+			"Tratamento de escoliose",
+			"Cura de hérnias de disco",
+			"Correção postural",
+			"Alívio de dores crônicas"
+		],
+		icon: "Bone"
+	},
+	{
 		id: "liberacao-miofascial",
 		title: "Liberação Miofascial",
-		shortDescription: "Técnica manual para relaxar a musculatura e aliviar tensões da fáscia.",
-		fullDescription: "A Liberação Miofascial é uma técnica de terapia manual que visa promover o alívio de tensões e dores musculares, relaxando a fáscia (tecido conectivo que envolve os músculos).\n\nÉ excelente para atletas, pessoas com má postura crônica ou que sofrem de dores tensionais.",
-		image: "https://img.usecurling.com/p/800/600?q=massage",
+		shortDescription: "Técnica manual profunda para relaxar a fáscia muscular e aliviar dores tensionais.",
+		fullDescription: "Através de pressão manual ou com instrumentos, soltamos as aderências na fáscia (tecido que envolve o músculo). Fundamental para atletas, pessoas com fibromialgia ou quem sofre com alto nível de estresse e tensão no pescoço.",
+		image: "https://img.usecurling.com/p/800/600?q=massage%20therapy&color=blue",
 		benefits: [
-			"Alívio de tensões musculares",
-			"Aumento da amplitude de movimento",
-			"Melhora da circulação",
-			"Redução de dores"
+			"Relaxamento profundo",
+			"Prevenção de lesões musculares",
+			"Aumento de flexibilidade",
+			"Melhora da circulação"
 		],
 		icon: "Sparkles"
 	},
 	{
 		id: "ventosa",
 		title: "Ventosaterapia",
-		shortDescription: "Terapia natural que utiliza sucção para melhorar a circulação e aliviar dores.",
-		fullDescription: "A Ventosaterapia é um tipo de tratamento natural no qual são usadas ventosas para melhorar a circulação sanguínea em um local do corpo.\n\nA sucção criada pela ventosa aumenta o fluxo de sangue, o que promove o relaxamento muscular, o alívio de tensões e a desintoxicação do organismo.",
-		image: "https://img.usecurling.com/p/800/600?q=cupping",
+		shortDescription: "Terapia que utiliza sucção para oxigenar tecidos, eliminar toxinas e soltar músculos.",
+		fullDescription: "A aplicação de ventosas cria um vácuo na pele, aumentando a circulação sanguínea no local. O aumento do fluxo de sangue nutre os músculos, desfazendo nódulos de tensão e promovendo uma sensação de alívio rápido.",
+		image: "https://img.usecurling.com/p/800/600?q=cupping%20therapy&color=blue",
 		benefits: [
-			"Relaxamento muscular profundo",
-			"Melhora da circulação sanguínea",
-			"Alívio de dores nas costas",
-			"Desintoxicação"
+			"Desintoxicação muscular",
+			"Alívio imediato de tensões",
+			"Oxigenação celular",
+			"Acelera a recuperação"
 		],
 		icon: "Activity"
 	},
 	{
 		id: "quiropraxia",
 		title: "Quiropraxia",
-		shortDescription: "Diagnóstico e tratamento de problemas no sistema neuromusculoesquelético com ajustes articulares.",
-		fullDescription: "A Quiropraxia dedica-se ao diagnóstico, tratamento e prevenção de problemas das articulações, músculos, tendões e nervos, com ênfase especial na coluna vertebral.\n\nAtravés de ajustes articulares precisos, restauramos a mobilidade, reduzimos a dor e otimizamos o funcionamento do sistema nervoso central, promovendo saúde e bem-estar de forma natural.",
-		image: "https://img.usecurling.com/p/800/600?q=chiropractic",
+		shortDescription: "Ajustes articulares precisos para restaurar o alinhamento da coluna e sistema nervoso.",
+		fullDescription: "A Quiropraxia foca no diagnóstico e tratamento de problemas articulares, principalmente na coluna vertebral. Através de manobras manuais (os famosos \"estalos\"), destravamos articulações bloqueadas, eliminando a dor e otimizando o corpo.",
+		image: "https://img.usecurling.com/p/800/600?q=chiropractic&color=blue",
 		benefits: [
-			"Alinhamento da coluna vertebral",
-			"Alívio imediato de dores articulares",
-			"Melhora da mobilidade",
-			"Otimização do sistema nervoso"
+			"Alinhamento vertebral",
+			"Mobilidade imediata",
+			"Melhora da condução nervosa",
+			"Tratamento não invasivo"
 		],
 		icon: "Dna"
 	},
 	{
 		id: "laser",
 		title: "Laserterapia",
-		shortDescription: "Tratamento com laser para acelerar a cicatrização e reduzir inflamações.",
-		fullDescription: "A Laserterapia utiliza a luz do laser de baixa potência para estimular a recuperação celular e tecidual. É amplamente utilizada para reduzir inflamações, aliviar dores e acelerar o processo de cicatrização de feridas e lesões musculares.",
-		image: "https://img.usecurling.com/p/800/600?q=laser%20therapy",
+		shortDescription: "Tecnologia avançada de luz para acelerar a cicatrização e reduzir inflamações severas.",
+		fullDescription: "O Laser de baixa potência atua diretamente no nível celular. Ele acelera a produção de ATP, promovendo uma rápida regeneração de tecidos lesionados. Muito utilizado em cicatrização de feridas, tendinites crônicas e fascite plantar.",
+		image: "https://img.usecurling.com/p/800/600?q=laser%20treatment&color=blue",
 		benefits: [
-			"Ação anti-inflamatória",
-			"Efeito analgésico",
-			"Aceleração da cicatrização",
-			"Regeneração tecidual"
+			"Poderoso anti-inflamatório",
+			"Cicatrização rápida",
+			"Totalmente indolor",
+			"Analgesia profunda"
 		],
 		icon: "Zap"
 	},
 	{
 		id: "recupero",
 		title: "Recupero",
-		shortDescription: "Tecnologia avançada para aceleração do reparo de tecidos musculoesqueléticos.",
-		fullDescription: "O Recupero é um equipamento de alta tecnologia que atua profundamente nos tecidos, promovendo uma rápida recuperação de lesões musculares, articulares e ligamentares através de estímulos biológicos.",
-		image: "https://img.usecurling.com/p/800/600?q=medical%20device",
+		shortDescription: "Tecnologia inovadora para aceleração biológica do reparo de tecidos musculoesqueléticos.",
+		fullDescription: "Um equipamento premium que atua profundamente, emitindo estímulos que reorganizam as fibras musculares e articulares. É a escolha de atletas de alto rendimento para acelerar a cura de distensões e traumas.",
+		image: "https://img.usecurling.com/p/800/600?q=medical%20technology&color=blue",
 		benefits: [
-			"Recuperação acelerada",
-			"Ação analgésica rápida",
-			"Redução de edemas",
-			"Melhora da função celular"
+			"Recuperação em tempo recorde",
+			"Regeneração celular",
+			"Ação direta na inflamação",
+			"Alta tecnologia"
 		],
 		icon: "Activity"
 	},
 	{
 		id: "ondas-de-choque",
-		title: "Ondas de Choque",
-		shortDescription: "Terapia não invasiva altamente eficaz no tratamento de dores crônicas.",
-		fullDescription: "A Terapia por Ondas de Choque é um tratamento não invasivo que utiliza ondas acústicas de alta energia para estimular a regeneração de tecidos e a formação de novos vasos sanguíneos, sendo excelente para fascite plantar, tendinites e calcificações.",
-		image: "https://img.usecurling.com/p/800/600?q=shockwave%20therapy",
+		title: "Terapia por Ondas de Choque",
+		shortDescription: "Onda acústica de alta energia ideal para dissolver calcificações e dores persistentes.",
+		fullDescription: "O padrão ouro para o tratamento de tendinites calcificadas, fascite plantar, esporão de calcâneo e epicondilites. As ondas acústicas criam microlesões que forçam o corpo a reiniciar um processo de cura agudo na região afetada.",
+		image: "https://img.usecurling.com/p/800/600?q=shockwave%20machine&color=blue",
 		benefits: [
-			"Desintegração de calcificações",
-			"Alívio de dores crônicas",
-			"Estimulação de colágeno",
-			"Formação de novos vasos"
+			"Evita cirurgias",
+			"Quebra de calcificações",
+			"Resultados em poucas sessões",
+			"Estimula novos vasos sanguíneos"
 		],
 		icon: "Zap"
 	},
 	{
 		id: "infra-vermelho",
 		title: "Infravermelho",
-		shortDescription: "Terapia de calor superficial para promover relaxamento e alívio da dor.",
-		fullDescription: "A terapia com luz Infravermelha utiliza o calor para penetrar superficialmente nos tecidos corporais, promovendo vasodilatação local, relaxamento muscular, alívio da dor e aumento do metabolismo da região tratada.",
-		image: "https://img.usecurling.com/p/800/600?q=infrared%20therapy",
+		shortDescription: "Terapia de calor superficial para preparar e relaxar a musculatura antes da reabilitação.",
+		fullDescription: "A luz infravermelha penetra nas primeiras camadas da pele, promovendo uma vasodilatação profunda. Esse aquecimento aumenta a maleabilidade dos tecidos e alivia espasmos, sendo excelente como preparo para terapias manuais.",
+		image: "https://img.usecurling.com/p/800/600?q=infrared%20lamp&color=blue",
 		benefits: [
-			"Relaxamento muscular",
-			"Alívio de espasmos",
-			"Aumento da circulação local",
-			"Preparação para outras terapias"
+			"Vasodilatação local",
+			"Relaxamento imediato",
+			"Preparação tecidual",
+			"Conforto térmico"
 		],
 		icon: "Sparkles"
 	},
 	{
 		id: "terapia-manual",
 		title: "Terapia Manual",
-		shortDescription: "Conjunto de técnicas aplicadas com as mãos para tratar disfunções.",
-		fullDescription: "A Terapia Manual engloba diversas técnicas de manipulação e mobilização articular e de tecidos moles. O fisioterapeuta utiliza as mãos para diagnosticar e tratar dores e disfunções, restaurando a mobilidade e função normais.",
-		image: "https://img.usecurling.com/p/800/600?q=manual%20therapy",
+		shortDescription: "Conjunto de técnicas aplicadas exclusivamente pelas mãos do fisioterapeuta.",
+		fullDescription: "Inclui mobilização articular, manipulação, tração e massagem profunda. O raciocínio clínico por trás da terapia manual permite devolver o deslizamento perfeito entre as articulações e nervos, acabando com a rigidez.",
+		image: "https://img.usecurling.com/p/800/600?q=manual%20physiotherapy&color=blue",
 		benefits: [
-			"Restauração da mobilidade",
-			"Diminuição da dor",
-			"Melhora da função articular",
-			"Tratamento personalizado"
+			"Restauração do movimento",
+			"Avaliação contínua",
+			"Toque especializado",
+			"Desbloqueio articular"
 		],
 		icon: "Activity"
 	},
 	{
 		id: "bandagens",
-		title: "Bandagens Funcionais",
-		shortDescription: "Aplicação de fitas terapêuticas para suporte e alívio de dores.",
-		fullDescription: "As bandagens funcionais (como o Kinesio Taping) são aplicadas sobre a pele para fornecer suporte muscular e articular sem restringir a amplitude de movimento. Ajudam a reduzir edemas, aliviar a dor e facilitar a contração muscular.",
-		image: "https://img.usecurling.com/p/800/600?q=kinesio%20tape",
+		title: "Bandagens Funcionais (Kinesio)",
+		shortDescription: "Aplicação de fitas terapêuticas coloridas para dar suporte articular e muscular.",
+		fullDescription: "As fitas elásticas são aplicadas com tensões específicas para levantar levemente a pele, aliviando a pressão nos receptores de dor e facilitando a drenagem linfática. Permitem o movimento livre enquanto estabilizam a área lesionada.",
+		image: "https://img.usecurling.com/p/800/600?q=kinesio%20tape&color=blue",
 		benefits: [
-			"Suporte articular",
-			"Redução de edemas",
-			"Alívio de dores",
-			"Melhora da propriocepção"
+			"Suporte contínuo 24h",
+			"Redução imediata de edemas",
+			"Melhora da propriocepção",
+			"Segurança no movimento"
 		],
 		icon: "Feather"
 	}
 ];
 var units = [{
 	id: "embu",
-	name: "Unidade Embu das Artes",
-	address: "Rua Exemplo, 123 - Centro",
+	name: "Espaço Fisio Embu",
+	address: "Av. Elias Yazbek, 567",
 	city: "Embu das Artes - SP",
 	phone: "(11) 97166-4664",
-	mapUrl: "https://www.google.com/maps/dir/?api=1&destination=Espa%C3%A7o+Fisioterapia+Embu+das+Artes",
-	image: "https://img.usecurling.com/p/600/400?q=modern%20clinic"
+	mapUrl: "https://www.google.com/maps/search/?api=1&query=Av.+Elias+Yazbek,+567+-+Embu+das+Artes",
+	image: "https://img.usecurling.com/p/600/400?q=clinic%20building&color=blue"
+}, {
+	id: "taboao",
+	name: "Espaço Fisio Taboão",
+	address: "R. Thereza Maria Luizetto, 220",
+	city: "Taboão da Serra - SP",
+	phone: "(11) 97166-4664",
+	mapUrl: "https://www.google.com/maps/search/?api=1&query=R.+Thereza+Maria+Luizetto,+220+-+Taboão+da+Serra",
+	image: "https://img.usecurling.com/p/600/400?q=medical%20office&color=blue"
 }];
 var testimonials = [
 	{
 		id: 1,
-		name: "Maria Silva",
-		role: "Paciente de Fisioterapia",
-		content: "Lugar maravilhoso, ótimo atendimento! Os profissionais são super capacitados. Fui tratada pela equipe e só tenho a agradecer.",
+		name: "Ricardo Almeida",
+		role: "Paciente de Fisioterapia Ortopédica",
+		content: "Minhas dores na coluna sumiram na terceira sessão. Excelente clínica, atendimento no horário e profissionais muito bem qualificados. Instalações de primeira linha.",
 		rating: 5,
-		image: "https://img.usecurling.com/ppl/thumbnail?gender=female&seed=1"
+		image: "https://img.usecurling.com/ppl/thumbnail?gender=male&seed=15"
 	},
 	{
 		id: 2,
-		name: "João Pedro",
-		role: "Aluno de Pilates",
-		content: "Espaço muito bem equipado e ambiente super agradável. Faço pilates duas vezes por semana e minhas dores nas costas sumiram!",
+		name: "Juliana Costa",
+		role: "Paciente de RPG",
+		content: "Espaço maravilhoso, profissionais muito qualificados e atenciosos. Faço RPG há alguns meses e minha qualidade de vida melhorou absurdamente. Recomendo de olhos fechados.",
 		rating: 5,
-		image: "https://img.usecurling.com/ppl/thumbnail?gender=male&seed=2"
+		image: "https://img.usecurling.com/ppl/thumbnail?gender=female&seed=22"
 	},
 	{
 		id: 3,
-		name: "Ana Costa",
-		role: "Paciente de Acupuntura",
-		content: "Atendimento impecável desde a recepção até a acupuntura. Profissionais atenciosos e competentes. Recomendo muito o Espaço Fisio.",
+		name: "Marcos Vinícius",
+		role: "Paciente de Fisioterapia Esportiva",
+		content: "Fiz meu pós-operatório do joelho aqui e tive uma recuperação muito acima do esperado. Aparelhos modernos e foco total no paciente. A equipe é nota mil!",
 		rating: 5,
-		image: "https://img.usecurling.com/ppl/thumbnail?gender=female&seed=3"
+		image: "https://img.usecurling.com/ppl/thumbnail?gender=male&seed=31"
+	},
+	{
+		id: 4,
+		name: "Amanda Silveira",
+		role: "Aluna de Pilates",
+		content: "Atendimento pontual e humanizado. A clínica tem ótima infraestrutura, ambiente super limpo e professores de pilates muito técnicos. Minha postura é outra!",
+		rating: 5,
+		image: "https://img.usecurling.com/ppl/thumbnail?gender=female&seed=44"
 	}
 ];
-//#endregion
-//#region ../../cache/modules/espaco-fisio-website-6a693/node_modules/.pnpm/embla-carousel-reactive-utils@8.6.0_embla-carousel@8.6.0/node_modules/embla-carousel-reactive-utils/esm/embla-carousel-reactive-utils.esm.js
-function isObject$1(subject) {
-	return Object.prototype.toString.call(subject) === "[object Object]";
-}
-function isRecord(subject) {
-	return isObject$1(subject) || Array.isArray(subject);
-}
-function canUseDOM() {
-	return !!(typeof window !== "undefined" && window.document && window.document.createElement);
-}
-function areOptionsEqual(optionsA, optionsB) {
-	const optionsAKeys = Object.keys(optionsA);
-	const optionsBKeys = Object.keys(optionsB);
-	if (optionsAKeys.length !== optionsBKeys.length) return false;
-	if (JSON.stringify(Object.keys(optionsA.breakpoints || {})) !== JSON.stringify(Object.keys(optionsB.breakpoints || {}))) return false;
-	return optionsAKeys.every((key) => {
-		const valueA = optionsA[key];
-		const valueB = optionsB[key];
-		if (typeof valueA === "function") return `${valueA}` === `${valueB}`;
-		if (!isRecord(valueA) || !isRecord(valueB)) return valueA === valueB;
-		return areOptionsEqual(valueA, valueB);
-	});
-}
-function sortAndMapPluginToOptions(plugins) {
-	return plugins.concat().sort((a, b) => a.name > b.name ? 1 : -1).map((plugin) => plugin.options);
-}
-function arePluginsEqual(pluginsA, pluginsB) {
-	if (pluginsA.length !== pluginsB.length) return false;
-	const optionsA = sortAndMapPluginToOptions(pluginsA);
-	const optionsB = sortAndMapPluginToOptions(pluginsB);
-	return optionsA.every((optionA, index) => {
-		const optionB = optionsB[index];
-		return areOptionsEqual(optionA, optionB);
-	});
-}
-//#endregion
-//#region ../../cache/modules/espaco-fisio-website-6a693/node_modules/.pnpm/embla-carousel@8.6.0/node_modules/embla-carousel/esm/embla-carousel.esm.js
-function isNumber(subject) {
-	return typeof subject === "number";
-}
-function isString(subject) {
-	return typeof subject === "string";
-}
-function isBoolean(subject) {
-	return typeof subject === "boolean";
-}
-function isObject(subject) {
-	return Object.prototype.toString.call(subject) === "[object Object]";
-}
-function mathAbs(n) {
-	return Math.abs(n);
-}
-function mathSign(n) {
-	return Math.sign(n);
-}
-function deltaAbs(valueB, valueA) {
-	return mathAbs(valueB - valueA);
-}
-function factorAbs(valueB, valueA) {
-	if (valueB === 0 || valueA === 0) return 0;
-	if (mathAbs(valueB) <= mathAbs(valueA)) return 0;
-	return mathAbs(deltaAbs(mathAbs(valueB), mathAbs(valueA)) / valueB);
-}
-function roundToTwoDecimals(num) {
-	return Math.round(num * 100) / 100;
-}
-function arrayKeys(array) {
-	return objectKeys(array).map(Number);
-}
-function arrayLast(array) {
-	return array[arrayLastIndex(array)];
-}
-function arrayLastIndex(array) {
-	return Math.max(0, array.length - 1);
-}
-function arrayIsLastIndex(array, index) {
-	return index === arrayLastIndex(array);
-}
-function arrayFromNumber(n, startAt = 0) {
-	return Array.from(Array(n), (_, i) => startAt + i);
-}
-function objectKeys(object) {
-	return Object.keys(object);
-}
-function objectsMergeDeep(objectA, objectB) {
-	return [objectA, objectB].reduce((mergedObjects, currentObject) => {
-		objectKeys(currentObject).forEach((key) => {
-			const valueA = mergedObjects[key];
-			const valueB = currentObject[key];
-			mergedObjects[key] = isObject(valueA) && isObject(valueB) ? objectsMergeDeep(valueA, valueB) : valueB;
-		});
-		return mergedObjects;
-	}, {});
-}
-function isMouseEvent(evt, ownerWindow) {
-	return typeof ownerWindow.MouseEvent !== "undefined" && evt instanceof ownerWindow.MouseEvent;
-}
-function Alignment(align, viewSize) {
-	const predefined = {
-		start,
-		center,
-		end
-	};
-	function start() {
-		return 0;
-	}
-	function center(n) {
-		return end(n) / 2;
-	}
-	function end(n) {
-		return viewSize - n;
-	}
-	function measure(n, index) {
-		if (isString(align)) return predefined[align](n);
-		return align(viewSize, n, index);
-	}
-	return { measure };
-}
-function EventStore() {
-	let listeners = [];
-	function add(node, type, handler, options = { passive: true }) {
-		let removeListener;
-		if ("addEventListener" in node) {
-			node.addEventListener(type, handler, options);
-			removeListener = () => node.removeEventListener(type, handler, options);
-		} else {
-			const legacyMediaQueryList = node;
-			legacyMediaQueryList.addListener(handler);
-			removeListener = () => legacyMediaQueryList.removeListener(handler);
-		}
-		listeners.push(removeListener);
-		return self;
-	}
-	function clear() {
-		listeners = listeners.filter((remove) => remove());
-	}
-	const self = {
-		add,
-		clear
-	};
-	return self;
-}
-function Animations(ownerDocument, ownerWindow, update, render) {
-	const documentVisibleHandler = EventStore();
-	const fixedTimeStep = 1e3 / 60;
-	let lastTimeStamp = null;
-	let accumulatedTime = 0;
-	let animationId = 0;
-	function init() {
-		documentVisibleHandler.add(ownerDocument, "visibilitychange", () => {
-			if (ownerDocument.hidden) reset();
-		});
-	}
-	function destroy() {
-		stop();
-		documentVisibleHandler.clear();
-	}
-	function animate(timeStamp) {
-		if (!animationId) return;
-		if (!lastTimeStamp) {
-			lastTimeStamp = timeStamp;
-			update();
-			update();
-		}
-		const timeElapsed = timeStamp - lastTimeStamp;
-		lastTimeStamp = timeStamp;
-		accumulatedTime += timeElapsed;
-		while (accumulatedTime >= fixedTimeStep) {
-			update();
-			accumulatedTime -= fixedTimeStep;
-		}
-		render(accumulatedTime / fixedTimeStep);
-		if (animationId) animationId = ownerWindow.requestAnimationFrame(animate);
-	}
-	function start() {
-		if (animationId) return;
-		animationId = ownerWindow.requestAnimationFrame(animate);
-	}
-	function stop() {
-		ownerWindow.cancelAnimationFrame(animationId);
-		lastTimeStamp = null;
-		accumulatedTime = 0;
-		animationId = 0;
-	}
-	function reset() {
-		lastTimeStamp = null;
-		accumulatedTime = 0;
-	}
-	return {
-		init,
-		destroy,
-		start,
-		stop,
-		update,
-		render
-	};
-}
-function Axis(axis, contentDirection) {
-	const isRightToLeft = contentDirection === "rtl";
-	const isVertical = axis === "y";
-	const scroll = isVertical ? "y" : "x";
-	const cross = isVertical ? "x" : "y";
-	const sign = !isVertical && isRightToLeft ? -1 : 1;
-	const startEdge = getStartEdge();
-	const endEdge = getEndEdge();
-	function measureSize(nodeRect) {
-		const { height, width } = nodeRect;
-		return isVertical ? height : width;
-	}
-	function getStartEdge() {
-		if (isVertical) return "top";
-		return isRightToLeft ? "right" : "left";
-	}
-	function getEndEdge() {
-		if (isVertical) return "bottom";
-		return isRightToLeft ? "left" : "right";
-	}
-	function direction(n) {
-		return n * sign;
-	}
-	return {
-		scroll,
-		cross,
-		startEdge,
-		endEdge,
-		measureSize,
-		direction
-	};
-}
-function Limit(min = 0, max = 0) {
-	const length = mathAbs(min - max);
-	function reachedMin(n) {
-		return n < min;
-	}
-	function reachedMax(n) {
-		return n > max;
-	}
-	function reachedAny(n) {
-		return reachedMin(n) || reachedMax(n);
-	}
-	function constrain(n) {
-		if (!reachedAny(n)) return n;
-		return reachedMin(n) ? min : max;
-	}
-	function removeOffset(n) {
-		if (!length) return n;
-		return n - length * Math.ceil((n - max) / length);
-	}
-	return {
-		length,
-		max,
-		min,
-		constrain,
-		reachedAny,
-		reachedMax,
-		reachedMin,
-		removeOffset
-	};
-}
-function Counter(max, start, loop) {
-	const { constrain } = Limit(0, max);
-	const loopEnd = max + 1;
-	let counter = withinLimit(start);
-	function withinLimit(n) {
-		return !loop ? constrain(n) : mathAbs((loopEnd + n) % loopEnd);
-	}
-	function get() {
-		return counter;
-	}
-	function set(n) {
-		counter = withinLimit(n);
-		return self;
-	}
-	function add(n) {
-		return clone().set(get() + n);
-	}
-	function clone() {
-		return Counter(max, get(), loop);
-	}
-	const self = {
-		get,
-		set,
-		add,
-		clone
-	};
-	return self;
-}
-function DragHandler(axis, rootNode, ownerDocument, ownerWindow, target, dragTracker, location, animation, scrollTo, scrollBody, scrollTarget, index, eventHandler, percentOfView, dragFree, dragThreshold, skipSnaps, baseFriction, watchDrag) {
-	const { cross: crossAxis, direction } = axis;
-	const focusNodes = [
-		"INPUT",
-		"SELECT",
-		"TEXTAREA"
-	];
-	const nonPassiveEvent = { passive: false };
-	const initEvents = EventStore();
-	const dragEvents = EventStore();
-	const goToNextThreshold = Limit(50, 225).constrain(percentOfView.measure(20));
-	const snapForceBoost = {
-		mouse: 300,
-		touch: 400
-	};
-	const freeForceBoost = {
-		mouse: 500,
-		touch: 600
-	};
-	const baseSpeed = dragFree ? 43 : 25;
-	let isMoving = false;
-	let startScroll = 0;
-	let startCross = 0;
-	let pointerIsDown = false;
-	let preventScroll = false;
-	let preventClick = false;
-	let isMouse = false;
-	function init(emblaApi) {
-		if (!watchDrag) return;
-		function downIfAllowed(evt) {
-			if (isBoolean(watchDrag) || watchDrag(emblaApi, evt)) down(evt);
-		}
-		const node = rootNode;
-		initEvents.add(node, "dragstart", (evt) => evt.preventDefault(), nonPassiveEvent).add(node, "touchmove", () => void 0, nonPassiveEvent).add(node, "touchend", () => void 0).add(node, "touchstart", downIfAllowed).add(node, "mousedown", downIfAllowed).add(node, "touchcancel", up).add(node, "contextmenu", up).add(node, "click", click, true);
-	}
-	function destroy() {
-		initEvents.clear();
-		dragEvents.clear();
-	}
-	function addDragEvents() {
-		const node = isMouse ? ownerDocument : rootNode;
-		dragEvents.add(node, "touchmove", move, nonPassiveEvent).add(node, "touchend", up).add(node, "mousemove", move, nonPassiveEvent).add(node, "mouseup", up);
-	}
-	function isFocusNode(node) {
-		const nodeName = node.nodeName || "";
-		return focusNodes.includes(nodeName);
-	}
-	function forceBoost() {
-		return (dragFree ? freeForceBoost : snapForceBoost)[isMouse ? "mouse" : "touch"];
-	}
-	function allowedForce(force, targetChanged) {
-		const next = index.add(mathSign(force) * -1);
-		const baseForce = scrollTarget.byDistance(force, !dragFree).distance;
-		if (dragFree || mathAbs(force) < goToNextThreshold) return baseForce;
-		if (skipSnaps && targetChanged) return baseForce * .5;
-		return scrollTarget.byIndex(next.get(), 0).distance;
-	}
-	function down(evt) {
-		const isMouseEvt = isMouseEvent(evt, ownerWindow);
-		isMouse = isMouseEvt;
-		preventClick = dragFree && isMouseEvt && !evt.buttons && isMoving;
-		isMoving = deltaAbs(target.get(), location.get()) >= 2;
-		if (isMouseEvt && evt.button !== 0) return;
-		if (isFocusNode(evt.target)) return;
-		pointerIsDown = true;
-		dragTracker.pointerDown(evt);
-		scrollBody.useFriction(0).useDuration(0);
-		target.set(location);
-		addDragEvents();
-		startScroll = dragTracker.readPoint(evt);
-		startCross = dragTracker.readPoint(evt, crossAxis);
-		eventHandler.emit("pointerDown");
-	}
-	function move(evt) {
-		if (!isMouseEvent(evt, ownerWindow) && evt.touches.length >= 2) return up(evt);
-		const lastScroll = dragTracker.readPoint(evt);
-		const lastCross = dragTracker.readPoint(evt, crossAxis);
-		const diffScroll = deltaAbs(lastScroll, startScroll);
-		const diffCross = deltaAbs(lastCross, startCross);
-		if (!preventScroll && !isMouse) {
-			if (!evt.cancelable) return up(evt);
-			preventScroll = diffScroll > diffCross;
-			if (!preventScroll) return up(evt);
-		}
-		const diff = dragTracker.pointerMove(evt);
-		if (diffScroll > dragThreshold) preventClick = true;
-		scrollBody.useFriction(.3).useDuration(.75);
-		animation.start();
-		target.add(direction(diff));
-		evt.preventDefault();
-	}
-	function up(evt) {
-		const targetChanged = scrollTarget.byDistance(0, false).index !== index.get();
-		const rawForce = dragTracker.pointerUp(evt) * forceBoost();
-		const force = allowedForce(direction(rawForce), targetChanged);
-		const forceFactor = factorAbs(rawForce, force);
-		const speed = baseSpeed - 10 * forceFactor;
-		const friction = baseFriction + forceFactor / 50;
-		preventScroll = false;
-		pointerIsDown = false;
-		dragEvents.clear();
-		scrollBody.useDuration(speed).useFriction(friction);
-		scrollTo.distance(force, !dragFree);
-		isMouse = false;
-		eventHandler.emit("pointerUp");
-	}
-	function click(evt) {
-		if (preventClick) {
-			evt.stopPropagation();
-			evt.preventDefault();
-			preventClick = false;
-		}
-	}
-	function pointerDown() {
-		return pointerIsDown;
-	}
-	return {
-		init,
-		destroy,
-		pointerDown
-	};
-}
-function DragTracker(axis, ownerWindow) {
-	const logInterval = 170;
-	let startEvent;
-	let lastEvent;
-	function readTime(evt) {
-		return evt.timeStamp;
-	}
-	function readPoint(evt, evtAxis) {
-		const coord = `client${(evtAxis || axis.scroll) === "x" ? "X" : "Y"}`;
-		return (isMouseEvent(evt, ownerWindow) ? evt : evt.touches[0])[coord];
-	}
-	function pointerDown(evt) {
-		startEvent = evt;
-		lastEvent = evt;
-		return readPoint(evt);
-	}
-	function pointerMove(evt) {
-		const diff = readPoint(evt) - readPoint(lastEvent);
-		const expired = readTime(evt) - readTime(startEvent) > logInterval;
-		lastEvent = evt;
-		if (expired) startEvent = evt;
-		return diff;
-	}
-	function pointerUp(evt) {
-		if (!startEvent || !lastEvent) return 0;
-		const diffDrag = readPoint(lastEvent) - readPoint(startEvent);
-		const diffTime = readTime(evt) - readTime(startEvent);
-		const expired = readTime(evt) - readTime(lastEvent) > logInterval;
-		const force = diffDrag / diffTime;
-		return diffTime && !expired && mathAbs(force) > .1 ? force : 0;
-	}
-	return {
-		pointerDown,
-		pointerMove,
-		pointerUp,
-		readPoint
-	};
-}
-function NodeRects() {
-	function measure(node) {
-		const { offsetTop, offsetLeft, offsetWidth, offsetHeight } = node;
-		return {
-			top: offsetTop,
-			right: offsetLeft + offsetWidth,
-			bottom: offsetTop + offsetHeight,
-			left: offsetLeft,
-			width: offsetWidth,
-			height: offsetHeight
-		};
-	}
-	return { measure };
-}
-function PercentOfView(viewSize) {
-	function measure(n) {
-		return viewSize * (n / 100);
-	}
-	return { measure };
-}
-function ResizeHandler(container, eventHandler, ownerWindow, slides, axis, watchResize, nodeRects) {
-	const observeNodes = [container].concat(slides);
-	let resizeObserver;
-	let containerSize;
-	let slideSizes = [];
-	let destroyed = false;
-	function readSize(node) {
-		return axis.measureSize(nodeRects.measure(node));
-	}
-	function init(emblaApi) {
-		if (!watchResize) return;
-		containerSize = readSize(container);
-		slideSizes = slides.map(readSize);
-		function defaultCallback(entries) {
-			for (const entry of entries) {
-				if (destroyed) return;
-				const isContainer = entry.target === container;
-				const slideIndex = slides.indexOf(entry.target);
-				const lastSize = isContainer ? containerSize : slideSizes[slideIndex];
-				if (mathAbs(readSize(isContainer ? container : slides[slideIndex]) - lastSize) >= .5) {
-					emblaApi.reInit();
-					eventHandler.emit("resize");
-					break;
-				}
-			}
-		}
-		resizeObserver = new ResizeObserver((entries) => {
-			if (isBoolean(watchResize) || watchResize(emblaApi, entries)) defaultCallback(entries);
-		});
-		ownerWindow.requestAnimationFrame(() => {
-			observeNodes.forEach((node) => resizeObserver.observe(node));
-		});
-	}
-	function destroy() {
-		destroyed = true;
-		if (resizeObserver) resizeObserver.disconnect();
-	}
-	return {
-		init,
-		destroy
-	};
-}
-function ScrollBody(location, offsetLocation, previousLocation, target, baseDuration, baseFriction) {
-	let scrollVelocity = 0;
-	let scrollDirection = 0;
-	let scrollDuration = baseDuration;
-	let scrollFriction = baseFriction;
-	let rawLocation = location.get();
-	let rawLocationPrevious = 0;
-	function seek() {
-		const displacement = target.get() - location.get();
-		const isInstant = !scrollDuration;
-		let scrollDistance = 0;
-		if (isInstant) {
-			scrollVelocity = 0;
-			previousLocation.set(target);
-			location.set(target);
-			scrollDistance = displacement;
-		} else {
-			previousLocation.set(location);
-			scrollVelocity += displacement / scrollDuration;
-			scrollVelocity *= scrollFriction;
-			rawLocation += scrollVelocity;
-			location.add(scrollVelocity);
-			scrollDistance = rawLocation - rawLocationPrevious;
-		}
-		scrollDirection = mathSign(scrollDistance);
-		rawLocationPrevious = rawLocation;
-		return self;
-	}
-	function settled() {
-		return mathAbs(target.get() - offsetLocation.get()) < .001;
-	}
-	function duration() {
-		return scrollDuration;
-	}
-	function direction() {
-		return scrollDirection;
-	}
-	function velocity() {
-		return scrollVelocity;
-	}
-	function useBaseDuration() {
-		return useDuration(baseDuration);
-	}
-	function useBaseFriction() {
-		return useFriction(baseFriction);
-	}
-	function useDuration(n) {
-		scrollDuration = n;
-		return self;
-	}
-	function useFriction(n) {
-		scrollFriction = n;
-		return self;
-	}
-	const self = {
-		direction,
-		duration,
-		velocity,
-		seek,
-		settled,
-		useBaseFriction,
-		useBaseDuration,
-		useFriction,
-		useDuration
-	};
-	return self;
-}
-function ScrollBounds(limit, location, target, scrollBody, percentOfView) {
-	const pullBackThreshold = percentOfView.measure(10);
-	const edgeOffsetTolerance = percentOfView.measure(50);
-	const frictionLimit = Limit(.1, .99);
-	let disabled = false;
-	function shouldConstrain() {
-		if (disabled) return false;
-		if (!limit.reachedAny(target.get())) return false;
-		if (!limit.reachedAny(location.get())) return false;
-		return true;
-	}
-	function constrain(pointerDown) {
-		if (!shouldConstrain()) return;
-		const diffToEdge = mathAbs(limit[limit.reachedMin(location.get()) ? "min" : "max"] - location.get());
-		const diffToTarget = target.get() - location.get();
-		const friction = frictionLimit.constrain(diffToEdge / edgeOffsetTolerance);
-		target.subtract(diffToTarget * friction);
-		if (!pointerDown && mathAbs(diffToTarget) < pullBackThreshold) {
-			target.set(limit.constrain(target.get()));
-			scrollBody.useDuration(25).useBaseFriction();
-		}
-	}
-	function toggleActive(active) {
-		disabled = !active;
-	}
-	return {
-		shouldConstrain,
-		constrain,
-		toggleActive
-	};
-}
-function ScrollContain(viewSize, contentSize, snapsAligned, containScroll, pixelTolerance) {
-	const scrollBounds = Limit(-contentSize + viewSize, 0);
-	const snapsBounded = measureBounded();
-	const scrollContainLimit = findScrollContainLimit();
-	const snapsContained = measureContained();
-	function usePixelTolerance(bound, snap) {
-		return deltaAbs(bound, snap) <= 1;
-	}
-	function findScrollContainLimit() {
-		const startSnap = snapsBounded[0];
-		const endSnap = arrayLast(snapsBounded);
-		return Limit(snapsBounded.lastIndexOf(startSnap), snapsBounded.indexOf(endSnap) + 1);
-	}
-	function measureBounded() {
-		return snapsAligned.map((snapAligned, index) => {
-			const { min, max } = scrollBounds;
-			const snap = scrollBounds.constrain(snapAligned);
-			const isFirst = !index;
-			const isLast = arrayIsLastIndex(snapsAligned, index);
-			if (isFirst) return max;
-			if (isLast) return min;
-			if (usePixelTolerance(min, snap)) return min;
-			if (usePixelTolerance(max, snap)) return max;
-			return snap;
-		}).map((scrollBound) => parseFloat(scrollBound.toFixed(3)));
-	}
-	function measureContained() {
-		if (contentSize <= viewSize + pixelTolerance) return [scrollBounds.max];
-		if (containScroll === "keepSnaps") return snapsBounded;
-		const { min, max } = scrollContainLimit;
-		return snapsBounded.slice(min, max);
-	}
-	return {
-		snapsContained,
-		scrollContainLimit
-	};
-}
-function ScrollLimit(contentSize, scrollSnaps, loop) {
-	const max = scrollSnaps[0];
-	return { limit: Limit(loop ? max - contentSize : arrayLast(scrollSnaps), max) };
-}
-function ScrollLooper(contentSize, limit, location, vectors) {
-	const jointSafety = .1;
-	const { reachedMin, reachedMax } = Limit(limit.min + jointSafety, limit.max + jointSafety);
-	function shouldLoop(direction) {
-		if (direction === 1) return reachedMax(location.get());
-		if (direction === -1) return reachedMin(location.get());
-		return false;
-	}
-	function loop(direction) {
-		if (!shouldLoop(direction)) return;
-		const loopDistance = contentSize * (direction * -1);
-		vectors.forEach((v) => v.add(loopDistance));
-	}
-	return { loop };
-}
-function ScrollProgress(limit) {
-	const { max, length } = limit;
-	function get(n) {
-		const currentLocation = n - max;
-		return length ? currentLocation / -length : 0;
-	}
-	return { get };
-}
-function ScrollSnaps(axis, alignment, containerRect, slideRects, slidesToScroll) {
-	const { startEdge, endEdge } = axis;
-	const { groupSlides } = slidesToScroll;
-	const alignments = measureSizes().map(alignment.measure);
-	const snaps = measureUnaligned();
-	const snapsAligned = measureAligned();
-	function measureSizes() {
-		return groupSlides(slideRects).map((rects) => arrayLast(rects)[endEdge] - rects[0][startEdge]).map(mathAbs);
-	}
-	function measureUnaligned() {
-		return slideRects.map((rect) => containerRect[startEdge] - rect[startEdge]).map((snap) => -mathAbs(snap));
-	}
-	function measureAligned() {
-		return groupSlides(snaps).map((g) => g[0]).map((snap, index) => snap + alignments[index]);
-	}
-	return {
-		snaps,
-		snapsAligned
-	};
-}
-function SlideRegistry(containSnaps, containScroll, scrollSnaps, scrollContainLimit, slidesToScroll, slideIndexes) {
-	const { groupSlides } = slidesToScroll;
-	const { min, max } = scrollContainLimit;
-	const slideRegistry = createSlideRegistry();
-	function createSlideRegistry() {
-		const groupedSlideIndexes = groupSlides(slideIndexes);
-		const doNotContain = !containSnaps || containScroll === "keepSnaps";
-		if (scrollSnaps.length === 1) return [slideIndexes];
-		if (doNotContain) return groupedSlideIndexes;
-		return groupedSlideIndexes.slice(min, max).map((group, index, groups) => {
-			const isFirst = !index;
-			const isLast = arrayIsLastIndex(groups, index);
-			if (isFirst) return arrayFromNumber(arrayLast(groups[0]) + 1);
-			if (isLast) return arrayFromNumber(arrayLastIndex(slideIndexes) - arrayLast(groups)[0] + 1, arrayLast(groups)[0]);
-			return group;
-		});
-	}
-	return { slideRegistry };
-}
-function ScrollTarget(loop, scrollSnaps, contentSize, limit, targetVector) {
-	const { reachedAny, removeOffset, constrain } = limit;
-	function minDistance(distances) {
-		return distances.concat().sort((a, b) => mathAbs(a) - mathAbs(b))[0];
-	}
-	function findTargetSnap(target) {
-		const distance = loop ? removeOffset(target) : constrain(target);
-		const { index } = scrollSnaps.map((snap, index) => ({
-			diff: shortcut(snap - distance, 0),
-			index
-		})).sort((d1, d2) => mathAbs(d1.diff) - mathAbs(d2.diff))[0];
-		return {
-			index,
-			distance
-		};
-	}
-	function shortcut(target, direction) {
-		const targets = [
-			target,
-			target + contentSize,
-			target - contentSize
-		];
-		if (!loop) return target;
-		if (!direction) return minDistance(targets);
-		const matchingTargets = targets.filter((t) => mathSign(t) === direction);
-		if (matchingTargets.length) return minDistance(matchingTargets);
-		return arrayLast(targets) - contentSize;
-	}
-	function byIndex(index, direction) {
-		return {
-			index,
-			distance: shortcut(scrollSnaps[index] - targetVector.get(), direction)
-		};
-	}
-	function byDistance(distance, snap) {
-		const target = targetVector.get() + distance;
-		const { index, distance: targetSnapDistance } = findTargetSnap(target);
-		const reachedBound = !loop && reachedAny(target);
-		if (!snap || reachedBound) return {
-			index,
-			distance
-		};
-		return {
-			index,
-			distance: distance + shortcut(scrollSnaps[index] - targetSnapDistance, 0)
-		};
-	}
-	return {
-		byDistance,
-		byIndex,
-		shortcut
-	};
-}
-function ScrollTo(animation, indexCurrent, indexPrevious, scrollBody, scrollTarget, targetVector, eventHandler) {
-	function scrollTo(target) {
-		const distanceDiff = target.distance;
-		const indexDiff = target.index !== indexCurrent.get();
-		targetVector.add(distanceDiff);
-		if (distanceDiff) if (scrollBody.duration()) animation.start();
-		else {
-			animation.update();
-			animation.render(1);
-			animation.update();
-		}
-		if (indexDiff) {
-			indexPrevious.set(indexCurrent.get());
-			indexCurrent.set(target.index);
-			eventHandler.emit("select");
-		}
-	}
-	function distance(n, snap) {
-		scrollTo(scrollTarget.byDistance(n, snap));
-	}
-	function index(n, direction) {
-		const targetIndex = indexCurrent.clone().set(n);
-		scrollTo(scrollTarget.byIndex(targetIndex.get(), direction));
-	}
-	return {
-		distance,
-		index
-	};
-}
-function SlideFocus(root, slides, slideRegistry, scrollTo, scrollBody, eventStore, eventHandler, watchFocus) {
-	const focusListenerOptions = {
-		passive: true,
-		capture: true
-	};
-	let lastTabPressTime = 0;
-	function init(emblaApi) {
-		if (!watchFocus) return;
-		function defaultCallback(index) {
-			if ((/* @__PURE__ */ new Date()).getTime() - lastTabPressTime > 10) return;
-			eventHandler.emit("slideFocusStart");
-			root.scrollLeft = 0;
-			const group = slideRegistry.findIndex((group) => group.includes(index));
-			if (!isNumber(group)) return;
-			scrollBody.useDuration(0);
-			scrollTo.index(group, 0);
-			eventHandler.emit("slideFocus");
-		}
-		eventStore.add(document, "keydown", registerTabPress, false);
-		slides.forEach((slide, slideIndex) => {
-			eventStore.add(slide, "focus", (evt) => {
-				if (isBoolean(watchFocus) || watchFocus(emblaApi, evt)) defaultCallback(slideIndex);
-			}, focusListenerOptions);
-		});
-	}
-	function registerTabPress(event) {
-		if (event.code === "Tab") lastTabPressTime = (/* @__PURE__ */ new Date()).getTime();
-	}
-	return { init };
-}
-function Vector1D(initialValue) {
-	let value = initialValue;
-	function get() {
-		return value;
-	}
-	function set(n) {
-		value = normalizeInput(n);
-	}
-	function add(n) {
-		value += normalizeInput(n);
-	}
-	function subtract(n) {
-		value -= normalizeInput(n);
-	}
-	function normalizeInput(n) {
-		return isNumber(n) ? n : n.get();
-	}
-	return {
-		get,
-		set,
-		add,
-		subtract
-	};
-}
-function Translate(axis, container) {
-	const translate = axis.scroll === "x" ? x : y;
-	const containerStyle = container.style;
-	let previousTarget = null;
-	let disabled = false;
-	function x(n) {
-		return `translate3d(${n}px,0px,0px)`;
-	}
-	function y(n) {
-		return `translate3d(0px,${n}px,0px)`;
-	}
-	function to(target) {
-		if (disabled) return;
-		const newTarget = roundToTwoDecimals(axis.direction(target));
-		if (newTarget === previousTarget) return;
-		containerStyle.transform = translate(newTarget);
-		previousTarget = newTarget;
-	}
-	function toggleActive(active) {
-		disabled = !active;
-	}
-	function clear() {
-		if (disabled) return;
-		containerStyle.transform = "";
-		if (!container.getAttribute("style")) container.removeAttribute("style");
-	}
-	return {
-		clear,
-		to,
-		toggleActive
-	};
-}
-function SlideLooper(axis, viewSize, contentSize, slideSizes, slideSizesWithGaps, snaps, scrollSnaps, location, slides) {
-	const roundingSafety = .5;
-	const ascItems = arrayKeys(slideSizesWithGaps);
-	const descItems = arrayKeys(slideSizesWithGaps).reverse();
-	const loopPoints = startPoints().concat(endPoints());
-	function removeSlideSizes(indexes, from) {
-		return indexes.reduce((a, i) => {
-			return a - slideSizesWithGaps[i];
-		}, from);
-	}
-	function slidesInGap(indexes, gap) {
-		return indexes.reduce((a, i) => {
-			return removeSlideSizes(a, gap) > 0 ? a.concat([i]) : a;
-		}, []);
-	}
-	function findSlideBounds(offset) {
-		return snaps.map((snap, index) => ({
-			start: snap - slideSizes[index] + roundingSafety + offset,
-			end: snap + viewSize - roundingSafety + offset
-		}));
-	}
-	function findLoopPoints(indexes, offset, isEndEdge) {
-		const slideBounds = findSlideBounds(offset);
-		return indexes.map((index) => {
-			const initial = isEndEdge ? 0 : -contentSize;
-			const altered = isEndEdge ? contentSize : 0;
-			const boundEdge = isEndEdge ? "end" : "start";
-			const loopPoint = slideBounds[index][boundEdge];
-			return {
-				index,
-				loopPoint,
-				slideLocation: Vector1D(-1),
-				translate: Translate(axis, slides[index]),
-				target: () => location.get() > loopPoint ? initial : altered
-			};
-		});
-	}
-	function startPoints() {
-		const gap = scrollSnaps[0];
-		return findLoopPoints(slidesInGap(descItems, gap), contentSize, false);
-	}
-	function endPoints() {
-		return findLoopPoints(slidesInGap(ascItems, viewSize - scrollSnaps[0] - 1), -contentSize, true);
-	}
-	function canLoop() {
-		return loopPoints.every(({ index }) => {
-			return removeSlideSizes(ascItems.filter((i) => i !== index), viewSize) <= .1;
-		});
-	}
-	function loop() {
-		loopPoints.forEach((loopPoint) => {
-			const { target, translate, slideLocation } = loopPoint;
-			const shiftLocation = target();
-			if (shiftLocation === slideLocation.get()) return;
-			translate.to(shiftLocation);
-			slideLocation.set(shiftLocation);
-		});
-	}
-	function clear() {
-		loopPoints.forEach((loopPoint) => loopPoint.translate.clear());
-	}
-	return {
-		canLoop,
-		clear,
-		loop,
-		loopPoints
-	};
-}
-function SlidesHandler(container, eventHandler, watchSlides) {
-	let mutationObserver;
-	let destroyed = false;
-	function init(emblaApi) {
-		if (!watchSlides) return;
-		function defaultCallback(mutations) {
-			for (const mutation of mutations) if (mutation.type === "childList") {
-				emblaApi.reInit();
-				eventHandler.emit("slidesChanged");
-				break;
-			}
-		}
-		mutationObserver = new MutationObserver((mutations) => {
-			if (destroyed) return;
-			if (isBoolean(watchSlides) || watchSlides(emblaApi, mutations)) defaultCallback(mutations);
-		});
-		mutationObserver.observe(container, { childList: true });
-	}
-	function destroy() {
-		if (mutationObserver) mutationObserver.disconnect();
-		destroyed = true;
-	}
-	return {
-		init,
-		destroy
-	};
-}
-function SlidesInView(container, slides, eventHandler, threshold) {
-	const intersectionEntryMap = {};
-	let inViewCache = null;
-	let notInViewCache = null;
-	let intersectionObserver;
-	let destroyed = false;
-	function init() {
-		intersectionObserver = new IntersectionObserver((entries) => {
-			if (destroyed) return;
-			entries.forEach((entry) => {
-				const index = slides.indexOf(entry.target);
-				intersectionEntryMap[index] = entry;
-			});
-			inViewCache = null;
-			notInViewCache = null;
-			eventHandler.emit("slidesInView");
-		}, {
-			root: container.parentElement,
-			threshold
-		});
-		slides.forEach((slide) => intersectionObserver.observe(slide));
-	}
-	function destroy() {
-		if (intersectionObserver) intersectionObserver.disconnect();
-		destroyed = true;
-	}
-	function createInViewList(inView) {
-		return objectKeys(intersectionEntryMap).reduce((list, slideIndex) => {
-			const index = parseInt(slideIndex);
-			const { isIntersecting } = intersectionEntryMap[index];
-			if (inView && isIntersecting || !inView && !isIntersecting) list.push(index);
-			return list;
-		}, []);
-	}
-	function get(inView = true) {
-		if (inView && inViewCache) return inViewCache;
-		if (!inView && notInViewCache) return notInViewCache;
-		const slideIndexes = createInViewList(inView);
-		if (inView) inViewCache = slideIndexes;
-		if (!inView) notInViewCache = slideIndexes;
-		return slideIndexes;
-	}
-	return {
-		init,
-		destroy,
-		get
-	};
-}
-function SlideSizes(axis, containerRect, slideRects, slides, readEdgeGap, ownerWindow) {
-	const { measureSize, startEdge, endEdge } = axis;
-	const withEdgeGap = slideRects[0] && readEdgeGap;
-	const startGap = measureStartGap();
-	const endGap = measureEndGap();
-	const slideSizes = slideRects.map(measureSize);
-	const slideSizesWithGaps = measureWithGaps();
-	function measureStartGap() {
-		if (!withEdgeGap) return 0;
-		const slideRect = slideRects[0];
-		return mathAbs(containerRect[startEdge] - slideRect[startEdge]);
-	}
-	function measureEndGap() {
-		if (!withEdgeGap) return 0;
-		const style = ownerWindow.getComputedStyle(arrayLast(slides));
-		return parseFloat(style.getPropertyValue(`margin-${endEdge}`));
-	}
-	function measureWithGaps() {
-		return slideRects.map((rect, index, rects) => {
-			const isFirst = !index;
-			const isLast = arrayIsLastIndex(rects, index);
-			if (isFirst) return slideSizes[index] + startGap;
-			if (isLast) return slideSizes[index] + endGap;
-			return rects[index + 1][startEdge] - rect[startEdge];
-		}).map(mathAbs);
-	}
-	return {
-		slideSizes,
-		slideSizesWithGaps,
-		startGap,
-		endGap
-	};
-}
-function SlidesToScroll(axis, viewSize, slidesToScroll, loop, containerRect, slideRects, startGap, endGap, pixelTolerance) {
-	const { startEdge, endEdge, direction } = axis;
-	const groupByNumber = isNumber(slidesToScroll);
-	function byNumber(array, groupSize) {
-		return arrayKeys(array).filter((i) => i % groupSize === 0).map((i) => array.slice(i, i + groupSize));
-	}
-	function bySize(array) {
-		if (!array.length) return [];
-		return arrayKeys(array).reduce((groups, rectB, index) => {
-			const rectA = arrayLast(groups) || 0;
-			const isFirst = rectA === 0;
-			const isLast = rectB === arrayLastIndex(array);
-			const edgeA = containerRect[startEdge] - slideRects[rectA][startEdge];
-			const edgeB = containerRect[startEdge] - slideRects[rectB][endEdge];
-			const gapA = !loop && isFirst ? direction(startGap) : 0;
-			const chunkSize = mathAbs(edgeB - (!loop && isLast ? direction(endGap) : 0) - (edgeA + gapA));
-			if (index && chunkSize > viewSize + pixelTolerance) groups.push(rectB);
-			if (isLast) groups.push(array.length);
-			return groups;
-		}, []).map((currentSize, index, groups) => {
-			const previousSize = Math.max(groups[index - 1] || 0);
-			return array.slice(previousSize, currentSize);
-		});
-	}
-	function groupSlides(array) {
-		return groupByNumber ? byNumber(array, slidesToScroll) : bySize(array);
-	}
-	return { groupSlides };
-}
-function Engine(root, container, slides, ownerDocument, ownerWindow, options, eventHandler) {
-	const { align, axis: scrollAxis, direction, startIndex, loop, duration, dragFree, dragThreshold, inViewThreshold, slidesToScroll: groupSlides, skipSnaps, containScroll, watchResize, watchSlides, watchDrag, watchFocus } = options;
-	const pixelTolerance = 2;
-	const nodeRects = NodeRects();
-	const containerRect = nodeRects.measure(container);
-	const slideRects = slides.map(nodeRects.measure);
-	const axis = Axis(scrollAxis, direction);
-	const viewSize = axis.measureSize(containerRect);
-	const percentOfView = PercentOfView(viewSize);
-	const alignment = Alignment(align, viewSize);
-	const containSnaps = !loop && !!containScroll;
-	const { slideSizes, slideSizesWithGaps, startGap, endGap } = SlideSizes(axis, containerRect, slideRects, slides, loop || !!containScroll, ownerWindow);
-	const slidesToScroll = SlidesToScroll(axis, viewSize, groupSlides, loop, containerRect, slideRects, startGap, endGap, pixelTolerance);
-	const { snaps, snapsAligned } = ScrollSnaps(axis, alignment, containerRect, slideRects, slidesToScroll);
-	const contentSize = -arrayLast(snaps) + arrayLast(slideSizesWithGaps);
-	const { snapsContained, scrollContainLimit } = ScrollContain(viewSize, contentSize, snapsAligned, containScroll, pixelTolerance);
-	const scrollSnaps = containSnaps ? snapsContained : snapsAligned;
-	const { limit } = ScrollLimit(contentSize, scrollSnaps, loop);
-	const index = Counter(arrayLastIndex(scrollSnaps), startIndex, loop);
-	const indexPrevious = index.clone();
-	const slideIndexes = arrayKeys(slides);
-	const update = ({ dragHandler, scrollBody, scrollBounds, options: { loop } }) => {
-		if (!loop) scrollBounds.constrain(dragHandler.pointerDown());
-		scrollBody.seek();
-	};
-	const render = ({ scrollBody, translate, location, offsetLocation, previousLocation, scrollLooper, slideLooper, dragHandler, animation, eventHandler, scrollBounds, options: { loop } }, alpha) => {
-		const shouldSettle = scrollBody.settled();
-		const withinBounds = !scrollBounds.shouldConstrain();
-		const hasSettled = loop ? shouldSettle : shouldSettle && withinBounds;
-		const hasSettledAndIdle = hasSettled && !dragHandler.pointerDown();
-		if (hasSettledAndIdle) animation.stop();
-		const interpolatedLocation = location.get() * alpha + previousLocation.get() * (1 - alpha);
-		offsetLocation.set(interpolatedLocation);
-		if (loop) {
-			scrollLooper.loop(scrollBody.direction());
-			slideLooper.loop();
-		}
-		translate.to(offsetLocation.get());
-		if (hasSettledAndIdle) eventHandler.emit("settle");
-		if (!hasSettled) eventHandler.emit("scroll");
-	};
-	const animation = Animations(ownerDocument, ownerWindow, () => update(engine), (alpha) => render(engine, alpha));
-	const friction = .68;
-	const startLocation = scrollSnaps[index.get()];
-	const location = Vector1D(startLocation);
-	const previousLocation = Vector1D(startLocation);
-	const offsetLocation = Vector1D(startLocation);
-	const target = Vector1D(startLocation);
-	const scrollBody = ScrollBody(location, offsetLocation, previousLocation, target, duration, friction);
-	const scrollTarget = ScrollTarget(loop, scrollSnaps, contentSize, limit, target);
-	const scrollTo = ScrollTo(animation, index, indexPrevious, scrollBody, scrollTarget, target, eventHandler);
-	const scrollProgress = ScrollProgress(limit);
-	const eventStore = EventStore();
-	const slidesInView = SlidesInView(container, slides, eventHandler, inViewThreshold);
-	const { slideRegistry } = SlideRegistry(containSnaps, containScroll, scrollSnaps, scrollContainLimit, slidesToScroll, slideIndexes);
-	const slideFocus = SlideFocus(root, slides, slideRegistry, scrollTo, scrollBody, eventStore, eventHandler, watchFocus);
-	const engine = {
-		ownerDocument,
-		ownerWindow,
-		eventHandler,
-		containerRect,
-		slideRects,
-		animation,
-		axis,
-		dragHandler: DragHandler(axis, root, ownerDocument, ownerWindow, target, DragTracker(axis, ownerWindow), location, animation, scrollTo, scrollBody, scrollTarget, index, eventHandler, percentOfView, dragFree, dragThreshold, skipSnaps, friction, watchDrag),
-		eventStore,
-		percentOfView,
-		index,
-		indexPrevious,
-		limit,
-		location,
-		offsetLocation,
-		previousLocation,
-		options,
-		resizeHandler: ResizeHandler(container, eventHandler, ownerWindow, slides, axis, watchResize, nodeRects),
-		scrollBody,
-		scrollBounds: ScrollBounds(limit, offsetLocation, target, scrollBody, percentOfView),
-		scrollLooper: ScrollLooper(contentSize, limit, offsetLocation, [
-			location,
-			offsetLocation,
-			previousLocation,
-			target
-		]),
-		scrollProgress,
-		scrollSnapList: scrollSnaps.map(scrollProgress.get),
-		scrollSnaps,
-		scrollTarget,
-		scrollTo,
-		slideLooper: SlideLooper(axis, viewSize, contentSize, slideSizes, slideSizesWithGaps, snaps, scrollSnaps, offsetLocation, slides),
-		slideFocus,
-		slidesHandler: SlidesHandler(container, eventHandler, watchSlides),
-		slidesInView,
-		slideIndexes,
-		slideRegistry,
-		slidesToScroll,
-		target,
-		translate: Translate(axis, container)
-	};
-	return engine;
-}
-function EventHandler() {
-	let listeners = {};
-	let api;
-	function init(emblaApi) {
-		api = emblaApi;
-	}
-	function getListeners(evt) {
-		return listeners[evt] || [];
-	}
-	function emit(evt) {
-		getListeners(evt).forEach((e) => e(api, evt));
-		return self;
-	}
-	function on(evt, cb) {
-		listeners[evt] = getListeners(evt).concat([cb]);
-		return self;
-	}
-	function off(evt, cb) {
-		listeners[evt] = getListeners(evt).filter((e) => e !== cb);
-		return self;
-	}
-	function clear() {
-		listeners = {};
-	}
-	const self = {
-		init,
-		emit,
-		off,
-		on,
-		clear
-	};
-	return self;
-}
-var defaultOptions$1 = {
-	align: "center",
-	axis: "x",
-	container: null,
-	slides: null,
-	containScroll: "trimSnaps",
-	direction: "ltr",
-	slidesToScroll: 1,
-	inViewThreshold: 0,
-	breakpoints: {},
-	dragFree: false,
-	dragThreshold: 10,
-	loop: false,
-	skipSnaps: false,
-	duration: 25,
-	startIndex: 0,
-	active: true,
-	watchDrag: true,
-	watchResize: true,
-	watchSlides: true,
-	watchFocus: true
-};
-function OptionsHandler(ownerWindow) {
-	function mergeOptions(optionsA, optionsB) {
-		return objectsMergeDeep(optionsA, optionsB || {});
-	}
-	function optionsAtMedia(options) {
-		const optionsAtMedia = options.breakpoints || {};
-		return mergeOptions(options, objectKeys(optionsAtMedia).filter((media) => ownerWindow.matchMedia(media).matches).map((media) => optionsAtMedia[media]).reduce((a, mediaOption) => mergeOptions(a, mediaOption), {}));
-	}
-	function optionsMediaQueries(optionsList) {
-		return optionsList.map((options) => objectKeys(options.breakpoints || {})).reduce((acc, mediaQueries) => acc.concat(mediaQueries), []).map(ownerWindow.matchMedia);
-	}
-	return {
-		mergeOptions,
-		optionsAtMedia,
-		optionsMediaQueries
-	};
-}
-function PluginsHandler(optionsHandler) {
-	let activePlugins = [];
-	function init(emblaApi, plugins) {
-		activePlugins = plugins.filter(({ options }) => optionsHandler.optionsAtMedia(options).active !== false);
-		activePlugins.forEach((plugin) => plugin.init(emblaApi, optionsHandler));
-		return plugins.reduce((map, plugin) => Object.assign(map, { [plugin.name]: plugin }), {});
-	}
-	function destroy() {
-		activePlugins = activePlugins.filter((plugin) => plugin.destroy());
-	}
-	return {
-		init,
-		destroy
-	};
-}
-function EmblaCarousel(root, userOptions, userPlugins) {
-	const ownerDocument = root.ownerDocument;
-	const ownerWindow = ownerDocument.defaultView;
-	const optionsHandler = OptionsHandler(ownerWindow);
-	const pluginsHandler = PluginsHandler(optionsHandler);
-	const mediaHandlers = EventStore();
-	const eventHandler = EventHandler();
-	const { mergeOptions, optionsAtMedia, optionsMediaQueries } = optionsHandler;
-	const { on, off, emit } = eventHandler;
-	const reInit = reActivate;
-	let destroyed = false;
-	let engine;
-	let optionsBase = mergeOptions(defaultOptions$1, EmblaCarousel.globalOptions);
-	let options = mergeOptions(optionsBase);
-	let pluginList = [];
-	let pluginApis;
-	let container;
-	let slides;
-	function storeElements() {
-		const { container: userContainer, slides: userSlides } = options;
-		container = (isString(userContainer) ? root.querySelector(userContainer) : userContainer) || root.children[0];
-		const customSlides = isString(userSlides) ? container.querySelectorAll(userSlides) : userSlides;
-		slides = [].slice.call(customSlides || container.children);
-	}
-	function createEngine(options) {
-		const engine = Engine(root, container, slides, ownerDocument, ownerWindow, options, eventHandler);
-		if (options.loop && !engine.slideLooper.canLoop()) return createEngine(Object.assign({}, options, { loop: false }));
-		return engine;
-	}
-	function activate(withOptions, withPlugins) {
-		if (destroyed) return;
-		optionsBase = mergeOptions(optionsBase, withOptions);
-		options = optionsAtMedia(optionsBase);
-		pluginList = withPlugins || pluginList;
-		storeElements();
-		engine = createEngine(options);
-		optionsMediaQueries([optionsBase, ...pluginList.map(({ options }) => options)]).forEach((query) => mediaHandlers.add(query, "change", reActivate));
-		if (!options.active) return;
-		engine.translate.to(engine.location.get());
-		engine.animation.init();
-		engine.slidesInView.init();
-		engine.slideFocus.init(self);
-		engine.eventHandler.init(self);
-		engine.resizeHandler.init(self);
-		engine.slidesHandler.init(self);
-		if (engine.options.loop) engine.slideLooper.loop();
-		if (container.offsetParent && slides.length) engine.dragHandler.init(self);
-		pluginApis = pluginsHandler.init(self, pluginList);
-	}
-	function reActivate(withOptions, withPlugins) {
-		const startIndex = selectedScrollSnap();
-		deActivate();
-		activate(mergeOptions({ startIndex }, withOptions), withPlugins);
-		eventHandler.emit("reInit");
-	}
-	function deActivate() {
-		engine.dragHandler.destroy();
-		engine.eventStore.clear();
-		engine.translate.clear();
-		engine.slideLooper.clear();
-		engine.resizeHandler.destroy();
-		engine.slidesHandler.destroy();
-		engine.slidesInView.destroy();
-		engine.animation.destroy();
-		pluginsHandler.destroy();
-		mediaHandlers.clear();
-	}
-	function destroy() {
-		if (destroyed) return;
-		destroyed = true;
-		mediaHandlers.clear();
-		deActivate();
-		eventHandler.emit("destroy");
-		eventHandler.clear();
-	}
-	function scrollTo(index, jump, direction) {
-		if (!options.active || destroyed) return;
-		engine.scrollBody.useBaseFriction().useDuration(jump === true ? 0 : options.duration);
-		engine.scrollTo.index(index, direction || 0);
-	}
-	function scrollNext(jump) {
-		scrollTo(engine.index.add(1).get(), jump, -1);
-	}
-	function scrollPrev(jump) {
-		scrollTo(engine.index.add(-1).get(), jump, 1);
-	}
-	function canScrollNext() {
-		return engine.index.add(1).get() !== selectedScrollSnap();
-	}
-	function canScrollPrev() {
-		return engine.index.add(-1).get() !== selectedScrollSnap();
-	}
-	function scrollSnapList() {
-		return engine.scrollSnapList;
-	}
-	function scrollProgress() {
-		return engine.scrollProgress.get(engine.offsetLocation.get());
-	}
-	function selectedScrollSnap() {
-		return engine.index.get();
-	}
-	function previousScrollSnap() {
-		return engine.indexPrevious.get();
-	}
-	function slidesInView() {
-		return engine.slidesInView.get();
-	}
-	function slidesNotInView() {
-		return engine.slidesInView.get(false);
-	}
-	function plugins() {
-		return pluginApis;
-	}
-	function internalEngine() {
-		return engine;
-	}
-	function rootNode() {
-		return root;
-	}
-	function containerNode() {
-		return container;
-	}
-	function slideNodes() {
-		return slides;
-	}
-	const self = {
-		canScrollNext,
-		canScrollPrev,
-		containerNode,
-		internalEngine,
-		destroy,
-		off,
-		on,
-		emit,
-		plugins,
-		previousScrollSnap,
-		reInit,
-		rootNode,
-		scrollNext,
-		scrollPrev,
-		scrollProgress,
-		scrollSnapList,
-		scrollTo,
-		selectedScrollSnap,
-		slideNodes,
-		slidesInView,
-		slidesNotInView
-	};
-	activate(userOptions, userPlugins);
-	setTimeout(() => eventHandler.emit("init"), 0);
-	return self;
-}
-EmblaCarousel.globalOptions = void 0;
-//#endregion
-//#region ../../cache/modules/espaco-fisio-website-6a693/node_modules/.pnpm/embla-carousel-react@8.6.0_react@19.2.4/node_modules/embla-carousel-react/esm/embla-carousel-react.esm.js
-function useEmblaCarousel(options = {}, plugins = []) {
-	const storedOptions = (0, import_react.useRef)(options);
-	const storedPlugins = (0, import_react.useRef)(plugins);
-	const [emblaApi, setEmblaApi] = (0, import_react.useState)();
-	const [viewport, setViewport] = (0, import_react.useState)();
-	const reInit = (0, import_react.useCallback)(() => {
-		if (emblaApi) emblaApi.reInit(storedOptions.current, storedPlugins.current);
-	}, [emblaApi]);
-	(0, import_react.useEffect)(() => {
-		if (areOptionsEqual(storedOptions.current, options)) return;
-		storedOptions.current = options;
-		reInit();
-	}, [options, reInit]);
-	(0, import_react.useEffect)(() => {
-		if (arePluginsEqual(storedPlugins.current, plugins)) return;
-		storedPlugins.current = plugins;
-		reInit();
-	}, [plugins, reInit]);
-	(0, import_react.useEffect)(() => {
-		if (canUseDOM() && viewport) {
-			EmblaCarousel.globalOptions = useEmblaCarousel.globalOptions;
-			const newEmblaApi = EmblaCarousel(viewport, storedOptions.current, storedPlugins.current);
-			setEmblaApi(newEmblaApi);
-			return () => newEmblaApi.destroy();
-		} else setEmblaApi(void 0);
-	}, [viewport, setEmblaApi]);
-	return [setViewport, emblaApi];
-}
-useEmblaCarousel.globalOptions = void 0;
-//#endregion
-//#region src/components/ui/carousel.tsx
-var CarouselContext = import_react.createContext(null);
-function useCarousel() {
-	const context = import_react.useContext(CarouselContext);
-	if (!context) throw new Error("useCarousel must be used within a <Carousel />");
-	return context;
-}
-var Carousel = import_react.forwardRef(({ orientation = "horizontal", opts, setApi, plugins, className, children, ...props }, ref) => {
-	const [carouselRef, api] = useEmblaCarousel({
-		...opts,
-		axis: orientation === "horizontal" ? "x" : "y"
-	}, plugins);
-	const [canScrollPrev, setCanScrollPrev] = import_react.useState(false);
-	const [canScrollNext, setCanScrollNext] = import_react.useState(false);
-	const onSelect = import_react.useCallback((api) => {
-		if (!api) return;
-		setCanScrollPrev(api.canScrollPrev());
-		setCanScrollNext(api.canScrollNext());
-	}, []);
-	const scrollPrev = import_react.useCallback(() => {
-		api?.scrollPrev();
-	}, [api]);
-	const scrollNext = import_react.useCallback(() => {
-		api?.scrollNext();
-	}, [api]);
-	const handleKeyDown = import_react.useCallback((event) => {
-		if (event.key === "ArrowLeft") {
-			event.preventDefault();
-			scrollPrev();
-		} else if (event.key === "ArrowRight") {
-			event.preventDefault();
-			scrollNext();
-		}
-	}, [scrollPrev, scrollNext]);
-	import_react.useEffect(() => {
-		if (!api || !setApi) return;
-		setApi(api);
-	}, [api, setApi]);
-	import_react.useEffect(() => {
-		if (!api) return;
-		onSelect(api);
-		api.on("reInit", onSelect);
-		api.on("select", onSelect);
-		return () => {
-			api?.off("select", onSelect);
-		};
-	}, [api, onSelect]);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CarouselContext.Provider, {
-		"data-uid": "src/components/ui/carousel.tsx:109:5",
-		"data-prohibitions": "[editContent]",
-		value: {
-			carouselRef,
-			api,
-			opts,
-			orientation: orientation || (opts?.axis === "y" ? "vertical" : "horizontal"),
-			scrollPrev,
-			scrollNext,
-			canScrollPrev,
-			canScrollNext
-		},
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			"data-uid": "src/components/ui/carousel.tsx:121:7",
-			"data-prohibitions": "[editContent]",
-			ref,
-			onKeyDownCapture: handleKeyDown,
-			className: cn$1("relative", className),
-			role: "region",
-			"aria-roledescription": "carousel",
-			...props,
-			children
-		})
-	});
-});
-Carousel.displayName = "Carousel";
-var CarouselContent = import_react.forwardRef(({ className, ...props }, ref) => {
-	const { carouselRef, orientation } = useCarousel();
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		"data-uid": "src/components/ui/carousel.tsx:141:7",
-		"data-prohibitions": "[editContent]",
-		ref: carouselRef,
-		className: "overflow-hidden",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			"data-uid": "src/components/ui/carousel.tsx:142:9",
-			"data-prohibitions": "[editContent]",
-			ref,
-			className: cn$1("flex", orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col", className),
-			...props
-		})
-	});
-});
-CarouselContent.displayName = "CarouselContent";
-var CarouselItem = import_react.forwardRef(({ className, ...props }, ref) => {
-	const { orientation } = useCarousel();
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		"data-uid": "src/components/ui/carousel.tsx:162:7",
-		"data-prohibitions": "[editContent]",
-		ref,
-		role: "group",
-		"aria-roledescription": "slide",
-		className: cn$1("min-w-0 shrink-0 grow-0 basis-full", orientation === "horizontal" ? "pl-4" : "pt-4", className),
-		...props
-	});
-});
-CarouselItem.displayName = "CarouselItem";
-var CarouselPrevious = import_react.forwardRef(({ className, variant = "outline", size = "icon", ...props }, ref) => {
-	const { orientation, scrollPrev, canScrollPrev } = useCarousel();
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
-		"data-uid": "src/components/ui/carousel.tsx:183:7",
-		"data-prohibitions": "[editContent]",
-		ref,
-		variant,
-		size,
-		className: cn$1("absolute  h-8 w-8 rounded-full", orientation === "horizontal" ? "-left-12 top-1/2 -translate-y-1/2" : "-top-12 left-1/2 -translate-x-1/2 rotate-90", className),
-		disabled: !canScrollPrev,
-		onClick: scrollPrev,
-		...props,
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowLeft, {
-			"data-uid": "src/components/ui/carousel.tsx:198:9",
-			"data-prohibitions": "[editContent]",
-			className: "h-4 w-4"
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-			"data-uid": "src/components/ui/carousel.tsx:199:9",
-			"data-prohibitions": "[]",
-			className: "sr-only",
-			children: "Previous slide"
-		})]
-	});
-});
-CarouselPrevious.displayName = "CarouselPrevious";
-var CarouselNext = import_react.forwardRef(({ className, variant = "outline", size = "icon", ...props }, ref) => {
-	const { orientation, scrollNext, canScrollNext } = useCarousel();
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
-		"data-uid": "src/components/ui/carousel.tsx:211:7",
-		"data-prohibitions": "[editContent]",
-		ref,
-		variant,
-		size,
-		className: cn$1("absolute h-8 w-8 rounded-full", orientation === "horizontal" ? "-right-12 top-1/2 -translate-y-1/2" : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90", className),
-		disabled: !canScrollNext,
-		onClick: scrollNext,
-		...props,
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {
-			"data-uid": "src/components/ui/carousel.tsx:226:9",
-			"data-prohibitions": "[editContent]",
-			className: "h-4 w-4"
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-			"data-uid": "src/components/ui/carousel.tsx:227:9",
-			"data-prohibitions": "[]",
-			className: "sr-only",
-			children: "Next slide"
-		})]
-	});
-});
-CarouselNext.displayName = "CarouselNext";
-//#endregion
-//#region ../../cache/modules/espaco-fisio-website-6a693/node_modules/.pnpm/embla-carousel-autoplay@8.6.0_embla-carousel@8.6.0/node_modules/embla-carousel-autoplay/esm/embla-carousel-autoplay.esm.js
-var defaultOptions = {
-	active: true,
-	breakpoints: {},
-	delay: 4e3,
-	jump: false,
-	playOnInit: true,
-	stopOnFocusIn: true,
-	stopOnInteraction: true,
-	stopOnMouseEnter: false,
-	stopOnLastSnap: false,
-	rootNode: null
-};
-function normalizeDelay(emblaApi, delay) {
-	const scrollSnaps = emblaApi.scrollSnapList();
-	if (typeof delay === "number") return scrollSnaps.map(() => delay);
-	return delay(scrollSnaps, emblaApi);
-}
-function getAutoplayRootNode(emblaApi, rootNode) {
-	const emblaRootNode = emblaApi.rootNode();
-	return rootNode && rootNode(emblaRootNode) || emblaRootNode;
-}
-function Autoplay(userOptions = {}) {
-	let options;
-	let emblaApi;
-	let destroyed;
-	let delay;
-	let timerStartTime = null;
-	let timerId = 0;
-	let autoplayActive = false;
-	let mouseIsOver = false;
-	let playOnDocumentVisible = false;
-	let jump = false;
-	function init(emblaApiInstance, optionsHandler) {
-		emblaApi = emblaApiInstance;
-		const { mergeOptions, optionsAtMedia } = optionsHandler;
-		options = optionsAtMedia(mergeOptions(mergeOptions(defaultOptions, Autoplay.globalOptions), userOptions));
-		if (emblaApi.scrollSnapList().length <= 1) return;
-		jump = options.jump;
-		destroyed = false;
-		delay = normalizeDelay(emblaApi, options.delay);
-		const { eventStore, ownerDocument } = emblaApi.internalEngine();
-		const isDraggable = !!emblaApi.internalEngine().options.watchDrag;
-		const root = getAutoplayRootNode(emblaApi, options.rootNode);
-		eventStore.add(ownerDocument, "visibilitychange", visibilityChange);
-		if (isDraggable) emblaApi.on("pointerDown", pointerDown);
-		if (isDraggable && !options.stopOnInteraction) emblaApi.on("pointerUp", pointerUp);
-		if (options.stopOnMouseEnter) eventStore.add(root, "mouseenter", mouseEnter);
-		if (options.stopOnMouseEnter && !options.stopOnInteraction) eventStore.add(root, "mouseleave", mouseLeave);
-		if (options.stopOnFocusIn) emblaApi.on("slideFocusStart", stopAutoplay);
-		if (options.stopOnFocusIn && !options.stopOnInteraction) eventStore.add(emblaApi.containerNode(), "focusout", startAutoplay);
-		if (options.playOnInit) startAutoplay();
-	}
-	function destroy() {
-		emblaApi.off("pointerDown", pointerDown).off("pointerUp", pointerUp).off("slideFocusStart", stopAutoplay);
-		stopAutoplay();
-		destroyed = true;
-		autoplayActive = false;
-	}
-	function setTimer() {
-		const { ownerWindow } = emblaApi.internalEngine();
-		ownerWindow.clearTimeout(timerId);
-		timerId = ownerWindow.setTimeout(next, delay[emblaApi.selectedScrollSnap()]);
-		timerStartTime = (/* @__PURE__ */ new Date()).getTime();
-		emblaApi.emit("autoplay:timerset");
-	}
-	function clearTimer() {
-		const { ownerWindow } = emblaApi.internalEngine();
-		ownerWindow.clearTimeout(timerId);
-		timerId = 0;
-		timerStartTime = null;
-		emblaApi.emit("autoplay:timerstopped");
-	}
-	function startAutoplay() {
-		if (destroyed) return;
-		if (documentIsHidden()) {
-			playOnDocumentVisible = true;
-			return;
-		}
-		if (!autoplayActive) emblaApi.emit("autoplay:play");
-		setTimer();
-		autoplayActive = true;
-	}
-	function stopAutoplay() {
-		if (destroyed) return;
-		if (autoplayActive) emblaApi.emit("autoplay:stop");
-		clearTimer();
-		autoplayActive = false;
-	}
-	function visibilityChange() {
-		if (documentIsHidden()) {
-			playOnDocumentVisible = autoplayActive;
-			return stopAutoplay();
-		}
-		if (playOnDocumentVisible) startAutoplay();
-	}
-	function documentIsHidden() {
-		const { ownerDocument } = emblaApi.internalEngine();
-		return ownerDocument.visibilityState === "hidden";
-	}
-	function pointerDown() {
-		if (!mouseIsOver) stopAutoplay();
-	}
-	function pointerUp() {
-		if (!mouseIsOver) startAutoplay();
-	}
-	function mouseEnter() {
-		mouseIsOver = true;
-		stopAutoplay();
-	}
-	function mouseLeave() {
-		mouseIsOver = false;
-		startAutoplay();
-	}
-	function play(jumpOverride) {
-		if (typeof jumpOverride !== "undefined") jump = jumpOverride;
-		startAutoplay();
-	}
-	function stop() {
-		if (autoplayActive) stopAutoplay();
-	}
-	function reset() {
-		if (autoplayActive) startAutoplay();
-	}
-	function isPlaying() {
-		return autoplayActive;
-	}
-	function next() {
-		const { index } = emblaApi.internalEngine();
-		const nextIndex = index.clone().add(1).get();
-		const lastIndex = emblaApi.scrollSnapList().length - 1;
-		const kill = options.stopOnLastSnap && nextIndex === lastIndex;
-		if (emblaApi.canScrollNext()) emblaApi.scrollNext(jump);
-		else emblaApi.scrollTo(0, jump);
-		emblaApi.emit("autoplay:select");
-		if (kill) return stopAutoplay();
-		startAutoplay();
-	}
-	function timeUntilNext() {
-		if (!timerStartTime) return null;
-		return delay[emblaApi.selectedScrollSnap()] - ((/* @__PURE__ */ new Date()).getTime() - timerStartTime);
-	}
-	return {
-		name: "autoplay",
-		options: userOptions,
-		init,
-		destroy,
-		play,
-		stop,
-		reset,
-		isPlaying,
-		timeUntilNext
-	};
-}
-Autoplay.globalOptions = void 0;
 //#endregion
 //#region src/components/sections/Hero.tsx
-var slides = [
-	{
-		image: "https://img.usecurling.com/p/1920/1080?q=physiotherapy",
-		title: "Excelência em Fisioterapia",
-		subtitle: "Reabilitação avançada para devolver sua qualidade de vida com profissionais altamente capacitados."
-	},
-	{
-		image: "https://img.usecurling.com/p/1920/1080?q=pilates",
-		title: "Pilates para o Corpo e Mente",
-		subtitle: "Fortalecimento, flexibilidade e equilíbrio em um ambiente preparado para o seu bem-estar."
-	},
-	{
-		image: "https://img.usecurling.com/p/1920/1080?q=acupuncture",
-		title: "Acupuntura Tradicional",
-		subtitle: "Alívio de dores e equilíbrio energético com técnicas milenares e seguras."
-	}
-];
 function Hero() {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
-		"data-uid": "src/components/sections/Hero.tsx:29:5",
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+		"data-uid": "src/components/sections/Hero.tsx:7:5",
 		"data-prohibitions": "[editContent]",
-		className: "relative w-full h-[80vh] min-h-[600px] overflow-hidden",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Carousel, {
-			"data-uid": "src/components/sections/Hero.tsx:30:7",
-			"data-prohibitions": "[editContent]",
-			opts: {
-				align: "start",
-				loop: true
-			},
-			plugins: [Autoplay({ delay: 5e3 })],
-			className: "w-full h-full",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CarouselContent, {
-				"data-uid": "src/components/sections/Hero.tsx:42:9",
+		className: "relative w-full overflow-hidden bg-navy-900 pt-32 pb-20 md:pt-40 md:pb-32",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				"data-uid": "src/components/sections/Hero.tsx:9:7",
 				"data-prohibitions": "[editContent]",
-				className: "h-full",
-				children: slides.map((slide, index) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(CarouselItem, {
-					"data-uid": "src/components/sections/Hero.tsx:44:13",
-					"data-prohibitions": "[editContent]",
-					className: "h-full w-full relative",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						"data-uid": "src/components/sections/Hero.tsx:45:15",
-						"data-prohibitions": "[]",
-						className: "absolute inset-0 bg-cover bg-center",
-						style: { backgroundImage: `url(${slide.image})` },
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							"data-uid": "src/components/sections/Hero.tsx:49:17",
-							"data-prohibitions": "[editContent]",
-							className: "absolute inset-0 bg-black/50"
-						})
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						"data-uid": "src/components/sections/Hero.tsx:51:15",
-						"data-prohibitions": "[editContent]",
-						className: "relative h-full container mx-auto px-4 flex flex-col justify-center text-white",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							"data-uid": "src/components/sections/Hero.tsx:52:17",
-							"data-prohibitions": "[editContent]",
-							className: "max-w-2xl animate-fade-in-up",
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-									"data-uid": "src/components/sections/Hero.tsx:53:19",
-									"data-prohibitions": "[editContent]",
-									className: "text-4xl md:text-6xl font-bold mb-6 font-sans tracking-tight",
-									children: slide.title
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									"data-uid": "src/components/sections/Hero.tsx:56:19",
-									"data-prohibitions": "[editContent]",
-									className: "text-lg md:text-xl mb-8 text-gray-200",
-									children: slide.subtitle
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-									"data-uid": "src/components/sections/Hero.tsx:57:19",
+				className: "absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-navy-800 via-navy-900 to-black opacity-80"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				"data-uid": "src/components/sections/Hero.tsx:10:7",
+				"data-prohibitions": "[]",
+				className: "absolute inset-0 opacity-[0.05] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				"data-uid": "src/components/sections/Hero.tsx:12:7",
+				"data-prohibitions": "[editContent]",
+				className: "container relative z-10 mx-auto px-4 flex flex-col lg:flex-row items-center gap-12 lg:gap-20",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					"data-uid": "src/components/sections/Hero.tsx:13:9",
+					"data-prohibitions": "[]",
+					className: "flex-1 text-white animate-fade-in-up space-y-8 max-w-2xl text-center lg:text-left",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							"data-uid": "src/components/sections/Hero.tsx:14:11",
+							"data-prohibitions": "[]",
+							className: "inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 border border-white/20 shadow-lg mx-auto lg:mx-0",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Star, {
+								"data-uid": "src/components/sections/Hero.tsx:15:13",
+								"data-prohibitions": "[editContent]",
+								className: "w-4 h-4 text-gold-500 fill-gold-500"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								"data-uid": "src/components/sections/Hero.tsx:16:13",
+								"data-prohibitions": "[]",
+								className: "text-sm font-semibold tracking-wider text-gold-400",
+								children: "Referência em Reabilitação"
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h1", {
+							"data-uid": "src/components/sections/Hero.tsx:21:11",
+							"data-prohibitions": "[]",
+							className: "text-4xl sm:text-5xl lg:text-6xl font-bold font-sans leading-tight tracking-tight",
+							children: ["Excelência em Fisioterapia e ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								"data-uid": "src/components/sections/Hero.tsx:22:42",
+								"data-prohibitions": "[]",
+								className: "text-gold-500",
+								children: "Qualidade de Vida"
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							"data-uid": "src/components/sections/Hero.tsx:25:11",
+							"data-prohibitions": "[]",
+							className: "text-lg md:text-xl text-gray-300 leading-relaxed font-medium",
+							children: "Tratamentos personalizados, tecnologia avançada e uma equipe de especialistas dedicados a devolver o seu bem-estar de forma definitiva."
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							"data-uid": "src/components/sections/Hero.tsx:30:11",
+							"data-prohibitions": "[]",
+							className: "flex flex-col sm:flex-row items-center gap-4 pt-4 justify-center lg:justify-start",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+								"data-uid": "src/components/sections/Hero.tsx:31:13",
+								"data-prohibitions": "[]",
+								size: "lg",
+								asChild: true,
+								className: "w-full sm:w-auto text-lg px-8 h-16 rounded-full font-bold font-sans shadow-elevation bg-gold-500 hover:bg-gold-600 text-navy-900 border-none transition-all hover:scale-105",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+									"data-uid": "src/components/sections/Hero.tsx:36:15",
 									"data-prohibitions": "[]",
-									size: "lg",
-									asChild: true,
-									className: "text-lg px-8 py-6 rounded-full font-semibold font-sans shadow-lg",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-										"data-uid": "src/components/sections/Hero.tsx:62:21",
-										"data-prohibitions": "[]",
-										href: contact.whatsapp,
-										target: "_blank",
-										rel: "noopener noreferrer",
-										children: ["Agendar uma avaliação", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {
-											"data-uid": "src/components/sections/Hero.tsx:64:23",
-											"data-prohibitions": "[editContent]",
-											className: "ml-2 w-5 h-5"
-										})]
-									})
+									href: contact.whatsapp,
+									target: "_blank",
+									rel: "noopener noreferrer",
+									children: ["Agendar uma avaliação", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight$1, {
+										"data-uid": "src/components/sections/Hero.tsx:38:17",
+										"data-prohibitions": "[editContent]",
+										className: "ml-2 w-5 h-5"
+									})]
 								})
-							]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								"data-uid": "src/components/sections/Hero.tsx:42:13",
+								"data-prohibitions": "[]",
+								className: "text-sm text-gray-400 font-medium",
+								children: "Avaliação presencial criteriosa."
+							})]
 						})
-					})]
-				}, index))
+					]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					"data-uid": "src/components/sections/Hero.tsx:46:9",
+					"data-prohibitions": "[editContent]",
+					className: "flex-1 w-full max-w-[600px] relative mt-12 lg:mt-0 hidden md:block animate-fade-in-up",
+					style: { animationDelay: "0.2s" },
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							"data-uid": "src/components/sections/Hero.tsx:51:11",
+							"data-prohibitions": "[]",
+							className: "absolute -inset-4 bg-gold-500/20 rounded-[3rem] transform rotate-3 -z-10 blur-xl"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							"data-uid": "src/components/sections/Hero.tsx:52:11",
+							"data-prohibitions": "[]",
+							className: "absolute top-1/2 -right-8 w-32 h-32 bg-health-500/30 rounded-full blur-3xl -z-10"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							"data-uid": "src/components/sections/Hero.tsx:54:11",
+							"data-prohibitions": "[editContent]",
+							className: "relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10 group",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+								"data-uid": "src/components/sections/Hero.tsx:55:13",
+								"data-prohibitions": "[editContent]",
+								src: "https://img.usecurling.com/p/800/1000?q=professional%20physiotherapist&color=blue",
+								alt: "Especialista em Fisioterapia",
+								className: "w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								"data-uid": "src/components/sections/Hero.tsx:61:13",
+								"data-prohibitions": "[]",
+								className: "absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent"
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							"data-uid": "src/components/sections/Hero.tsx:65:11",
+							"data-prohibitions": "[]",
+							className: "absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce",
+							style: { animationDuration: "3s" },
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								"data-uid": "src/components/sections/Hero.tsx:69:13",
+								"data-prohibitions": "[]",
+								className: "w-12 h-12 bg-health-100 rounded-full flex items-center justify-center text-health-600",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+									"data-uid": "src/components/sections/Hero.tsx:70:15",
+									"data-prohibitions": "[]",
+									xmlns: "http://www.w3.org/2000/svg",
+									width: "24",
+									height: "24",
+									viewBox: "0 0 24 24",
+									fill: "none",
+									stroke: "currentColor",
+									strokeWidth: "2",
+									strokeLinecap: "round",
+									strokeLinejoin: "round",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+										"data-uid": "src/components/sections/Hero.tsx:81:17",
+										"data-prohibitions": "[]",
+										d: "M22 11.08V12a10 10 0 1 1-5.93-9.14"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", {
+										"data-uid": "src/components/sections/Hero.tsx:82:17",
+										"data-prohibitions": "[]",
+										points: "22 4 12 14.01 9 11.01"
+									})]
+								})
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								"data-uid": "src/components/sections/Hero.tsx:85:13",
+								"data-prohibitions": "[]",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									"data-uid": "src/components/sections/Hero.tsx:86:15",
+									"data-prohibitions": "[]",
+									className: "text-navy-900 font-bold text-sm",
+									children: "+ de 5.000"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									"data-uid": "src/components/sections/Hero.tsx:87:15",
+									"data-prohibitions": "[]",
+									className: "text-gray-500 text-xs",
+									children: "Pacientes recuperados"
+								})]
+							})]
+						})
+					]
+				})]
 			})
-		})
+		]
 	});
 }
 //#endregion
@@ -28833,11 +27357,11 @@ function QuickSearch() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
 		"data-uid": "src/components/sections/QuickSearch.tsx:28:5",
 		"data-prohibitions": "[]",
-		className: "relative z-20 -mt-12 container px-4 sm:px-8",
+		className: "relative z-20 -mt-12 container px-4 sm:px-8 mx-auto",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Card, {
 			"data-uid": "src/components/sections/QuickSearch.tsx:29:7",
 			"data-prohibitions": "[]",
-			className: "shadow-2xl border-0 rounded-2xl bg-white overflow-hidden",
+			className: "shadow-2xl border-0 rounded-2xl bg-white overflow-hidden max-w-6xl mx-auto",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CardContent, {
 				"data-uid": "src/components/sections/QuickSearch.tsx:30:9",
 				"data-prohibitions": "[]",
@@ -28868,7 +27392,7 @@ function QuickSearch() {
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectTrigger, {
 										"data-uid": "src/components/sections/QuickSearch.tsx:38:19",
 										"data-prohibitions": "[]",
-										className: "border-0 shadow-none p-0 h-auto focus:ring-0 text-navy-900 font-bold text-base",
+										className: "border-0 shadow-none p-0 h-auto focus:ring-0 text-navy-900 font-bold text-base bg-transparent",
 										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectValue, {
 											"data-uid": "src/components/sections/QuickSearch.tsx:39:21",
 											"data-prohibitions": "[editContent]",
@@ -28882,132 +27406,150 @@ function QuickSearch() {
 												"data-uid": "src/components/sections/QuickSearch.tsx:42:21",
 												"data-prohibitions": "[]",
 												value: "fisioterapia-ortopedica",
-												children: "Coluna (Costas/Pescoço)"
+												children: "Coluna / Costas"
 											}),
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
 												"data-uid": "src/components/sections/QuickSearch.tsx:43:21",
 												"data-prohibitions": "[]",
 												value: "fisioterapia-esportiva",
-												children: "Ombro / Joelho"
+												children: "Ombro / Joelho / Tornozelo"
 											}),
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:44:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:46:21",
 												"data-prohibitions": "[]",
 												value: "fisioterapia-pelvica",
-												children: "Quadril / Pelve"
+												children: "Região Pélvica"
 											}),
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:45:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:47:21",
 												"data-prohibitions": "[]",
 												value: "rpg",
-												children: "Dores posturais"
+												children: "Dores posturais generalizadas"
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
+												"data-uid": "src/components/sections/QuickSearch.tsx:48:21",
+												"data-prohibitions": "[]",
+												value: "acupuntura-sistemica",
+												children: "Enxaqueca / Estresse"
 											})
 										]
 									})]
 								})]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								"data-uid": "src/components/sections/QuickSearch.tsx:50:15",
+								"data-uid": "src/components/sections/QuickSearch.tsx:53:15",
 								"data-prohibitions": "[]",
 								className: "space-y-1 px-4 py-2 border-r-0 sm:border-r border-border/50",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-									"data-uid": "src/components/sections/QuickSearch.tsx:51:17",
+									"data-uid": "src/components/sections/QuickSearch.tsx:54:17",
 									"data-prohibitions": "[]",
 									className: "text-xs font-bold text-muted-foreground uppercase tracking-wider",
 									children: "Especialidade"
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Select, {
-									"data-uid": "src/components/sections/QuickSearch.tsx:54:17",
+									"data-uid": "src/components/sections/QuickSearch.tsx:57:17",
 									"data-prohibitions": "[]",
 									onValueChange: setEsp,
 									value: esp,
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectTrigger, {
-										"data-uid": "src/components/sections/QuickSearch.tsx:55:19",
+										"data-uid": "src/components/sections/QuickSearch.tsx:58:19",
 										"data-prohibitions": "[]",
-										className: "border-0 shadow-none p-0 h-auto focus:ring-0 text-navy-900 font-bold text-base",
+										className: "border-0 shadow-none p-0 h-auto focus:ring-0 text-navy-900 font-bold text-base bg-transparent",
 										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectValue, {
-											"data-uid": "src/components/sections/QuickSearch.tsx:56:21",
+											"data-uid": "src/components/sections/QuickSearch.tsx:59:21",
 											"data-prohibitions": "[editContent]",
 											placeholder: "Qualquer"
 										})
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SelectContent, {
-										"data-uid": "src/components/sections/QuickSearch.tsx:58:19",
+										"data-uid": "src/components/sections/QuickSearch.tsx:61:19",
 										"data-prohibitions": "[]",
 										children: [
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:59:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:62:21",
 												"data-prohibitions": "[]",
 												value: "fisioterapia-ortopedica",
 												children: "Ortopedia"
 											}),
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:60:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:63:21",
 												"data-prohibitions": "[]",
 												value: "fisioterapia-neurologica",
 												children: "Neurologia"
 											}),
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:61:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:64:21",
 												"data-prohibitions": "[]",
 												value: "fisioterapia-esportiva",
 												children: "Esportiva"
 											}),
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:62:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:65:21",
 												"data-prohibitions": "[]",
 												value: "fisioterapia-pediatrica",
 												children: "Pediatria"
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
+												"data-uid": "src/components/sections/QuickSearch.tsx:66:21",
+												"data-prohibitions": "[]",
+												value: "fisioterapia-geriatrica",
+												children: "Geriatria"
 											})
 										]
 									})]
 								})]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								"data-uid": "src/components/sections/QuickSearch.tsx:67:15",
+								"data-uid": "src/components/sections/QuickSearch.tsx:71:15",
 								"data-prohibitions": "[]",
 								className: "space-y-1 px-4 py-2",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-									"data-uid": "src/components/sections/QuickSearch.tsx:68:17",
+									"data-uid": "src/components/sections/QuickSearch.tsx:72:17",
 									"data-prohibitions": "[]",
 									className: "text-xs font-bold text-muted-foreground uppercase tracking-wider",
-									children: "Tratamento"
+									children: "Terapia"
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Select, {
-									"data-uid": "src/components/sections/QuickSearch.tsx:71:17",
+									"data-uid": "src/components/sections/QuickSearch.tsx:75:17",
 									"data-prohibitions": "[]",
 									onValueChange: setTrat,
 									value: trat,
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectTrigger, {
-										"data-uid": "src/components/sections/QuickSearch.tsx:72:19",
+										"data-uid": "src/components/sections/QuickSearch.tsx:76:19",
 										"data-prohibitions": "[]",
-										className: "border-0 shadow-none p-0 h-auto focus:ring-0 text-navy-900 font-bold text-base",
+										className: "border-0 shadow-none p-0 h-auto focus:ring-0 text-navy-900 font-bold text-base bg-transparent",
 										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectValue, {
-											"data-uid": "src/components/sections/QuickSearch.tsx:73:21",
+											"data-uid": "src/components/sections/QuickSearch.tsx:77:21",
 											"data-prohibitions": "[editContent]",
 											placeholder: "Escolher"
 										})
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SelectContent, {
-										"data-uid": "src/components/sections/QuickSearch.tsx:75:19",
+										"data-uid": "src/components/sections/QuickSearch.tsx:79:19",
 										"data-prohibitions": "[]",
 										children: [
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:76:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:80:21",
 												"data-prohibitions": "[]",
 												value: "fisioterapia-ortopedica",
-												children: "Fisioterapia Convencional"
+												children: "Fisioterapia"
 											}),
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:79:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:81:21",
 												"data-prohibitions": "[]",
 												value: "pilates-postural",
 												children: "Pilates"
 											}),
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:80:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:82:21",
 												"data-prohibitions": "[]",
 												value: "acupuntura-sistemica",
 												children: "Acupuntura"
 											}),
 											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
-												"data-uid": "src/components/sections/QuickSearch.tsx:81:21",
+												"data-uid": "src/components/sections/QuickSearch.tsx:83:21",
+												"data-prohibitions": "[]",
+												value: "quiropraxia",
+												children: "Quiropraxia"
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectItem, {
+												"data-uid": "src/components/sections/QuickSearch.tsx:84:21",
 												"data-prohibitions": "[]",
 												value: "liberacao-miofascial",
 												children: "Liberação Miofascial"
@@ -29018,15 +27560,15 @@ function QuickSearch() {
 							})
 						]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
-						"data-uid": "src/components/sections/QuickSearch.tsx:87:13",
+						"data-uid": "src/components/sections/QuickSearch.tsx:90:13",
 						"data-prohibitions": "[]",
 						onClick: handleSearch,
-						className: "w-full lg:w-auto h-16 px-8 rounded-xl bg-navy-900 hover:bg-navy-800 text-white font-bold flex items-center gap-2 m-2",
+						className: "w-full lg:w-auto h-16 px-8 rounded-xl bg-navy-900 hover:bg-navy-800 text-white font-bold flex items-center gap-2 m-2 shadow-md transition-all hover:-translate-y-1",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Search, {
-							"data-uid": "src/components/sections/QuickSearch.tsx:91:15",
+							"data-uid": "src/components/sections/QuickSearch.tsx:94:15",
 							"data-prohibitions": "[editContent]",
 							className: "w-5 h-5"
-						}), " Refinar Busca"]
+						}), " Buscar Solução"]
 					})]
 				})
 			})
@@ -29045,89 +27587,132 @@ var iconMap = {
 	Dna
 };
 function Specialties() {
+	const highlights = [
+		"fisioterapia-ortopedica",
+		"fisioterapia-neurologica",
+		"rpg",
+		"acupuntura-sistemica",
+		"quiropraxia",
+		"liberacao-miofascial"
+	];
+	const displayServices = services.filter((s) => highlights.includes(s.id));
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
-		"data-uid": "src/components/sections/Specialties.tsx:19:5",
+		"data-uid": "src/components/sections/Specialties.tsx:30:5",
 		"data-prohibitions": "[editContent]",
 		id: "especialidades",
-		className: "py-20 bg-gray-50",
+		className: "py-24 bg-white relative",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			"data-uid": "src/components/sections/Specialties.tsx:20:7",
+			"data-uid": "src/components/sections/Specialties.tsx:31:7",
 			"data-prohibitions": "[editContent]",
 			className: "container mx-auto px-4",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				"data-uid": "src/components/sections/Specialties.tsx:21:9",
-				"data-prohibitions": "[]",
-				className: "text-center max-w-3xl mx-auto mb-16",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-					"data-uid": "src/components/sections/Specialties.tsx:22:11",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					"data-uid": "src/components/sections/Specialties.tsx:32:9",
 					"data-prohibitions": "[]",
-					className: "text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-sans",
-					children: "Cuidados Especializados"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					"data-uid": "src/components/sections/Specialties.tsx:25:11",
-					"data-prohibitions": "[]",
-					className: "text-lg text-gray-600",
-					children: "Tratamentos personalizados para atender às suas necessidades específicas com a mais alta tecnologia e técnicas comprovadas."
-				})]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				"data-uid": "src/components/sections/Specialties.tsx:31:9",
-				"data-prohibitions": "[editContent]",
-				className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8",
-				children: services.slice(0, 6).map((service) => {
-					const Icon = iconMap[service.icon] || Activity;
-					return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
-						"data-uid": "src/components/sections/Specialties.tsx:36:15",
-						"data-prohibitions": "[editContent]",
-						className: "group hover:shadow-xl transition-all duration-300 border-none bg-white overflow-hidden",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(CardHeader, {
-							"data-uid": "src/components/sections/Specialties.tsx:40:17",
+					className: "text-center max-w-3xl mx-auto mb-16",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							"data-uid": "src/components/sections/Specialties.tsx:33:11",
+							"data-prohibitions": "[]",
+							className: "text-sm font-bold text-gold-500 uppercase tracking-widest mb-3",
+							children: "Áreas de Atuação"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+							"data-uid": "src/components/sections/Specialties.tsx:36:11",
+							"data-prohibitions": "[]",
+							className: "text-3xl md:text-5xl font-bold text-navy-900 mb-6 font-sans",
+							children: "Especialidades Premium"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							"data-uid": "src/components/sections/Specialties.tsx:39:11",
+							"data-prohibitions": "[]",
+							className: "text-lg text-gray-600",
+							children: "Nossa clínica oferece um amplo portfólio de terapias para tratar a origem do seu problema com precisão e técnica."
+						})
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					"data-uid": "src/components/sections/Specialties.tsx:45:9",
+					"data-prohibitions": "[editContent]",
+					className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8",
+					children: displayServices.map((service) => {
+						const Icon = iconMap[service.icon] || Activity;
+						return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Card, {
+							"data-uid": "src/components/sections/Specialties.tsx:50:15",
 							"data-prohibitions": "[editContent]",
-							className: "p-6 pb-4 relative",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								"data-uid": "src/components/sections/Specialties.tsx:41:19",
-								"data-prohibitions": "[]",
-								className: "w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300",
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, {
-									"data-uid": "src/components/sections/Specialties.tsx:42:21",
+							className: "group hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 border border-gray-100 bg-white overflow-hidden rounded-2xl cursor-pointer",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link$1, {
+								"data-uid": "src/components/sections/Specialties.tsx:54:17",
+								"data-prohibitions": "[editContent]",
+								to: `/servico/${service.id}`,
+								className: "block h-full",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(CardHeader, {
+									"data-uid": "src/components/sections/Specialties.tsx:55:19",
 									"data-prohibitions": "[editContent]",
-									className: "w-7 h-7"
-								})
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CardTitle, {
-								"data-uid": "src/components/sections/Specialties.tsx:44:19",
-								"data-prohibitions": "[editContent]",
-								className: "text-xl font-bold text-gray-900 font-sans",
-								children: service.title
-							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(CardContent, {
-							"data-uid": "src/components/sections/Specialties.tsx:48:17",
-							"data-prohibitions": "[editContent]",
-							className: "p-6 pt-0",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CardDescription, {
-								"data-uid": "src/components/sections/Specialties.tsx:49:19",
-								"data-prohibitions": "[editContent]",
-								className: "text-gray-600 text-base mb-6 line-clamp-3",
-								children: service.shortDescription
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-								"data-uid": "src/components/sections/Specialties.tsx:52:19",
-								"data-prohibitions": "[]",
-								variant: "ghost",
-								className: "p-0 text-primary hover:text-primary/80 hover:bg-transparent font-semibold font-sans group-hover:translate-x-2 transition-transform duration-300",
-								asChild: true,
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link$1, {
-									"data-uid": "src/components/sections/Specialties.tsx:57:21",
-									"data-prohibitions": "[]",
-									to: `/servicos/${service.id}`,
-									children: ["Saiba mais ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {
-										"data-uid": "src/components/sections/Specialties.tsx:58:34",
+									className: "p-8 pb-4 relative",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										"data-uid": "src/components/sections/Specialties.tsx:56:21",
+										"data-prohibitions": "[]",
+										className: "w-16 h-16 rounded-2xl bg-gray-50 flex items-center justify-center text-navy-900 mb-6 group-hover:bg-navy-900 group-hover:text-gold-500 transition-colors duration-300 shadow-sm border border-gray-100 group-hover:border-navy-800",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, {
+											"data-uid": "src/components/sections/Specialties.tsx:57:23",
+											"data-prohibitions": "[editContent]",
+											className: "w-8 h-8"
+										})
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CardTitle, {
+										"data-uid": "src/components/sections/Specialties.tsx:59:21",
 										"data-prohibitions": "[editContent]",
-										className: "w-4 h-4 ml-2"
+										className: "text-2xl font-bold text-navy-900 font-sans group-hover:text-gold-500 transition-colors",
+										children: service.title
 									})]
-								})
-							})]
-						})]
-					}, service.id);
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(CardContent, {
+									"data-uid": "src/components/sections/Specialties.tsx:63:19",
+									"data-prohibitions": "[editContent]",
+									className: "p-8 pt-0 flex flex-col justify-between",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CardDescription, {
+										"data-uid": "src/components/sections/Specialties.tsx:64:21",
+										"data-prohibitions": "[editContent]",
+										className: "text-gray-600 text-base leading-relaxed mb-8 line-clamp-3",
+										children: service.shortDescription
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										"data-uid": "src/components/sections/Specialties.tsx:67:21",
+										"data-prohibitions": "[]",
+										className: "flex items-center text-navy-900 font-bold font-sans group-hover:text-gold-500 transition-colors",
+										children: [
+											"Saiba mais",
+											" ",
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight$1, {
+												"data-uid": "src/components/sections/Specialties.tsx:69:23",
+												"data-prohibitions": "[editContent]",
+												className: "w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform"
+											})
+										]
+									})]
+								})]
+							})
+						}, service.id);
+					})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					"data-uid": "src/components/sections/Specialties.tsx:78:9",
+					"data-prohibitions": "[]",
+					className: "mt-16 text-center",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+						"data-uid": "src/components/sections/Specialties.tsx:79:11",
+						"data-prohibitions": "[]",
+						variant: "outline",
+						size: "lg",
+						className: "rounded-full border-2 border-navy-900 text-navy-900 font-bold px-8 h-14 hover:bg-navy-900 hover:text-white",
+						asChild: true,
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link$1, {
+							"data-uid": "src/components/sections/Specialties.tsx:85:13",
+							"data-prohibitions": "[]",
+							to: "/#servicos",
+							children: "Ver todas as opções"
+						})
+					})
 				})
-			})]
+			]
 		})
 	});
 }
@@ -29142,27 +27727,27 @@ var features = [
 	{
 		icon: Stethoscope,
 		title: "Equipamentos Modernos",
-		desc: "Clínica equipada com tecnologia de ponta para acelerar sua recuperação."
+		desc: "Clínica equipada com tecnologia de ponta, como Recupero e Laser de alta potência."
 	},
 	{
 		icon: Award,
-		title: "Profissionais Especializados",
-		desc: "Equipe em constante atualização, com diversas especializações clínicas."
+		title: "Time de Especialistas",
+		desc: "Equipe em constante atualização, com foco exclusivo em resultados e excelência técnica."
 	},
 	{
 		icon: Clock,
 		title: "Tratamentos Atualizados",
-		desc: "Utilizamos as técnicas científicas mais recentes baseadas em evidências."
+		desc: "Utilizamos as técnicas científicas mais recentes e baseadas em evidências clínicas reais."
 	},
 	{
 		icon: ThumbsUp,
-		title: "Ambiente Confortável",
-		desc: "Espaço climatizado e acolhedor, focado no seu bem-estar."
+		title: "Ambiente Premium",
+		desc: "Espaço climatizado, sofisticado e acolhedor, pensado em cada detalhe para o seu conforto."
 	},
 	{
 		icon: Shield,
-		title: "Acompanhamento Contínuo",
-		desc: "Monitoramos sua evolução do início ao fim do tratamento."
+		title: "Foco na Causa da Dor",
+		desc: "Não tratamos apenas o sintoma. Nossa avaliação descobre e trata a origem do problema."
 	}
 ];
 function Differentials() {
@@ -29177,11 +27762,11 @@ function Differentials() {
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			"data-uid": "src/components/sections/Differentials.tsx:42:7",
 			"data-prohibitions": "[editContent]",
-			className: "container relative z-10",
+			className: "container relative z-10 mx-auto px-4",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				"data-uid": "src/components/sections/Differentials.tsx:43:9",
 				"data-prohibitions": "[editContent]",
-				className: "grid lg:grid-cols-3 gap-12 items-center",
+				className: "grid lg:grid-cols-3 gap-16 items-center",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					"data-uid": "src/components/sections/Differentials.tsx:44:11",
 					"data-prohibitions": "[]",
@@ -29191,33 +27776,33 @@ function Differentials() {
 							"data-uid": "src/components/sections/Differentials.tsx:45:13",
 							"data-prohibitions": "[]",
 							className: "text-sm font-bold text-gold-500 uppercase tracking-widest",
-							children: "Excelência"
+							children: "Excelência Clínica"
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
 							"data-uid": "src/components/sections/Differentials.tsx:48:13",
 							"data-prohibitions": "[]",
-							className: "text-3xl md:text-4xl font-serif font-bold leading-tight",
-							children: "Por que escolher a Espaço Fisio?"
+							className: "text-4xl md:text-5xl font-sans font-bold leading-tight",
+							children: "Por que escolher o Espaço Fisio?"
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 							"data-uid": "src/components/sections/Differentials.tsx:51:13",
 							"data-prohibitions": "[]",
-							className: "text-white/70 text-lg",
-							children: "Nosso compromisso é com a sua saúde completa. Entregamos um padrão premium de cuidado para que sua recuperação seja ágil e definitiva."
+							className: "text-gray-300 text-lg leading-relaxed",
+							children: "Nosso compromisso é com a sua saúde completa. Entregamos um padrão premium de cuidado para que sua recuperação seja ágil, segura e definitiva."
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							"data-uid": "src/components/sections/Differentials.tsx:55:13",
 							"data-prohibitions": "[]",
-							className: "pt-4",
+							className: "pt-6",
 							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
 								"data-uid": "src/components/sections/Differentials.tsx:56:15",
 								"data-prohibitions": "[]",
-								href: "#contato",
-								className: "inline-flex items-center text-gold-500 hover:text-gold-400 font-semibold transition-colors gap-2 group",
-								children: ["Conheça a clínica", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								href: "#unidades",
+								className: "inline-flex items-center text-gold-500 hover:text-white font-bold transition-colors gap-2 group text-lg",
+								children: ["Conheça nossa estrutura", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									"data-uid": "src/components/sections/Differentials.tsx:61:17",
 									"data-prohibitions": "[]",
-									className: "group-hover:translate-x-1 transition-transform",
+									className: "group-hover:translate-x-2 transition-transform",
 									children: "→"
 								})]
 							})
@@ -29230,23 +27815,28 @@ function Differentials() {
 					children: features.map((feat, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						"data-uid": "src/components/sections/Differentials.tsx:68:15",
 						"data-prohibitions": "[editContent]",
-						className: "bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition-colors",
+						className: "bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:bg-white/10 transition-all duration-300 hover:-translate-y-1",
 						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(feat.icon, {
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 								"data-uid": "src/components/sections/Differentials.tsx:72:17",
-								"data-prohibitions": "[editContent]",
-								className: "w-8 h-8 text-gold-500 mb-4"
+								"data-prohibitions": "[]",
+								className: "w-14 h-14 bg-gold-500/20 rounded-2xl flex items-center justify-center mb-6 text-gold-500",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(feat.icon, {
+									"data-uid": "src/components/sections/Differentials.tsx:73:19",
+									"data-prohibitions": "[editContent]",
+									className: "w-7 h-7"
+								})
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-								"data-uid": "src/components/sections/Differentials.tsx:73:17",
+								"data-uid": "src/components/sections/Differentials.tsx:75:17",
 								"data-prohibitions": "[editContent]",
-								className: "text-lg font-bold mb-2",
+								className: "text-xl font-bold mb-3 font-sans",
 								children: feat.title
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								"data-uid": "src/components/sections/Differentials.tsx:74:17",
+								"data-uid": "src/components/sections/Differentials.tsx:76:17",
 								"data-prohibitions": "[editContent]",
-								className: "text-sm text-white/60 leading-relaxed",
+								className: "text-base text-gray-400 leading-relaxed",
 								children: feat.desc
 							})
 						]
@@ -29259,11 +27849,12 @@ function Differentials() {
 //#endregion
 //#region src/components/sections/Services.tsx
 function Services() {
-	const featuredServices = services.filter((s) => [
-		"fisioterapia",
-		"pilates",
-		"acupuntura"
-	].includes(s.id));
+	const featuredIds = [
+		"fisioterapia-ortopedica",
+		"pilates-postural",
+		"acupuntura-sistemica"
+	];
+	const featuredServices = services.filter((s) => featuredIds.includes(s.id));
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
 		"data-uid": "src/components/sections/Services.tsx:12:5",
 		"data-prohibitions": "[editContent]",
@@ -29276,108 +27867,131 @@ function Services() {
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				"data-uid": "src/components/sections/Services.tsx:14:9",
 				"data-prohibitions": "[]",
-				className: "text-center max-w-3xl mx-auto mb-16",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-					"data-uid": "src/components/sections/Services.tsx:15:11",
-					"data-prohibitions": "[]",
-					className: "text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-sans",
-					children: "Nossos Serviços"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					"data-uid": "src/components/sections/Services.tsx:18:11",
-					"data-prohibitions": "[]",
-					className: "text-lg text-gray-600",
-					children: "Abordagem completa e integrada para sua reabilitação e bem-estar."
-				})]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				"data-uid": "src/components/sections/Services.tsx:23:9",
-				"data-prohibitions": "[editContent]",
-				className: "space-y-24",
-				children: featuredServices.map((service, index) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					"data-uid": "src/components/sections/Services.tsx:25:13",
-					"data-prohibitions": "[editContent]",
-					className: `flex flex-col lg:flex-row gap-12 items-center ${index % 2 !== 0 ? "lg:flex-row-reverse" : ""}`,
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/components/sections/Services.tsx:31:15",
+				className: "text-center max-w-3xl mx-auto mb-20",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						"data-uid": "src/components/sections/Services.tsx:15:11",
 						"data-prohibitions": "[]",
-						className: "flex-1 relative",
+						className: "text-sm font-bold text-gold-500 uppercase tracking-widest mb-3",
+						children: "Nossos Tratamentos"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+						"data-uid": "src/components/sections/Services.tsx:18:11",
+						"data-prohibitions": "[]",
+						className: "text-3xl md:text-5xl font-bold text-navy-900 mb-6 font-sans",
+						children: "Abordagem Completa para sua Reabilitação"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						"data-uid": "src/components/sections/Services.tsx:21:11",
+						"data-prohibitions": "[]",
+						className: "text-lg text-gray-600",
+						children: "Combinamos as melhores práticas da fisioterapia moderna com um atendimento humano e especializado para devolver sua autonomia."
+					})
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				"data-uid": "src/components/sections/Services.tsx:27:9",
+				"data-prohibitions": "[editContent]",
+				className: "space-y-24 max-w-6xl mx-auto",
+				children: featuredServices.map((service, index) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					"data-uid": "src/components/sections/Services.tsx:29:13",
+					"data-prohibitions": "[editContent]",
+					className: `flex flex-col lg:flex-row gap-12 lg:gap-20 items-center ${index % 2 !== 0 ? "lg:flex-row-reverse" : ""}`,
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						"data-uid": "src/components/sections/Services.tsx:35:15",
+						"data-prohibitions": "[]",
+						className: "flex-1 relative w-full group",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							"data-uid": "src/components/sections/Services.tsx:32:17",
+							"data-uid": "src/components/sections/Services.tsx:36:17",
 							"data-prohibitions": "[editContent]",
-							className: "absolute inset-0 bg-primary/10 rounded-[2rem] transform rotate-3 scale-105 -z-10"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-							"data-uid": "src/components/sections/Services.tsx:33:17",
-							"data-prohibitions": "[editContent]",
-							src: service.image,
-							alt: service.title,
-							className: "rounded-[2rem] shadow-2xl object-cover w-full aspect-[4/3]"
+							className: "absolute inset-0 bg-gold-500/10 rounded-[2rem] transform rotate-3 scale-105 transition-transform duration-500 group-hover:rotate-6 -z-10"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							"data-uid": "src/components/sections/Services.tsx:37:17",
+							"data-prohibitions": "[]",
+							className: "overflow-hidden rounded-[2rem] shadow-xl",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+								"data-uid": "src/components/sections/Services.tsx:38:19",
+								"data-prohibitions": "[editContent]",
+								src: service.image,
+								alt: service.title,
+								className: "w-full object-cover aspect-[4/3] transform transition-transform duration-700 group-hover:scale-105"
+							})
 						})]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/components/sections/Services.tsx:40:15",
+						"data-uid": "src/components/sections/Services.tsx:46:15",
 						"data-prohibitions": "[editContent]",
 						className: "flex-1 space-y-6",
 						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								"data-uid": "src/components/sections/Services.tsx:41:17",
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
+								"data-uid": "src/components/sections/Services.tsx:47:17",
 								"data-prohibitions": "[editContent]",
-								className: "text-3xl font-bold text-gray-900 font-sans",
+								className: "text-3xl md:text-4xl font-bold text-navy-900 font-sans",
 								children: service.title
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-								"data-uid": "src/components/sections/Services.tsx:42:17",
+								"data-uid": "src/components/sections/Services.tsx:50:17",
 								"data-prohibitions": "[editContent]",
 								className: "text-lg text-gray-600 leading-relaxed",
-								children: [service.fullDescription.split(".")[0], "."]
+								children: [
+									service.fullDescription.split(".")[0],
+									". ",
+									service.fullDescription.split(".")[1],
+									"."
+								]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
-								"data-uid": "src/components/sections/Services.tsx:46:17",
+								"data-uid": "src/components/sections/Services.tsx:54:17",
 								"data-prohibitions": "[editContent]",
-								className: "space-y-4 pt-4",
+								className: "space-y-4 pt-4 mb-6",
 								children: service.benefits.slice(0, 4).map((benefit, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
-									"data-uid": "src/components/sections/Services.tsx:48:21",
+									"data-uid": "src/components/sections/Services.tsx:56:21",
 									"data-prohibitions": "[editContent]",
-									className: "flex items-center gap-3 text-gray-700",
+									className: "flex items-center gap-3 text-navy-900",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, {
-										"data-uid": "src/components/sections/Services.tsx:49:23",
+										"data-uid": "src/components/sections/Services.tsx:57:23",
 										"data-prohibitions": "[editContent]",
-										className: "w-6 h-6 text-primary shrink-0"
+										className: "w-6 h-6 text-health-500 shrink-0"
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										"data-uid": "src/components/sections/Services.tsx:50:23",
+										"data-uid": "src/components/sections/Services.tsx:58:23",
 										"data-prohibitions": "[editContent]",
-										className: "font-medium",
+										className: "font-semibold",
 										children: benefit
 									})]
 								}, i))
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								"data-uid": "src/components/sections/Services.tsx:55:17",
+								"data-uid": "src/components/sections/Services.tsx:63:17",
 								"data-prohibitions": "[]",
-								className: "pt-6 flex flex-wrap gap-4",
+								className: "pt-6 flex flex-col sm:flex-row gap-4",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-									"data-uid": "src/components/sections/Services.tsx:56:19",
+									"data-uid": "src/components/sections/Services.tsx:64:19",
 									"data-prohibitions": "[]",
 									size: "lg",
-									className: "rounded-full font-sans font-semibold",
+									className: "rounded-full font-sans font-bold text-base h-14 px-8 bg-navy-900 hover:bg-navy-800",
 									asChild: true,
 									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link$1, {
-										"data-uid": "src/components/sections/Services.tsx:57:21",
+										"data-uid": "src/components/sections/Services.tsx:69:21",
 										"data-prohibitions": "[]",
-										to: `/servicos/${service.id}`,
+										to: `/servico/${service.id}`,
 										children: "Conhecer serviço"
 									})
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-									"data-uid": "src/components/sections/Services.tsx:59:19",
+									"data-uid": "src/components/sections/Services.tsx:71:19",
 									"data-prohibitions": "[]",
 									variant: "outline",
 									size: "lg",
-									className: "rounded-full font-sans font-semibold",
+									className: "rounded-full font-sans font-bold text-base h-14 px-8 border-2 border-navy-900 text-navy-900 hover:bg-navy-50",
 									asChild: true,
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-										"data-uid": "src/components/sections/Services.tsx:65:21",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+										"data-uid": "src/components/sections/Services.tsx:77:21",
 										"data-prohibitions": "[]",
 										href: contact.whatsapp,
 										target: "_blank",
 										rel: "noopener noreferrer",
-										children: "Agendar uma avaliação"
+										children: ["Agendar uma avaliação ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight$1, {
+											"data-uid": "src/components/sections/Services.tsx:78:45",
+											"data-prohibitions": "[editContent]",
+											className: "w-5 h-5 ml-2"
+										})]
 									})
 								})]
 							})
@@ -29393,98 +28007,98 @@ function Services() {
 var steps = [
 	{
 		icon: CalendarCheck,
-		title: "1. Agendamento",
-		desc: "Entre em contato via WhatsApp e escolha o melhor horário."
+		title: "1. Agendamento Rápido",
+		desc: "Entre em contato via WhatsApp e escolha o melhor horário para sua avaliação presencial."
 	},
 	{
 		icon: ClipboardList,
-		title: "2. Avaliação",
-		desc: "Consulta detalhada para entender a causa da sua dor."
+		title: "2. Avaliação Profunda",
+		desc: "Consulta clínica detalhada para descobrir a verdadeira causa da sua dor e limitação."
 	},
 	{
 		icon: SquareActivity,
-		title: "3. Tratamento",
-		desc: "Sessões personalizadas com técnicas modernas."
+		title: "3. Tratamento Premium",
+		desc: "Sessões focadas e personalizadas utilizando terapia manual e alta tecnologia."
 	},
 	{
 		icon: SmilePlus,
-		title: "4. Alta e Manutenção",
-		desc: "Foco na sua independência e prevenção de novas lesões."
+		title: "4. Qualidade de Vida",
+		desc: "Alta clínica e reabilitação concluída. O foco final é a sua total independência física."
 	}
 ];
 function Journey() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
 		"data-uid": "src/components/sections/Journey.tsx:28:5",
 		"data-prohibitions": "[editContent]",
-		className: "py-24 bg-white",
+		className: "py-24 bg-gray-50 border-b border-gray-200",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			"data-uid": "src/components/sections/Journey.tsx:29:7",
 			"data-prohibitions": "[editContent]",
-			className: "container",
+			className: "container mx-auto px-4",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				"data-uid": "src/components/sections/Journey.tsx:30:9",
 				"data-prohibitions": "[]",
-				className: "text-center max-w-2xl mx-auto mb-16 space-y-4",
+				className: "text-center max-w-3xl mx-auto mb-20 space-y-4",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
 					"data-uid": "src/components/sections/Journey.tsx:31:11",
 					"data-prohibitions": "[]",
 					className: "text-sm font-bold text-gold-500 uppercase tracking-widest",
-					children: "O Caminho para a Cura"
+					children: "A Jornada da Reabilitação"
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
 					"data-uid": "src/components/sections/Journey.tsx:34:11",
 					"data-prohibitions": "[]",
-					className: "text-3xl md:text-4xl font-serif font-bold text-navy-900",
-					children: "Como funciona nossa jornada"
+					className: "text-3xl md:text-5xl font-sans font-bold text-navy-900",
+					children: "Como funciona nosso tratamento"
 				})]
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				"data-uid": "src/components/sections/Journey.tsx:39:9",
 				"data-prohibitions": "[editContent]",
-				className: "relative max-w-5xl mx-auto",
+				className: "relative max-w-6xl mx-auto",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					"data-uid": "src/components/sections/Journey.tsx:41:11",
 					"data-prohibitions": "[]",
-					className: "hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-gray-200",
+					className: "hidden md:block absolute top-14 left-[12%] right-[12%] h-1 bg-gray-200 rounded-full",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						"data-uid": "src/components/sections/Journey.tsx:42:13",
 						"data-prohibitions": "[]",
-						className: "absolute top-0 left-0 h-full bg-gold-500 w-full opacity-30"
+						className: "absolute top-0 left-0 h-full bg-gold-500 w-full opacity-50 rounded-full"
 					})
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					"data-uid": "src/components/sections/Journey.tsx:45:11",
 					"data-prohibitions": "[editContent]",
-					className: "grid md:grid-cols-4 gap-12 md:gap-6 relative z-10",
+					className: "grid md:grid-cols-4 gap-12 md:gap-8 relative z-10",
 					children: steps.map((step, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						"data-uid": "src/components/sections/Journey.tsx:47:15",
 						"data-prohibitions": "[editContent]",
-						className: "flex flex-col items-center text-center space-y-4 relative",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								"data-uid": "src/components/sections/Journey.tsx:48:17",
+						className: "flex flex-col items-center text-center space-y-6 relative",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							"data-uid": "src/components/sections/Journey.tsx:48:17",
+							"data-prohibitions": "[]",
+							className: "w-28 h-28 rounded-full bg-white border-[6px] border-gray-50 flex items-center justify-center shadow-lg z-10 relative group hover:border-gold-500 transition-colors duration-300",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								"data-uid": "src/components/sections/Journey.tsx:49:19",
 								"data-prohibitions": "[]",
-								className: "w-24 h-24 rounded-full bg-white border-4 border-gray-50 flex items-center justify-center shadow-elevation mb-2 z-10 relative group hover:border-gold-500 transition-colors",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									"data-uid": "src/components/sections/Journey.tsx:49:19",
-									"data-prohibitions": "[]",
-									className: "absolute inset-0 bg-navy-900 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 -z-10"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(step.icon, {
-									"data-uid": "src/components/sections/Journey.tsx:50:19",
-									"data-prohibitions": "[editContent]",
-									className: "w-10 h-10 text-navy-900 group-hover:text-white transition-colors duration-300"
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-								"data-uid": "src/components/sections/Journey.tsx:52:17",
+								className: "absolute inset-0 bg-navy-900 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 -z-10"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(step.icon, {
+								"data-uid": "src/components/sections/Journey.tsx:50:19",
 								"data-prohibitions": "[editContent]",
-								className: "text-lg font-bold text-navy-900",
+								className: "w-12 h-12 text-navy-900 group-hover:text-gold-500 transition-colors duration-300"
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							"data-uid": "src/components/sections/Journey.tsx:52:17",
+							"data-prohibitions": "[editContent]",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
+								"data-uid": "src/components/sections/Journey.tsx:53:19",
+								"data-prohibitions": "[editContent]",
+								className: "text-xl font-bold text-navy-900 mb-3 font-sans",
 								children: step.title
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								"data-uid": "src/components/sections/Journey.tsx:53:17",
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								"data-uid": "src/components/sections/Journey.tsx:54:19",
 								"data-prohibitions": "[editContent]",
-								className: "text-muted-foreground text-sm leading-relaxed",
+								className: "text-gray-600 text-base leading-relaxed px-2",
 								children: step.desc
-							})
-						]
+							})]
+						})]
 					}, i))
 				})]
 			})]
@@ -29496,24 +28110,24 @@ function Journey() {
 var team = [
 	{
 		name: "Dra. Ana Silva",
-		role: "Fisioterapeuta Chefe",
-		specialties: "Ortopedia e Trauma",
+		role: "Diretora e Fisioterapeuta",
+		specialties: "Especialista em Ortopedia e RPG",
 		crefito: "12345-F",
-		img: "https://img.usecurling.com/ppl/medium?gender=female&seed=1"
+		img: "https://img.usecurling.com/ppl/medium?gender=female&seed=14"
 	},
 	{
 		name: "Dr. Carlos Mendes",
-		role: "Fisioterapeuta Especialista",
-		specialties: "Osteopatia e Quiropraxia",
+		role: "Fisioterapeuta Clínico",
+		specialties: "Quiropraxia e Terapia Manual",
 		crefito: "54321-F",
 		img: "https://img.usecurling.com/ppl/medium?gender=male&seed=4"
 	},
 	{
 		name: "Dra. Beatriz Santos",
 		role: "Instrutora de Pilates",
-		specialties: "Pilates Clínico e RPG",
+		specialties: "Pilates Clínico e Acupuntura",
 		crefito: "98765-F",
-		img: "https://img.usecurling.com/ppl/medium?gender=female&seed=8"
+		img: "https://img.usecurling.com/ppl/medium?gender=female&seed=28"
 	}
 ];
 function Team() {
@@ -29521,77 +28135,90 @@ function Team() {
 		"data-uid": "src/components/sections/Team.tsx:29:5",
 		"data-prohibitions": "[editContent]",
 		id: "equipe",
-		className: "py-24 bg-gray-50",
+		className: "py-24 bg-white",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			"data-uid": "src/components/sections/Team.tsx:30:7",
 			"data-prohibitions": "[editContent]",
-			className: "container",
+			className: "container mx-auto px-4",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				"data-uid": "src/components/sections/Team.tsx:31:9",
 				"data-prohibitions": "[]",
-				className: "text-center max-w-2xl mx-auto mb-16 space-y-4",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-					"data-uid": "src/components/sections/Team.tsx:32:11",
-					"data-prohibitions": "[]",
-					className: "text-sm font-bold text-gold-500 uppercase tracking-widest",
-					children: "Nossos Especialistas"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-					"data-uid": "src/components/sections/Team.tsx:35:11",
-					"data-prohibitions": "[]",
-					className: "text-3xl md:text-4xl font-serif font-bold text-navy-900",
-					children: "Profissionais dedicados a você"
-				})]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				"data-uid": "src/components/sections/Team.tsx:40:9",
-				"data-prohibitions": "[editContent]",
-				className: "grid md:grid-cols-3 gap-8 max-w-5xl mx-auto",
-				children: team.map((member, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
-					"data-uid": "src/components/sections/Team.tsx:42:13",
-					"data-prohibitions": "[editContent]",
-					className: "overflow-hidden border-0 shadow-subtle group hover:shadow-elevation transition-all",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						"data-uid": "src/components/sections/Team.tsx:46:15",
+				className: "text-center max-w-3xl mx-auto mb-20 space-y-4",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						"data-uid": "src/components/sections/Team.tsx:32:11",
 						"data-prohibitions": "[]",
-						className: "aspect-square overflow-hidden bg-gray-200",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-							"data-uid": "src/components/sections/Team.tsx:47:17",
+						className: "text-sm font-bold text-gold-500 uppercase tracking-widest",
+						children: "Corpo Clínico"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+						"data-uid": "src/components/sections/Team.tsx:35:11",
+						"data-prohibitions": "[]",
+						className: "text-3xl md:text-5xl font-sans font-bold text-navy-900",
+						children: "Especialistas dedicados a você"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						"data-uid": "src/components/sections/Team.tsx:38:11",
+						"data-prohibitions": "[]",
+						className: "text-lg text-gray-600",
+						children: "Nossos profissionais possuem alta qualificação acadêmica e prática para oferecer o melhor diagnóstico e intervenção terapêutica."
+					})
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				"data-uid": "src/components/sections/Team.tsx:44:9",
+				"data-prohibitions": "[editContent]",
+				className: "grid md:grid-cols-3 gap-10 max-w-5xl mx-auto",
+				children: team.map((member, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
+					"data-uid": "src/components/sections/Team.tsx:46:13",
+					"data-prohibitions": "[editContent]",
+					className: "overflow-hidden border-0 shadow-lg group hover:shadow-2xl transition-all duration-500 rounded-[2rem] bg-gray-50",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						"data-uid": "src/components/sections/Team.tsx:50:15",
+						"data-prohibitions": "[]",
+						className: "aspect-[4/5] overflow-hidden bg-navy-900 relative",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+							"data-uid": "src/components/sections/Team.tsx:51:17",
 							"data-prohibitions": "[editContent]",
 							src: member.img,
 							alt: member.name,
-							className: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0"
-						})
+							className: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							"data-uid": "src/components/sections/Team.tsx:56:17",
+							"data-prohibitions": "[]",
+							className: "absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-transparent opacity-60"
+						})]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(CardContent, {
-						"data-uid": "src/components/sections/Team.tsx:53:15",
+						"data-uid": "src/components/sections/Team.tsx:58:15",
 						"data-prohibitions": "[editContent]",
-						className: "p-6 text-center space-y-2 relative bg-white",
+						className: "p-8 text-center space-y-2 relative bg-white -mt-6 rounded-t-[2rem] mx-2 shadow-sm",
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								"data-uid": "src/components/sections/Team.tsx:54:17",
+								"data-uid": "src/components/sections/Team.tsx:59:17",
 								"data-prohibitions": "[]",
-								className: "w-12 h-1 bg-gold-500 mx-auto rounded-full mb-4"
+								className: "w-12 h-1.5 bg-gold-500 mx-auto rounded-full mb-4"
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-								"data-uid": "src/components/sections/Team.tsx:55:17",
+								"data-uid": "src/components/sections/Team.tsx:60:17",
 								"data-prohibitions": "[editContent]",
-								className: "text-xl font-serif font-bold text-navy-900",
+								className: "text-2xl font-sans font-bold text-navy-900",
 								children: member.name
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								"data-uid": "src/components/sections/Team.tsx:56:17",
+								"data-uid": "src/components/sections/Team.tsx:61:17",
 								"data-prohibitions": "[editContent]",
-								className: "text-sm font-semibold text-gold-600",
+								className: "text-sm font-bold text-gold-600 uppercase tracking-wider",
 								children: member.role
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								"data-uid": "src/components/sections/Team.tsx:57:17",
+								"data-uid": "src/components/sections/Team.tsx:64:17",
 								"data-prohibitions": "[editContent]",
-								className: "text-sm text-muted-foreground",
+								className: "text-base text-gray-600 font-medium",
 								children: member.specialties
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-								"data-uid": "src/components/sections/Team.tsx:58:17",
+								"data-uid": "src/components/sections/Team.tsx:65:17",
 								"data-prohibitions": "[editContent]",
-								className: "text-xs text-gray-400 mt-2",
+								className: "text-xs text-gray-400 mt-4 pt-4 border-t border-gray-100 font-medium",
 								children: ["CREFITO: ", member.crefito]
 							})
 						]
@@ -29602,78 +28229,1878 @@ function Team() {
 	});
 }
 //#endregion
+//#region ../../cache/modules/espaco-fisio-website-6a693/node_modules/.pnpm/embla-carousel-reactive-utils@8.6.0_embla-carousel@8.6.0/node_modules/embla-carousel-reactive-utils/esm/embla-carousel-reactive-utils.esm.js
+function isObject$1(subject) {
+	return Object.prototype.toString.call(subject) === "[object Object]";
+}
+function isRecord(subject) {
+	return isObject$1(subject) || Array.isArray(subject);
+}
+function canUseDOM() {
+	return !!(typeof window !== "undefined" && window.document && window.document.createElement);
+}
+function areOptionsEqual(optionsA, optionsB) {
+	const optionsAKeys = Object.keys(optionsA);
+	const optionsBKeys = Object.keys(optionsB);
+	if (optionsAKeys.length !== optionsBKeys.length) return false;
+	if (JSON.stringify(Object.keys(optionsA.breakpoints || {})) !== JSON.stringify(Object.keys(optionsB.breakpoints || {}))) return false;
+	return optionsAKeys.every((key) => {
+		const valueA = optionsA[key];
+		const valueB = optionsB[key];
+		if (typeof valueA === "function") return `${valueA}` === `${valueB}`;
+		if (!isRecord(valueA) || !isRecord(valueB)) return valueA === valueB;
+		return areOptionsEqual(valueA, valueB);
+	});
+}
+function sortAndMapPluginToOptions(plugins) {
+	return plugins.concat().sort((a, b) => a.name > b.name ? 1 : -1).map((plugin) => plugin.options);
+}
+function arePluginsEqual(pluginsA, pluginsB) {
+	if (pluginsA.length !== pluginsB.length) return false;
+	const optionsA = sortAndMapPluginToOptions(pluginsA);
+	const optionsB = sortAndMapPluginToOptions(pluginsB);
+	return optionsA.every((optionA, index) => {
+		const optionB = optionsB[index];
+		return areOptionsEqual(optionA, optionB);
+	});
+}
+//#endregion
+//#region ../../cache/modules/espaco-fisio-website-6a693/node_modules/.pnpm/embla-carousel@8.6.0/node_modules/embla-carousel/esm/embla-carousel.esm.js
+function isNumber(subject) {
+	return typeof subject === "number";
+}
+function isString(subject) {
+	return typeof subject === "string";
+}
+function isBoolean(subject) {
+	return typeof subject === "boolean";
+}
+function isObject(subject) {
+	return Object.prototype.toString.call(subject) === "[object Object]";
+}
+function mathAbs(n) {
+	return Math.abs(n);
+}
+function mathSign(n) {
+	return Math.sign(n);
+}
+function deltaAbs(valueB, valueA) {
+	return mathAbs(valueB - valueA);
+}
+function factorAbs(valueB, valueA) {
+	if (valueB === 0 || valueA === 0) return 0;
+	if (mathAbs(valueB) <= mathAbs(valueA)) return 0;
+	return mathAbs(deltaAbs(mathAbs(valueB), mathAbs(valueA)) / valueB);
+}
+function roundToTwoDecimals(num) {
+	return Math.round(num * 100) / 100;
+}
+function arrayKeys(array) {
+	return objectKeys(array).map(Number);
+}
+function arrayLast(array) {
+	return array[arrayLastIndex(array)];
+}
+function arrayLastIndex(array) {
+	return Math.max(0, array.length - 1);
+}
+function arrayIsLastIndex(array, index) {
+	return index === arrayLastIndex(array);
+}
+function arrayFromNumber(n, startAt = 0) {
+	return Array.from(Array(n), (_, i) => startAt + i);
+}
+function objectKeys(object) {
+	return Object.keys(object);
+}
+function objectsMergeDeep(objectA, objectB) {
+	return [objectA, objectB].reduce((mergedObjects, currentObject) => {
+		objectKeys(currentObject).forEach((key) => {
+			const valueA = mergedObjects[key];
+			const valueB = currentObject[key];
+			mergedObjects[key] = isObject(valueA) && isObject(valueB) ? objectsMergeDeep(valueA, valueB) : valueB;
+		});
+		return mergedObjects;
+	}, {});
+}
+function isMouseEvent(evt, ownerWindow) {
+	return typeof ownerWindow.MouseEvent !== "undefined" && evt instanceof ownerWindow.MouseEvent;
+}
+function Alignment(align, viewSize) {
+	const predefined = {
+		start,
+		center,
+		end
+	};
+	function start() {
+		return 0;
+	}
+	function center(n) {
+		return end(n) / 2;
+	}
+	function end(n) {
+		return viewSize - n;
+	}
+	function measure(n, index) {
+		if (isString(align)) return predefined[align](n);
+		return align(viewSize, n, index);
+	}
+	return { measure };
+}
+function EventStore() {
+	let listeners = [];
+	function add(node, type, handler, options = { passive: true }) {
+		let removeListener;
+		if ("addEventListener" in node) {
+			node.addEventListener(type, handler, options);
+			removeListener = () => node.removeEventListener(type, handler, options);
+		} else {
+			const legacyMediaQueryList = node;
+			legacyMediaQueryList.addListener(handler);
+			removeListener = () => legacyMediaQueryList.removeListener(handler);
+		}
+		listeners.push(removeListener);
+		return self;
+	}
+	function clear() {
+		listeners = listeners.filter((remove) => remove());
+	}
+	const self = {
+		add,
+		clear
+	};
+	return self;
+}
+function Animations(ownerDocument, ownerWindow, update, render) {
+	const documentVisibleHandler = EventStore();
+	const fixedTimeStep = 1e3 / 60;
+	let lastTimeStamp = null;
+	let accumulatedTime = 0;
+	let animationId = 0;
+	function init() {
+		documentVisibleHandler.add(ownerDocument, "visibilitychange", () => {
+			if (ownerDocument.hidden) reset();
+		});
+	}
+	function destroy() {
+		stop();
+		documentVisibleHandler.clear();
+	}
+	function animate(timeStamp) {
+		if (!animationId) return;
+		if (!lastTimeStamp) {
+			lastTimeStamp = timeStamp;
+			update();
+			update();
+		}
+		const timeElapsed = timeStamp - lastTimeStamp;
+		lastTimeStamp = timeStamp;
+		accumulatedTime += timeElapsed;
+		while (accumulatedTime >= fixedTimeStep) {
+			update();
+			accumulatedTime -= fixedTimeStep;
+		}
+		render(accumulatedTime / fixedTimeStep);
+		if (animationId) animationId = ownerWindow.requestAnimationFrame(animate);
+	}
+	function start() {
+		if (animationId) return;
+		animationId = ownerWindow.requestAnimationFrame(animate);
+	}
+	function stop() {
+		ownerWindow.cancelAnimationFrame(animationId);
+		lastTimeStamp = null;
+		accumulatedTime = 0;
+		animationId = 0;
+	}
+	function reset() {
+		lastTimeStamp = null;
+		accumulatedTime = 0;
+	}
+	return {
+		init,
+		destroy,
+		start,
+		stop,
+		update,
+		render
+	};
+}
+function Axis(axis, contentDirection) {
+	const isRightToLeft = contentDirection === "rtl";
+	const isVertical = axis === "y";
+	const scroll = isVertical ? "y" : "x";
+	const cross = isVertical ? "x" : "y";
+	const sign = !isVertical && isRightToLeft ? -1 : 1;
+	const startEdge = getStartEdge();
+	const endEdge = getEndEdge();
+	function measureSize(nodeRect) {
+		const { height, width } = nodeRect;
+		return isVertical ? height : width;
+	}
+	function getStartEdge() {
+		if (isVertical) return "top";
+		return isRightToLeft ? "right" : "left";
+	}
+	function getEndEdge() {
+		if (isVertical) return "bottom";
+		return isRightToLeft ? "left" : "right";
+	}
+	function direction(n) {
+		return n * sign;
+	}
+	return {
+		scroll,
+		cross,
+		startEdge,
+		endEdge,
+		measureSize,
+		direction
+	};
+}
+function Limit(min = 0, max = 0) {
+	const length = mathAbs(min - max);
+	function reachedMin(n) {
+		return n < min;
+	}
+	function reachedMax(n) {
+		return n > max;
+	}
+	function reachedAny(n) {
+		return reachedMin(n) || reachedMax(n);
+	}
+	function constrain(n) {
+		if (!reachedAny(n)) return n;
+		return reachedMin(n) ? min : max;
+	}
+	function removeOffset(n) {
+		if (!length) return n;
+		return n - length * Math.ceil((n - max) / length);
+	}
+	return {
+		length,
+		max,
+		min,
+		constrain,
+		reachedAny,
+		reachedMax,
+		reachedMin,
+		removeOffset
+	};
+}
+function Counter(max, start, loop) {
+	const { constrain } = Limit(0, max);
+	const loopEnd = max + 1;
+	let counter = withinLimit(start);
+	function withinLimit(n) {
+		return !loop ? constrain(n) : mathAbs((loopEnd + n) % loopEnd);
+	}
+	function get() {
+		return counter;
+	}
+	function set(n) {
+		counter = withinLimit(n);
+		return self;
+	}
+	function add(n) {
+		return clone().set(get() + n);
+	}
+	function clone() {
+		return Counter(max, get(), loop);
+	}
+	const self = {
+		get,
+		set,
+		add,
+		clone
+	};
+	return self;
+}
+function DragHandler(axis, rootNode, ownerDocument, ownerWindow, target, dragTracker, location, animation, scrollTo, scrollBody, scrollTarget, index, eventHandler, percentOfView, dragFree, dragThreshold, skipSnaps, baseFriction, watchDrag) {
+	const { cross: crossAxis, direction } = axis;
+	const focusNodes = [
+		"INPUT",
+		"SELECT",
+		"TEXTAREA"
+	];
+	const nonPassiveEvent = { passive: false };
+	const initEvents = EventStore();
+	const dragEvents = EventStore();
+	const goToNextThreshold = Limit(50, 225).constrain(percentOfView.measure(20));
+	const snapForceBoost = {
+		mouse: 300,
+		touch: 400
+	};
+	const freeForceBoost = {
+		mouse: 500,
+		touch: 600
+	};
+	const baseSpeed = dragFree ? 43 : 25;
+	let isMoving = false;
+	let startScroll = 0;
+	let startCross = 0;
+	let pointerIsDown = false;
+	let preventScroll = false;
+	let preventClick = false;
+	let isMouse = false;
+	function init(emblaApi) {
+		if (!watchDrag) return;
+		function downIfAllowed(evt) {
+			if (isBoolean(watchDrag) || watchDrag(emblaApi, evt)) down(evt);
+		}
+		const node = rootNode;
+		initEvents.add(node, "dragstart", (evt) => evt.preventDefault(), nonPassiveEvent).add(node, "touchmove", () => void 0, nonPassiveEvent).add(node, "touchend", () => void 0).add(node, "touchstart", downIfAllowed).add(node, "mousedown", downIfAllowed).add(node, "touchcancel", up).add(node, "contextmenu", up).add(node, "click", click, true);
+	}
+	function destroy() {
+		initEvents.clear();
+		dragEvents.clear();
+	}
+	function addDragEvents() {
+		const node = isMouse ? ownerDocument : rootNode;
+		dragEvents.add(node, "touchmove", move, nonPassiveEvent).add(node, "touchend", up).add(node, "mousemove", move, nonPassiveEvent).add(node, "mouseup", up);
+	}
+	function isFocusNode(node) {
+		const nodeName = node.nodeName || "";
+		return focusNodes.includes(nodeName);
+	}
+	function forceBoost() {
+		return (dragFree ? freeForceBoost : snapForceBoost)[isMouse ? "mouse" : "touch"];
+	}
+	function allowedForce(force, targetChanged) {
+		const next = index.add(mathSign(force) * -1);
+		const baseForce = scrollTarget.byDistance(force, !dragFree).distance;
+		if (dragFree || mathAbs(force) < goToNextThreshold) return baseForce;
+		if (skipSnaps && targetChanged) return baseForce * .5;
+		return scrollTarget.byIndex(next.get(), 0).distance;
+	}
+	function down(evt) {
+		const isMouseEvt = isMouseEvent(evt, ownerWindow);
+		isMouse = isMouseEvt;
+		preventClick = dragFree && isMouseEvt && !evt.buttons && isMoving;
+		isMoving = deltaAbs(target.get(), location.get()) >= 2;
+		if (isMouseEvt && evt.button !== 0) return;
+		if (isFocusNode(evt.target)) return;
+		pointerIsDown = true;
+		dragTracker.pointerDown(evt);
+		scrollBody.useFriction(0).useDuration(0);
+		target.set(location);
+		addDragEvents();
+		startScroll = dragTracker.readPoint(evt);
+		startCross = dragTracker.readPoint(evt, crossAxis);
+		eventHandler.emit("pointerDown");
+	}
+	function move(evt) {
+		if (!isMouseEvent(evt, ownerWindow) && evt.touches.length >= 2) return up(evt);
+		const lastScroll = dragTracker.readPoint(evt);
+		const lastCross = dragTracker.readPoint(evt, crossAxis);
+		const diffScroll = deltaAbs(lastScroll, startScroll);
+		const diffCross = deltaAbs(lastCross, startCross);
+		if (!preventScroll && !isMouse) {
+			if (!evt.cancelable) return up(evt);
+			preventScroll = diffScroll > diffCross;
+			if (!preventScroll) return up(evt);
+		}
+		const diff = dragTracker.pointerMove(evt);
+		if (diffScroll > dragThreshold) preventClick = true;
+		scrollBody.useFriction(.3).useDuration(.75);
+		animation.start();
+		target.add(direction(diff));
+		evt.preventDefault();
+	}
+	function up(evt) {
+		const targetChanged = scrollTarget.byDistance(0, false).index !== index.get();
+		const rawForce = dragTracker.pointerUp(evt) * forceBoost();
+		const force = allowedForce(direction(rawForce), targetChanged);
+		const forceFactor = factorAbs(rawForce, force);
+		const speed = baseSpeed - 10 * forceFactor;
+		const friction = baseFriction + forceFactor / 50;
+		preventScroll = false;
+		pointerIsDown = false;
+		dragEvents.clear();
+		scrollBody.useDuration(speed).useFriction(friction);
+		scrollTo.distance(force, !dragFree);
+		isMouse = false;
+		eventHandler.emit("pointerUp");
+	}
+	function click(evt) {
+		if (preventClick) {
+			evt.stopPropagation();
+			evt.preventDefault();
+			preventClick = false;
+		}
+	}
+	function pointerDown() {
+		return pointerIsDown;
+	}
+	return {
+		init,
+		destroy,
+		pointerDown
+	};
+}
+function DragTracker(axis, ownerWindow) {
+	const logInterval = 170;
+	let startEvent;
+	let lastEvent;
+	function readTime(evt) {
+		return evt.timeStamp;
+	}
+	function readPoint(evt, evtAxis) {
+		const coord = `client${(evtAxis || axis.scroll) === "x" ? "X" : "Y"}`;
+		return (isMouseEvent(evt, ownerWindow) ? evt : evt.touches[0])[coord];
+	}
+	function pointerDown(evt) {
+		startEvent = evt;
+		lastEvent = evt;
+		return readPoint(evt);
+	}
+	function pointerMove(evt) {
+		const diff = readPoint(evt) - readPoint(lastEvent);
+		const expired = readTime(evt) - readTime(startEvent) > logInterval;
+		lastEvent = evt;
+		if (expired) startEvent = evt;
+		return diff;
+	}
+	function pointerUp(evt) {
+		if (!startEvent || !lastEvent) return 0;
+		const diffDrag = readPoint(lastEvent) - readPoint(startEvent);
+		const diffTime = readTime(evt) - readTime(startEvent);
+		const expired = readTime(evt) - readTime(lastEvent) > logInterval;
+		const force = diffDrag / diffTime;
+		return diffTime && !expired && mathAbs(force) > .1 ? force : 0;
+	}
+	return {
+		pointerDown,
+		pointerMove,
+		pointerUp,
+		readPoint
+	};
+}
+function NodeRects() {
+	function measure(node) {
+		const { offsetTop, offsetLeft, offsetWidth, offsetHeight } = node;
+		return {
+			top: offsetTop,
+			right: offsetLeft + offsetWidth,
+			bottom: offsetTop + offsetHeight,
+			left: offsetLeft,
+			width: offsetWidth,
+			height: offsetHeight
+		};
+	}
+	return { measure };
+}
+function PercentOfView(viewSize) {
+	function measure(n) {
+		return viewSize * (n / 100);
+	}
+	return { measure };
+}
+function ResizeHandler(container, eventHandler, ownerWindow, slides, axis, watchResize, nodeRects) {
+	const observeNodes = [container].concat(slides);
+	let resizeObserver;
+	let containerSize;
+	let slideSizes = [];
+	let destroyed = false;
+	function readSize(node) {
+		return axis.measureSize(nodeRects.measure(node));
+	}
+	function init(emblaApi) {
+		if (!watchResize) return;
+		containerSize = readSize(container);
+		slideSizes = slides.map(readSize);
+		function defaultCallback(entries) {
+			for (const entry of entries) {
+				if (destroyed) return;
+				const isContainer = entry.target === container;
+				const slideIndex = slides.indexOf(entry.target);
+				const lastSize = isContainer ? containerSize : slideSizes[slideIndex];
+				if (mathAbs(readSize(isContainer ? container : slides[slideIndex]) - lastSize) >= .5) {
+					emblaApi.reInit();
+					eventHandler.emit("resize");
+					break;
+				}
+			}
+		}
+		resizeObserver = new ResizeObserver((entries) => {
+			if (isBoolean(watchResize) || watchResize(emblaApi, entries)) defaultCallback(entries);
+		});
+		ownerWindow.requestAnimationFrame(() => {
+			observeNodes.forEach((node) => resizeObserver.observe(node));
+		});
+	}
+	function destroy() {
+		destroyed = true;
+		if (resizeObserver) resizeObserver.disconnect();
+	}
+	return {
+		init,
+		destroy
+	};
+}
+function ScrollBody(location, offsetLocation, previousLocation, target, baseDuration, baseFriction) {
+	let scrollVelocity = 0;
+	let scrollDirection = 0;
+	let scrollDuration = baseDuration;
+	let scrollFriction = baseFriction;
+	let rawLocation = location.get();
+	let rawLocationPrevious = 0;
+	function seek() {
+		const displacement = target.get() - location.get();
+		const isInstant = !scrollDuration;
+		let scrollDistance = 0;
+		if (isInstant) {
+			scrollVelocity = 0;
+			previousLocation.set(target);
+			location.set(target);
+			scrollDistance = displacement;
+		} else {
+			previousLocation.set(location);
+			scrollVelocity += displacement / scrollDuration;
+			scrollVelocity *= scrollFriction;
+			rawLocation += scrollVelocity;
+			location.add(scrollVelocity);
+			scrollDistance = rawLocation - rawLocationPrevious;
+		}
+		scrollDirection = mathSign(scrollDistance);
+		rawLocationPrevious = rawLocation;
+		return self;
+	}
+	function settled() {
+		return mathAbs(target.get() - offsetLocation.get()) < .001;
+	}
+	function duration() {
+		return scrollDuration;
+	}
+	function direction() {
+		return scrollDirection;
+	}
+	function velocity() {
+		return scrollVelocity;
+	}
+	function useBaseDuration() {
+		return useDuration(baseDuration);
+	}
+	function useBaseFriction() {
+		return useFriction(baseFriction);
+	}
+	function useDuration(n) {
+		scrollDuration = n;
+		return self;
+	}
+	function useFriction(n) {
+		scrollFriction = n;
+		return self;
+	}
+	const self = {
+		direction,
+		duration,
+		velocity,
+		seek,
+		settled,
+		useBaseFriction,
+		useBaseDuration,
+		useFriction,
+		useDuration
+	};
+	return self;
+}
+function ScrollBounds(limit, location, target, scrollBody, percentOfView) {
+	const pullBackThreshold = percentOfView.measure(10);
+	const edgeOffsetTolerance = percentOfView.measure(50);
+	const frictionLimit = Limit(.1, .99);
+	let disabled = false;
+	function shouldConstrain() {
+		if (disabled) return false;
+		if (!limit.reachedAny(target.get())) return false;
+		if (!limit.reachedAny(location.get())) return false;
+		return true;
+	}
+	function constrain(pointerDown) {
+		if (!shouldConstrain()) return;
+		const diffToEdge = mathAbs(limit[limit.reachedMin(location.get()) ? "min" : "max"] - location.get());
+		const diffToTarget = target.get() - location.get();
+		const friction = frictionLimit.constrain(diffToEdge / edgeOffsetTolerance);
+		target.subtract(diffToTarget * friction);
+		if (!pointerDown && mathAbs(diffToTarget) < pullBackThreshold) {
+			target.set(limit.constrain(target.get()));
+			scrollBody.useDuration(25).useBaseFriction();
+		}
+	}
+	function toggleActive(active) {
+		disabled = !active;
+	}
+	return {
+		shouldConstrain,
+		constrain,
+		toggleActive
+	};
+}
+function ScrollContain(viewSize, contentSize, snapsAligned, containScroll, pixelTolerance) {
+	const scrollBounds = Limit(-contentSize + viewSize, 0);
+	const snapsBounded = measureBounded();
+	const scrollContainLimit = findScrollContainLimit();
+	const snapsContained = measureContained();
+	function usePixelTolerance(bound, snap) {
+		return deltaAbs(bound, snap) <= 1;
+	}
+	function findScrollContainLimit() {
+		const startSnap = snapsBounded[0];
+		const endSnap = arrayLast(snapsBounded);
+		return Limit(snapsBounded.lastIndexOf(startSnap), snapsBounded.indexOf(endSnap) + 1);
+	}
+	function measureBounded() {
+		return snapsAligned.map((snapAligned, index) => {
+			const { min, max } = scrollBounds;
+			const snap = scrollBounds.constrain(snapAligned);
+			const isFirst = !index;
+			const isLast = arrayIsLastIndex(snapsAligned, index);
+			if (isFirst) return max;
+			if (isLast) return min;
+			if (usePixelTolerance(min, snap)) return min;
+			if (usePixelTolerance(max, snap)) return max;
+			return snap;
+		}).map((scrollBound) => parseFloat(scrollBound.toFixed(3)));
+	}
+	function measureContained() {
+		if (contentSize <= viewSize + pixelTolerance) return [scrollBounds.max];
+		if (containScroll === "keepSnaps") return snapsBounded;
+		const { min, max } = scrollContainLimit;
+		return snapsBounded.slice(min, max);
+	}
+	return {
+		snapsContained,
+		scrollContainLimit
+	};
+}
+function ScrollLimit(contentSize, scrollSnaps, loop) {
+	const max = scrollSnaps[0];
+	return { limit: Limit(loop ? max - contentSize : arrayLast(scrollSnaps), max) };
+}
+function ScrollLooper(contentSize, limit, location, vectors) {
+	const jointSafety = .1;
+	const { reachedMin, reachedMax } = Limit(limit.min + jointSafety, limit.max + jointSafety);
+	function shouldLoop(direction) {
+		if (direction === 1) return reachedMax(location.get());
+		if (direction === -1) return reachedMin(location.get());
+		return false;
+	}
+	function loop(direction) {
+		if (!shouldLoop(direction)) return;
+		const loopDistance = contentSize * (direction * -1);
+		vectors.forEach((v) => v.add(loopDistance));
+	}
+	return { loop };
+}
+function ScrollProgress(limit) {
+	const { max, length } = limit;
+	function get(n) {
+		const currentLocation = n - max;
+		return length ? currentLocation / -length : 0;
+	}
+	return { get };
+}
+function ScrollSnaps(axis, alignment, containerRect, slideRects, slidesToScroll) {
+	const { startEdge, endEdge } = axis;
+	const { groupSlides } = slidesToScroll;
+	const alignments = measureSizes().map(alignment.measure);
+	const snaps = measureUnaligned();
+	const snapsAligned = measureAligned();
+	function measureSizes() {
+		return groupSlides(slideRects).map((rects) => arrayLast(rects)[endEdge] - rects[0][startEdge]).map(mathAbs);
+	}
+	function measureUnaligned() {
+		return slideRects.map((rect) => containerRect[startEdge] - rect[startEdge]).map((snap) => -mathAbs(snap));
+	}
+	function measureAligned() {
+		return groupSlides(snaps).map((g) => g[0]).map((snap, index) => snap + alignments[index]);
+	}
+	return {
+		snaps,
+		snapsAligned
+	};
+}
+function SlideRegistry(containSnaps, containScroll, scrollSnaps, scrollContainLimit, slidesToScroll, slideIndexes) {
+	const { groupSlides } = slidesToScroll;
+	const { min, max } = scrollContainLimit;
+	const slideRegistry = createSlideRegistry();
+	function createSlideRegistry() {
+		const groupedSlideIndexes = groupSlides(slideIndexes);
+		const doNotContain = !containSnaps || containScroll === "keepSnaps";
+		if (scrollSnaps.length === 1) return [slideIndexes];
+		if (doNotContain) return groupedSlideIndexes;
+		return groupedSlideIndexes.slice(min, max).map((group, index, groups) => {
+			const isFirst = !index;
+			const isLast = arrayIsLastIndex(groups, index);
+			if (isFirst) return arrayFromNumber(arrayLast(groups[0]) + 1);
+			if (isLast) return arrayFromNumber(arrayLastIndex(slideIndexes) - arrayLast(groups)[0] + 1, arrayLast(groups)[0]);
+			return group;
+		});
+	}
+	return { slideRegistry };
+}
+function ScrollTarget(loop, scrollSnaps, contentSize, limit, targetVector) {
+	const { reachedAny, removeOffset, constrain } = limit;
+	function minDistance(distances) {
+		return distances.concat().sort((a, b) => mathAbs(a) - mathAbs(b))[0];
+	}
+	function findTargetSnap(target) {
+		const distance = loop ? removeOffset(target) : constrain(target);
+		const { index } = scrollSnaps.map((snap, index) => ({
+			diff: shortcut(snap - distance, 0),
+			index
+		})).sort((d1, d2) => mathAbs(d1.diff) - mathAbs(d2.diff))[0];
+		return {
+			index,
+			distance
+		};
+	}
+	function shortcut(target, direction) {
+		const targets = [
+			target,
+			target + contentSize,
+			target - contentSize
+		];
+		if (!loop) return target;
+		if (!direction) return minDistance(targets);
+		const matchingTargets = targets.filter((t) => mathSign(t) === direction);
+		if (matchingTargets.length) return minDistance(matchingTargets);
+		return arrayLast(targets) - contentSize;
+	}
+	function byIndex(index, direction) {
+		return {
+			index,
+			distance: shortcut(scrollSnaps[index] - targetVector.get(), direction)
+		};
+	}
+	function byDistance(distance, snap) {
+		const target = targetVector.get() + distance;
+		const { index, distance: targetSnapDistance } = findTargetSnap(target);
+		const reachedBound = !loop && reachedAny(target);
+		if (!snap || reachedBound) return {
+			index,
+			distance
+		};
+		return {
+			index,
+			distance: distance + shortcut(scrollSnaps[index] - targetSnapDistance, 0)
+		};
+	}
+	return {
+		byDistance,
+		byIndex,
+		shortcut
+	};
+}
+function ScrollTo(animation, indexCurrent, indexPrevious, scrollBody, scrollTarget, targetVector, eventHandler) {
+	function scrollTo(target) {
+		const distanceDiff = target.distance;
+		const indexDiff = target.index !== indexCurrent.get();
+		targetVector.add(distanceDiff);
+		if (distanceDiff) if (scrollBody.duration()) animation.start();
+		else {
+			animation.update();
+			animation.render(1);
+			animation.update();
+		}
+		if (indexDiff) {
+			indexPrevious.set(indexCurrent.get());
+			indexCurrent.set(target.index);
+			eventHandler.emit("select");
+		}
+	}
+	function distance(n, snap) {
+		scrollTo(scrollTarget.byDistance(n, snap));
+	}
+	function index(n, direction) {
+		const targetIndex = indexCurrent.clone().set(n);
+		scrollTo(scrollTarget.byIndex(targetIndex.get(), direction));
+	}
+	return {
+		distance,
+		index
+	};
+}
+function SlideFocus(root, slides, slideRegistry, scrollTo, scrollBody, eventStore, eventHandler, watchFocus) {
+	const focusListenerOptions = {
+		passive: true,
+		capture: true
+	};
+	let lastTabPressTime = 0;
+	function init(emblaApi) {
+		if (!watchFocus) return;
+		function defaultCallback(index) {
+			if ((/* @__PURE__ */ new Date()).getTime() - lastTabPressTime > 10) return;
+			eventHandler.emit("slideFocusStart");
+			root.scrollLeft = 0;
+			const group = slideRegistry.findIndex((group) => group.includes(index));
+			if (!isNumber(group)) return;
+			scrollBody.useDuration(0);
+			scrollTo.index(group, 0);
+			eventHandler.emit("slideFocus");
+		}
+		eventStore.add(document, "keydown", registerTabPress, false);
+		slides.forEach((slide, slideIndex) => {
+			eventStore.add(slide, "focus", (evt) => {
+				if (isBoolean(watchFocus) || watchFocus(emblaApi, evt)) defaultCallback(slideIndex);
+			}, focusListenerOptions);
+		});
+	}
+	function registerTabPress(event) {
+		if (event.code === "Tab") lastTabPressTime = (/* @__PURE__ */ new Date()).getTime();
+	}
+	return { init };
+}
+function Vector1D(initialValue) {
+	let value = initialValue;
+	function get() {
+		return value;
+	}
+	function set(n) {
+		value = normalizeInput(n);
+	}
+	function add(n) {
+		value += normalizeInput(n);
+	}
+	function subtract(n) {
+		value -= normalizeInput(n);
+	}
+	function normalizeInput(n) {
+		return isNumber(n) ? n : n.get();
+	}
+	return {
+		get,
+		set,
+		add,
+		subtract
+	};
+}
+function Translate(axis, container) {
+	const translate = axis.scroll === "x" ? x : y;
+	const containerStyle = container.style;
+	let previousTarget = null;
+	let disabled = false;
+	function x(n) {
+		return `translate3d(${n}px,0px,0px)`;
+	}
+	function y(n) {
+		return `translate3d(0px,${n}px,0px)`;
+	}
+	function to(target) {
+		if (disabled) return;
+		const newTarget = roundToTwoDecimals(axis.direction(target));
+		if (newTarget === previousTarget) return;
+		containerStyle.transform = translate(newTarget);
+		previousTarget = newTarget;
+	}
+	function toggleActive(active) {
+		disabled = !active;
+	}
+	function clear() {
+		if (disabled) return;
+		containerStyle.transform = "";
+		if (!container.getAttribute("style")) container.removeAttribute("style");
+	}
+	return {
+		clear,
+		to,
+		toggleActive
+	};
+}
+function SlideLooper(axis, viewSize, contentSize, slideSizes, slideSizesWithGaps, snaps, scrollSnaps, location, slides) {
+	const roundingSafety = .5;
+	const ascItems = arrayKeys(slideSizesWithGaps);
+	const descItems = arrayKeys(slideSizesWithGaps).reverse();
+	const loopPoints = startPoints().concat(endPoints());
+	function removeSlideSizes(indexes, from) {
+		return indexes.reduce((a, i) => {
+			return a - slideSizesWithGaps[i];
+		}, from);
+	}
+	function slidesInGap(indexes, gap) {
+		return indexes.reduce((a, i) => {
+			return removeSlideSizes(a, gap) > 0 ? a.concat([i]) : a;
+		}, []);
+	}
+	function findSlideBounds(offset) {
+		return snaps.map((snap, index) => ({
+			start: snap - slideSizes[index] + roundingSafety + offset,
+			end: snap + viewSize - roundingSafety + offset
+		}));
+	}
+	function findLoopPoints(indexes, offset, isEndEdge) {
+		const slideBounds = findSlideBounds(offset);
+		return indexes.map((index) => {
+			const initial = isEndEdge ? 0 : -contentSize;
+			const altered = isEndEdge ? contentSize : 0;
+			const boundEdge = isEndEdge ? "end" : "start";
+			const loopPoint = slideBounds[index][boundEdge];
+			return {
+				index,
+				loopPoint,
+				slideLocation: Vector1D(-1),
+				translate: Translate(axis, slides[index]),
+				target: () => location.get() > loopPoint ? initial : altered
+			};
+		});
+	}
+	function startPoints() {
+		const gap = scrollSnaps[0];
+		return findLoopPoints(slidesInGap(descItems, gap), contentSize, false);
+	}
+	function endPoints() {
+		return findLoopPoints(slidesInGap(ascItems, viewSize - scrollSnaps[0] - 1), -contentSize, true);
+	}
+	function canLoop() {
+		return loopPoints.every(({ index }) => {
+			return removeSlideSizes(ascItems.filter((i) => i !== index), viewSize) <= .1;
+		});
+	}
+	function loop() {
+		loopPoints.forEach((loopPoint) => {
+			const { target, translate, slideLocation } = loopPoint;
+			const shiftLocation = target();
+			if (shiftLocation === slideLocation.get()) return;
+			translate.to(shiftLocation);
+			slideLocation.set(shiftLocation);
+		});
+	}
+	function clear() {
+		loopPoints.forEach((loopPoint) => loopPoint.translate.clear());
+	}
+	return {
+		canLoop,
+		clear,
+		loop,
+		loopPoints
+	};
+}
+function SlidesHandler(container, eventHandler, watchSlides) {
+	let mutationObserver;
+	let destroyed = false;
+	function init(emblaApi) {
+		if (!watchSlides) return;
+		function defaultCallback(mutations) {
+			for (const mutation of mutations) if (mutation.type === "childList") {
+				emblaApi.reInit();
+				eventHandler.emit("slidesChanged");
+				break;
+			}
+		}
+		mutationObserver = new MutationObserver((mutations) => {
+			if (destroyed) return;
+			if (isBoolean(watchSlides) || watchSlides(emblaApi, mutations)) defaultCallback(mutations);
+		});
+		mutationObserver.observe(container, { childList: true });
+	}
+	function destroy() {
+		if (mutationObserver) mutationObserver.disconnect();
+		destroyed = true;
+	}
+	return {
+		init,
+		destroy
+	};
+}
+function SlidesInView(container, slides, eventHandler, threshold) {
+	const intersectionEntryMap = {};
+	let inViewCache = null;
+	let notInViewCache = null;
+	let intersectionObserver;
+	let destroyed = false;
+	function init() {
+		intersectionObserver = new IntersectionObserver((entries) => {
+			if (destroyed) return;
+			entries.forEach((entry) => {
+				const index = slides.indexOf(entry.target);
+				intersectionEntryMap[index] = entry;
+			});
+			inViewCache = null;
+			notInViewCache = null;
+			eventHandler.emit("slidesInView");
+		}, {
+			root: container.parentElement,
+			threshold
+		});
+		slides.forEach((slide) => intersectionObserver.observe(slide));
+	}
+	function destroy() {
+		if (intersectionObserver) intersectionObserver.disconnect();
+		destroyed = true;
+	}
+	function createInViewList(inView) {
+		return objectKeys(intersectionEntryMap).reduce((list, slideIndex) => {
+			const index = parseInt(slideIndex);
+			const { isIntersecting } = intersectionEntryMap[index];
+			if (inView && isIntersecting || !inView && !isIntersecting) list.push(index);
+			return list;
+		}, []);
+	}
+	function get(inView = true) {
+		if (inView && inViewCache) return inViewCache;
+		if (!inView && notInViewCache) return notInViewCache;
+		const slideIndexes = createInViewList(inView);
+		if (inView) inViewCache = slideIndexes;
+		if (!inView) notInViewCache = slideIndexes;
+		return slideIndexes;
+	}
+	return {
+		init,
+		destroy,
+		get
+	};
+}
+function SlideSizes(axis, containerRect, slideRects, slides, readEdgeGap, ownerWindow) {
+	const { measureSize, startEdge, endEdge } = axis;
+	const withEdgeGap = slideRects[0] && readEdgeGap;
+	const startGap = measureStartGap();
+	const endGap = measureEndGap();
+	const slideSizes = slideRects.map(measureSize);
+	const slideSizesWithGaps = measureWithGaps();
+	function measureStartGap() {
+		if (!withEdgeGap) return 0;
+		const slideRect = slideRects[0];
+		return mathAbs(containerRect[startEdge] - slideRect[startEdge]);
+	}
+	function measureEndGap() {
+		if (!withEdgeGap) return 0;
+		const style = ownerWindow.getComputedStyle(arrayLast(slides));
+		return parseFloat(style.getPropertyValue(`margin-${endEdge}`));
+	}
+	function measureWithGaps() {
+		return slideRects.map((rect, index, rects) => {
+			const isFirst = !index;
+			const isLast = arrayIsLastIndex(rects, index);
+			if (isFirst) return slideSizes[index] + startGap;
+			if (isLast) return slideSizes[index] + endGap;
+			return rects[index + 1][startEdge] - rect[startEdge];
+		}).map(mathAbs);
+	}
+	return {
+		slideSizes,
+		slideSizesWithGaps,
+		startGap,
+		endGap
+	};
+}
+function SlidesToScroll(axis, viewSize, slidesToScroll, loop, containerRect, slideRects, startGap, endGap, pixelTolerance) {
+	const { startEdge, endEdge, direction } = axis;
+	const groupByNumber = isNumber(slidesToScroll);
+	function byNumber(array, groupSize) {
+		return arrayKeys(array).filter((i) => i % groupSize === 0).map((i) => array.slice(i, i + groupSize));
+	}
+	function bySize(array) {
+		if (!array.length) return [];
+		return arrayKeys(array).reduce((groups, rectB, index) => {
+			const rectA = arrayLast(groups) || 0;
+			const isFirst = rectA === 0;
+			const isLast = rectB === arrayLastIndex(array);
+			const edgeA = containerRect[startEdge] - slideRects[rectA][startEdge];
+			const edgeB = containerRect[startEdge] - slideRects[rectB][endEdge];
+			const gapA = !loop && isFirst ? direction(startGap) : 0;
+			const chunkSize = mathAbs(edgeB - (!loop && isLast ? direction(endGap) : 0) - (edgeA + gapA));
+			if (index && chunkSize > viewSize + pixelTolerance) groups.push(rectB);
+			if (isLast) groups.push(array.length);
+			return groups;
+		}, []).map((currentSize, index, groups) => {
+			const previousSize = Math.max(groups[index - 1] || 0);
+			return array.slice(previousSize, currentSize);
+		});
+	}
+	function groupSlides(array) {
+		return groupByNumber ? byNumber(array, slidesToScroll) : bySize(array);
+	}
+	return { groupSlides };
+}
+function Engine(root, container, slides, ownerDocument, ownerWindow, options, eventHandler) {
+	const { align, axis: scrollAxis, direction, startIndex, loop, duration, dragFree, dragThreshold, inViewThreshold, slidesToScroll: groupSlides, skipSnaps, containScroll, watchResize, watchSlides, watchDrag, watchFocus } = options;
+	const pixelTolerance = 2;
+	const nodeRects = NodeRects();
+	const containerRect = nodeRects.measure(container);
+	const slideRects = slides.map(nodeRects.measure);
+	const axis = Axis(scrollAxis, direction);
+	const viewSize = axis.measureSize(containerRect);
+	const percentOfView = PercentOfView(viewSize);
+	const alignment = Alignment(align, viewSize);
+	const containSnaps = !loop && !!containScroll;
+	const { slideSizes, slideSizesWithGaps, startGap, endGap } = SlideSizes(axis, containerRect, slideRects, slides, loop || !!containScroll, ownerWindow);
+	const slidesToScroll = SlidesToScroll(axis, viewSize, groupSlides, loop, containerRect, slideRects, startGap, endGap, pixelTolerance);
+	const { snaps, snapsAligned } = ScrollSnaps(axis, alignment, containerRect, slideRects, slidesToScroll);
+	const contentSize = -arrayLast(snaps) + arrayLast(slideSizesWithGaps);
+	const { snapsContained, scrollContainLimit } = ScrollContain(viewSize, contentSize, snapsAligned, containScroll, pixelTolerance);
+	const scrollSnaps = containSnaps ? snapsContained : snapsAligned;
+	const { limit } = ScrollLimit(contentSize, scrollSnaps, loop);
+	const index = Counter(arrayLastIndex(scrollSnaps), startIndex, loop);
+	const indexPrevious = index.clone();
+	const slideIndexes = arrayKeys(slides);
+	const update = ({ dragHandler, scrollBody, scrollBounds, options: { loop } }) => {
+		if (!loop) scrollBounds.constrain(dragHandler.pointerDown());
+		scrollBody.seek();
+	};
+	const render = ({ scrollBody, translate, location, offsetLocation, previousLocation, scrollLooper, slideLooper, dragHandler, animation, eventHandler, scrollBounds, options: { loop } }, alpha) => {
+		const shouldSettle = scrollBody.settled();
+		const withinBounds = !scrollBounds.shouldConstrain();
+		const hasSettled = loop ? shouldSettle : shouldSettle && withinBounds;
+		const hasSettledAndIdle = hasSettled && !dragHandler.pointerDown();
+		if (hasSettledAndIdle) animation.stop();
+		const interpolatedLocation = location.get() * alpha + previousLocation.get() * (1 - alpha);
+		offsetLocation.set(interpolatedLocation);
+		if (loop) {
+			scrollLooper.loop(scrollBody.direction());
+			slideLooper.loop();
+		}
+		translate.to(offsetLocation.get());
+		if (hasSettledAndIdle) eventHandler.emit("settle");
+		if (!hasSettled) eventHandler.emit("scroll");
+	};
+	const animation = Animations(ownerDocument, ownerWindow, () => update(engine), (alpha) => render(engine, alpha));
+	const friction = .68;
+	const startLocation = scrollSnaps[index.get()];
+	const location = Vector1D(startLocation);
+	const previousLocation = Vector1D(startLocation);
+	const offsetLocation = Vector1D(startLocation);
+	const target = Vector1D(startLocation);
+	const scrollBody = ScrollBody(location, offsetLocation, previousLocation, target, duration, friction);
+	const scrollTarget = ScrollTarget(loop, scrollSnaps, contentSize, limit, target);
+	const scrollTo = ScrollTo(animation, index, indexPrevious, scrollBody, scrollTarget, target, eventHandler);
+	const scrollProgress = ScrollProgress(limit);
+	const eventStore = EventStore();
+	const slidesInView = SlidesInView(container, slides, eventHandler, inViewThreshold);
+	const { slideRegistry } = SlideRegistry(containSnaps, containScroll, scrollSnaps, scrollContainLimit, slidesToScroll, slideIndexes);
+	const slideFocus = SlideFocus(root, slides, slideRegistry, scrollTo, scrollBody, eventStore, eventHandler, watchFocus);
+	const engine = {
+		ownerDocument,
+		ownerWindow,
+		eventHandler,
+		containerRect,
+		slideRects,
+		animation,
+		axis,
+		dragHandler: DragHandler(axis, root, ownerDocument, ownerWindow, target, DragTracker(axis, ownerWindow), location, animation, scrollTo, scrollBody, scrollTarget, index, eventHandler, percentOfView, dragFree, dragThreshold, skipSnaps, friction, watchDrag),
+		eventStore,
+		percentOfView,
+		index,
+		indexPrevious,
+		limit,
+		location,
+		offsetLocation,
+		previousLocation,
+		options,
+		resizeHandler: ResizeHandler(container, eventHandler, ownerWindow, slides, axis, watchResize, nodeRects),
+		scrollBody,
+		scrollBounds: ScrollBounds(limit, offsetLocation, target, scrollBody, percentOfView),
+		scrollLooper: ScrollLooper(contentSize, limit, offsetLocation, [
+			location,
+			offsetLocation,
+			previousLocation,
+			target
+		]),
+		scrollProgress,
+		scrollSnapList: scrollSnaps.map(scrollProgress.get),
+		scrollSnaps,
+		scrollTarget,
+		scrollTo,
+		slideLooper: SlideLooper(axis, viewSize, contentSize, slideSizes, slideSizesWithGaps, snaps, scrollSnaps, offsetLocation, slides),
+		slideFocus,
+		slidesHandler: SlidesHandler(container, eventHandler, watchSlides),
+		slidesInView,
+		slideIndexes,
+		slideRegistry,
+		slidesToScroll,
+		target,
+		translate: Translate(axis, container)
+	};
+	return engine;
+}
+function EventHandler() {
+	let listeners = {};
+	let api;
+	function init(emblaApi) {
+		api = emblaApi;
+	}
+	function getListeners(evt) {
+		return listeners[evt] || [];
+	}
+	function emit(evt) {
+		getListeners(evt).forEach((e) => e(api, evt));
+		return self;
+	}
+	function on(evt, cb) {
+		listeners[evt] = getListeners(evt).concat([cb]);
+		return self;
+	}
+	function off(evt, cb) {
+		listeners[evt] = getListeners(evt).filter((e) => e !== cb);
+		return self;
+	}
+	function clear() {
+		listeners = {};
+	}
+	const self = {
+		init,
+		emit,
+		off,
+		on,
+		clear
+	};
+	return self;
+}
+var defaultOptions$1 = {
+	align: "center",
+	axis: "x",
+	container: null,
+	slides: null,
+	containScroll: "trimSnaps",
+	direction: "ltr",
+	slidesToScroll: 1,
+	inViewThreshold: 0,
+	breakpoints: {},
+	dragFree: false,
+	dragThreshold: 10,
+	loop: false,
+	skipSnaps: false,
+	duration: 25,
+	startIndex: 0,
+	active: true,
+	watchDrag: true,
+	watchResize: true,
+	watchSlides: true,
+	watchFocus: true
+};
+function OptionsHandler(ownerWindow) {
+	function mergeOptions(optionsA, optionsB) {
+		return objectsMergeDeep(optionsA, optionsB || {});
+	}
+	function optionsAtMedia(options) {
+		const optionsAtMedia = options.breakpoints || {};
+		return mergeOptions(options, objectKeys(optionsAtMedia).filter((media) => ownerWindow.matchMedia(media).matches).map((media) => optionsAtMedia[media]).reduce((a, mediaOption) => mergeOptions(a, mediaOption), {}));
+	}
+	function optionsMediaQueries(optionsList) {
+		return optionsList.map((options) => objectKeys(options.breakpoints || {})).reduce((acc, mediaQueries) => acc.concat(mediaQueries), []).map(ownerWindow.matchMedia);
+	}
+	return {
+		mergeOptions,
+		optionsAtMedia,
+		optionsMediaQueries
+	};
+}
+function PluginsHandler(optionsHandler) {
+	let activePlugins = [];
+	function init(emblaApi, plugins) {
+		activePlugins = plugins.filter(({ options }) => optionsHandler.optionsAtMedia(options).active !== false);
+		activePlugins.forEach((plugin) => plugin.init(emblaApi, optionsHandler));
+		return plugins.reduce((map, plugin) => Object.assign(map, { [plugin.name]: plugin }), {});
+	}
+	function destroy() {
+		activePlugins = activePlugins.filter((plugin) => plugin.destroy());
+	}
+	return {
+		init,
+		destroy
+	};
+}
+function EmblaCarousel(root, userOptions, userPlugins) {
+	const ownerDocument = root.ownerDocument;
+	const ownerWindow = ownerDocument.defaultView;
+	const optionsHandler = OptionsHandler(ownerWindow);
+	const pluginsHandler = PluginsHandler(optionsHandler);
+	const mediaHandlers = EventStore();
+	const eventHandler = EventHandler();
+	const { mergeOptions, optionsAtMedia, optionsMediaQueries } = optionsHandler;
+	const { on, off, emit } = eventHandler;
+	const reInit = reActivate;
+	let destroyed = false;
+	let engine;
+	let optionsBase = mergeOptions(defaultOptions$1, EmblaCarousel.globalOptions);
+	let options = mergeOptions(optionsBase);
+	let pluginList = [];
+	let pluginApis;
+	let container;
+	let slides;
+	function storeElements() {
+		const { container: userContainer, slides: userSlides } = options;
+		container = (isString(userContainer) ? root.querySelector(userContainer) : userContainer) || root.children[0];
+		const customSlides = isString(userSlides) ? container.querySelectorAll(userSlides) : userSlides;
+		slides = [].slice.call(customSlides || container.children);
+	}
+	function createEngine(options) {
+		const engine = Engine(root, container, slides, ownerDocument, ownerWindow, options, eventHandler);
+		if (options.loop && !engine.slideLooper.canLoop()) return createEngine(Object.assign({}, options, { loop: false }));
+		return engine;
+	}
+	function activate(withOptions, withPlugins) {
+		if (destroyed) return;
+		optionsBase = mergeOptions(optionsBase, withOptions);
+		options = optionsAtMedia(optionsBase);
+		pluginList = withPlugins || pluginList;
+		storeElements();
+		engine = createEngine(options);
+		optionsMediaQueries([optionsBase, ...pluginList.map(({ options }) => options)]).forEach((query) => mediaHandlers.add(query, "change", reActivate));
+		if (!options.active) return;
+		engine.translate.to(engine.location.get());
+		engine.animation.init();
+		engine.slidesInView.init();
+		engine.slideFocus.init(self);
+		engine.eventHandler.init(self);
+		engine.resizeHandler.init(self);
+		engine.slidesHandler.init(self);
+		if (engine.options.loop) engine.slideLooper.loop();
+		if (container.offsetParent && slides.length) engine.dragHandler.init(self);
+		pluginApis = pluginsHandler.init(self, pluginList);
+	}
+	function reActivate(withOptions, withPlugins) {
+		const startIndex = selectedScrollSnap();
+		deActivate();
+		activate(mergeOptions({ startIndex }, withOptions), withPlugins);
+		eventHandler.emit("reInit");
+	}
+	function deActivate() {
+		engine.dragHandler.destroy();
+		engine.eventStore.clear();
+		engine.translate.clear();
+		engine.slideLooper.clear();
+		engine.resizeHandler.destroy();
+		engine.slidesHandler.destroy();
+		engine.slidesInView.destroy();
+		engine.animation.destroy();
+		pluginsHandler.destroy();
+		mediaHandlers.clear();
+	}
+	function destroy() {
+		if (destroyed) return;
+		destroyed = true;
+		mediaHandlers.clear();
+		deActivate();
+		eventHandler.emit("destroy");
+		eventHandler.clear();
+	}
+	function scrollTo(index, jump, direction) {
+		if (!options.active || destroyed) return;
+		engine.scrollBody.useBaseFriction().useDuration(jump === true ? 0 : options.duration);
+		engine.scrollTo.index(index, direction || 0);
+	}
+	function scrollNext(jump) {
+		scrollTo(engine.index.add(1).get(), jump, -1);
+	}
+	function scrollPrev(jump) {
+		scrollTo(engine.index.add(-1).get(), jump, 1);
+	}
+	function canScrollNext() {
+		return engine.index.add(1).get() !== selectedScrollSnap();
+	}
+	function canScrollPrev() {
+		return engine.index.add(-1).get() !== selectedScrollSnap();
+	}
+	function scrollSnapList() {
+		return engine.scrollSnapList;
+	}
+	function scrollProgress() {
+		return engine.scrollProgress.get(engine.offsetLocation.get());
+	}
+	function selectedScrollSnap() {
+		return engine.index.get();
+	}
+	function previousScrollSnap() {
+		return engine.indexPrevious.get();
+	}
+	function slidesInView() {
+		return engine.slidesInView.get();
+	}
+	function slidesNotInView() {
+		return engine.slidesInView.get(false);
+	}
+	function plugins() {
+		return pluginApis;
+	}
+	function internalEngine() {
+		return engine;
+	}
+	function rootNode() {
+		return root;
+	}
+	function containerNode() {
+		return container;
+	}
+	function slideNodes() {
+		return slides;
+	}
+	const self = {
+		canScrollNext,
+		canScrollPrev,
+		containerNode,
+		internalEngine,
+		destroy,
+		off,
+		on,
+		emit,
+		plugins,
+		previousScrollSnap,
+		reInit,
+		rootNode,
+		scrollNext,
+		scrollPrev,
+		scrollProgress,
+		scrollSnapList,
+		scrollTo,
+		selectedScrollSnap,
+		slideNodes,
+		slidesInView,
+		slidesNotInView
+	};
+	activate(userOptions, userPlugins);
+	setTimeout(() => eventHandler.emit("init"), 0);
+	return self;
+}
+EmblaCarousel.globalOptions = void 0;
+//#endregion
+//#region ../../cache/modules/espaco-fisio-website-6a693/node_modules/.pnpm/embla-carousel-react@8.6.0_react@19.2.4/node_modules/embla-carousel-react/esm/embla-carousel-react.esm.js
+function useEmblaCarousel(options = {}, plugins = []) {
+	const storedOptions = (0, import_react.useRef)(options);
+	const storedPlugins = (0, import_react.useRef)(plugins);
+	const [emblaApi, setEmblaApi] = (0, import_react.useState)();
+	const [viewport, setViewport] = (0, import_react.useState)();
+	const reInit = (0, import_react.useCallback)(() => {
+		if (emblaApi) emblaApi.reInit(storedOptions.current, storedPlugins.current);
+	}, [emblaApi]);
+	(0, import_react.useEffect)(() => {
+		if (areOptionsEqual(storedOptions.current, options)) return;
+		storedOptions.current = options;
+		reInit();
+	}, [options, reInit]);
+	(0, import_react.useEffect)(() => {
+		if (arePluginsEqual(storedPlugins.current, plugins)) return;
+		storedPlugins.current = plugins;
+		reInit();
+	}, [plugins, reInit]);
+	(0, import_react.useEffect)(() => {
+		if (canUseDOM() && viewport) {
+			EmblaCarousel.globalOptions = useEmblaCarousel.globalOptions;
+			const newEmblaApi = EmblaCarousel(viewport, storedOptions.current, storedPlugins.current);
+			setEmblaApi(newEmblaApi);
+			return () => newEmblaApi.destroy();
+		} else setEmblaApi(void 0);
+	}, [viewport, setEmblaApi]);
+	return [setViewport, emblaApi];
+}
+useEmblaCarousel.globalOptions = void 0;
+//#endregion
+//#region src/components/ui/carousel.tsx
+var CarouselContext = import_react.createContext(null);
+function useCarousel() {
+	const context = import_react.useContext(CarouselContext);
+	if (!context) throw new Error("useCarousel must be used within a <Carousel />");
+	return context;
+}
+var Carousel = import_react.forwardRef(({ orientation = "horizontal", opts, setApi, plugins, className, children, ...props }, ref) => {
+	const [carouselRef, api] = useEmblaCarousel({
+		...opts,
+		axis: orientation === "horizontal" ? "x" : "y"
+	}, plugins);
+	const [canScrollPrev, setCanScrollPrev] = import_react.useState(false);
+	const [canScrollNext, setCanScrollNext] = import_react.useState(false);
+	const onSelect = import_react.useCallback((api) => {
+		if (!api) return;
+		setCanScrollPrev(api.canScrollPrev());
+		setCanScrollNext(api.canScrollNext());
+	}, []);
+	const scrollPrev = import_react.useCallback(() => {
+		api?.scrollPrev();
+	}, [api]);
+	const scrollNext = import_react.useCallback(() => {
+		api?.scrollNext();
+	}, [api]);
+	const handleKeyDown = import_react.useCallback((event) => {
+		if (event.key === "ArrowLeft") {
+			event.preventDefault();
+			scrollPrev();
+		} else if (event.key === "ArrowRight") {
+			event.preventDefault();
+			scrollNext();
+		}
+	}, [scrollPrev, scrollNext]);
+	import_react.useEffect(() => {
+		if (!api || !setApi) return;
+		setApi(api);
+	}, [api, setApi]);
+	import_react.useEffect(() => {
+		if (!api) return;
+		onSelect(api);
+		api.on("reInit", onSelect);
+		api.on("select", onSelect);
+		return () => {
+			api?.off("select", onSelect);
+		};
+	}, [api, onSelect]);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CarouselContext.Provider, {
+		"data-uid": "src/components/ui/carousel.tsx:109:5",
+		"data-prohibitions": "[editContent]",
+		value: {
+			carouselRef,
+			api,
+			opts,
+			orientation: orientation || (opts?.axis === "y" ? "vertical" : "horizontal"),
+			scrollPrev,
+			scrollNext,
+			canScrollPrev,
+			canScrollNext
+		},
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			"data-uid": "src/components/ui/carousel.tsx:121:7",
+			"data-prohibitions": "[editContent]",
+			ref,
+			onKeyDownCapture: handleKeyDown,
+			className: cn$1("relative", className),
+			role: "region",
+			"aria-roledescription": "carousel",
+			...props,
+			children
+		})
+	});
+});
+Carousel.displayName = "Carousel";
+var CarouselContent = import_react.forwardRef(({ className, ...props }, ref) => {
+	const { carouselRef, orientation } = useCarousel();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		"data-uid": "src/components/ui/carousel.tsx:141:7",
+		"data-prohibitions": "[editContent]",
+		ref: carouselRef,
+		className: "overflow-hidden",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			"data-uid": "src/components/ui/carousel.tsx:142:9",
+			"data-prohibitions": "[editContent]",
+			ref,
+			className: cn$1("flex", orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col", className),
+			...props
+		})
+	});
+});
+CarouselContent.displayName = "CarouselContent";
+var CarouselItem = import_react.forwardRef(({ className, ...props }, ref) => {
+	const { orientation } = useCarousel();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		"data-uid": "src/components/ui/carousel.tsx:162:7",
+		"data-prohibitions": "[editContent]",
+		ref,
+		role: "group",
+		"aria-roledescription": "slide",
+		className: cn$1("min-w-0 shrink-0 grow-0 basis-full", orientation === "horizontal" ? "pl-4" : "pt-4", className),
+		...props
+	});
+});
+CarouselItem.displayName = "CarouselItem";
+var CarouselPrevious = import_react.forwardRef(({ className, variant = "outline", size = "icon", ...props }, ref) => {
+	const { orientation, scrollPrev, canScrollPrev } = useCarousel();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+		"data-uid": "src/components/ui/carousel.tsx:183:7",
+		"data-prohibitions": "[editContent]",
+		ref,
+		variant,
+		size,
+		className: cn$1("absolute  h-8 w-8 rounded-full", orientation === "horizontal" ? "-left-12 top-1/2 -translate-y-1/2" : "-top-12 left-1/2 -translate-x-1/2 rotate-90", className),
+		disabled: !canScrollPrev,
+		onClick: scrollPrev,
+		...props,
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowLeft, {
+			"data-uid": "src/components/ui/carousel.tsx:198:9",
+			"data-prohibitions": "[editContent]",
+			className: "h-4 w-4"
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+			"data-uid": "src/components/ui/carousel.tsx:199:9",
+			"data-prohibitions": "[]",
+			className: "sr-only",
+			children: "Previous slide"
+		})]
+	});
+});
+CarouselPrevious.displayName = "CarouselPrevious";
+var CarouselNext = import_react.forwardRef(({ className, variant = "outline", size = "icon", ...props }, ref) => {
+	const { orientation, scrollNext, canScrollNext } = useCarousel();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+		"data-uid": "src/components/ui/carousel.tsx:211:7",
+		"data-prohibitions": "[editContent]",
+		ref,
+		variant,
+		size,
+		className: cn$1("absolute h-8 w-8 rounded-full", orientation === "horizontal" ? "-right-12 top-1/2 -translate-y-1/2" : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90", className),
+		disabled: !canScrollNext,
+		onClick: scrollNext,
+		...props,
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight$1, {
+			"data-uid": "src/components/ui/carousel.tsx:226:9",
+			"data-prohibitions": "[editContent]",
+			className: "h-4 w-4"
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+			"data-uid": "src/components/ui/carousel.tsx:227:9",
+			"data-prohibitions": "[]",
+			className: "sr-only",
+			children: "Next slide"
+		})]
+	});
+});
+CarouselNext.displayName = "CarouselNext";
+//#endregion
+//#region ../../cache/modules/espaco-fisio-website-6a693/node_modules/.pnpm/embla-carousel-autoplay@8.6.0_embla-carousel@8.6.0/node_modules/embla-carousel-autoplay/esm/embla-carousel-autoplay.esm.js
+var defaultOptions = {
+	active: true,
+	breakpoints: {},
+	delay: 4e3,
+	jump: false,
+	playOnInit: true,
+	stopOnFocusIn: true,
+	stopOnInteraction: true,
+	stopOnMouseEnter: false,
+	stopOnLastSnap: false,
+	rootNode: null
+};
+function normalizeDelay(emblaApi, delay) {
+	const scrollSnaps = emblaApi.scrollSnapList();
+	if (typeof delay === "number") return scrollSnaps.map(() => delay);
+	return delay(scrollSnaps, emblaApi);
+}
+function getAutoplayRootNode(emblaApi, rootNode) {
+	const emblaRootNode = emblaApi.rootNode();
+	return rootNode && rootNode(emblaRootNode) || emblaRootNode;
+}
+function Autoplay(userOptions = {}) {
+	let options;
+	let emblaApi;
+	let destroyed;
+	let delay;
+	let timerStartTime = null;
+	let timerId = 0;
+	let autoplayActive = false;
+	let mouseIsOver = false;
+	let playOnDocumentVisible = false;
+	let jump = false;
+	function init(emblaApiInstance, optionsHandler) {
+		emblaApi = emblaApiInstance;
+		const { mergeOptions, optionsAtMedia } = optionsHandler;
+		options = optionsAtMedia(mergeOptions(mergeOptions(defaultOptions, Autoplay.globalOptions), userOptions));
+		if (emblaApi.scrollSnapList().length <= 1) return;
+		jump = options.jump;
+		destroyed = false;
+		delay = normalizeDelay(emblaApi, options.delay);
+		const { eventStore, ownerDocument } = emblaApi.internalEngine();
+		const isDraggable = !!emblaApi.internalEngine().options.watchDrag;
+		const root = getAutoplayRootNode(emblaApi, options.rootNode);
+		eventStore.add(ownerDocument, "visibilitychange", visibilityChange);
+		if (isDraggable) emblaApi.on("pointerDown", pointerDown);
+		if (isDraggable && !options.stopOnInteraction) emblaApi.on("pointerUp", pointerUp);
+		if (options.stopOnMouseEnter) eventStore.add(root, "mouseenter", mouseEnter);
+		if (options.stopOnMouseEnter && !options.stopOnInteraction) eventStore.add(root, "mouseleave", mouseLeave);
+		if (options.stopOnFocusIn) emblaApi.on("slideFocusStart", stopAutoplay);
+		if (options.stopOnFocusIn && !options.stopOnInteraction) eventStore.add(emblaApi.containerNode(), "focusout", startAutoplay);
+		if (options.playOnInit) startAutoplay();
+	}
+	function destroy() {
+		emblaApi.off("pointerDown", pointerDown).off("pointerUp", pointerUp).off("slideFocusStart", stopAutoplay);
+		stopAutoplay();
+		destroyed = true;
+		autoplayActive = false;
+	}
+	function setTimer() {
+		const { ownerWindow } = emblaApi.internalEngine();
+		ownerWindow.clearTimeout(timerId);
+		timerId = ownerWindow.setTimeout(next, delay[emblaApi.selectedScrollSnap()]);
+		timerStartTime = (/* @__PURE__ */ new Date()).getTime();
+		emblaApi.emit("autoplay:timerset");
+	}
+	function clearTimer() {
+		const { ownerWindow } = emblaApi.internalEngine();
+		ownerWindow.clearTimeout(timerId);
+		timerId = 0;
+		timerStartTime = null;
+		emblaApi.emit("autoplay:timerstopped");
+	}
+	function startAutoplay() {
+		if (destroyed) return;
+		if (documentIsHidden()) {
+			playOnDocumentVisible = true;
+			return;
+		}
+		if (!autoplayActive) emblaApi.emit("autoplay:play");
+		setTimer();
+		autoplayActive = true;
+	}
+	function stopAutoplay() {
+		if (destroyed) return;
+		if (autoplayActive) emblaApi.emit("autoplay:stop");
+		clearTimer();
+		autoplayActive = false;
+	}
+	function visibilityChange() {
+		if (documentIsHidden()) {
+			playOnDocumentVisible = autoplayActive;
+			return stopAutoplay();
+		}
+		if (playOnDocumentVisible) startAutoplay();
+	}
+	function documentIsHidden() {
+		const { ownerDocument } = emblaApi.internalEngine();
+		return ownerDocument.visibilityState === "hidden";
+	}
+	function pointerDown() {
+		if (!mouseIsOver) stopAutoplay();
+	}
+	function pointerUp() {
+		if (!mouseIsOver) startAutoplay();
+	}
+	function mouseEnter() {
+		mouseIsOver = true;
+		stopAutoplay();
+	}
+	function mouseLeave() {
+		mouseIsOver = false;
+		startAutoplay();
+	}
+	function play(jumpOverride) {
+		if (typeof jumpOverride !== "undefined") jump = jumpOverride;
+		startAutoplay();
+	}
+	function stop() {
+		if (autoplayActive) stopAutoplay();
+	}
+	function reset() {
+		if (autoplayActive) startAutoplay();
+	}
+	function isPlaying() {
+		return autoplayActive;
+	}
+	function next() {
+		const { index } = emblaApi.internalEngine();
+		const nextIndex = index.clone().add(1).get();
+		const lastIndex = emblaApi.scrollSnapList().length - 1;
+		const kill = options.stopOnLastSnap && nextIndex === lastIndex;
+		if (emblaApi.canScrollNext()) emblaApi.scrollNext(jump);
+		else emblaApi.scrollTo(0, jump);
+		emblaApi.emit("autoplay:select");
+		if (kill) return stopAutoplay();
+		startAutoplay();
+	}
+	function timeUntilNext() {
+		if (!timerStartTime) return null;
+		return delay[emblaApi.selectedScrollSnap()] - ((/* @__PURE__ */ new Date()).getTime() - timerStartTime);
+	}
+	return {
+		name: "autoplay",
+		options: userOptions,
+		init,
+		destroy,
+		play,
+		stop,
+		reset,
+		isPlaying,
+		timeUntilNext
+	};
+}
+Autoplay.globalOptions = void 0;
+//#endregion
 //#region src/components/sections/Testimonials.tsx
 function Testimonials() {
-	const googleReviewsUrl = "https://www.google.com/search?sca_esv=014cb5ad1839ea23&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOUdhC7_dlVxW0vXR-Li8jlFsoSyoNkG3huvhlCh4xoq1mt_sFTyLxthPiYhhPEqa_jLCKK3ThErHlTzZ7N-2b7A6k7NK270SSZOj0fzf9lYBVHE3ow%3D%3D&q=Espa%C3%A7o+Fisioterapia+Embu+Coment%C3%A1rios&sa=X&ved=2ahUKEwjGr52qjZmTAxUvE7kGHco4FqsQ0bkNegQILRAF&biw=1920&bih=869&dpr=1";
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
-		"data-uid": "src/components/sections/Testimonials.tsx:18:5",
+	const googleReviewsUrl = "https://www.google.com/search?sca_esv=014cb5ad1839ea23&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOUdhC7_dlVxW0vXR-Li8jlFsoSyoNkG3huvhlCh4xoq1mt_sFTyLxthPiYhhPEqa_jLCKK3ThErHlTzZ7N-2b7A6k7NK270SSZOj0fzf9lYBVHE3ow%3D%3D&q=Espa%C3%A7o+Fisioterapia+Embu+Coment%C3%A1rios";
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+		"data-uid": "src/components/sections/Testimonials.tsx:19:5",
 		"data-prohibitions": "[editContent]",
 		id: "depoimentos",
-		className: "py-20 bg-gray-50",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			"data-uid": "src/components/sections/Testimonials.tsx:19:7",
+		className: "py-24 bg-white relative overflow-hidden",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			"data-uid": "src/components/sections/Testimonials.tsx:21:7",
+			"data-prohibitions": "[]",
+			className: "absolute top-0 right-0 w-1/3 h-full bg-gray-50 rounded-l-[100px] -z-10 hidden lg:block"
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			"data-uid": "src/components/sections/Testimonials.tsx:23:7",
 			"data-prohibitions": "[editContent]",
 			className: "container mx-auto px-4",
 			children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					"data-uid": "src/components/sections/Testimonials.tsx:20:9",
+					"data-uid": "src/components/sections/Testimonials.tsx:24:9",
 					"data-prohibitions": "[]",
-					className: "text-center max-w-3xl mx-auto mb-16",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-						"data-uid": "src/components/sections/Testimonials.tsx:21:11",
-						"data-prohibitions": "[]",
-						className: "text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-sans",
-						children: "O Que Dizem Nossos Pacientes"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						"data-uid": "src/components/sections/Testimonials.tsx:24:11",
-						"data-prohibitions": "[]",
-						className: "text-lg text-gray-600",
-						children: "Histórias reais de recuperação e bem-estar de quem confiou em nosso trabalho."
-					})]
+					className: "text-center max-w-3xl mx-auto mb-16 space-y-4",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							"data-uid": "src/components/sections/Testimonials.tsx:25:11",
+							"data-prohibitions": "[]",
+							className: "text-sm font-bold text-gold-500 uppercase tracking-widest",
+							children: "Aprovação Real"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+							"data-uid": "src/components/sections/Testimonials.tsx:28:11",
+							"data-prohibitions": "[]",
+							className: "text-3xl md:text-5xl font-bold text-navy-900 font-sans",
+							children: "O Que Dizem Nossos Pacientes"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							"data-uid": "src/components/sections/Testimonials.tsx:31:11",
+							"data-prohibitions": "[]",
+							className: "text-lg text-gray-600",
+							children: "Resultados comprovados por quem já recuperou a qualidade de vida com a nossa equipe."
+						})
+					]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					"data-uid": "src/components/sections/Testimonials.tsx:29:9",
+					"data-uid": "src/components/sections/Testimonials.tsx:36:9",
 					"data-prohibitions": "[editContent]",
-					className: "max-w-5xl mx-auto px-12 relative",
+					className: "max-w-6xl mx-auto relative px-4 lg:px-12",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Carousel, {
-						"data-uid": "src/components/sections/Testimonials.tsx:30:11",
+						"data-uid": "src/components/sections/Testimonials.tsx:37:11",
 						"data-prohibitions": "[editContent]",
 						opts: {
 							align: "start",
 							loop: true
 						},
+						plugins: [Autoplay({ delay: 6e3 })],
 						className: "w-full",
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CarouselContent, {
-								"data-uid": "src/components/sections/Testimonials.tsx:37:13",
+								"data-uid": "src/components/sections/Testimonials.tsx:49:13",
 								"data-prohibitions": "[editContent]",
+								className: "-ml-4",
 								children: testimonials.map((testimonial) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CarouselItem, {
-									"data-uid": "src/components/sections/Testimonials.tsx:39:17",
+									"data-uid": "src/components/sections/Testimonials.tsx:51:17",
 									"data-prohibitions": "[editContent]",
-									className: "md:basis-1/2 lg:basis-1/3 pl-4",
+									className: "pl-4 md:basis-1/2 lg:basis-1/3",
 									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Card, {
-										"data-uid": "src/components/sections/Testimonials.tsx:40:19",
+										"data-uid": "src/components/sections/Testimonials.tsx:52:19",
 										"data-prohibitions": "[editContent]",
-										className: "h-full border-none shadow-lg bg-white",
+										className: "h-full border border-gray-100 shadow-xl bg-white rounded-2xl hover:shadow-2xl transition-shadow",
 										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(CardContent, {
-											"data-uid": "src/components/sections/Testimonials.tsx:41:21",
+											"data-uid": "src/components/sections/Testimonials.tsx:53:21",
 											"data-prohibitions": "[editContent]",
-											className: "p-6 flex flex-col h-full",
+											className: "p-8 flex flex-col h-full relative",
 											children: [
 												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-													"data-uid": "src/components/sections/Testimonials.tsx:42:23",
+													"data-uid": "src/components/sections/Testimonials.tsx:55:23",
+													"data-prohibitions": "[]",
+													className: "absolute top-6 right-6 text-gray-100",
+													children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+														"data-uid": "src/components/sections/Testimonials.tsx:56:25",
+														"data-prohibitions": "[]",
+														xmlns: "http://www.w3.org/2000/svg",
+														width: "48",
+														height: "48",
+														viewBox: "0 0 24 24",
+														fill: "currentColor",
+														children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+															"data-uid": "src/components/sections/Testimonials.tsx:63:27",
+															"data-prohibitions": "[editContent]",
+															d: "M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
+														})
+													})
+												}),
+												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+													"data-uid": "src/components/sections/Testimonials.tsx:67:23",
 													"data-prohibitions": "[editContent]",
-													className: "flex gap-1 mb-4 text-yellow-400",
+													className: "flex gap-1 mb-6 text-gold-500 relative z-10",
 													children: [...Array(testimonial.rating)].map((_, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Star, {
-														"data-uid": "src/components/sections/Testimonials.tsx:44:27",
+														"data-uid": "src/components/sections/Testimonials.tsx:69:27",
 														"data-prohibitions": "[editContent]",
 														className: "w-5 h-5 fill-current"
 													}, i))
 												}),
 												/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-													"data-uid": "src/components/sections/Testimonials.tsx:47:23",
+													"data-uid": "src/components/sections/Testimonials.tsx:72:23",
 													"data-prohibitions": "[editContent]",
-													className: "text-gray-700 mb-6 flex-grow italic",
+													className: "text-gray-700 mb-8 flex-grow leading-relaxed relative z-10",
 													children: [
 														"\"",
 														testimonial.content,
@@ -29681,27 +30108,27 @@ function Testimonials() {
 													]
 												}),
 												/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-													"data-uid": "src/components/sections/Testimonials.tsx:48:23",
+													"data-uid": "src/components/sections/Testimonials.tsx:76:23",
 													"data-prohibitions": "[editContent]",
-													className: "flex items-center gap-4 mt-auto",
+													className: "flex items-center gap-4 mt-auto border-t border-gray-100 pt-6",
 													children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-														"data-uid": "src/components/sections/Testimonials.tsx:49:25",
+														"data-uid": "src/components/sections/Testimonials.tsx:77:25",
 														"data-prohibitions": "[editContent]",
 														src: testimonial.image,
 														alt: testimonial.name,
-														className: "w-12 h-12 rounded-full object-cover"
+														className: "w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm"
 													}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-														"data-uid": "src/components/sections/Testimonials.tsx:54:25",
+														"data-uid": "src/components/sections/Testimonials.tsx:82:25",
 														"data-prohibitions": "[editContent]",
 														children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-															"data-uid": "src/components/sections/Testimonials.tsx:55:27",
+															"data-uid": "src/components/sections/Testimonials.tsx:83:27",
 															"data-prohibitions": "[editContent]",
-															className: "font-semibold text-gray-900 font-sans",
+															className: "font-bold text-navy-900 font-sans text-lg",
 															children: testimonial.name
 														}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-															"data-uid": "src/components/sections/Testimonials.tsx:58:27",
+															"data-uid": "src/components/sections/Testimonials.tsx:86:27",
 															"data-prohibitions": "[editContent]",
-															className: "text-sm text-gray-500",
+															className: "text-sm text-gray-500 font-medium",
 															children: testimonial.role
 														})]
 													})]
@@ -29712,41 +30139,45 @@ function Testimonials() {
 								}, testimonial.id))
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CarouselPrevious, {
-								"data-uid": "src/components/sections/Testimonials.tsx:66:13",
+								"data-uid": "src/components/sections/Testimonials.tsx:94:13",
 								"data-prohibitions": "[editContent]",
-								className: "-left-4 lg:-left-12"
+								className: "hidden md:flex -left-12 border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white h-12 w-12"
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CarouselNext, {
-								"data-uid": "src/components/sections/Testimonials.tsx:67:13",
+								"data-uid": "src/components/sections/Testimonials.tsx:95:13",
 								"data-prohibitions": "[editContent]",
-								className: "-right-4 lg:-right-12"
+								className: "hidden md:flex -right-12 border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white h-12 w-12"
 							})
 						]
 					})
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					"data-uid": "src/components/sections/Testimonials.tsx:71:9",
+					"data-uid": "src/components/sections/Testimonials.tsx:99:9",
 					"data-prohibitions": "[]",
-					className: "mt-12 text-center",
+					className: "mt-16 text-center",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-						"data-uid": "src/components/sections/Testimonials.tsx:72:11",
+						"data-uid": "src/components/sections/Testimonials.tsx:100:11",
 						"data-prohibitions": "[]",
 						variant: "outline",
 						size: "lg",
 						asChild: true,
-						className: "rounded-full border-primary text-primary hover:bg-primary hover:text-white font-sans font-semibold",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-							"data-uid": "src/components/sections/Testimonials.tsx:78:13",
+						className: "rounded-full border-2 border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white font-sans font-bold px-8 h-14",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+							"data-uid": "src/components/sections/Testimonials.tsx:106:13",
 							"data-prohibitions": "[]",
 							href: googleReviewsUrl,
 							target: "_blank",
 							rel: "noopener noreferrer",
-							children: "Ver mais avaliações no Google"
+							children: ["Ler mais avaliações no Google ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {
+								"data-uid": "src/components/sections/Testimonials.tsx:107:45",
+								"data-prohibitions": "[editContent]",
+								className: "w-5 h-5 ml-2"
+							})]
 						})
 					})
 				})
 			]
-		})
+		})]
 	});
 }
 //#endregion
@@ -29756,7 +30187,7 @@ function Units() {
 		"data-uid": "src/components/sections/Units.tsx:8:5",
 		"data-prohibitions": "[editContent]",
 		id: "unidades",
-		className: "py-20 bg-white",
+		className: "py-24 bg-gray-50",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			"data-uid": "src/components/sections/Units.tsx:9:7",
 			"data-prohibitions": "[editContent]",
@@ -29764,107 +30195,166 @@ function Units() {
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				"data-uid": "src/components/sections/Units.tsx:10:9",
 				"data-prohibitions": "[]",
-				className: "text-center max-w-3xl mx-auto mb-16",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-					"data-uid": "src/components/sections/Units.tsx:11:11",
-					"data-prohibitions": "[]",
-					className: "text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-sans",
-					children: "Nossa Estrutura"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					"data-uid": "src/components/sections/Units.tsx:14:11",
-					"data-prohibitions": "[]",
-					className: "text-lg text-gray-600",
-					children: "Ambientes modernos e equipados para oferecer o melhor tratamento para você."
-				})]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				"data-uid": "src/components/sections/Units.tsx:19:9",
-				"data-prohibitions": "[editContent]",
-				className: "grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto",
-				children: units.map((unit) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
-					"data-uid": "src/components/sections/Units.tsx:21:13",
-					"data-prohibitions": "[editContent]",
-					className: "overflow-hidden border-none shadow-xl",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						"data-uid": "src/components/sections/Units.tsx:22:15",
+				className: "text-center max-w-3xl mx-auto mb-16 space-y-4",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						"data-uid": "src/components/sections/Units.tsx:11:11",
 						"data-prohibitions": "[]",
-						className: "h-64 overflow-hidden",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-							"data-uid": "src/components/sections/Units.tsx:23:17",
-							"data-prohibitions": "[editContent]",
-							src: unit.image,
-							alt: unit.name,
-							className: "w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-						})
+						className: "text-sm font-bold text-gold-500 uppercase tracking-widest",
+						children: "Onde Estamos"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+						"data-uid": "src/components/sections/Units.tsx:14:11",
+						"data-prohibitions": "[]",
+						className: "text-3xl md:text-5xl font-bold text-navy-900 font-sans",
+						children: "Nossa Estrutura"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						"data-uid": "src/components/sections/Units.tsx:17:11",
+						"data-prohibitions": "[]",
+						className: "text-lg text-gray-600",
+						children: "Unidades estrategicamente localizadas, com ambientes climatizados e equipamentos de última geração."
+					})
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				"data-uid": "src/components/sections/Units.tsx:23:9",
+				"data-prohibitions": "[editContent]",
+				className: "grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto",
+				children: units.map((unit) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
+					"data-uid": "src/components/sections/Units.tsx:25:13",
+					"data-prohibitions": "[editContent]",
+					className: "overflow-hidden border-none shadow-xl bg-white group",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						"data-uid": "src/components/sections/Units.tsx:26:15",
+						"data-prohibitions": "[editContent]",
+						className: "h-[300px] overflow-hidden relative",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+								"data-uid": "src/components/sections/Units.tsx:27:17",
+								"data-prohibitions": "[editContent]",
+								src: unit.image,
+								alt: unit.name,
+								className: "w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								"data-uid": "src/components/sections/Units.tsx:32:17",
+								"data-prohibitions": "[]",
+								className: "absolute inset-0 bg-gradient-to-t from-navy-900/80 to-transparent"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
+								"data-uid": "src/components/sections/Units.tsx:33:17",
+								"data-prohibitions": "[editContent]",
+								className: "absolute bottom-6 left-8 text-3xl font-bold text-white font-sans",
+								children: unit.name
+							})
+						]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(CardContent, {
-						"data-uid": "src/components/sections/Units.tsx:29:15",
+						"data-uid": "src/components/sections/Units.tsx:37:15",
 						"data-prohibitions": "[editContent]",
 						className: "p-8",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								"data-uid": "src/components/sections/Units.tsx:30:17",
-								"data-prohibitions": "[editContent]",
-								className: "text-2xl font-bold text-gray-900 mb-6 font-sans",
-								children: unit.name
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								"data-uid": "src/components/sections/Units.tsx:32:17",
-								"data-prohibitions": "[editContent]",
-								className: "space-y-4 mb-8",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									"data-uid": "src/components/sections/Units.tsx:33:19",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							"data-uid": "src/components/sections/Units.tsx:38:17",
+							"data-prohibitions": "[editContent]",
+							className: "space-y-6 mb-8",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									"data-uid": "src/components/sections/Units.tsx:39:19",
 									"data-prohibitions": "[editContent]",
-									className: "flex items-start gap-4 text-gray-600",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MapPin, {
-										"data-uid": "src/components/sections/Units.tsx:34:21",
-										"data-prohibitions": "[editContent]",
-										className: "w-6 h-6 text-primary shrink-0 mt-1"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										"data-uid": "src/components/sections/Units.tsx:35:21",
-										"data-prohibitions": "[editContent]",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-											"data-uid": "src/components/sections/Units.tsx:36:23",
+									className: "flex items-start gap-4 text-gray-700",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										"data-uid": "src/components/sections/Units.tsx:40:21",
+										"data-prohibitions": "[]",
+										className: "w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center shrink-0 text-navy-900",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MapPin, {
+											"data-uid": "src/components/sections/Units.tsx:41:23",
 											"data-prohibitions": "[editContent]",
+											className: "w-6 h-6"
+										})
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										"data-uid": "src/components/sections/Units.tsx:43:21",
+										"data-prohibitions": "[editContent]",
+										className: "pt-2",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+											"data-uid": "src/components/sections/Units.tsx:44:23",
+											"data-prohibitions": "[editContent]",
+											className: "font-bold text-navy-900 text-lg mb-1",
 											children: unit.address
 										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-											"data-uid": "src/components/sections/Units.tsx:37:23",
+											"data-uid": "src/components/sections/Units.tsx:45:23",
 											"data-prohibitions": "[editContent]",
+											className: "text-gray-500",
 											children: unit.city
 										})]
 									})]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									"data-uid": "src/components/sections/Units.tsx:41:19",
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									"data-uid": "src/components/sections/Units.tsx:49:19",
 									"data-prohibitions": "[editContent]",
-									className: "flex items-center gap-4 text-gray-600",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, {
-										"data-uid": "src/components/sections/Units.tsx:42:21",
-										"data-prohibitions": "[editContent]",
-										className: "w-6 h-6 text-primary shrink-0"
+									className: "flex items-center gap-4 text-gray-700",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										"data-uid": "src/components/sections/Units.tsx:50:21",
+										"data-prohibitions": "[]",
+										className: "w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center shrink-0 text-navy-900",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, {
+											"data-uid": "src/components/sections/Units.tsx:51:23",
+											"data-prohibitions": "[editContent]",
+											className: "w-6 h-6"
+										})
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										"data-uid": "src/components/sections/Units.tsx:43:21",
+										"data-uid": "src/components/sections/Units.tsx:53:21",
 										"data-prohibitions": "[editContent]",
+										className: "font-bold text-lg",
 										children: unit.phone
 									})]
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-								"data-uid": "src/components/sections/Units.tsx:47:17",
-								"data-prohibitions": "[]",
-								className: "w-full rounded-full font-sans font-semibold",
-								asChild: true,
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-									"data-uid": "src/components/sections/Units.tsx:48:19",
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									"data-uid": "src/components/sections/Units.tsx:56:19",
 									"data-prohibitions": "[]",
-									href: unit.mapUrl,
-									target: "_blank",
-									rel: "noopener noreferrer",
-									children: ["Ver no mapa (Como chegar)", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {
-										"data-uid": "src/components/sections/Units.tsx:50:21",
-										"data-prohibitions": "[editContent]",
-										className: "w-4 h-4 ml-2"
+									className: "flex items-center gap-4 text-gray-700",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										"data-uid": "src/components/sections/Units.tsx:57:21",
+										"data-prohibitions": "[]",
+										className: "w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center shrink-0 text-navy-900",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Clock, {
+											"data-uid": "src/components/sections/Units.tsx:58:23",
+											"data-prohibitions": "[editContent]",
+											className: "w-6 h-6"
+										})
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										"data-uid": "src/components/sections/Units.tsx:60:21",
+										"data-prohibitions": "[]",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+											"data-uid": "src/components/sections/Units.tsx:61:23",
+											"data-prohibitions": "[]",
+											className: "text-sm text-gray-500",
+											children: "Seg - Sex: 07h às 20h"
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+											"data-uid": "src/components/sections/Units.tsx:62:23",
+											"data-prohibitions": "[]",
+											className: "text-sm text-gray-500",
+											children: "Sáb: 08h às 12h"
+										})]
 									})]
 								})
+							]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+							"data-uid": "src/components/sections/Units.tsx:67:17",
+							"data-prohibitions": "[]",
+							className: "w-full rounded-full font-sans font-bold text-base h-14 bg-gold-500 text-navy-900 hover:bg-gold-600 transition-colors",
+							asChild: true,
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+								"data-uid": "src/components/sections/Units.tsx:71:19",
+								"data-prohibitions": "[]",
+								href: unit.mapUrl,
+								target: "_blank",
+								rel: "noopener noreferrer",
+								children: ["Fazer trajeto no Google Maps", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MapPin, {
+									"data-uid": "src/components/sections/Units.tsx:73:21",
+									"data-prohibitions": "[editContent]",
+									className: "w-5 h-5 ml-2"
+								})]
 							})
-						]
+						})]
 					})]
 				}, unit.id))
 			})]
@@ -29878,7 +30368,7 @@ function Contact() {
 		"data-uid": "src/components/sections/Contact.tsx:7:5",
 		"data-prohibitions": "[editContent]",
 		id: "contato",
-		className: "py-20 bg-gray-50",
+		className: "py-24 bg-white",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			"data-uid": "src/components/sections/Contact.tsx:8:7",
 			"data-prohibitions": "[editContent]",
@@ -29886,98 +30376,108 @@ function Contact() {
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				"data-uid": "src/components/sections/Contact.tsx:9:9",
 				"data-prohibitions": "[editContent]",
-				className: "max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden",
+				className: "max-w-5xl mx-auto bg-navy-900 rounded-[2.5rem] shadow-2xl overflow-hidden",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					"data-uid": "src/components/sections/Contact.tsx:10:11",
 					"data-prohibitions": "[editContent]",
-					className: "grid md:grid-cols-2",
+					className: "grid md:grid-cols-2 items-stretch",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/components/sections/Contact.tsx:11:13",
+						"data-uid": "src/components/sections/Contact.tsx:12:13",
 						"data-prohibitions": "[editContent]",
-						className: "bg-primary p-12 text-white flex flex-col justify-center relative overflow-hidden",
+						className: "p-12 md:p-16 text-white flex flex-col justify-center relative overflow-hidden h-full",
 						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								"data-uid": "src/components/sections/Contact.tsx:12:15",
-								"data-prohibitions": "[editContent]",
-								className: "absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full translate-x-1/2 -translate-y-1/2 blur-2xl"
-							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 								"data-uid": "src/components/sections/Contact.tsx:13:15",
 								"data-prohibitions": "[editContent]",
-								className: "absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full -translate-x-1/2 translate-y-1/2 blur-2xl"
+								className: "absolute top-0 right-0 w-64 h-64 bg-gold-500/20 rounded-full translate-x-1/3 -translate-y-1/3 blur-3xl"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								"data-uid": "src/components/sections/Contact.tsx:14:15",
+								"data-prohibitions": "[editContent]",
+								className: "absolute bottom-0 left-0 w-64 h-64 bg-health-500/20 rounded-full -translate-x-1/3 translate-y-1/3 blur-3xl"
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								"data-uid": "src/components/sections/Contact.tsx:15:15",
+								"data-uid": "src/components/sections/Contact.tsx:16:15",
 								"data-prohibitions": "[editContent]",
 								className: "relative z-10",
 								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-										"data-uid": "src/components/sections/Contact.tsx:16:17",
-										"data-prohibitions": "[]",
-										className: "text-3xl font-bold mb-6 font-sans",
-										children: "Vamos conversar?"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 										"data-uid": "src/components/sections/Contact.tsx:17:17",
 										"data-prohibitions": "[]",
-										className: "text-primary-foreground/90 mb-12 text-lg",
-										children: "Nossa equipe está pronta para entender suas necessidades e montar o melhor plano de tratamento."
+										className: "inline-flex items-center gap-2 text-gold-500 font-bold tracking-widest uppercase text-sm mb-4",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CalendarCheck, {
+											"data-uid": "src/components/sections/Contact.tsx:18:19",
+											"data-prohibitions": "[editContent]",
+											className: "w-5 h-5"
+										}), "Agendamento"]
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+										"data-uid": "src/components/sections/Contact.tsx:21:17",
+										"data-prohibitions": "[]",
+										className: "text-4xl font-bold mb-6 font-sans",
+										children: "Pronto para viver sem dor?"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										"data-uid": "src/components/sections/Contact.tsx:22:17",
+										"data-prohibitions": "[]",
+										className: "text-gray-300 mb-12 text-lg leading-relaxed",
+										children: "Entre em contato com nossa equipe de especialistas. Estamos prontos para entender sua necessidade e indicar o tratamento exato para sua recuperação."
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										"data-uid": "src/components/sections/Contact.tsx:22:17",
+										"data-uid": "src/components/sections/Contact.tsx:27:17",
 										"data-prohibitions": "[editContent]",
-										className: "space-y-6",
+										className: "space-y-8",
 										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											"data-uid": "src/components/sections/Contact.tsx:23:19",
+											"data-uid": "src/components/sections/Contact.tsx:28:19",
 											"data-prohibitions": "[editContent]",
-											className: "flex items-center gap-4",
+											className: "flex items-center gap-5",
 											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												"data-uid": "src/components/sections/Contact.tsx:24:21",
+												"data-uid": "src/components/sections/Contact.tsx:29:21",
 												"data-prohibitions": "[]",
-												className: "w-12 h-12 bg-white/20 rounded-full flex items-center justify-center shrink-0",
+												className: "w-14 h-14 bg-white/10 border border-white/20 rounded-2xl flex items-center justify-center shrink-0 text-gold-500",
 												children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, {
-													"data-uid": "src/components/sections/Contact.tsx:25:23",
+													"data-uid": "src/components/sections/Contact.tsx:30:23",
 													"data-prohibitions": "[editContent]",
 													className: "w-6 h-6"
 												})
 											}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-												"data-uid": "src/components/sections/Contact.tsx:27:21",
+												"data-uid": "src/components/sections/Contact.tsx:32:21",
 												"data-prohibitions": "[editContent]",
 												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-													"data-uid": "src/components/sections/Contact.tsx:28:23",
+													"data-uid": "src/components/sections/Contact.tsx:33:23",
 													"data-prohibitions": "[]",
-													className: "text-primary-foreground/80 text-sm",
+													className: "text-gray-400 text-sm font-medium mb-1",
 													children: "Telefone / WhatsApp"
 												}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-													"data-uid": "src/components/sections/Contact.tsx:29:23",
+													"data-uid": "src/components/sections/Contact.tsx:34:23",
 													"data-prohibitions": "[editContent]",
-													className: "text-lg font-semibold",
+													className: "text-2xl font-bold font-sans",
 													children: contact.phone
 												})]
 											})]
 										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											"data-uid": "src/components/sections/Contact.tsx:33:19",
+											"data-uid": "src/components/sections/Contact.tsx:38:19",
 											"data-prohibitions": "[editContent]",
-											className: "flex items-center gap-4",
+											className: "flex items-center gap-5",
 											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												"data-uid": "src/components/sections/Contact.tsx:34:21",
+												"data-uid": "src/components/sections/Contact.tsx:39:21",
 												"data-prohibitions": "[]",
-												className: "w-12 h-12 bg-white/20 rounded-full flex items-center justify-center shrink-0",
+												className: "w-14 h-14 bg-white/10 border border-white/20 rounded-2xl flex items-center justify-center shrink-0 text-gold-500",
 												children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Mail, {
-													"data-uid": "src/components/sections/Contact.tsx:35:23",
+													"data-uid": "src/components/sections/Contact.tsx:40:23",
 													"data-prohibitions": "[editContent]",
 													className: "w-6 h-6"
 												})
 											}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-												"data-uid": "src/components/sections/Contact.tsx:37:21",
+												"data-uid": "src/components/sections/Contact.tsx:42:21",
 												"data-prohibitions": "[editContent]",
 												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-													"data-uid": "src/components/sections/Contact.tsx:38:23",
+													"data-uid": "src/components/sections/Contact.tsx:43:23",
 													"data-prohibitions": "[]",
-													className: "text-primary-foreground/80 text-sm",
+													className: "text-gray-400 text-sm font-medium mb-1",
 													children: "E-mail"
 												}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-													"data-uid": "src/components/sections/Contact.tsx:39:23",
+													"data-uid": "src/components/sections/Contact.tsx:44:23",
 													"data-prohibitions": "[editContent]",
 													className: "text-lg font-semibold break-all",
 													children: contact.email
@@ -29989,40 +30489,46 @@ function Contact() {
 							})
 						]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/components/sections/Contact.tsx:46:13",
+						"data-uid": "src/components/sections/Contact.tsx:52:13",
 						"data-prohibitions": "[]",
-						className: "p-12 flex flex-col justify-center bg-white",
+						className: "p-12 md:p-16 flex flex-col justify-center bg-gray-50 h-full",
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								"data-uid": "src/components/sections/Contact.tsx:47:15",
-								"data-prohibitions": "[]",
-								className: "text-2xl font-bold text-gray-900 mb-6 font-sans",
-								children: "Agende agora"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								"data-uid": "src/components/sections/Contact.tsx:48:15",
-								"data-prohibitions": "[]",
-								className: "text-gray-600 mb-8",
-								children: "O primeiro passo para sua recuperação é uma avaliação detalhada. Entre em contato pelo WhatsApp e reserve seu horário."
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
 								"data-uid": "src/components/sections/Contact.tsx:53:15",
 								"data-prohibitions": "[]",
+								className: "text-3xl font-bold text-navy-900 mb-4 font-sans",
+								children: "Dê o primeiro passo"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								"data-uid": "src/components/sections/Contact.tsx:56:15",
+								"data-prohibitions": "[]",
+								className: "text-gray-600 mb-10 text-lg",
+								children: "Sua avaliação inicial é fundamental para traçarmos um plano de sucesso. Agende seu horário agora mesmo de forma rápida e segura."
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+								"data-uid": "src/components/sections/Contact.tsx:61:15",
+								"data-prohibitions": "[]",
 								size: "lg",
-								className: "w-full text-lg h-14 rounded-full shadow-lg font-sans font-semibold",
+								className: "w-full text-xl h-16 rounded-2xl shadow-xl font-sans font-bold bg-[#25D366] hover:bg-[#20bd5a] text-white transition-all hover:-translate-y-1 group",
 								asChild: true,
 								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-									"data-uid": "src/components/sections/Contact.tsx:58:17",
+									"data-uid": "src/components/sections/Contact.tsx:66:17",
 									"data-prohibitions": "[]",
 									href: contact.whatsapp,
 									target: "_blank",
 									rel: "noopener noreferrer",
-									children: ["Agendar uma avaliação", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {
-										"data-uid": "src/components/sections/Contact.tsx:60:19",
+									children: ["Agendar uma avaliação", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight$1, {
+										"data-uid": "src/components/sections/Contact.tsx:68:19",
 										"data-prohibitions": "[editContent]",
-										className: "w-5 h-5 ml-2"
+										className: "w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform"
 									})]
 								})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								"data-uid": "src/components/sections/Contact.tsx:71:15",
+								"data-prohibitions": "[]",
+								className: "text-center text-sm text-gray-500 mt-6 font-medium",
+								children: "Atendimento rápido pelo WhatsApp"
 							})
 						]
 					})]
@@ -30962,202 +31468,241 @@ function Header() {
 							children: navigation$1.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavigationMenuItem, {
 								"data-uid": "src/components/layout/Header.tsx:52:17",
 								"data-prohibitions": "[editContent]",
-								children: item.items ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavigationMenuTrigger, {
+								children: item.isMega && item.groups ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavigationMenuTrigger, {
 									"data-uid": "src/components/layout/Header.tsx:55:23",
 									"data-prohibitions": "[editContent]",
-									className: "bg-transparent hover:bg-gray-100 text-gray-800 font-medium font-sans",
+									className: "bg-transparent hover:bg-gray-50 text-navy-900 font-semibold font-sans text-base",
 									children: item.name
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavigationMenuContent, {
 									"data-uid": "src/components/layout/Header.tsx:58:23",
 									"data-prohibitions": "[editContent]",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 										"data-uid": "src/components/layout/Header.tsx:59:25",
 										"data-prohibitions": "[editContent]",
-										className: "grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-white",
-										children: item.items.map((subItem) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
+										className: "grid grid-cols-3 w-[700px] xl:w-[900px] gap-8 p-6 bg-white rounded-xl shadow-xl",
+										children: item.groups.map((group) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 											"data-uid": "src/components/layout/Header.tsx:61:29",
 											"data-prohibitions": "[editContent]",
-											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavigationMenuLink, {
+											className: "space-y-4",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
 												"data-uid": "src/components/layout/Header.tsx:62:31",
 												"data-prohibitions": "[editContent]",
+												className: "text-sm font-bold text-gold-500 uppercase tracking-wider border-b border-gray-100 pb-2",
+												children: group.title
+											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+												"data-uid": "src/components/layout/Header.tsx:65:31",
+												"data-prohibitions": "[editContent]",
+												className: "space-y-2",
+												children: group.items.map((subItem) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
+													"data-uid": "src/components/layout/Header.tsx:67:35",
+													"data-prohibitions": "[editContent]",
+													children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavigationMenuLink, {
+														"data-uid": "src/components/layout/Header.tsx:68:37",
+														"data-prohibitions": "[editContent]",
+														asChild: true,
+														children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link$1, {
+															"data-uid": "src/components/layout/Header.tsx:69:39",
+															"data-prohibitions": "[editContent]",
+															to: subItem.href,
+															className: "block text-sm font-medium text-gray-700 hover:text-navy-900 hover:bg-gray-50 p-2 rounded-md transition-colors",
+															children: subItem.name
+														})
+													})
+												}, subItem.name))
+											})]
+										}, group.title))
+									})
+								})] }) : item.items ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavigationMenuTrigger, {
+									"data-uid": "src/components/layout/Header.tsx:86:23",
+									"data-prohibitions": "[editContent]",
+									className: "bg-transparent hover:bg-gray-50 text-navy-900 font-semibold font-sans text-base",
+									children: item.name
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavigationMenuContent, {
+									"data-uid": "src/components/layout/Header.tsx:89:23",
+									"data-prohibitions": "[editContent]",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+										"data-uid": "src/components/layout/Header.tsx:90:25",
+										"data-prohibitions": "[editContent]",
+										className: "w-[250px] p-2 bg-white rounded-xl shadow-xl space-y-1",
+										children: item.items.map((subItem) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
+											"data-uid": "src/components/layout/Header.tsx:92:29",
+											"data-prohibitions": "[editContent]",
+											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavigationMenuLink, {
+												"data-uid": "src/components/layout/Header.tsx:93:31",
+												"data-prohibitions": "[editContent]",
 												asChild: true,
-												children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link$1, {
-													"data-uid": "src/components/layout/Header.tsx:63:33",
+												children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link$1, {
+													"data-uid": "src/components/layout/Header.tsx:94:33",
 													"data-prohibitions": "[editContent]",
 													to: subItem.href,
-													className: "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary/5 hover:text-primary focus:bg-primary/5 focus:text-primary",
-													children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-														"data-uid": "src/components/layout/Header.tsx:67:35",
-														"data-prohibitions": "[editContent]",
-														className: "text-sm font-semibold leading-none font-sans",
-														children: subItem.name
-													}), subItem.description && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-														"data-uid": "src/components/layout/Header.tsx:71:37",
-														"data-prohibitions": "[editContent]",
-														className: "line-clamp-2 text-sm leading-snug text-gray-500 mt-1",
-														children: subItem.description
-													})]
+													className: "block text-sm font-medium text-gray-700 hover:text-navy-900 hover:bg-gray-50 p-3 rounded-md transition-colors",
+													children: subItem.name
 												})
 											})
 										}, subItem.name))
 									})
 								})] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavigationMenuLink, {
-									"data-uid": "src/components/layout/Header.tsx:83:21",
+									"data-uid": "src/components/layout/Header.tsx:107:21",
 									"data-prohibitions": "[editContent]",
 									asChild: true,
 									className: navigationMenuTriggerStyle(),
 									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link$1, {
-										"data-uid": "src/components/layout/Header.tsx:84:23",
+										"data-uid": "src/components/layout/Header.tsx:108:23",
 										"data-prohibitions": "[editContent]",
 										to: item.href,
-										className: "bg-transparent hover:bg-gray-100 text-gray-800 font-medium font-sans cursor-pointer",
+										className: "bg-transparent hover:bg-gray-50 text-navy-900 font-semibold font-sans text-base cursor-pointer",
 										children: item.name
 									})
 								})
 							}, item.name))
 						})
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/components/layout/Header.tsx:97:11",
-						"data-prohibitions": "[editContent]",
+						"data-uid": "src/components/layout/Header.tsx:121:11",
+						"data-prohibitions": "[]",
 						className: "flex items-center gap-4 border-l border-gray-200 pl-6",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								"data-uid": "src/components/layout/Header.tsx:98:13",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+							"data-uid": "src/components/layout/Header.tsx:122:13",
+							"data-prohibitions": "[]",
+							href: "https://www.instagram.com/espacofisioembu/",
+							target: "_blank",
+							rel: "noopener noreferrer",
+							className: "text-gray-400 hover:text-navy-900 transition-colors bg-gray-50 p-2 rounded-full hover:bg-gray-100",
+							"aria-label": "Instagram",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Instagram, {
+								"data-uid": "src/components/layout/Header.tsx:129:15",
 								"data-prohibitions": "[editContent]",
-								className: "flex gap-2",
-								children: socialLinks.map((social) => {
-									const Icon = social.icon;
-									return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-										"data-uid": "src/components/layout/Header.tsx:102:19",
-										"data-prohibitions": "[]",
-										href: social.href,
-										target: "_blank",
-										rel: "noopener noreferrer",
-										className: "text-gray-600 hover:text-primary transition-colors",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, {
-											"data-uid": "src/components/layout/Header.tsx:109:21",
-											"data-prohibitions": "[editContent]",
-											className: "w-5 h-5"
-										})
-									}, social.name);
-								})
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								"data-uid": "src/components/layout/Header.tsx:115:13",
-								"data-prohibitions": "[editContent]",
-								className: "hidden xl:flex items-center gap-2 text-gray-700 font-semibold",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, {
-									"data-uid": "src/components/layout/Header.tsx:116:15",
-									"data-prohibitions": "[editContent]",
-									className: "w-4 h-4 text-primary"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									"data-uid": "src/components/layout/Header.tsx:117:15",
-									"data-prohibitions": "[editContent]",
-									children: contact.phone
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-								"data-uid": "src/components/layout/Header.tsx:120:13",
-								"data-prohibitions": "[]",
-								asChild: true,
-								className: "rounded-full font-semibold font-sans shadow-sm",
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-									"data-uid": "src/components/layout/Header.tsx:121:15",
-									"data-prohibitions": "[]",
-									href: contact.whatsapp,
-									target: "_blank",
-									rel: "noopener noreferrer",
-									children: "Agendar uma avaliação"
-								})
+								className: "w-5 h-5"
 							})
-						]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+							"data-uid": "src/components/layout/Header.tsx:132:13",
+							"data-prohibitions": "[]",
+							asChild: true,
+							className: "rounded-full font-semibold font-sans shadow-md bg-navy-900 hover:bg-navy-800 text-white",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+								"data-uid": "src/components/layout/Header.tsx:136:15",
+								"data-prohibitions": "[]",
+								href: contact.whatsapp,
+								target: "_blank",
+								rel: "noopener noreferrer",
+								children: "Agendar uma avaliação"
+							})
+						})]
 					})]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-					"data-uid": "src/components/layout/Header.tsx:129:9",
+					"data-uid": "src/components/layout/Header.tsx:144:9",
 					"data-prohibitions": "[editContent]",
-					className: "lg:hidden z-50 p-2 text-gray-800",
+					className: "lg:hidden z-50 p-2 text-navy-900",
 					onClick: () => setIsMobileMenuOpen(!isMobileMenuOpen),
 					children: isMobileMenuOpen ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, {
-						"data-uid": "src/components/layout/Header.tsx:133:31",
+						"data-uid": "src/components/layout/Header.tsx:148:31",
 						"data-prohibitions": "[editContent]",
-						className: "w-6 h-6"
+						className: "w-8 h-8"
 					}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Menu, {
-						"data-uid": "src/components/layout/Header.tsx:133:59",
+						"data-uid": "src/components/layout/Header.tsx:148:59",
 						"data-prohibitions": "[editContent]",
-						className: "w-6 h-6"
+						className: "w-8 h-8"
 					})
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					"data-uid": "src/components/layout/Header.tsx:137:9",
+					"data-uid": "src/components/layout/Header.tsx:152:9",
 					"data-prohibitions": "[editContent]",
 					className: cn$1("fixed inset-0 bg-white z-40 lg:hidden transition-transform duration-300 ease-in-out flex flex-col pt-24 px-6 overflow-y-auto", isMobileMenuOpen ? "translate-x-0" : "translate-x-full"),
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("nav", {
-						"data-uid": "src/components/layout/Header.tsx:143:11",
+						"data-uid": "src/components/layout/Header.tsx:158:11",
 						"data-prohibitions": "[editContent]",
 						className: "flex flex-col gap-6",
 						children: navigation$1.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							"data-uid": "src/components/layout/Header.tsx:145:15",
+							"data-uid": "src/components/layout/Header.tsx:160:15",
 							"data-prohibitions": "[editContent]",
 							className: "flex flex-col gap-2",
-							children: item.items ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								"data-uid": "src/components/layout/Header.tsx:148:21",
+							children: item.isMega && item.groups ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								"data-uid": "src/components/layout/Header.tsx:163:21",
 								"data-prohibitions": "[editContent]",
-								className: "text-lg font-bold text-gray-800 font-sans border-b pb-2",
+								className: "text-xl font-bold text-navy-900 font-sans border-b border-gray-100 pb-2",
 								children: item.name
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								"data-uid": "src/components/layout/Header.tsx:151:21",
+								"data-uid": "src/components/layout/Header.tsx:166:21",
 								"data-prohibitions": "[editContent]",
-								className: "flex flex-col gap-3 pl-4",
+								className: "flex flex-col gap-6 pl-4 mt-2",
+								children: item.groups.map((group) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									"data-uid": "src/components/layout/Header.tsx:168:25",
+									"data-prohibitions": "[editContent]",
+									className: "flex flex-col gap-2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										"data-uid": "src/components/layout/Header.tsx:169:27",
+										"data-prohibitions": "[editContent]",
+										className: "text-sm font-bold text-gold-500 uppercase",
+										children: group.title
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										"data-uid": "src/components/layout/Header.tsx:172:27",
+										"data-prohibitions": "[editContent]",
+										className: "flex flex-col gap-3 border-l-2 border-gray-100 pl-4",
+										children: group.items.map((subItem) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link$1, {
+											"data-uid": "src/components/layout/Header.tsx:174:31",
+											"data-prohibitions": "[editContent]",
+											to: subItem.href,
+											className: "text-gray-600 hover:text-navy-900 font-medium font-sans",
+											onClick: () => setIsMobileMenuOpen(false),
+											children: subItem.name
+										}, subItem.name))
+									})]
+								}, group.title))
+							})] }) : item.items ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								"data-uid": "src/components/layout/Header.tsx:190:21",
+								"data-prohibitions": "[editContent]",
+								className: "text-xl font-bold text-navy-900 font-sans border-b border-gray-100 pb-2",
+								children: item.name
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								"data-uid": "src/components/layout/Header.tsx:193:21",
+								"data-prohibitions": "[editContent]",
+								className: "flex flex-col gap-3 pl-4 mt-2 border-l-2 border-gray-100 ml-4",
 								children: item.items.map((subItem) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link$1, {
-									"data-uid": "src/components/layout/Header.tsx:153:25",
+									"data-uid": "src/components/layout/Header.tsx:195:25",
 									"data-prohibitions": "[editContent]",
 									to: subItem.href,
-									className: "text-gray-600 hover:text-primary transition-colors py-1 font-medium font-sans",
+									className: "text-gray-600 hover:text-navy-900 font-medium font-sans py-1",
 									onClick: () => setIsMobileMenuOpen(false),
 									children: subItem.name
 								}, subItem.name))
 							})] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link$1, {
-								"data-uid": "src/components/layout/Header.tsx:165:19",
+								"data-uid": "src/components/layout/Header.tsx:207:19",
 								"data-prohibitions": "[editContent]",
 								to: item.href,
-								className: "text-lg font-bold text-gray-800 font-sans border-b pb-2 hover:text-primary transition-colors",
+								className: "text-xl font-bold text-navy-900 font-sans border-b border-gray-100 pb-2",
 								onClick: () => setIsMobileMenuOpen(false),
 								children: item.name
 							})
 						}, item.name))
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/components/layout/Header.tsx:177:11",
-						"data-prohibitions": "[editContent]",
+						"data-uid": "src/components/layout/Header.tsx:219:11",
+						"data-prohibitions": "[]",
 						className: "mt-8 pt-8 border-t flex flex-col gap-6 pb-12",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							"data-uid": "src/components/layout/Header.tsx:178:13",
-							"data-prohibitions": "[editContent]",
+							"data-uid": "src/components/layout/Header.tsx:220:13",
+							"data-prohibitions": "[]",
 							className: "flex justify-center gap-4",
-							children: socialLinks.map((social) => {
-								const Icon = social.icon;
-								return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-									"data-uid": "src/components/layout/Header.tsx:182:19",
-									"data-prohibitions": "[]",
-									href: social.href,
-									target: "_blank",
-									rel: "noopener noreferrer",
-									className: "w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, {
-										"data-uid": "src/components/layout/Header.tsx:189:21",
-										"data-prohibitions": "[editContent]",
-										className: "w-6 h-6"
-									})
-								}, social.name);
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+								"data-uid": "src/components/layout/Header.tsx:221:15",
+								"data-prohibitions": "[]",
+								href: "https://www.instagram.com/espacofisioembu/",
+								target: "_blank",
+								rel: "noopener noreferrer",
+								className: "w-14 h-14 rounded-full bg-gray-50 flex items-center justify-center text-navy-900 hover:bg-navy-900 hover:text-white transition-colors shadow-sm",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Instagram, {
+									"data-uid": "src/components/layout/Header.tsx:227:17",
+									"data-prohibitions": "[editContent]",
+									className: "w-7 h-7"
+								})
 							})
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-							"data-uid": "src/components/layout/Header.tsx:195:13",
+							"data-uid": "src/components/layout/Header.tsx:231:13",
 							"data-prohibitions": "[]",
 							size: "lg",
 							asChild: true,
-							className: "w-full rounded-full font-semibold font-sans",
+							className: "w-full rounded-full font-bold font-sans text-lg bg-navy-900 text-white h-14",
 							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-								"data-uid": "src/components/layout/Header.tsx:196:15",
+								"data-uid": "src/components/layout/Header.tsx:236:15",
 								"data-prohibitions": "[]",
 								href: contact.whatsapp,
 								target: "_blank",
@@ -31175,140 +31720,141 @@ function Header() {
 //#region src/components/layout/Footer.tsx
 function Footer() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("footer", {
-		"data-uid": "src/components/layout/Footer.tsx:7:5",
+		"data-uid": "src/components/layout/Footer.tsx:8:5",
 		"data-prohibitions": "[editContent]",
-		className: "bg-gray-900 text-gray-300 py-12 md:py-16",
+		className: "bg-navy-900 text-gray-300 py-16 lg:py-20 border-t-4 border-gold-500",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			"data-uid": "src/components/layout/Footer.tsx:8:7",
+			"data-uid": "src/components/layout/Footer.tsx:9:7",
 			"data-prohibitions": "[editContent]",
 			className: "container mx-auto px-4",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				"data-uid": "src/components/layout/Footer.tsx:9:9",
+				"data-uid": "src/components/layout/Footer.tsx:10:9",
 				"data-prohibitions": "[editContent]",
-				className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12",
+				className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8",
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/components/layout/Footer.tsx:11:11",
-						"data-prohibitions": "[editContent]",
-						className: "space-y-6",
+						"data-uid": "src/components/layout/Footer.tsx:12:11",
+						"data-prohibitions": "[]",
+						className: "space-y-8",
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								"data-uid": "src/components/layout/Footer.tsx:12:13",
+								"data-uid": "src/components/layout/Footer.tsx:13:13",
 								"data-prohibitions": "[]",
-								className: "bg-white p-4 rounded-lg inline-block",
+								className: "bg-white p-4 rounded-xl inline-block shadow-lg",
 								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-									"data-uid": "src/components/layout/Footer.tsx:13:15",
+									"data-uid": "src/components/layout/Footer.tsx:14:15",
 									"data-prohibitions": "[editContent]",
 									src: espacofisio_logo_fd933_default,
 									alt: "Espaço Fisio",
-									className: "h-12 w-auto"
+									className: "h-14 w-auto object-contain"
 								})
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								"data-uid": "src/components/layout/Footer.tsx:15:13",
+								"data-uid": "src/components/layout/Footer.tsx:16:13",
 								"data-prohibitions": "[]",
-								className: "text-gray-400",
-								children: "Excelência em fisioterapia e reabilitação, proporcionando qualidade de vida e bem-estar para nossos pacientes."
+								className: "text-gray-400 leading-relaxed",
+								children: "Referência em reabilitação avançada, proporcionando qualidade de vida e bem-estar através de tratamentos premium e personalizados."
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								"data-uid": "src/components/layout/Footer.tsx:19:13",
-								"data-prohibitions": "[editContent]",
+								"data-uid": "src/components/layout/Footer.tsx:20:13",
+								"data-prohibitions": "[]",
 								className: "flex gap-4",
-								children: socialLinks.map((social) => {
-									const Icon = social.icon;
-									return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-										"data-uid": "src/components/layout/Footer.tsx:23:19",
-										"data-prohibitions": "[]",
-										href: social.href,
-										target: "_blank",
-										rel: "noopener noreferrer",
-										className: "w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, {
-											"data-uid": "src/components/layout/Footer.tsx:30:21",
-											"data-prohibitions": "[editContent]",
-											className: "w-5 h-5"
-										})
-									}, social.name);
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+									"data-uid": "src/components/layout/Footer.tsx:21:15",
+									"data-prohibitions": "[]",
+									href: "https://www.instagram.com/espacofisioembu/",
+									target: "_blank",
+									rel: "noopener noreferrer",
+									className: "w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold-500 hover:text-navy-900 transition-all duration-300 text-white",
+									"aria-label": "Instagram",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Instagram, {
+										"data-uid": "src/components/layout/Footer.tsx:28:17",
+										"data-prohibitions": "[editContent]",
+										className: "w-6 h-6"
+									})
 								})
 							})
 						]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/components/layout/Footer.tsx:38:11",
+						"data-uid": "src/components/layout/Footer.tsx:34:11",
 						"data-prohibitions": "[editContent]",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-							"data-uid": "src/components/layout/Footer.tsx:39:13",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", {
+							"data-uid": "src/components/layout/Footer.tsx:35:13",
 							"data-prohibitions": "[]",
-							className: "text-white text-lg font-bold font-sans mb-6",
-							children: "Links Rápidos"
+							className: "text-white text-xl font-bold font-sans mb-8 flex items-center gap-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								"data-uid": "src/components/layout/Footer.tsx:36:15",
+								"data-prohibitions": "[]",
+								className: "w-2 h-2 bg-gold-500 rounded-full"
+							}), "Acesso Rápido"]
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
-							"data-uid": "src/components/layout/Footer.tsx:40:13",
+							"data-uid": "src/components/layout/Footer.tsx:39:13",
 							"data-prohibitions": "[editContent]",
 							className: "space-y-4",
-							children: navigation$1.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
-								"data-uid": "src/components/layout/Footer.tsx:42:17",
+							children: navigation$1.slice(0, 4).map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+								"data-uid": "src/components/layout/Footer.tsx:41:17",
 								"data-prohibitions": "[editContent]",
-								children: item.items ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									"data-uid": "src/components/layout/Footer.tsx:44:21",
+								children: [item.isMega || item.items ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									"data-uid": "src/components/layout/Footer.tsx:43:21",
 									"data-prohibitions": "[editContent]",
-									className: "space-y-2",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										"data-uid": "src/components/layout/Footer.tsx:45:23",
-										"data-prohibitions": "[editContent]",
-										className: "text-white font-medium",
-										children: item.name
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
-										"data-uid": "src/components/layout/Footer.tsx:46:23",
-										"data-prohibitions": "[editContent]",
-										className: "pl-4 space-y-2 border-l border-gray-700",
-										children: item.items.slice(0, 4).map((sub) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
-											"data-uid": "src/components/layout/Footer.tsx:48:27",
-											"data-prohibitions": "[editContent]",
-											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link$1, {
-												"data-uid": "src/components/layout/Footer.tsx:49:29",
-												"data-prohibitions": "[editContent]",
-												to: sub.href,
-												className: "text-gray-400 hover:text-primary transition-colors text-sm",
-												children: sub.name
-											})
-										}, sub.name))
-									})]
+									className: "text-white font-medium block mb-2",
+									children: item.name
 								}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link$1, {
-									"data-uid": "src/components/layout/Footer.tsx:60:21",
+									"data-uid": "src/components/layout/Footer.tsx:45:21",
 									"data-prohibitions": "[editContent]",
 									to: item.href,
-									className: "hover:text-primary transition-colors",
+									className: "text-gray-400 hover:text-gold-500 transition-colors font-medium",
 									children: item.name
-								})
+								}), (item.isMega || item.items) && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+									"data-uid": "src/components/layout/Footer.tsx:53:21",
+									"data-prohibitions": "[editContent]",
+									className: "pl-4 border-l-2 border-white/10 space-y-2 mt-2",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
+										"data-uid": "src/components/layout/Footer.tsx:55:23",
+										"data-prohibitions": "[]",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link$1, {
+											"data-uid": "src/components/layout/Footer.tsx:56:25",
+											"data-prohibitions": "[]",
+											to: "/#servicos",
+											className: "text-gray-400 hover:text-gold-500 transition-colors text-sm",
+											children: "Ver todas especialidades"
+										})
+									})
+								})]
 							}, item.name))
 						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/components/layout/Footer.tsx:70:11",
+						"data-uid": "src/components/layout/Footer.tsx:71:11",
 						"data-prohibitions": "[editContent]",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-							"data-uid": "src/components/layout/Footer.tsx:71:13",
-							"data-prohibitions": "[]",
-							className: "text-white text-lg font-bold font-sans mb-6",
-							children: "Contato"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ul", {
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", {
 							"data-uid": "src/components/layout/Footer.tsx:72:13",
-							"data-prohibitions": "[editContent]",
-							className: "space-y-4",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+							"data-prohibitions": "[]",
+							className: "text-white text-xl font-bold font-sans mb-8 flex items-center gap-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 								"data-uid": "src/components/layout/Footer.tsx:73:15",
+								"data-prohibitions": "[]",
+								className: "w-2 h-2 bg-gold-500 rounded-full"
+							}), "Fale Conosco"]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ul", {
+							"data-uid": "src/components/layout/Footer.tsx:76:13",
+							"data-prohibitions": "[editContent]",
+							className: "space-y-6",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+								"data-uid": "src/components/layout/Footer.tsx:77:15",
 								"data-prohibitions": "[editContent]",
-								className: "flex items-center gap-3",
+								className: "flex items-start gap-4",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									"data-uid": "src/components/layout/Footer.tsx:74:17",
+									"data-uid": "src/components/layout/Footer.tsx:78:17",
 									"data-prohibitions": "[]",
-									className: "w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center shrink-0",
+									className: "w-12 h-12 rounded-full bg-white/5 flex items-center justify-center shrink-0 text-gold-500",
 									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-										"data-uid": "src/components/layout/Footer.tsx:75:19",
+										"data-uid": "src/components/layout/Footer.tsx:79:19",
 										"data-prohibitions": "[]",
 										xmlns: "http://www.w3.org/2000/svg",
-										width: "20",
-										height: "20",
+										width: "24",
+										height: "24",
 										viewBox: "0 0 24 24",
 										fill: "none",
 										stroke: "currentColor",
@@ -31316,30 +31862,42 @@ function Footer() {
 										strokeLinecap: "round",
 										strokeLinejoin: "round",
 										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-											"data-uid": "src/components/layout/Footer.tsx:86:21",
+											"data-uid": "src/components/layout/Footer.tsx:90:21",
 											"data-prohibitions": "[]",
 											d: "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
 										})
 									})
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									"data-uid": "src/components/layout/Footer.tsx:89:17",
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									"data-uid": "src/components/layout/Footer.tsx:93:17",
 									"data-prohibitions": "[editContent]",
-									children: contact.phone
+									className: "pt-1",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										"data-uid": "src/components/layout/Footer.tsx:94:19",
+										"data-prohibitions": "[]",
+										className: "text-sm text-gray-400 font-medium",
+										children: "WhatsApp / Telefone"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+										"data-uid": "src/components/layout/Footer.tsx:95:19",
+										"data-prohibitions": "[editContent]",
+										href: contact.whatsapp,
+										className: "text-white font-bold text-lg hover:text-gold-500 transition-colors",
+										children: contact.phone
+									})]
 								})]
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
-								"data-uid": "src/components/layout/Footer.tsx:91:15",
+								"data-uid": "src/components/layout/Footer.tsx:103:15",
 								"data-prohibitions": "[editContent]",
-								className: "flex items-center gap-3",
+								className: "flex items-start gap-4",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									"data-uid": "src/components/layout/Footer.tsx:92:17",
+									"data-uid": "src/components/layout/Footer.tsx:104:17",
 									"data-prohibitions": "[]",
-									className: "w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center shrink-0",
+									className: "w-12 h-12 rounded-full bg-white/5 flex items-center justify-center shrink-0 text-gold-500",
 									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-										"data-uid": "src/components/layout/Footer.tsx:93:19",
+										"data-uid": "src/components/layout/Footer.tsx:105:19",
 										"data-prohibitions": "[]",
 										xmlns: "http://www.w3.org/2000/svg",
-										width: "20",
-										height: "20",
+										width: "24",
+										height: "24",
 										viewBox: "0 0 24 24",
 										fill: "none",
 										stroke: "currentColor",
@@ -31347,148 +31905,109 @@ function Footer() {
 										strokeLinecap: "round",
 										strokeLinejoin: "round",
 										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-											"data-uid": "src/components/layout/Footer.tsx:104:21",
+											"data-uid": "src/components/layout/Footer.tsx:116:21",
 											"data-prohibitions": "[]",
 											d: "M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
 										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", {
-											"data-uid": "src/components/layout/Footer.tsx:105:21",
+											"data-uid": "src/components/layout/Footer.tsx:117:21",
 											"data-prohibitions": "[]",
 											points: "22,6 12,13 2,6"
 										})]
 									})
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-									"data-uid": "src/components/layout/Footer.tsx:108:17",
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									"data-uid": "src/components/layout/Footer.tsx:120:17",
 									"data-prohibitions": "[editContent]",
-									href: `mailto:${contact.email}`,
-									className: "hover:text-primary transition-colors break-all",
-									children: contact.email
+									className: "pt-1",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										"data-uid": "src/components/layout/Footer.tsx:121:19",
+										"data-prohibitions": "[]",
+										className: "text-sm text-gray-400 font-medium",
+										children: "E-mail"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+										"data-uid": "src/components/layout/Footer.tsx:122:19",
+										"data-prohibitions": "[editContent]",
+										href: `mailto:${contact.email}`,
+										className: "text-white hover:text-gold-500 transition-colors break-all",
+										children: contact.email
+									})]
 								})]
 							})]
 						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/components/layout/Footer.tsx:119:11",
-						"data-prohibitions": "[]",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-							"data-uid": "src/components/layout/Footer.tsx:120:13",
+						"data-uid": "src/components/layout/Footer.tsx:134:11",
+						"data-prohibitions": "[editContent]",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", {
+							"data-uid": "src/components/layout/Footer.tsx:135:13",
 							"data-prohibitions": "[]",
-							className: "text-white text-lg font-bold font-sans mb-6",
-							children: "Horário de Funcionamento"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ul", {
-							"data-uid": "src/components/layout/Footer.tsx:123:13",
-							"data-prohibitions": "[]",
-							className: "space-y-4",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
-								"data-uid": "src/components/layout/Footer.tsx:124:15",
+							className: "text-white text-xl font-bold font-sans mb-8 flex items-center gap-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								"data-uid": "src/components/layout/Footer.tsx:136:15",
 								"data-prohibitions": "[]",
-								className: "flex gap-3",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									"data-uid": "src/components/layout/Footer.tsx:125:17",
-									"data-prohibitions": "[]",
-									className: "w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center shrink-0 text-primary",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-										"data-uid": "src/components/layout/Footer.tsx:126:19",
-										"data-prohibitions": "[]",
-										xmlns: "http://www.w3.org/2000/svg",
-										width: "20",
-										height: "20",
-										viewBox: "0 0 24 24",
-										fill: "none",
-										stroke: "currentColor",
-										strokeWidth: "2",
-										strokeLinecap: "round",
-										strokeLinejoin: "round",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-											"data-uid": "src/components/layout/Footer.tsx:137:21",
-											"data-prohibitions": "[]",
-											cx: "12",
-											cy: "12",
-											r: "10"
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", {
-											"data-uid": "src/components/layout/Footer.tsx:138:21",
-											"data-prohibitions": "[]",
-											points: "12 6 12 12 16 14"
-										})]
-									})
+								className: "w-2 h-2 bg-gold-500 rounded-full"
+							}), "Nossas Unidades"]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+							"data-uid": "src/components/layout/Footer.tsx:139:13",
+							"data-prohibitions": "[editContent]",
+							className: "space-y-6",
+							children: units.map((unit) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+								"data-uid": "src/components/layout/Footer.tsx:141:17",
+								"data-prohibitions": "[editContent]",
+								className: "flex gap-4 group",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MapPin, {
+									"data-uid": "src/components/layout/Footer.tsx:142:19",
+									"data-prohibitions": "[editContent]",
+									className: "w-6 h-6 text-gold-500 shrink-0 mt-1"
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									"data-uid": "src/components/layout/Footer.tsx:141:17",
-									"data-prohibitions": "[]",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										"data-uid": "src/components/layout/Footer.tsx:142:19",
-										"data-prohibitions": "[]",
-										className: "text-white font-medium",
-										children: "Segunda a Sexta"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										"data-uid": "src/components/layout/Footer.tsx:143:19",
-										"data-prohibitions": "[]",
-										className: "text-gray-400",
-										children: "07:00 às 20:00"
-									})]
-								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
-								"data-uid": "src/components/layout/Footer.tsx:146:15",
-								"data-prohibitions": "[]",
-								className: "flex gap-3",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									"data-uid": "src/components/layout/Footer.tsx:147:17",
-									"data-prohibitions": "[]",
-									className: "w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center shrink-0 text-primary",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-										"data-uid": "src/components/layout/Footer.tsx:148:19",
-										"data-prohibitions": "[]",
-										xmlns: "http://www.w3.org/2000/svg",
-										width: "20",
-										height: "20",
-										viewBox: "0 0 24 24",
-										fill: "none",
-										stroke: "currentColor",
-										strokeWidth: "2",
-										strokeLinecap: "round",
-										strokeLinejoin: "round",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-											"data-uid": "src/components/layout/Footer.tsx:159:21",
+									"data-uid": "src/components/layout/Footer.tsx:143:19",
+									"data-prohibitions": "[editContent]",
+									children: [
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+											"data-uid": "src/components/layout/Footer.tsx:144:21",
+											"data-prohibitions": "[editContent]",
+											className: "text-white font-bold font-sans mb-1 group-hover:text-gold-500 transition-colors",
+											children: unit.name
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+											"data-uid": "src/components/layout/Footer.tsx:147:21",
+											"data-prohibitions": "[editContent]",
+											className: "text-gray-400 text-sm mb-2",
+											children: unit.address
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+											"data-uid": "src/components/layout/Footer.tsx:148:21",
 											"data-prohibitions": "[]",
-											cx: "12",
-											cy: "12",
-											r: "10"
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", {
-											"data-uid": "src/components/layout/Footer.tsx:160:21",
-											"data-prohibitions": "[]",
-											points: "12 6 12 12 16 14"
-										})]
-									})
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									"data-uid": "src/components/layout/Footer.tsx:163:17",
-									"data-prohibitions": "[]",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										"data-uid": "src/components/layout/Footer.tsx:164:19",
-										"data-prohibitions": "[]",
-										className: "text-white font-medium",
-										children: "Sábado"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										"data-uid": "src/components/layout/Footer.tsx:165:19",
-										"data-prohibitions": "[]",
-										className: "text-gray-400",
-										children: "08:00 às 12:00"
-									})]
+											href: unit.mapUrl,
+											target: "_blank",
+											rel: "noopener noreferrer",
+											className: "text-gold-500 text-sm font-semibold hover:underline",
+											children: "Ver no mapa →"
+										})
+									]
 								})]
-							})]
+							}, unit.id))
 						})]
 					})
 				]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				"data-uid": "src/components/layout/Footer.tsx:172:9",
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				"data-uid": "src/components/layout/Footer.tsx:163:9",
 				"data-prohibitions": "[editContent]",
-				className: "mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-500",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-					"data-uid": "src/components/layout/Footer.tsx:173:11",
+				className: "mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+					"data-uid": "src/components/layout/Footer.tsx:164:11",
 					"data-prohibitions": "[editContent]",
+					className: "text-gray-500 text-sm font-medium",
 					children: [
 						"© ",
 						(/* @__PURE__ */ new Date()).getFullYear(),
 						" Espaço Fisio. Todos os direitos reservados."
 					]
-				})
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					"data-uid": "src/components/layout/Footer.tsx:167:11",
+					"data-prohibitions": "[]",
+					className: "text-sm text-gray-500",
+					children: "Responsável Técnico: Dra. Diretora Clínica - CREFITO 00000-F"
+				})]
 			})]
 		})
 	});
@@ -31496,19 +32015,34 @@ function Footer() {
 //#endregion
 //#region src/components/layout/WhatsAppButton.tsx
 function WhatsAppButton() {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-		"data-uid": "src/components/layout/WhatsAppButton.tsx:6:5",
-		"data-prohibitions": "[]",
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+		"data-uid": "src/components/layout/WhatsAppButton.tsx:5:5",
+		"data-prohibitions": "[editContent]",
 		href: contact.whatsapp,
 		target: "_blank",
 		rel: "noopener noreferrer",
-		className: "fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300 animate-fade-in-up",
+		className: "fixed bottom-6 right-6 z-[100] bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 hover:shadow-[0_10px_40px_-10px_rgba(37,211,102,0.8)] transition-all duration-300 animate-fade-in-up flex items-center justify-center group",
 		"aria-label": "Agendar uma avaliação pelo WhatsApp",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, {
-			"data-uid": "src/components/layout/WhatsAppButton.tsx:13:7",
-			"data-prohibitions": "[editContent]",
-			className: "w-8 h-8"
-		})
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+			"data-uid": "src/components/layout/WhatsAppButton.tsx:12:7",
+			"data-prohibitions": "[]",
+			xmlns: "http://www.w3.org/2000/svg",
+			width: "32",
+			height: "32",
+			viewBox: "0 0 24 24",
+			fill: "currentColor",
+			className: "w-8 h-8 md:w-10 md:h-10",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+				"data-uid": "src/components/layout/WhatsAppButton.tsx:20:9",
+				"data-prohibitions": "[editContent]",
+				d: "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"
+			})
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+			"data-uid": "src/components/layout/WhatsAppButton.tsx:23:7",
+			"data-prohibitions": "[]",
+			className: "absolute right-full mr-4 bg-white text-navy-900 font-bold py-2 px-4 rounded-xl shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden md:block",
+			children: "Agendar uma avaliação"
+		})]
 	});
 }
 //#endregion
@@ -31555,198 +32089,220 @@ function ServiceDetail() {
 	if (!service) return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		"data-uid": "src/pages/ServiceDetail.tsx:19:7",
 		"data-prohibitions": "[]",
-		className: "min-h-[60vh] flex flex-col items-center justify-center container mx-auto px-4 text-center",
+		className: "min-h-[70vh] flex flex-col items-center justify-center container mx-auto px-4 text-center",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
 				"data-uid": "src/pages/ServiceDetail.tsx:20:9",
 				"data-prohibitions": "[]",
-				className: "text-4xl font-bold text-gray-900 mb-4 font-sans",
-				children: "Serviço não encontrado"
+				className: "text-4xl font-bold text-navy-900 mb-4 font-sans",
+				children: "Tratamento não encontrado"
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-				"data-uid": "src/pages/ServiceDetail.tsx:21:9",
+				"data-uid": "src/pages/ServiceDetail.tsx:23:9",
 				"data-prohibitions": "[]",
-				className: "text-gray-600 mb-8",
-				children: "O serviço que você está procurando não existe ou foi removido."
+				className: "text-gray-600 mb-8 text-lg",
+				children: "O serviço que você está procurando pode ter mudado de nome ou não existe mais."
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-				"data-uid": "src/pages/ServiceDetail.tsx:24:9",
+				"data-uid": "src/pages/ServiceDetail.tsx:26:9",
 				"data-prohibitions": "[]",
 				onClick: () => navigate("/"),
-				children: "Voltar para o início"
+				className: "bg-navy-900 hover:bg-navy-800 rounded-full h-12 px-8 font-bold",
+				children: "Voltar para o Início"
 			})
 		]
 	});
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		"data-uid": "src/pages/ServiceDetail.tsx:30:5",
+		"data-uid": "src/pages/ServiceDetail.tsx:37:5",
 		"data-prohibitions": "[editContent]",
-		className: "pt-24 pb-20 bg-white",
+		className: "pt-20 lg:pt-24 pb-20 bg-gray-50 min-h-screen",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			"data-uid": "src/pages/ServiceDetail.tsx:32:7",
+			"data-uid": "src/pages/ServiceDetail.tsx:39:7",
 			"data-prohibitions": "[editContent]",
-			className: "relative h-[40vh] min-h-[400px] mb-16",
+			className: "relative h-[45vh] min-h-[400px] mb-16 overflow-hidden",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				"data-uid": "src/pages/ServiceDetail.tsx:33:9",
+				"data-uid": "src/pages/ServiceDetail.tsx:40:9",
 				"data-prohibitions": "[]",
 				className: "absolute inset-0 bg-cover bg-center",
 				style: { backgroundImage: `url(${service.image})` },
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					"data-uid": "src/pages/ServiceDetail.tsx:37:11",
+					"data-uid": "src/pages/ServiceDetail.tsx:44:11",
 					"data-prohibitions": "[editContent]",
-					className: "absolute inset-0 bg-gray-900/60"
+					className: "absolute inset-0 bg-navy-900/80"
 				})
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				"data-uid": "src/pages/ServiceDetail.tsx:39:9",
+				"data-uid": "src/pages/ServiceDetail.tsx:46:9",
 				"data-prohibitions": "[editContent]",
 				className: "relative h-full container mx-auto px-4 flex flex-col justify-center",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-						"data-uid": "src/pages/ServiceDetail.tsx:40:11",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+					"data-uid": "src/pages/ServiceDetail.tsx:47:11",
+					"data-prohibitions": "[]",
+					variant: "ghost",
+					className: "text-white hover:text-navy-900 hover:bg-white w-fit mb-8 font-sans font-bold rounded-full h-10 px-4 transition-colors",
+					asChild: true,
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link$1, {
+						"data-uid": "src/pages/ServiceDetail.tsx:52:13",
 						"data-prohibitions": "[]",
-						variant: "ghost",
-						className: "text-white hover:text-white hover:bg-white/20 w-fit mb-6 font-sans",
-						asChild: true,
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link$1, {
-							"data-uid": "src/pages/ServiceDetail.tsx:45:13",
-							"data-prohibitions": "[]",
-							to: "/",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowLeft, {
-								"data-uid": "src/pages/ServiceDetail.tsx:46:15",
-								"data-prohibitions": "[editContent]",
-								className: "w-4 h-4 mr-2"
-							}), "Voltar"]
-						})
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-						"data-uid": "src/pages/ServiceDetail.tsx:50:11",
-						"data-prohibitions": "[editContent]",
-						className: "text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 font-sans",
-						children: service.title
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						"data-uid": "src/pages/ServiceDetail.tsx:53:11",
-						"data-prohibitions": "[editContent]",
-						className: "text-xl text-gray-200 max-w-2xl",
-						children: service.shortDescription
+						to: "/#servicos",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowLeft, {
+							"data-uid": "src/pages/ServiceDetail.tsx:53:15",
+							"data-prohibitions": "[editContent]",
+							className: "w-5 h-5 mr-2"
+						}), "Ver todos os serviços"]
 					})
-				]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					"data-uid": "src/pages/ServiceDetail.tsx:57:11",
+					"data-prohibitions": "[editContent]",
+					className: "max-w-3xl",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+						"data-uid": "src/pages/ServiceDetail.tsx:58:13",
+						"data-prohibitions": "[editContent]",
+						className: "text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-sans leading-tight",
+						children: service.title
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						"data-uid": "src/pages/ServiceDetail.tsx:61:13",
+						"data-prohibitions": "[editContent]",
+						className: "text-xl md:text-2xl text-gray-300 font-medium leading-relaxed",
+						children: service.shortDescription
+					})]
+				})]
 			})]
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			"data-uid": "src/pages/ServiceDetail.tsx:57:7",
+			"data-uid": "src/pages/ServiceDetail.tsx:68:7",
 			"data-prohibitions": "[editContent]",
 			className: "container mx-auto px-4",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				"data-uid": "src/pages/ServiceDetail.tsx:58:9",
+				"data-uid": "src/pages/ServiceDetail.tsx:69:9",
 				"data-prohibitions": "[editContent]",
-				className: "grid grid-cols-1 lg:grid-cols-3 gap-12",
+				className: "grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					"data-uid": "src/pages/ServiceDetail.tsx:60:11",
+					"data-uid": "src/pages/ServiceDetail.tsx:71:11",
 					"data-prohibitions": "[editContent]",
-					className: "lg:col-span-2 space-y-8",
+					className: "lg:col-span-2 space-y-12",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/pages/ServiceDetail.tsx:61:13",
+						"data-uid": "src/pages/ServiceDetail.tsx:72:13",
 						"data-prohibitions": "[editContent]",
-						className: "prose prose-lg max-w-none text-gray-600",
+						className: "bg-white rounded-[2rem] p-8 md:p-12 shadow-sm border border-gray-100",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-							"data-uid": "src/pages/ServiceDetail.tsx:62:15",
+							"data-uid": "src/pages/ServiceDetail.tsx:73:15",
 							"data-prohibitions": "[]",
-							className: "text-3xl font-bold text-gray-900 mb-6 font-sans",
+							className: "text-3xl font-bold text-navy-900 mb-6 font-sans border-b border-gray-100 pb-4",
 							children: "Sobre o Tratamento"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							"data-uid": "src/pages/ServiceDetail.tsx:65:15",
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							"data-uid": "src/pages/ServiceDetail.tsx:76:15",
 							"data-prohibitions": "[editContent]",
-							className: "leading-relaxed whitespace-pre-line",
-							children: service.fullDescription
+							className: "prose prose-lg max-w-none text-gray-700",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								"data-uid": "src/pages/ServiceDetail.tsx:77:17",
+								"data-prohibitions": "[editContent]",
+								className: "leading-relaxed whitespace-pre-line text-lg",
+								children: service.fullDescription
+							})
 						})]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/pages/ServiceDetail.tsx:68:13",
+						"data-uid": "src/pages/ServiceDetail.tsx:83:13",
 						"data-prohibitions": "[editContent]",
-						className: "bg-gray-50 rounded-2xl p-8 mt-12",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-							"data-uid": "src/pages/ServiceDetail.tsx:69:15",
-							"data-prohibitions": "[]",
-							className: "text-2xl font-bold text-gray-900 mb-6 font-sans",
-							children: "Principais Benefícios"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
-							"data-uid": "src/pages/ServiceDetail.tsx:72:15",
-							"data-prohibitions": "[editContent]",
-							className: "grid grid-cols-1 md:grid-cols-2 gap-4",
-							children: service.benefits.map((benefit, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
-								"data-uid": "src/pages/ServiceDetail.tsx:74:19",
+						className: "bg-navy-900 rounded-[2rem] p-8 md:p-12 text-white shadow-xl relative overflow-hidden",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								"data-uid": "src/pages/ServiceDetail.tsx:84:15",
 								"data-prohibitions": "[editContent]",
-								className: "flex items-start gap-3",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, {
-									"data-uid": "src/pages/ServiceDetail.tsx:75:21",
+								className: "absolute top-0 right-0 w-64 h-64 bg-gold-500/10 rounded-full translate-x-1/2 -translate-y-1/2 blur-3xl"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", {
+								"data-uid": "src/pages/ServiceDetail.tsx:85:15",
+								"data-prohibitions": "[]",
+								className: "text-2xl font-bold mb-8 font-sans relative z-10 flex items-center gap-3",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShieldCheck, {
+									"data-uid": "src/pages/ServiceDetail.tsx:86:17",
 									"data-prohibitions": "[editContent]",
-									className: "w-6 h-6 text-primary shrink-0 mt-0.5"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									"data-uid": "src/pages/ServiceDetail.tsx:76:21",
+									className: "w-8 h-8 text-gold-500"
+								}), "Principais Benefícios"]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+								"data-uid": "src/pages/ServiceDetail.tsx:89:15",
+								"data-prohibitions": "[editContent]",
+								className: "grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10",
+								children: service.benefits.map((benefit, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+									"data-uid": "src/pages/ServiceDetail.tsx:91:19",
 									"data-prohibitions": "[editContent]",
-									className: "text-gray-700 font-medium",
-									children: benefit
-								})]
-							}, i))
-						})]
+									className: "flex items-start gap-4 bg-white/5 p-4 rounded-xl border border-white/10",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, {
+										"data-uid": "src/pages/ServiceDetail.tsx:95:21",
+										"data-prohibitions": "[editContent]",
+										className: "w-6 h-6 text-health-500 shrink-0 mt-0.5"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										"data-uid": "src/pages/ServiceDetail.tsx:96:21",
+										"data-prohibitions": "[editContent]",
+										className: "font-semibold text-gray-200",
+										children: benefit
+									})]
+								}, i))
+							})
+						]
 					})]
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					"data-uid": "src/pages/ServiceDetail.tsx:84:11",
+					"data-uid": "src/pages/ServiceDetail.tsx:104:11",
 					"data-prohibitions": "[editContent]",
 					className: "space-y-8",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						"data-uid": "src/pages/ServiceDetail.tsx:85:13",
+						"data-uid": "src/pages/ServiceDetail.tsx:105:13",
 						"data-prohibitions": "[editContent]",
-						className: "bg-white rounded-2xl shadow-xl p-8 border border-gray-100 sticky top-32",
+						className: "bg-white rounded-[2rem] shadow-xl p-8 border border-gray-100 sticky top-32",
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								"data-uid": "src/pages/ServiceDetail.tsx:86:15",
+								"data-uid": "src/pages/ServiceDetail.tsx:106:15",
 								"data-prohibitions": "[]",
-								className: "text-2xl font-bold text-gray-900 mb-4 font-sans",
-								children: "Comece seu tratamento"
+								className: "text-2xl font-bold text-navy-900 mb-4 font-sans",
+								children: "Agende sua Avaliação"
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-								"data-uid": "src/pages/ServiceDetail.tsx:89:15",
+								"data-uid": "src/pages/ServiceDetail.tsx:109:15",
 								"data-prohibitions": "[editContent]",
-								className: "text-gray-600 mb-8",
+								className: "text-gray-600 mb-8 font-medium leading-relaxed",
 								children: [
-									"Agende uma avaliação com nossos especialistas e descubra como o tratamento de",
-									" ",
-									service.title,
-									" pode ajudar você."
+									"Descubra como o tratamento de ",
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
+										"data-uid": "src/pages/ServiceDetail.tsx:110:47",
+										"data-prohibitions": "[editContent]",
+										children: service.title
+									}),
+									" pode devolver sua qualidade de vida. Fale com um especialista agora mesmo."
 								]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-								"data-uid": "src/pages/ServiceDetail.tsx:94:15",
+								"data-uid": "src/pages/ServiceDetail.tsx:114:15",
 								"data-prohibitions": "[]",
 								size: "lg",
-								className: "w-full rounded-full mb-4 text-base font-sans font-semibold",
+								className: "w-full rounded-2xl mb-6 text-lg font-sans font-bold h-16 shadow-lg bg-gold-500 hover:bg-gold-600 text-navy-900 transition-all hover:-translate-y-1",
 								asChild: true,
 								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-									"data-uid": "src/pages/ServiceDetail.tsx:99:17",
+									"data-uid": "src/pages/ServiceDetail.tsx:119:17",
 									"data-prohibitions": "[]",
 									href: contact.whatsapp,
 									target: "_blank",
 									rel: "noopener noreferrer",
-									children: ["Agendar uma avaliação", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {
-										"data-uid": "src/pages/ServiceDetail.tsx:101:19",
+									children: ["Agendar uma avaliação", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight$1, {
+										"data-uid": "src/pages/ServiceDetail.tsx:121:19",
 										"data-prohibitions": "[editContent]",
-										className: "w-5 h-5 ml-2"
+										className: "w-6 h-6 ml-2"
 									})]
 								})
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								"data-uid": "src/pages/ServiceDetail.tsx:105:15",
+								"data-uid": "src/pages/ServiceDetail.tsx:125:15",
 								"data-prohibitions": "[editContent]",
-								className: "text-center",
+								className: "text-center pt-6 border-t border-gray-100",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									"data-uid": "src/pages/ServiceDetail.tsx:106:17",
+									"data-uid": "src/pages/ServiceDetail.tsx:126:17",
 									"data-prohibitions": "[]",
-									className: "text-sm text-gray-500 mb-1",
+									className: "text-sm text-gray-500 mb-2 font-medium uppercase tracking-wider",
 									children: "Ou ligue para nós"
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-									"data-uid": "src/pages/ServiceDetail.tsx:107:17",
+									"data-uid": "src/pages/ServiceDetail.tsx:129:17",
 									"data-prohibitions": "[editContent]",
 									href: `tel:${contact.phone.replace(/\D/g, "")}`,
-									className: "text-lg font-bold text-primary hover:underline font-sans",
+									className: "text-2xl font-bold text-navy-900 hover:text-gold-500 transition-colors font-sans",
 									children: contact.phone
 								})]
 							})
@@ -31826,4 +32382,4 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 }));
 //#endregion
 
-//# sourceMappingURL=index-RV5br1jT.js.map
+//# sourceMappingURL=index-CLZkDqRm.js.map

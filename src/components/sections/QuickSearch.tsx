@@ -25,8 +25,8 @@ export function QuickSearch() {
   }
 
   return (
-    <section className="relative z-20 -mt-12 container px-4 sm:px-8">
-      <Card className="shadow-2xl border-0 rounded-2xl bg-white overflow-hidden">
+    <section className="relative z-20 -mt-12 container px-4 sm:px-8 mx-auto">
+      <Card className="shadow-2xl border-0 rounded-2xl bg-white overflow-hidden max-w-6xl mx-auto">
         <CardContent className="p-2 sm:p-4">
           <div className="flex flex-col lg:flex-row items-center gap-4">
             <div className="flex-1 w-full grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -35,14 +35,17 @@ export function QuickSearch() {
                   Onde dói?
                 </label>
                 <Select onValueChange={setDor} value={dor}>
-                  <SelectTrigger className="border-0 shadow-none p-0 h-auto focus:ring-0 text-navy-900 font-bold text-base">
+                  <SelectTrigger className="border-0 shadow-none p-0 h-auto focus:ring-0 text-navy-900 font-bold text-base bg-transparent">
                     <SelectValue placeholder="Selecione a região" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="fisioterapia-ortopedica">Coluna (Costas/Pescoço)</SelectItem>
-                    <SelectItem value="fisioterapia-esportiva">Ombro / Joelho</SelectItem>
-                    <SelectItem value="fisioterapia-pelvica">Quadril / Pelve</SelectItem>
-                    <SelectItem value="rpg">Dores posturais</SelectItem>
+                    <SelectItem value="fisioterapia-ortopedica">Coluna / Costas</SelectItem>
+                    <SelectItem value="fisioterapia-esportiva">
+                      Ombro / Joelho / Tornozelo
+                    </SelectItem>
+                    <SelectItem value="fisioterapia-pelvica">Região Pélvica</SelectItem>
+                    <SelectItem value="rpg">Dores posturais generalizadas</SelectItem>
+                    <SelectItem value="acupuntura-sistemica">Enxaqueca / Estresse</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -52,7 +55,7 @@ export function QuickSearch() {
                   Especialidade
                 </label>
                 <Select onValueChange={setEsp} value={esp}>
-                  <SelectTrigger className="border-0 shadow-none p-0 h-auto focus:ring-0 text-navy-900 font-bold text-base">
+                  <SelectTrigger className="border-0 shadow-none p-0 h-auto focus:ring-0 text-navy-900 font-bold text-base bg-transparent">
                     <SelectValue placeholder="Qualquer" />
                   </SelectTrigger>
                   <SelectContent>
@@ -60,24 +63,24 @@ export function QuickSearch() {
                     <SelectItem value="fisioterapia-neurologica">Neurologia</SelectItem>
                     <SelectItem value="fisioterapia-esportiva">Esportiva</SelectItem>
                     <SelectItem value="fisioterapia-pediatrica">Pediatria</SelectItem>
+                    <SelectItem value="fisioterapia-geriatrica">Geriatria</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
               <div className="space-y-1 px-4 py-2">
                 <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
-                  Tratamento
+                  Terapia
                 </label>
                 <Select onValueChange={setTrat} value={trat}>
-                  <SelectTrigger className="border-0 shadow-none p-0 h-auto focus:ring-0 text-navy-900 font-bold text-base">
+                  <SelectTrigger className="border-0 shadow-none p-0 h-auto focus:ring-0 text-navy-900 font-bold text-base bg-transparent">
                     <SelectValue placeholder="Escolher" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="fisioterapia-ortopedica">
-                      Fisioterapia Convencional
-                    </SelectItem>
+                    <SelectItem value="fisioterapia-ortopedica">Fisioterapia</SelectItem>
                     <SelectItem value="pilates-postural">Pilates</SelectItem>
                     <SelectItem value="acupuntura-sistemica">Acupuntura</SelectItem>
+                    <SelectItem value="quiropraxia">Quiropraxia</SelectItem>
                     <SelectItem value="liberacao-miofascial">Liberação Miofascial</SelectItem>
                   </SelectContent>
                 </Select>
@@ -86,9 +89,9 @@ export function QuickSearch() {
 
             <Button
               onClick={handleSearch}
-              className="w-full lg:w-auto h-16 px-8 rounded-xl bg-navy-900 hover:bg-navy-800 text-white font-bold flex items-center gap-2 m-2"
+              className="w-full lg:w-auto h-16 px-8 rounded-xl bg-navy-900 hover:bg-navy-800 text-white font-bold flex items-center gap-2 m-2 shadow-md transition-all hover:-translate-y-1"
             >
-              <Search className="w-5 h-5" /> Refinar Busca
+              <Search className="w-5 h-5" /> Buscar Solução
             </Button>
           </div>
         </CardContent>

@@ -9,27 +9,27 @@ const features = [
   {
     icon: Stethoscope,
     title: 'Equipamentos Modernos',
-    desc: 'Clínica equipada com tecnologia de ponta para acelerar sua recuperação.',
+    desc: 'Clínica equipada com tecnologia de ponta, como Recupero e Laser de alta potência.',
   },
   {
     icon: Award,
-    title: 'Profissionais Especializados',
-    desc: 'Equipe em constante atualização, com diversas especializações clínicas.',
+    title: 'Time de Especialistas',
+    desc: 'Equipe em constante atualização, com foco exclusivo em resultados e excelência técnica.',
   },
   {
     icon: Clock,
     title: 'Tratamentos Atualizados',
-    desc: 'Utilizamos as técnicas científicas mais recentes baseadas em evidências.',
+    desc: 'Utilizamos as técnicas científicas mais recentes e baseadas em evidências clínicas reais.',
   },
   {
     icon: ThumbsUp,
-    title: 'Ambiente Confortável',
-    desc: 'Espaço climatizado e acolhedor, focado no seu bem-estar.',
+    title: 'Ambiente Premium',
+    desc: 'Espaço climatizado, sofisticado e acolhedor, pensado em cada detalhe para o seu conforto.',
   },
   {
     icon: Shield,
-    title: 'Acompanhamento Contínuo',
-    desc: 'Monitoramos sua evolução do início ao fim do tratamento.',
+    title: 'Foco na Causa da Dor',
+    desc: 'Não tratamos apenas o sintoma. Nossa avaliação descobre e trata a origem do problema.',
   },
 ]
 
@@ -39,26 +39,26 @@ export function Differentials() {
       {/* Texture bg overlay */}
       <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
 
-      <div className="container relative z-10">
-        <div className="grid lg:grid-cols-3 gap-12 items-center">
+      <div className="container relative z-10 mx-auto px-4">
+        <div className="grid lg:grid-cols-3 gap-16 items-center">
           <div className="lg:col-span-1 space-y-6">
             <h2 className="text-sm font-bold text-gold-500 uppercase tracking-widest">
-              Excelência
+              Excelência Clínica
             </h2>
-            <h3 className="text-3xl md:text-4xl font-serif font-bold leading-tight">
-              Por que escolher a Espaço Fisio?
+            <h3 className="text-4xl md:text-5xl font-sans font-bold leading-tight">
+              Por que escolher o Espaço Fisio?
             </h3>
-            <p className="text-white/70 text-lg">
+            <p className="text-gray-300 text-lg leading-relaxed">
               Nosso compromisso é com a sua saúde completa. Entregamos um padrão premium de cuidado
-              para que sua recuperação seja ágil e definitiva.
+              para que sua recuperação seja ágil, segura e definitiva.
             </p>
-            <div className="pt-4">
+            <div className="pt-6">
               <a
-                href="#contato"
-                className="inline-flex items-center text-gold-500 hover:text-gold-400 font-semibold transition-colors gap-2 group"
+                href="#unidades"
+                className="inline-flex items-center text-gold-500 hover:text-white font-bold transition-colors gap-2 group text-lg"
               >
-                Conheça a clínica
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
+                Conheça nossa estrutura
+                <span className="group-hover:translate-x-2 transition-transform">→</span>
               </a>
             </div>
           </div>
@@ -67,11 +67,13 @@ export function Differentials() {
             {features.map((feat, i) => (
               <div
                 key={i}
-                className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition-colors"
+                className="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:bg-white/10 transition-all duration-300 hover:-translate-y-1"
               >
-                <feat.icon className="w-8 h-8 text-gold-500 mb-4" />
-                <h4 className="text-lg font-bold mb-2">{feat.title}</h4>
-                <p className="text-sm text-white/60 leading-relaxed">{feat.desc}</p>
+                <div className="w-14 h-14 bg-gold-500/20 rounded-2xl flex items-center justify-center mb-6 text-gold-500">
+                  <feat.icon className="w-7 h-7" />
+                </div>
+                <h4 className="text-xl font-bold mb-3 font-sans">{feat.title}</h4>
+                <p className="text-base text-gray-400 leading-relaxed">{feat.desc}</p>
               </div>
             ))}
           </div>

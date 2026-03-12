@@ -4,7 +4,6 @@ export const contact = {
   phone: '(11) 97166-4664',
   whatsapp: 'https://wa.me/5511971664664',
   email: 'contato@espacofisioembu.com.br',
-  address: 'Rua Exemplo, 123 - Centro, Embu das Artes - SP',
 }
 
 export const socialLinks = [
@@ -16,91 +15,179 @@ export const navigation = [
   { name: 'Sobre Nós', href: '/#sobre' },
   {
     name: 'Serviços',
-    items: [
+    isMega: true,
+    groups: [
       {
-        name: 'Fisioterapia',
-        href: '/servicos/fisioterapia',
-        description: 'Reabilitação e prevenção de lesões',
+        title: 'Fisioterapia',
+        items: [
+          { name: 'Ortopédica', href: '/servico/fisioterapia-ortopedica' },
+          { name: 'Neurológica', href: '/servico/fisioterapia-neurologica' },
+          { name: 'Pélvica', href: '/servico/fisioterapia-pelvica' },
+          { name: 'Pediátrica', href: '/servico/fisioterapia-pediatrica' },
+          { name: 'Geriátrica', href: '/servico/fisioterapia-geriatrica' },
+          { name: 'Gestante', href: '/servico/fisioterapia-gestante' },
+          { name: 'Esportiva', href: '/servico/fisioterapia-esportiva' },
+        ],
       },
       {
-        name: 'Acupuntura',
-        href: '/servicos/acupuntura',
-        description: 'Tratamento tradicional para dor',
+        title: 'Acupuntura & Pilates',
+        items: [
+          { name: 'Acupuntura Sistêmica', href: '/servico/acupuntura-sistemica' },
+          { name: 'Acupuntura Auricular', href: '/servico/acupuntura-auricular' },
+          { name: 'Dryneedling', href: '/servico/dryneedling' },
+          { name: 'Pilates Postural', href: '/servico/pilates-postural' },
+          { name: 'Pilates Gestante', href: '/servico/pilates-gestante' },
+          { name: 'Pilates Idoso', href: '/servico/pilates-idoso' },
+          { name: 'Pilates Kids', href: '/servico/pilates-kids' },
+        ],
       },
-      { name: 'RPG', href: '/servicos/rpg', description: 'Reeducação Postural Global' },
-      { name: 'Pilates', href: '/servicos/pilates', description: 'Fortalecimento e flexibilidade' },
       {
-        name: 'Liberação Miofascial',
-        href: '/servicos/liberacao-miofascial',
-        description: 'Alívio de tensões musculares',
-      },
-      { name: 'Ventosa', href: '/servicos/ventosa', description: 'Terapia com ventosas' },
-      {
-        name: 'Quiropraxia',
-        href: '/servicos/quiropraxia',
-        description: 'Ajustes articulares e alinhamento',
+        title: 'Especialidades',
+        items: [
+          { name: 'RPG', href: '/servico/rpg' },
+          { name: 'Liberação Miofascial', href: '/servico/liberacao-miofascial' },
+          { name: 'Ventosa', href: '/servico/ventosa' },
+          { name: 'Quiropraxia', href: '/servico/quiropraxia' },
+        ],
       },
     ],
   },
   {
     name: 'Tratamentos',
+    isMega: false,
     items: [
-      { name: 'Laser', href: '/servicos/laser', description: 'Terapia a laser para inflamações' },
-      {
-        name: 'Recupero',
-        href: '/servicos/recupero',
-        description: 'Aceleração da recuperação tecidual',
-      },
-      {
-        name: 'Ondas de Choque',
-        href: '/servicos/ondas-de-choque',
-        description: 'Tratamento para dores crônicas',
-      },
-      {
-        name: 'Infra Vermelho',
-        href: '/servicos/infra-vermelho',
-        description: 'Terapia térmica superficial',
-      },
-      {
-        name: 'Terapia Manual',
-        href: '/servicos/terapia-manual',
-        description: 'Técnicas de mobilização manual',
-      },
-      {
-        name: 'Bandagens',
-        href: '/servicos/bandagens',
-        description: 'Suporte muscular e articular',
-      },
+      { name: 'Laser', href: '/servico/laser' },
+      { name: 'Recupero', href: '/servico/recupero' },
+      { name: 'Ondas de Choque', href: '/servico/ondas-de-choque' },
+      { name: 'Infra Vermelho', href: '/servico/infra-vermelho' },
+      { name: 'Terapia Manual', href: '/servico/terapia-manual' },
+      { name: 'Bandagens', href: '/servico/bandagens' },
     ],
   },
   { name: 'Unidades', href: '/#unidades' },
 ]
 
+const baseBenefits = [
+  'Alívio rápido e eficaz da dor',
+  'Tratamento 100% personalizado',
+  'Recuperação da mobilidade',
+  'Prevenção de futuras lesões',
+]
+
 export const services = [
+  // Fisioterapia
   {
-    id: 'fisioterapia',
-    title: 'Fisioterapia',
+    id: 'fisioterapia-ortopedica',
+    title: 'Fisioterapia Ortopédica',
     shortDescription:
-      'Avaliação, diagnóstico e tratamento de disfunções do movimento humano com as melhores técnicas.',
+      'Reabilitação especializada para lesões musculoesqueléticas, fraturas e dores articulares.',
     fullDescription:
-      'A Fisioterapia foca na reabilitação através de recursos físicos, manuais e exercícios terapêuticos. Nosso objetivo é restaurar, manter e promover a função física ótima, bem-estar e qualidade de vida do paciente.\n\nTratamos condições ortopédicas, neurológicas, respiratórias e desportivas, sempre com um plano de tratamento individualizado.',
-    image: 'https://img.usecurling.com/p/800/600?q=physiotherapy',
+      'Focada no tratamento de disfunções do sistema musculoesquelético. Ideal para recuperação de cirurgias, fraturas, tendinites, bursites, lombalgias e outras dores que limitam o seu dia a dia. Utilizamos técnicas manuais e exercícios específicos para restaurar a função normal.',
+    image: 'https://img.usecurling.com/p/800/600?q=physiotherapy%20clinic&color=blue',
+    benefits: baseBenefits,
+    icon: 'Bone',
+  },
+  {
+    id: 'fisioterapia-neurologica',
+    title: 'Fisioterapia Neurológica',
+    shortDescription: 'Recuperação funcional para pacientes com distúrbios ou lesões neurológicas.',
+    fullDescription:
+      'Tratamento direcionado a pacientes com AVC, Parkinson, esclerose múltipla, paralisia cerebral, entre outros. O foco é estimular a neuroplasticidade, melhorando o equilíbrio, a coordenação motora e a independência funcional.',
+    image: 'https://img.usecurling.com/p/800/600?q=neurology&color=blue',
     benefits: [
-      'Alívio da dor',
-      'Recuperação de movimentos',
-      'Prevenção de lesões',
-      'Melhora da flexibilidade',
+      'Melhora do equilíbrio',
+      'Estímulo cognitivo-motor',
+      'Maior independência',
+      'Prevenção de contraturas',
     ],
     icon: 'Activity',
   },
   {
-    id: 'acupuntura',
-    title: 'Acupuntura',
-    shortDescription:
-      'Terapia milenar chinesa para equilíbrio energético e tratamento de diversas patologias.',
+    id: 'fisioterapia-pelvica',
+    title: 'Fisioterapia Pélvica',
+    shortDescription: 'Tratamento de disfunções do assoalho pélvico para homens e mulheres.',
     fullDescription:
-      'A Acupuntura é uma técnica milenar que consiste na inserção de agulhas finas em pontos específicos do corpo para estimular a cura natural, promover a saúde e aliviar a dor.\n\nÉ altamente eficaz no tratamento de dores crônicas, ansiedade, insônia, enxaqueca e problemas digestivos.',
-    image: 'https://img.usecurling.com/p/800/600?q=acupuncture',
+      'Atua na prevenção e tratamento de incontinência urinária, disfunções sexuais, prolapsos e dores pélvicas crônicas. O tratamento fortalece a musculatura da região, devolvendo o controle e a qualidade de vida.',
+    image: 'https://img.usecurling.com/p/800/600?q=anatomy&color=blue',
+    benefits: [
+      'Controle urinário',
+      'Fortalecimento muscular',
+      'Preparação para o parto',
+      'Alívio de dores',
+    ],
+    icon: 'Heart',
+  },
+  {
+    id: 'fisioterapia-pediatrica',
+    title: 'Fisioterapia Pediátrica',
+    shortDescription: 'Cuidado especializado para o desenvolvimento motor de bebês e crianças.',
+    fullDescription:
+      'Avaliação e intervenção em atrasos no desenvolvimento motor, problemas ortopédicos congênitos, alterações respiratórias e neurológicas infantis. Tudo feito de forma lúdica para engajar a criança.',
+    image: 'https://img.usecurling.com/p/800/600?q=pediatrics&color=blue',
+    benefits: [
+      'Estímulo ao desenvolvimento',
+      'Correção postural infantil',
+      'Melhora respiratória',
+      'Atendimento lúdico',
+    ],
+    icon: 'Activity',
+  },
+  {
+    id: 'fisioterapia-geriatrica',
+    title: 'Fisioterapia Geriátrica',
+    shortDescription: 'Manutenção da autonomia e qualidade de vida na terceira idade.',
+    fullDescription:
+      'Foco na prevenção de quedas, tratamento de artrose, osteoporose e manutenção da força muscular em idosos. O objetivo principal é garantir um envelhecimento ativo e independente.',
+    image: 'https://img.usecurling.com/p/800/600?q=elderly%20care&color=blue',
+    benefits: [
+      'Prevenção de quedas',
+      'Manutenção da força',
+      'Alívio de dores articulares',
+      'Maior autonomia',
+    ],
+    icon: 'Heart',
+  },
+  {
+    id: 'fisioterapia-gestante',
+    title: 'Fisioterapia para Gestantes',
+    shortDescription: 'Preparação física para o parto e alívio das dores durante a gestação.',
+    fullDescription:
+      'Acompanhamento especializado para reduzir desconfortos como dores lombares e inchaço, além de preparar a musculatura pélvica e a respiração para um parto mais tranquilo e uma recuperação pós-parto eficiente.',
+    image: 'https://img.usecurling.com/p/800/600?q=pregnancy&color=blue',
+    benefits: [
+      'Redução de inchaços',
+      'Alívio da lombalgia',
+      'Preparação para o parto',
+      'Recuperação rápida',
+    ],
+    icon: 'Activity',
+  },
+  {
+    id: 'fisioterapia-esportiva',
+    title: 'Fisioterapia Esportiva',
+    shortDescription:
+      'Prevenção de lesões e reabilitação acelerada para atletas e praticantes de esportes.',
+    fullDescription:
+      'Focada na rápida recuperação de entorses, distensões e rupturas musculares, permitindo o retorno seguro à prática esportiva. Inclui trabalho preventivo para otimizar o desempenho do atleta.',
+    image: 'https://img.usecurling.com/p/800/600?q=sports%20medicine&color=blue',
+    benefits: [
+      'Retorno rápido ao esporte',
+      'Aumento de performance',
+      'Prevenção de lesões',
+      'Reequilíbrio muscular',
+    ],
+    icon: 'Zap',
+  },
+
+  // Acupuntura
+  {
+    id: 'acupuntura-sistemica',
+    title: 'Acupuntura Sistêmica',
+    shortDescription:
+      'Terapia milenar chinesa para equilíbrio energético e alívio de diversas patologias.',
+    fullDescription:
+      'Técnica que utiliza agulhas extremamente finas em pontos específicos do corpo. É altamente eficaz no tratamento de dores crônicas, ansiedade, insônia, enxaqueca, tensões musculares e desequilíbrios sistêmicos.',
+    image: 'https://img.usecurling.com/p/800/600?q=acupuncture&color=blue',
     benefits: [
       'Redução do estresse',
       'Alívio de dores crônicas',
@@ -110,49 +197,128 @@ export const services = [
     icon: 'Feather',
   },
   {
-    id: 'rpg',
-    title: 'RPG (Reeducação Postural Global)',
-    shortDescription:
-      'Método fisioterapêutico de correção postural através de posturas de alongamento.',
+    id: 'acupuntura-auricular',
+    title: 'Acupuntura Auricular',
+    shortDescription: 'Estímulo de pontos no pavilhão auricular para tratar dores e ansiedade.',
     fullDescription:
-      'A Reeducação Postural Global (RPG) é um método inovador de fisioterapia que consiste em ajustamentos na postura para reorganização dos segmentos do corpo humano.\n\nAtravés de posturas específicas de alongamento, tratamos desvios posturais, dores nas costas, hérnias de disco e lesões articulares.',
-    image: 'https://img.usecurling.com/p/800/600?q=posture',
+      'A auriculoterapia usa o mapa da orelha como um microssistema do corpo humano. Excelente técnica complementar para controle de peso, vício em tabaco, estresse profundo e distúrbios digestivos.',
+    image: 'https://img.usecurling.com/p/800/600?q=ear%20acupuncture&color=blue',
     benefits: [
-      'Correção postural',
-      'Alívio de dores na coluna',
-      'Melhora da respiração',
-      'Aumento da flexibilidade',
+      'Controle de ansiedade',
+      'Tratamento rápido',
+      'Sem contraindicações',
+      'Efeito contínuo',
     ],
-    icon: 'Bone',
+    icon: 'Feather',
   },
   {
-    id: 'pilates',
-    title: 'Pilates',
-    shortDescription:
-      'Sistema de exercícios para melhorar flexibilidade, força e consciência corporal.',
+    id: 'dryneedling',
+    title: 'Dry Needling (Agulhamento a Seco)',
+    shortDescription: 'Desativação de pontos gatilho musculares para alívio imediato da dor.',
     fullDescription:
-      'O Pilates é um método de condicionamento físico e mental que trabalha o corpo de forma global, enfatizando a respiração, a concentração, o controle, o centro de força, a precisão e a fluidez dos movimentos.\n\nIdeal para reabilitação, prevenção de lesões e melhora do condicionamento físico geral.',
-    image: 'https://img.usecurling.com/p/800/600?q=pilates',
+      'Diferente da acupuntura tradicional, o agulhamento a seco foca diretamente na musculatura tensionada (pontos gatilho). É extremamente eficaz para dores miofasciais crônicas, torcicolos e tensões nos ombros e pescoço.',
+    image: 'https://img.usecurling.com/p/800/600?q=dry%20needling&color=blue',
     benefits: [
-      'Fortalecimento muscular',
-      'Melhora da postura',
-      'Aumento da flexibilidade',
-      'Consciência corporal',
+      'Alívio muscular imediato',
+      'Aumento da amplitude de movimento',
+      'Desativação de espasmos',
+      'Complemento à fisioterapia',
+    ],
+    icon: 'Zap',
+  },
+
+  // Pilates
+  {
+    id: 'pilates-postural',
+    title: 'Pilates Postural',
+    shortDescription: 'Correção de desvios posturais e fortalecimento do centro de força (core).',
+    fullDescription:
+      'O método foca no alinhamento da coluna e fortalecimento global. Indicado para quem passa muito tempo sentado, sente dores frequentes nas costas ou busca melhorar a consciência corporal e flexibilidade.',
+    image: 'https://img.usecurling.com/p/800/600?q=pilates%20studio&color=blue',
+    benefits: [
+      'Melhora drástica da postura',
+      'Fortalecimento do core',
+      'Flexibilidade',
+      'Alívio de tensões',
+    ],
+    icon: 'Activity',
+  },
+  {
+    id: 'pilates-gestante',
+    title: 'Pilates para Gestantes',
+    shortDescription: 'Exercícios seguros para fortalecer o corpo e facilitar a gestação.',
+    fullDescription:
+      'Aulas adaptadas para cada trimestre da gravidez. O Pilates previne o excesso de ganho de peso, fortalece a musculatura pélvica, alivia as dores na coluna e melhora a circulação sanguínea da gestante.',
+    image: 'https://img.usecurling.com/p/800/600?q=pregnancy%20exercise&color=blue',
+    benefits: [
+      'Controle da respiração',
+      'Fortalecimento seguro',
+      'Redução de dores',
+      'Bem-estar materno',
     ],
     icon: 'Heart',
   },
   {
+    id: 'pilates-idoso',
+    title: 'Pilates para a Terceira Idade',
+    shortDescription: 'Mobilidade, equilíbrio e força muscular para um envelhecimento ativo.',
+    fullDescription:
+      'O Pilates é um dos métodos mais seguros para idosos, pois possui baixo impacto articular. Auxilia muito na prevenção de quedas, combate à osteoporose e devolução da autonomia para atividades diárias.',
+    image: 'https://img.usecurling.com/p/800/600?q=elderly%20fitness&color=blue',
+    benefits: [
+      'Segurança nos movimentos',
+      'Ganho de massa muscular',
+      'Socialização',
+      'Prevenção de lesões',
+    ],
+    icon: 'Activity',
+  },
+  {
+    id: 'pilates-kids',
+    title: 'Pilates Kids',
+    shortDescription: 'Desenvolvimento motor e postural saudável para crianças e adolescentes.',
+    fullDescription:
+      'De forma lúdica, trabalhamos a concentração, coordenação motora e prevenimos desvios posturais causados pelo excesso de uso de celulares e mochilas pesadas. Ideal para o desenvolvimento infantil.',
+    image: 'https://img.usecurling.com/p/800/600?q=kids%20exercise&color=blue',
+    benefits: [
+      'Correção postural precoce',
+      'Foco e concentração',
+      'Gasto de energia',
+      'Consciência corporal',
+    ],
+    icon: 'Sparkles',
+  },
+
+  // Specialties
+  {
+    id: 'rpg',
+    title: 'RPG (Reeducação Postural Global)',
+    shortDescription:
+      'Método de correção postural profunda através de posturas de alongamento e respiração.',
+    fullDescription:
+      'A Reeducação Postural Global (RPG) trata a causa da dor atuando sobre os desvios posturais. O tratamento consiste em consultas individuais onde o fisioterapeuta aplica posturas específicas para realinhar a coluna e as articulações.',
+    image: 'https://img.usecurling.com/p/800/600?q=posture%20correction&color=blue',
+    benefits: [
+      'Tratamento de escoliose',
+      'Cura de hérnias de disco',
+      'Correção postural',
+      'Alívio de dores crônicas',
+    ],
+    icon: 'Bone',
+  },
+  {
     id: 'liberacao-miofascial',
     title: 'Liberação Miofascial',
-    shortDescription: 'Técnica manual para relaxar a musculatura e aliviar tensões da fáscia.',
+    shortDescription:
+      'Técnica manual profunda para relaxar a fáscia muscular e aliviar dores tensionais.',
     fullDescription:
-      'A Liberação Miofascial é uma técnica de terapia manual que visa promover o alívio de tensões e dores musculares, relaxando a fáscia (tecido conectivo que envolve os músculos).\n\nÉ excelente para atletas, pessoas com má postura crônica ou que sofrem de dores tensionais.',
-    image: 'https://img.usecurling.com/p/800/600?q=massage',
+      'Através de pressão manual ou com instrumentos, soltamos as aderências na fáscia (tecido que envolve o músculo). Fundamental para atletas, pessoas com fibromialgia ou quem sofre com alto nível de estresse e tensão no pescoço.',
+    image: 'https://img.usecurling.com/p/800/600?q=massage%20therapy&color=blue',
     benefits: [
-      'Alívio de tensões musculares',
-      'Aumento da amplitude de movimento',
+      'Relaxamento profundo',
+      'Prevenção de lesões musculares',
+      'Aumento de flexibilidade',
       'Melhora da circulação',
-      'Redução de dores',
     ],
     icon: 'Sparkles',
   },
@@ -160,15 +326,15 @@ export const services = [
     id: 'ventosa',
     title: 'Ventosaterapia',
     shortDescription:
-      'Terapia natural que utiliza sucção para melhorar a circulação e aliviar dores.',
+      'Terapia que utiliza sucção para oxigenar tecidos, eliminar toxinas e soltar músculos.',
     fullDescription:
-      'A Ventosaterapia é um tipo de tratamento natural no qual são usadas ventosas para melhorar a circulação sanguínea em um local do corpo.\n\nA sucção criada pela ventosa aumenta o fluxo de sangue, o que promove o relaxamento muscular, o alívio de tensões e a desintoxicação do organismo.',
-    image: 'https://img.usecurling.com/p/800/600?q=cupping',
+      'A aplicação de ventosas cria um vácuo na pele, aumentando a circulação sanguínea no local. O aumento do fluxo de sangue nutre os músculos, desfazendo nódulos de tensão e promovendo uma sensação de alívio rápido.',
+    image: 'https://img.usecurling.com/p/800/600?q=cupping%20therapy&color=blue',
     benefits: [
-      'Relaxamento muscular profundo',
-      'Melhora da circulação sanguínea',
-      'Alívio de dores nas costas',
-      'Desintoxicação',
+      'Desintoxicação muscular',
+      'Alívio imediato de tensões',
+      'Oxigenação celular',
+      'Acelera a recuperação',
     ],
     icon: 'Activity',
   },
@@ -176,30 +342,33 @@ export const services = [
     id: 'quiropraxia',
     title: 'Quiropraxia',
     shortDescription:
-      'Diagnóstico e tratamento de problemas no sistema neuromusculoesquelético com ajustes articulares.',
+      'Ajustes articulares precisos para restaurar o alinhamento da coluna e sistema nervoso.',
     fullDescription:
-      'A Quiropraxia dedica-se ao diagnóstico, tratamento e prevenção de problemas das articulações, músculos, tendões e nervos, com ênfase especial na coluna vertebral.\n\nAtravés de ajustes articulares precisos, restauramos a mobilidade, reduzimos a dor e otimizamos o funcionamento do sistema nervoso central, promovendo saúde e bem-estar de forma natural.',
-    image: 'https://img.usecurling.com/p/800/600?q=chiropractic',
+      'A Quiropraxia foca no diagnóstico e tratamento de problemas articulares, principalmente na coluna vertebral. Através de manobras manuais (os famosos "estalos"), destravamos articulações bloqueadas, eliminando a dor e otimizando o corpo.',
+    image: 'https://img.usecurling.com/p/800/600?q=chiropractic&color=blue',
     benefits: [
-      'Alinhamento da coluna vertebral',
-      'Alívio imediato de dores articulares',
-      'Melhora da mobilidade',
-      'Otimização do sistema nervoso',
+      'Alinhamento vertebral',
+      'Mobilidade imediata',
+      'Melhora da condução nervosa',
+      'Tratamento não invasivo',
     ],
     icon: 'Dna',
   },
+
+  // Tratamentos
   {
     id: 'laser',
     title: 'Laserterapia',
-    shortDescription: 'Tratamento com laser para acelerar a cicatrização e reduzir inflamações.',
+    shortDescription:
+      'Tecnologia avançada de luz para acelerar a cicatrização e reduzir inflamações severas.',
     fullDescription:
-      'A Laserterapia utiliza a luz do laser de baixa potência para estimular a recuperação celular e tecidual. É amplamente utilizada para reduzir inflamações, aliviar dores e acelerar o processo de cicatrização de feridas e lesões musculares.',
-    image: 'https://img.usecurling.com/p/800/600?q=laser%20therapy',
+      'O Laser de baixa potência atua diretamente no nível celular. Ele acelera a produção de ATP, promovendo uma rápida regeneração de tecidos lesionados. Muito utilizado em cicatrização de feridas, tendinites crônicas e fascite plantar.',
+    image: 'https://img.usecurling.com/p/800/600?q=laser%20treatment&color=blue',
     benefits: [
-      'Ação anti-inflamatória',
-      'Efeito analgésico',
-      'Aceleração da cicatrização',
-      'Regeneração tecidual',
+      'Poderoso anti-inflamatório',
+      'Cicatrização rápida',
+      'Totalmente indolor',
+      'Analgesia profunda',
     ],
     icon: 'Zap',
   },
@@ -207,75 +376,78 @@ export const services = [
     id: 'recupero',
     title: 'Recupero',
     shortDescription:
-      'Tecnologia avançada para aceleração do reparo de tecidos musculoesqueléticos.',
+      'Tecnologia inovadora para aceleração biológica do reparo de tecidos musculoesqueléticos.',
     fullDescription:
-      'O Recupero é um equipamento de alta tecnologia que atua profundamente nos tecidos, promovendo uma rápida recuperação de lesões musculares, articulares e ligamentares através de estímulos biológicos.',
-    image: 'https://img.usecurling.com/p/800/600?q=medical%20device',
+      'Um equipamento premium que atua profundamente, emitindo estímulos que reorganizam as fibras musculares e articulares. É a escolha de atletas de alto rendimento para acelerar a cura de distensões e traumas.',
+    image: 'https://img.usecurling.com/p/800/600?q=medical%20technology&color=blue',
     benefits: [
-      'Recuperação acelerada',
-      'Ação analgésica rápida',
-      'Redução de edemas',
-      'Melhora da função celular',
+      'Recuperação em tempo recorde',
+      'Regeneração celular',
+      'Ação direta na inflamação',
+      'Alta tecnologia',
     ],
     icon: 'Activity',
   },
   {
     id: 'ondas-de-choque',
-    title: 'Ondas de Choque',
-    shortDescription: 'Terapia não invasiva altamente eficaz no tratamento de dores crônicas.',
+    title: 'Terapia por Ondas de Choque',
+    shortDescription:
+      'Onda acústica de alta energia ideal para dissolver calcificações e dores persistentes.',
     fullDescription:
-      'A Terapia por Ondas de Choque é um tratamento não invasivo que utiliza ondas acústicas de alta energia para estimular a regeneração de tecidos e a formação de novos vasos sanguíneos, sendo excelente para fascite plantar, tendinites e calcificações.',
-    image: 'https://img.usecurling.com/p/800/600?q=shockwave%20therapy',
+      'O padrão ouro para o tratamento de tendinites calcificadas, fascite plantar, esporão de calcâneo e epicondilites. As ondas acústicas criam microlesões que forçam o corpo a reiniciar um processo de cura agudo na região afetada.',
+    image: 'https://img.usecurling.com/p/800/600?q=shockwave%20machine&color=blue',
     benefits: [
-      'Desintegração de calcificações',
-      'Alívio de dores crônicas',
-      'Estimulação de colágeno',
-      'Formação de novos vasos',
+      'Evita cirurgias',
+      'Quebra de calcificações',
+      'Resultados em poucas sessões',
+      'Estimula novos vasos sanguíneos',
     ],
     icon: 'Zap',
   },
   {
     id: 'infra-vermelho',
     title: 'Infravermelho',
-    shortDescription: 'Terapia de calor superficial para promover relaxamento e alívio da dor.',
+    shortDescription:
+      'Terapia de calor superficial para preparar e relaxar a musculatura antes da reabilitação.',
     fullDescription:
-      'A terapia com luz Infravermelha utiliza o calor para penetrar superficialmente nos tecidos corporais, promovendo vasodilatação local, relaxamento muscular, alívio da dor e aumento do metabolismo da região tratada.',
-    image: 'https://img.usecurling.com/p/800/600?q=infrared%20therapy',
+      'A luz infravermelha penetra nas primeiras camadas da pele, promovendo uma vasodilatação profunda. Esse aquecimento aumenta a maleabilidade dos tecidos e alivia espasmos, sendo excelente como preparo para terapias manuais.',
+    image: 'https://img.usecurling.com/p/800/600?q=infrared%20lamp&color=blue',
     benefits: [
-      'Relaxamento muscular',
-      'Alívio de espasmos',
-      'Aumento da circulação local',
-      'Preparação para outras terapias',
+      'Vasodilatação local',
+      'Relaxamento imediato',
+      'Preparação tecidual',
+      'Conforto térmico',
     ],
     icon: 'Sparkles',
   },
   {
     id: 'terapia-manual',
     title: 'Terapia Manual',
-    shortDescription: 'Conjunto de técnicas aplicadas com as mãos para tratar disfunções.',
+    shortDescription: 'Conjunto de técnicas aplicadas exclusivamente pelas mãos do fisioterapeuta.',
     fullDescription:
-      'A Terapia Manual engloba diversas técnicas de manipulação e mobilização articular e de tecidos moles. O fisioterapeuta utiliza as mãos para diagnosticar e tratar dores e disfunções, restaurando a mobilidade e função normais.',
-    image: 'https://img.usecurling.com/p/800/600?q=manual%20therapy',
+      'Inclui mobilização articular, manipulação, tração e massagem profunda. O raciocínio clínico por trás da terapia manual permite devolver o deslizamento perfeito entre as articulações e nervos, acabando com a rigidez.',
+    image: 'https://img.usecurling.com/p/800/600?q=manual%20physiotherapy&color=blue',
     benefits: [
-      'Restauração da mobilidade',
-      'Diminuição da dor',
-      'Melhora da função articular',
-      'Tratamento personalizado',
+      'Restauração do movimento',
+      'Avaliação contínua',
+      'Toque especializado',
+      'Desbloqueio articular',
     ],
     icon: 'Activity',
   },
   {
     id: 'bandagens',
-    title: 'Bandagens Funcionais',
-    shortDescription: 'Aplicação de fitas terapêuticas para suporte e alívio de dores.',
+    title: 'Bandagens Funcionais (Kinesio)',
+    shortDescription:
+      'Aplicação de fitas terapêuticas coloridas para dar suporte articular e muscular.',
     fullDescription:
-      'As bandagens funcionais (como o Kinesio Taping) são aplicadas sobre a pele para fornecer suporte muscular e articular sem restringir a amplitude de movimento. Ajudam a reduzir edemas, aliviar a dor e facilitar a contração muscular.',
-    image: 'https://img.usecurling.com/p/800/600?q=kinesio%20tape',
+      'As fitas elásticas são aplicadas com tensões específicas para levantar levemente a pele, aliviando a pressão nos receptores de dor e facilitando a drenagem linfática. Permitem o movimento livre enquanto estabilizam a área lesionada.',
+    image: 'https://img.usecurling.com/p/800/600?q=kinesio%20tape&color=blue',
     benefits: [
-      'Suporte articular',
-      'Redução de edemas',
-      'Alívio de dores',
+      'Suporte contínuo 24h',
+      'Redução imediata de edemas',
       'Melhora da propriocepção',
+      'Segurança no movimento',
     ],
     icon: 'Feather',
   },
@@ -284,42 +456,61 @@ export const services = [
 export const units = [
   {
     id: 'embu',
-    name: 'Unidade Embu das Artes',
-    address: 'Rua Exemplo, 123 - Centro',
+    name: 'Espaço Fisio Embu',
+    address: 'Av. Elias Yazbek, 567',
     city: 'Embu das Artes - SP',
     phone: '(11) 97166-4664',
     mapUrl:
-      'https://www.google.com/maps/dir/?api=1&destination=Espa%C3%A7o+Fisioterapia+Embu+das+Artes',
-    image: 'https://img.usecurling.com/p/600/400?q=modern%20clinic',
+      'https://www.google.com/maps/search/?api=1&query=Av.+Elias+Yazbek,+567+-+Embu+das+Artes',
+    image: 'https://img.usecurling.com/p/600/400?q=clinic%20building&color=blue',
+  },
+  {
+    id: 'taboao',
+    name: 'Espaço Fisio Taboão',
+    address: 'R. Thereza Maria Luizetto, 220',
+    city: 'Taboão da Serra - SP',
+    phone: '(11) 97166-4664',
+    mapUrl:
+      'https://www.google.com/maps/search/?api=1&query=R.+Thereza+Maria+Luizetto,+220+-+Taboão+da+Serra',
+    image: 'https://img.usecurling.com/p/600/400?q=medical%20office&color=blue',
   },
 ]
 
 export const testimonials = [
   {
     id: 1,
-    name: 'Maria Silva',
-    role: 'Paciente de Fisioterapia',
+    name: 'Ricardo Almeida',
+    role: 'Paciente de Fisioterapia Ortopédica',
     content:
-      'Lugar maravilhoso, ótimo atendimento! Os profissionais são super capacitados. Fui tratada pela equipe e só tenho a agradecer.',
+      'Minhas dores na coluna sumiram na terceira sessão. Excelente clínica, atendimento no horário e profissionais muito bem qualificados. Instalações de primeira linha.',
     rating: 5,
-    image: 'https://img.usecurling.com/ppl/thumbnail?gender=female&seed=1',
+    image: 'https://img.usecurling.com/ppl/thumbnail?gender=male&seed=15',
   },
   {
     id: 2,
-    name: 'João Pedro',
-    role: 'Aluno de Pilates',
+    name: 'Juliana Costa',
+    role: 'Paciente de RPG',
     content:
-      'Espaço muito bem equipado e ambiente super agradável. Faço pilates duas vezes por semana e minhas dores nas costas sumiram!',
+      'Espaço maravilhoso, profissionais muito qualificados e atenciosos. Faço RPG há alguns meses e minha qualidade de vida melhorou absurdamente. Recomendo de olhos fechados.',
     rating: 5,
-    image: 'https://img.usecurling.com/ppl/thumbnail?gender=male&seed=2',
+    image: 'https://img.usecurling.com/ppl/thumbnail?gender=female&seed=22',
   },
   {
     id: 3,
-    name: 'Ana Costa',
-    role: 'Paciente de Acupuntura',
+    name: 'Marcos Vinícius',
+    role: 'Paciente de Fisioterapia Esportiva',
     content:
-      'Atendimento impecável desde a recepção até a acupuntura. Profissionais atenciosos e competentes. Recomendo muito o Espaço Fisio.',
+      'Fiz meu pós-operatório do joelho aqui e tive uma recuperação muito acima do esperado. Aparelhos modernos e foco total no paciente. A equipe é nota mil!',
     rating: 5,
-    image: 'https://img.usecurling.com/ppl/thumbnail?gender=female&seed=3',
+    image: 'https://img.usecurling.com/ppl/thumbnail?gender=male&seed=31',
+  },
+  {
+    id: 4,
+    name: 'Amanda Silveira',
+    role: 'Aluna de Pilates',
+    content:
+      'Atendimento pontual e humanizado. A clínica tem ótima infraestrutura, ambiente super limpo e professores de pilates muito técnicos. Minha postura é outra!',
+    rating: 5,
+    image: 'https://img.usecurling.com/ppl/thumbnail?gender=female&seed=44',
   },
 ]
