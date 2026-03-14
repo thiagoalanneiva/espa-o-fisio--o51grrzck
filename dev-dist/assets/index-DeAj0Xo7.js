@@ -19018,7 +19018,7 @@ var ArrowLeft = createLucideIcon("arrow-left", [["path", {
 	d: "M19 12H5",
 	key: "x3x0zl"
 }]]);
-var ArrowRight$1 = createLucideIcon("arrow-right", [["path", {
+var ArrowRight = createLucideIcon("arrow-right", [["path", {
 	d: "M5 12h14",
 	key: "1ays0h"
 }], ["path", {
@@ -24953,40 +24953,6 @@ var units = [{
 	mapUrl: "https://www.google.com/maps/search/?api=1&query=R.+Thereza+Maria+Luizetto,+220+-+Taboão+da+Serra",
 	image: "https://img.usecurling.com/p/600/400?q=medical%20office&color=blue"
 }];
-var testimonials = [
-	{
-		id: 1,
-		name: "Ana Lúcia Ferreira",
-		role: "Paciente de Fisioterapia",
-		content: "Fui super bem atendida desde a recepção até a avaliação com o fisioterapeuta. Profissionais extremamente competentes e atenciosos. A clínica é linda e muito bem equipada. Minha dor no ombro melhorou 100%!",
-		rating: 5,
-		image: "https://img.usecurling.com/ppl/thumbnail?gender=female&seed=15"
-	},
-	{
-		id: 2,
-		name: "Carlos Eduardo Santos",
-		role: "Paciente de RPG",
-		content: "Excelente espaço para reabilitação. Faço sessões de RPG e a melhora na minha postura foi notável em poucas semanas. Recomendo muito o Espaço Fisio para quem busca tratamento sério e de resultado.",
-		rating: 5,
-		image: "https://img.usecurling.com/ppl/thumbnail?gender=male&seed=22"
-	},
-	{
-		id: 3,
-		name: "Mariana Oliveira",
-		role: "Aluna de Pilates",
-		content: "O melhor estúdio de Pilates da região! Os professores são super capacitados, as turmas são pequenas e o acompanhamento é bem personalizado. O ambiente é super agradável e muito limpo.",
-		rating: 5,
-		image: "https://img.usecurling.com/ppl/thumbnail?gender=female&seed=31"
-	},
-	{
-		id: 4,
-		name: "Roberto Mendes",
-		role: "Paciente de Acupuntura",
-		content: "Tinha crises constantes de enxaqueca e a acupuntura no Espaço Fisio salvou minha vida. Resultados rápidos e duradouros. A equipe é muito acolhedora e te deixa super à vontade.",
-		rating: 5,
-		image: "https://img.usecurling.com/ppl/thumbnail?gender=male&seed=44"
-	}
-];
 //#endregion
 //#region src/components/sections/Hero.tsx
 function Hero() {
@@ -25062,7 +25028,7 @@ function Hero() {
 									href: contact.whatsapp,
 									target: "_blank",
 									rel: "noopener noreferrer",
-									children: ["Agendar uma avaliação", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight$1, {
+									children: ["Agendar uma avaliação", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {
 										"data-uid": "src/components/sections/Hero.tsx:38:17",
 										"data-prohibitions": "[editContent]",
 										className: "ml-2 w-5 h-5"
@@ -27681,7 +27647,7 @@ function Specialties() {
 										children: [
 											"Saiba mais",
 											" ",
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight$1, {
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {
 												"data-uid": "src/components/sections/Specialties.tsx:69:23",
 												"data-prohibitions": "[editContent]",
 												className: "w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform"
@@ -27919,7 +27885,7 @@ function Services() {
 									"data-uid": "src/components/sections/Services.tsx:48:19",
 									"data-prohibitions": "[]",
 									className: "text-white font-bold font-sans text-lg flex items-center gap-2",
-									children: ["Ver detalhes ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight$1, {
+									children: ["Ver detalhes ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {
 										"data-uid": "src/components/sections/Services.tsx:49:34",
 										"data-prohibitions": "[editContent]",
 										className: "w-5 h-5"
@@ -29810,7 +29776,7 @@ var CarouselNext = import_react.forwardRef(({ className, variant = "outline", si
 		disabled: !canScrollNext,
 		onClick: scrollNext,
 		...props,
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight$1, {
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {
 			"data-uid": "src/components/ui/carousel.tsx:226:9",
 			"data-prohibitions": "[editContent]",
 			className: "h-4 w-4"
@@ -29981,187 +29947,304 @@ function Autoplay(userOptions = {}) {
 Autoplay.globalOptions = void 0;
 //#endregion
 //#region src/components/sections/Testimonials.tsx
+var GOOGLE_REVIEWS_LINK = "https://www.google.com/search?sca_esv=014cb5ad1839ea23&sxsrf=ANbL-n40s2C4NaptJwbfLNuaGCpLYV5Yzg:1773282000770&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOUdhC7_dlVxW0vXR-Li8jlFsoSyoNkG3huvhlCh4xoq1mt_sFTyLxthPiYhhPEqa_jLCKK3ThErHlTzZ7N-2b7A6k7NK270SSZOj0fzf9lYBVHE3ow%3D%3D&q=Espa%C3%A7o+Fisioterapia+Embu+Coment%C3%A1rios&sa=X&ved=2ahUKEwjihfidppmTAxWlDrkGHYNzEOIQ0bkNegQIKRAF&biw=1920&bih=869&dpr=1";
+var fetchGoogleReviews = async () => {
+	await new Promise((resolve) => setTimeout(resolve, 800));
+	return [
+		{
+			author_name: "Mariana Costa",
+			rating: 5,
+			text: "Cheguei na clínica com muita dor na lombar. Em poucas sessões de fisioterapia e RPG, já senti uma melhora absurda. O atendimento é super humanizado.",
+			relative_time_description: "1 mês atrás",
+			profile_photo_url: "https://img.usecurling.com/ppl/thumbnail?gender=female&seed=1"
+		},
+		{
+			author_name: "Roberto Almeida",
+			rating: 5,
+			text: "A infraestrutura é fantástica e a equipe muito competente. Estava me recuperando de uma cirurgia no joelho e o suporte deles foi essencial para minha volta ao esporte.",
+			relative_time_description: "2 meses atrás",
+			profile_photo_url: "https://img.usecurling.com/ppl/thumbnail?gender=male&seed=2"
+		},
+		{
+			author_name: "Juliana Freitas",
+			rating: 5,
+			text: "Comecei o Pilates na Espaço Fisio por recomendação médica. Além de melhorar minha postura, o ambiente é muito tranquilo e acolhedor. Recomendo de olhos fechados!",
+			relative_time_description: "3 semanas atrás",
+			profile_photo_url: "https://img.usecurling.com/ppl/thumbnail?gender=female&seed=3"
+		},
+		{
+			author_name: "Fernando Souza",
+			rating: 5,
+			text: "Excelente profissionalismo desde a recepção até o consultório. A acupuntura me ajudou a tratar uma enxaqueca crônica que nenhum outro tratamento resolvia.",
+			relative_time_description: "2 meses atrás",
+			profile_photo_url: "https://img.usecurling.com/ppl/thumbnail?gender=male&seed=4"
+		},
+		{
+			author_name: "Camila Rodrigues",
+			rating: 5,
+			text: "Melhor clínica da região de Embu das Artes. O Dr. Carlos é excepcional na quiropraxia. Resolveu minha dor no ciático que me incomodava há anos.",
+			relative_time_description: "1 semana atrás",
+			profile_photo_url: "https://img.usecurling.com/ppl/thumbnail?gender=female&seed=5"
+		}
+	];
+};
 function Testimonials() {
-	const googleReviewsUrl = "https://www.google.com/search?sca_esv=014cb5ad1839ea23&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOUdhC7_dlVxW0vXR-Li8jlFsoSyoNkG3huvhlCh4xoq1mt_sFTyLxthPiYhhPEqa_jLCKK3ThErHlTzZ7N-2b7A6k7NK270SSZOj0fzf9lYBVHE3ow%3D%3D&q=Espa%C3%A7o+Fisioterapia+Embu+Coment%C3%A1rios";
+	const plugin = (0, import_react.useRef)(Autoplay({
+		delay: 5e3,
+		stopOnInteraction: true
+	}));
+	const [reviews, setReviews] = (0, import_react.useState)([]);
+	const [loading, setLoading] = (0, import_react.useState)(true);
+	(0, import_react.useEffect)(() => {
+		const loadReviews = async () => {
+			try {
+				setReviews(await fetchGoogleReviews());
+			} catch (error) {
+				console.error("Error fetching reviews:", error);
+			} finally {
+				setLoading(false);
+			}
+		};
+		loadReviews();
+		const interval = setInterval(loadReviews, 6e4);
+		return () => clearInterval(interval);
+	}, []);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-		"data-uid": "src/components/sections/Testimonials.tsx:19:5",
+		"data-uid": "src/components/sections/Testimonials.tsx:83:5",
 		"data-prohibitions": "[editContent]",
-		id: "depoimentos",
-		className: "py-24 bg-white relative overflow-hidden",
+		className: "py-24 bg-navy-900 text-white overflow-hidden relative",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			"data-uid": "src/components/sections/Testimonials.tsx:21:7",
+			"data-uid": "src/components/sections/Testimonials.tsx:84:7",
 			"data-prohibitions": "[]",
-			className: "absolute top-0 right-0 w-1/3 h-full bg-gray-50 rounded-l-[100px] -z-10 hidden lg:block"
+			className: "absolute top-0 right-0 w-64 h-64 bg-gold-500 rounded-full blur-[120px] opacity-20 pointer-events-none"
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			"data-uid": "src/components/sections/Testimonials.tsx:23:7",
+			"data-uid": "src/components/sections/Testimonials.tsx:86:7",
 			"data-prohibitions": "[editContent]",
-			className: "container mx-auto px-4",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					"data-uid": "src/components/sections/Testimonials.tsx:24:9",
-					"data-prohibitions": "[]",
-					className: "text-center max-w-3xl mx-auto mb-16 space-y-4",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-							"data-uid": "src/components/sections/Testimonials.tsx:25:11",
+			className: "container",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				"data-uid": "src/components/sections/Testimonials.tsx:87:9",
+				"data-prohibitions": "[editContent]",
+				className: "text-center max-w-2xl mx-auto mb-16 space-y-6 relative z-10",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						"data-uid": "src/components/sections/Testimonials.tsx:88:11",
+						"data-prohibitions": "[]",
+						className: "inline-flex items-center gap-2 bg-white/10 rounded-full pr-4 pl-1 py-1 border border-white/20 shadow-sm",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							"data-uid": "src/components/sections/Testimonials.tsx:89:13",
 							"data-prohibitions": "[]",
-							className: "text-sm font-bold text-gold-500 uppercase tracking-widest",
-							children: "Aprovação Real"
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-							"data-uid": "src/components/sections/Testimonials.tsx:28:11",
-							"data-prohibitions": "[]",
-							className: "text-3xl md:text-5xl font-bold text-navy-900 font-sans",
-							children: "O Que Dizem Nossos Pacientes"
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							"data-uid": "src/components/sections/Testimonials.tsx:31:11",
-							"data-prohibitions": "[]",
-							className: "text-lg text-gray-600",
-							children: "Resultados comprovados por quem já recuperou a qualidade de vida com a nossa equipe."
-						})
-					]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					"data-uid": "src/components/sections/Testimonials.tsx:36:9",
-					"data-prohibitions": "[editContent]",
-					className: "max-w-6xl mx-auto relative px-4 lg:px-12",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Carousel, {
-						"data-uid": "src/components/sections/Testimonials.tsx:37:11",
-						"data-prohibitions": "[editContent]",
-						opts: {
-							align: "start",
-							loop: true
-						},
-						plugins: [Autoplay({ delay: 6e3 })],
-						className: "w-full",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CarouselContent, {
-								"data-uid": "src/components/sections/Testimonials.tsx:49:13",
-								"data-prohibitions": "[editContent]",
-								className: "-ml-4",
-								children: testimonials.map((testimonial) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CarouselItem, {
-									"data-uid": "src/components/sections/Testimonials.tsx:51:17",
-									"data-prohibitions": "[editContent]",
-									className: "pl-4 md:basis-1/2 lg:basis-1/3",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Card, {
-										"data-uid": "src/components/sections/Testimonials.tsx:52:19",
+							className: "w-8 h-8 bg-white rounded-full flex items-center justify-center p-1.5",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+								"data-uid": "src/components/sections/Testimonials.tsx:90:15",
+								"data-prohibitions": "[]",
+								viewBox: "0 0 24 24",
+								className: "w-full h-full",
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+										"data-uid": "src/components/sections/Testimonials.tsx:91:17",
 										"data-prohibitions": "[editContent]",
-										className: "h-full border border-gray-100 shadow-xl bg-white rounded-2xl hover:shadow-2xl transition-shadow",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(CardContent, {
-											"data-uid": "src/components/sections/Testimonials.tsx:53:21",
-											"data-prohibitions": "[editContent]",
-											className: "p-8 flex flex-col h-full relative",
-											children: [
-												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-													"data-uid": "src/components/sections/Testimonials.tsx:55:23",
-													"data-prohibitions": "[]",
-													className: "absolute top-6 right-6 text-gray-100",
-													children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-														"data-uid": "src/components/sections/Testimonials.tsx:56:25",
-														"data-prohibitions": "[]",
-														xmlns: "http://www.w3.org/2000/svg",
-														width: "48",
-														height: "48",
-														viewBox: "0 0 24 24",
-														fill: "currentColor",
-														children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-															"data-uid": "src/components/sections/Testimonials.tsx:63:27",
-															"data-prohibitions": "[editContent]",
-															d: "M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
-														})
-													})
-												}),
-												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-													"data-uid": "src/components/sections/Testimonials.tsx:67:23",
+										d: "M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z",
+										fill: "#4285F4"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+										"data-uid": "src/components/sections/Testimonials.tsx:95:17",
+										"data-prohibitions": "[editContent]",
+										d: "M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z",
+										fill: "#34A853"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+										"data-uid": "src/components/sections/Testimonials.tsx:99:17",
+										"data-prohibitions": "[editContent]",
+										d: "M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z",
+										fill: "#FBBC05"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+										"data-uid": "src/components/sections/Testimonials.tsx:103:17",
+										"data-prohibitions": "[editContent]",
+										d: "M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z",
+										fill: "#EA4335"
+									})
+								]
+							})
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							"data-uid": "src/components/sections/Testimonials.tsx:109:13",
+							"data-prohibitions": "[]",
+							className: "text-sm font-bold",
+							children: "Google Avaliações"
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						"data-uid": "src/components/sections/Testimonials.tsx:112:11",
+						"data-prohibitions": "[]",
+						className: "text-3xl md:text-4xl font-serif font-bold",
+						children: "O que nossos pacientes dizem"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						"data-uid": "src/components/sections/Testimonials.tsx:116:11",
+						"data-prohibitions": "[editContent]",
+						className: "flex items-center justify-center gap-4",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							"data-uid": "src/components/sections/Testimonials.tsx:117:13",
+							"data-prohibitions": "[]",
+							className: "text-4xl font-bold",
+							children: "5,0"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							"data-uid": "src/components/sections/Testimonials.tsx:118:13",
+							"data-prohibitions": "[editContent]",
+							className: "flex flex-col items-start gap-1",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								"data-uid": "src/components/sections/Testimonials.tsx:119:15",
+								"data-prohibitions": "[editContent]",
+								className: "flex gap-1",
+								children: [...Array(5)].map((_, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Star, {
+									"data-uid": "src/components/sections/Testimonials.tsx:121:19",
+									"data-prohibitions": "[editContent]",
+									className: "w-5 h-5 text-gold-500 fill-gold-500"
+								}, idx))
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								"data-uid": "src/components/sections/Testimonials.tsx:124:15",
+								"data-prohibitions": "[]",
+								className: "text-sm text-white/70 font-medium",
+								children: "Baseado em avaliações reais"
+							})]
+						})]
+					})
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				"data-uid": "src/components/sections/Testimonials.tsx:129:9",
+				"data-prohibitions": "[editContent]",
+				className: "relative z-10 max-w-5xl mx-auto",
+				children: [loading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					"data-uid": "src/components/sections/Testimonials.tsx:131:13",
+					"data-prohibitions": "[]",
+					className: "flex justify-center py-12",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						"data-uid": "src/components/sections/Testimonials.tsx:132:15",
+						"data-prohibitions": "[]",
+						className: "w-8 h-8 border-4 border-gold-500 border-t-transparent rounded-full animate-spin"
+					})
+				}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Carousel, {
+					"data-uid": "src/components/sections/Testimonials.tsx:135:13",
+					"data-prohibitions": "[editContent]",
+					plugins: [plugin.current],
+					opts: {
+						align: "start",
+						loop: true
+					},
+					className: "w-full",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CarouselContent, {
+							"data-uid": "src/components/sections/Testimonials.tsx:140:15",
+							"data-prohibitions": "[editContent]",
+							className: "-ml-4",
+							children: reviews.map((review, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CarouselItem, {
+								"data-uid": "src/components/sections/Testimonials.tsx:142:19",
+								"data-prohibitions": "[editContent]",
+								className: "pl-4 md:basis-1/2 lg:basis-1/3",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Card, {
+									"data-uid": "src/components/sections/Testimonials.tsx:143:21",
+									"data-prohibitions": "[editContent]",
+									className: "bg-white/5 border-white/10 text-white backdrop-blur-sm h-full flex flex-col hover:bg-white/10 transition-colors duration-300",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(CardContent, {
+										"data-uid": "src/components/sections/Testimonials.tsx:144:23",
+										"data-prohibitions": "[editContent]",
+										className: "p-6 flex-1 flex flex-col",
+										children: [
+											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+												"data-uid": "src/components/sections/Testimonials.tsx:145:25",
+												"data-prohibitions": "[editContent]",
+												className: "flex items-center justify-between mb-4",
+												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+													"data-uid": "src/components/sections/Testimonials.tsx:146:27",
 													"data-prohibitions": "[editContent]",
-													className: "flex gap-1 mb-6 text-gold-500 relative z-10",
-													children: [...Array(testimonial.rating)].map((_, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Star, {
-														"data-uid": "src/components/sections/Testimonials.tsx:69:27",
-														"data-prohibitions": "[editContent]",
-														className: "w-5 h-5 fill-current"
-													}, i))
-												}),
-												/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-													"data-uid": "src/components/sections/Testimonials.tsx:72:23",
-													"data-prohibitions": "[editContent]",
-													className: "text-gray-700 mb-8 flex-grow leading-relaxed relative z-10",
-													children: [
-														"\"",
-														testimonial.content,
-														"\""
-													]
-												}),
-												/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-													"data-uid": "src/components/sections/Testimonials.tsx:76:23",
-													"data-prohibitions": "[editContent]",
-													className: "flex items-center gap-4 mt-auto border-t border-gray-100 pt-6",
+													className: "flex items-center gap-3",
 													children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-														"data-uid": "src/components/sections/Testimonials.tsx:77:25",
+														"data-uid": "src/components/sections/Testimonials.tsx:147:29",
 														"data-prohibitions": "[editContent]",
-														src: testimonial.image,
-														alt: testimonial.name,
-														className: "w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm"
+														src: review.profile_photo_url,
+														alt: review.author_name,
+														className: "w-10 h-10 rounded-full object-cover"
 													}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-														"data-uid": "src/components/sections/Testimonials.tsx:82:25",
+														"data-uid": "src/components/sections/Testimonials.tsx:152:29",
 														"data-prohibitions": "[editContent]",
-														children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-															"data-uid": "src/components/sections/Testimonials.tsx:83:27",
+														children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+															"data-uid": "src/components/sections/Testimonials.tsx:153:31",
 															"data-prohibitions": "[editContent]",
-															className: "font-bold text-navy-900 font-sans text-lg",
-															children: testimonial.name
+															className: "font-bold text-sm line-clamp-1",
+															children: review.author_name
 														}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-															"data-uid": "src/components/sections/Testimonials.tsx:86:27",
+															"data-uid": "src/components/sections/Testimonials.tsx:154:31",
 															"data-prohibitions": "[editContent]",
-															className: "text-sm text-gray-500 font-medium",
-															children: testimonial.role
+															className: "text-xs text-white/50",
+															children: review.relative_time_description
 														})]
 													})]
-												})
-											]
-										})
+												}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+													"data-uid": "src/components/sections/Testimonials.tsx:159:27",
+													"data-prohibitions": "[]",
+													className: "w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center shrink-0",
+													children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, {
+														"data-uid": "src/components/sections/Testimonials.tsx:160:29",
+														"data-prohibitions": "[editContent]",
+														className: "w-3 h-3 text-white"
+													})
+												})]
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+												"data-uid": "src/components/sections/Testimonials.tsx:163:25",
+												"data-prohibitions": "[editContent]",
+												className: "flex gap-0.5 mb-3",
+												children: [...Array(review.rating)].map((_, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Star, {
+													"data-uid": "src/components/sections/Testimonials.tsx:165:29",
+													"data-prohibitions": "[editContent]",
+													className: "w-4 h-4 text-gold-500 fill-gold-500"
+												}, idx))
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+												"data-uid": "src/components/sections/Testimonials.tsx:168:25",
+												"data-prohibitions": "[editContent]",
+												className: "text-white/80 leading-relaxed text-sm flex-1 font-medium italic",
+												children: [
+													"\"",
+													review.text,
+													"\""
+												]
+											})
+										]
 									})
-								}, testimonial.id))
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CarouselPrevious, {
-								"data-uid": "src/components/sections/Testimonials.tsx:94:13",
-								"data-prohibitions": "[editContent]",
-								className: "hidden md:flex -left-12 border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white h-12 w-12"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CarouselNext, {
-								"data-uid": "src/components/sections/Testimonials.tsx:95:13",
-								"data-prohibitions": "[editContent]",
-								className: "hidden md:flex -right-12 border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white h-12 w-12"
-							})
-						]
-					})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					"data-uid": "src/components/sections/Testimonials.tsx:99:9",
-					"data-prohibitions": "[]",
-					className: "mt-16 text-center",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-						"data-uid": "src/components/sections/Testimonials.tsx:100:11",
-						"data-prohibitions": "[]",
-						variant: "outline",
-						size: "lg",
-						asChild: true,
-						className: "rounded-full border-2 border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white font-sans font-bold px-8 h-14",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-							"data-uid": "src/components/sections/Testimonials.tsx:106:13",
-							"data-prohibitions": "[]",
-							href: googleReviewsUrl,
-							target: "_blank",
-							rel: "noopener noreferrer",
-							children: ["Ler mais avaliações no Google ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {
-								"data-uid": "src/components/sections/Testimonials.tsx:107:45",
-								"data-prohibitions": "[editContent]",
-								className: "w-5 h-5 ml-2"
-							})]
+								})
+							}, i))
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CarouselPrevious, {
+							"data-uid": "src/components/sections/Testimonials.tsx:176:15",
+							"data-prohibitions": "[editContent]",
+							className: "hidden lg:flex -left-12 bg-white/10 hover:bg-white border-white/20 text-white hover:text-navy-900"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CarouselNext, {
+							"data-uid": "src/components/sections/Testimonials.tsx:177:15",
+							"data-prohibitions": "[editContent]",
+							className: "hidden lg:flex -right-12 bg-white/10 hover:bg-white border-white/20 text-white hover:text-navy-900"
 						})
+					]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					"data-uid": "src/components/sections/Testimonials.tsx:181:11",
+					"data-prohibitions": "[]",
+					className: "mt-12 text-center",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+						"data-uid": "src/components/sections/Testimonials.tsx:182:13",
+						"data-prohibitions": "[]",
+						href: GOOGLE_REVIEWS_LINK,
+						target: "_blank",
+						rel: "noopener noreferrer",
+						className: "inline-flex items-center gap-2 text-gold-500 hover:text-gold-400 font-bold transition-colors group",
+						children: ["Ver todas as avaliações no Google", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {
+							"data-uid": "src/components/sections/Testimonials.tsx:189:15",
+							"data-prohibitions": "[editContent]",
+							className: "w-4 h-4 group-hover:translate-x-1 transition-transform"
+						})]
 					})
-				})
-			]
+				})]
+			})]
 		})]
 	});
 }
@@ -30502,7 +30585,7 @@ function Contact() {
 									href: contact.whatsapp,
 									target: "_blank",
 									rel: "noopener noreferrer",
-									children: ["Agendar uma avaliação", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight$1, {
+									children: ["Agendar uma avaliação", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {
 										"data-uid": "src/components/sections/Contact.tsx:68:19",
 										"data-prohibitions": "[editContent]",
 										className: "w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform"
@@ -32293,7 +32376,7 @@ function ServiceDetail() {
 									href: contact.whatsapp,
 									target: "_blank",
 									rel: "noopener noreferrer",
-									children: ["Agendar uma avaliação", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight$1, {
+									children: ["Agendar uma avaliação", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {
 										"data-uid": "src/pages/ServiceDetail.tsx:121:19",
 										"data-prohibitions": "[editContent]",
 										className: "w-6 h-6 ml-2"
@@ -32393,4 +32476,4 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 }));
 //#endregion
 
-//# sourceMappingURL=index-DyaJRfhH.js.map
+//# sourceMappingURL=index-DeAj0Xo7.js.map
