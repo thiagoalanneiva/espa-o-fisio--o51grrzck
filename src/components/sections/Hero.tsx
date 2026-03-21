@@ -51,10 +51,10 @@ export function Hero() {
           <div className="absolute -inset-4 bg-gold-500/20 rounded-[3rem] transform rotate-3 -z-10 blur-xl"></div>
           <div className="absolute top-1/2 -right-8 w-32 h-32 bg-health-500/30 rounded-full blur-3xl -z-10"></div>
 
-          <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10 group">
+          <div className="relative aspect-[4/5] h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 group mx-auto">
             <img
-              src="https://img.usecurling.com/p/800/1000?q=professional%20physiotherapist&color=blue"
-              alt="Especialista em Fisioterapia"
+              src="https://img.usecurling.com/p/800/1000?q=female%20physiotherapist%20doctor%20professional&color=blue"
+              alt="Dra. Luana Neiva"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             {/* Subtle overlay gradient */}
@@ -63,7 +63,7 @@ export function Hero() {
 
           {/* Floating badge */}
           <div
-            className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce"
+            className="absolute -bottom-6 left-0 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce"
             style={{ animationDuration: '3s' }}
           >
             <div className="w-12 h-12 bg-health-100 rounded-full flex items-center justify-center text-health-600">

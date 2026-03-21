@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Menu, X, Instagram, Phone } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import logoUrl from '@/assets/espacofisio_logo-fd933.png'
 import { navigation, contact } from '@/data/content'
 import {
   NavigationMenu,
@@ -41,7 +40,11 @@ export function Header() {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 z-50">
-          <img src={logoUrl} alt="Espaço Fisio" className="h-12 md:h-16 w-auto object-contain" />
+          <img
+            src="https://img.usecurling.com/i?q=health%20clinic&shape=outline&color=navy"
+            alt="Espaço Fisio Logo"
+            className="h-10 md:h-12 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop Navigation */}
