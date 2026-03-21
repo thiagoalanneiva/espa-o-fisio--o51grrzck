@@ -20,9 +20,7 @@ export function Header() {
   const location = useLocation()
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 10)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -30,6 +28,21 @@ export function Header() {
   useEffect(() => {
     setIsMobileMenuOpen(false)
   }, [location])
+
+  const NavItem = ({ href, children, className, onClick }: any) => {
+    if (href.startsWith('#')) {
+      return (
+        <a href={href} className={className} onClick={onClick}>
+          {children}
+        </a>
+      )
+    }
+    return (
+      <Link to={href} className={className} onClick={onClick}>
+        {children}
+      </Link>
+    )
+  }
 
   return (
     <header
@@ -44,18 +57,14 @@ export function Header() {
             src="https://therapy-rebrand-hub.lovable.app/logo.svg"
             onError={(e) => {
               const target = e.target as HTMLImageElement
-              if (target.src.includes('logo.svg')) {
+              if (target.src.includes('logo.svg'))
                 target.src = 'https://therapy-rebrand-hub.lovable.app/logo.png'
-              } else if (target.src.includes('logo.png')) {
-                target.src = 'https://img.usecurling.com/i?q=therapy&shape=outline&color=navy'
-              }
             }}
             alt="Espaço Fisio Logo"
             className="h-10 md:h-12 w-auto object-contain"
           />
         </Link>
 
-        {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-6">
           <NavigationMenu>
             <NavigationMenuList>
@@ -77,12 +86,12 @@ export function Header() {
                                 {group.items.map((subItem) => (
                                   <li key={subItem.name}>
                                     <NavigationMenuLink asChild>
-                                      <Link
-                                        to={subItem.href}
+                                      <NavItem
+                                        href={subItem.href}
                                         className="block text-sm font-medium text-gray-700 hover:text-navy-900 hover:bg-gray-50 p-2 rounded-md transition-colors font-sans"
                                       >
                                         {subItem.name}
-                                      </Link>
+                                      </NavItem>
                                     </NavigationMenuLink>
                                   </li>
                                 ))}
@@ -102,12 +111,12 @@ export function Header() {
                           {item.items.map((subItem) => (
                             <li key={subItem.name}>
                               <NavigationMenuLink asChild>
-                                <Link
-                                  to={subItem.href}
+                                <NavItem
+                                  href={subItem.href}
                                   className="block text-sm font-medium text-gray-700 hover:text-navy-900 hover:bg-gray-50 p-3 rounded-md transition-colors font-sans"
                                 >
                                   {subItem.name}
-                                </Link>
+                                </NavItem>
                               </NavigationMenuLink>
                             </li>
                           ))}
@@ -116,12 +125,12 @@ export function Header() {
                     </>
                   ) : (
                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                      <Link
-                        to={item.href}
+                      <NavItem
+                        href={item.href}
                         className="bg-transparent hover:bg-gray-50 text-navy-900 font-semibold font-sans text-base cursor-pointer"
                       >
                         {item.name}
-                      </Link>
+                      </NavItem>
                     </NavigationMenuLink>
                   )}
                 </NavigationMenuItem>
@@ -134,7 +143,6 @@ export function Header() {
               <Phone className="w-5 h-5 text-gold-500" />
               {contact.phone}
             </div>
-
             <a
               href="https://www.instagram.com/espacofisioembu/"
               target="_blank"
@@ -144,7 +152,6 @@ export function Header() {
             >
               <Instagram className="w-5 h-5" />
             </a>
-
             <Button
               asChild
               className="rounded-full font-bold font-sans shadow-md bg-navy-900 hover:bg-navy-800 text-white"
@@ -156,7 +163,6 @@ export function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu Toggle */}
         <button
           className="lg:hidden z-50 p-2 text-navy-900"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -164,7 +170,6 @@ export function Header() {
           {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
         </button>
 
-        {/* Mobile Navigation */}
         <div
           className={cn(
             'fixed inset-0 bg-white z-40 lg:hidden transition-transform duration-300 ease-in-out flex flex-col pt-24 px-6 overflow-y-auto',
@@ -187,14 +192,14 @@ export function Header() {
                           </span>
                           <div className="flex flex-col gap-3 border-l-2 border-gray-100 pl-4">
                             {group.items.map((subItem) => (
-                              <Link
+                              <NavItem
                                 key={subItem.name}
-                                to={subItem.href}
+                                href={subItem.href}
                                 className="text-gray-600 hover:text-navy-900 font-medium font-sans"
                                 onClick={() => setIsMobileMenuOpen(false)}
                               >
                                 {subItem.name}
-                              </Link>
+                              </NavItem>
                             ))}
                           </div>
                         </div>
@@ -208,25 +213,25 @@ export function Header() {
                     </span>
                     <div className="flex flex-col gap-3 pl-4 mt-2 border-l-2 border-gray-100 ml-4">
                       {item.items.map((subItem) => (
-                        <Link
+                        <NavItem
                           key={subItem.name}
-                          to={subItem.href}
+                          href={subItem.href}
                           className="text-gray-600 hover:text-navy-900 font-medium font-sans py-1"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           {subItem.name}
-                        </Link>
+                        </NavItem>
                       ))}
                     </div>
                   </>
                 ) : (
-                  <Link
-                    to={item.href}
+                  <NavItem
+                    href={item.href}
                     className="text-xl font-bold text-navy-900 font-sans border-b border-gray-100 pb-2"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.name}
-                  </Link>
+                  </NavItem>
                 )}
               </div>
             ))}
@@ -234,21 +239,8 @@ export function Header() {
 
           <div className="mt-8 pt-8 border-t flex flex-col gap-6 pb-12">
             <div className="flex items-center justify-center gap-2 text-navy-900 font-bold font-sans mb-2">
-              <Phone className="w-5 h-5 text-gold-500" />
-              {contact.phone}
+              <Phone className="w-5 h-5 text-gold-500" /> {contact.phone}
             </div>
-
-            <div className="flex justify-center gap-4">
-              <a
-                href="https://www.instagram.com/espacofisioembu/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-14 h-14 rounded-full bg-gray-50 flex items-center justify-center text-navy-900 hover:bg-navy-900 hover:text-white transition-colors shadow-sm"
-              >
-                <Instagram className="w-7 h-7" />
-              </a>
-            </div>
-
             <Button
               size="lg"
               asChild

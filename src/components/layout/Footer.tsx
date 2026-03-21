@@ -3,22 +3,33 @@ import { Instagram, MapPin } from 'lucide-react'
 import { contact, units, navigation } from '@/data/content'
 
 export function Footer() {
+  const NavItem = ({ href, children, className }: any) => {
+    if (href.startsWith('#')) {
+      return (
+        <a href={href} className={className}>
+          {children}
+        </a>
+      )
+    }
+    return (
+      <Link to={href} className={className}>
+        {children}
+      </Link>
+    )
+  }
+
   return (
     <footer className="bg-navy-900 text-gray-300 py-16 lg:py-20 border-t-4 border-gold-500">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-          {/* Brand */}
           <div className="space-y-8">
             <div className="bg-white p-4 rounded-xl inline-block shadow-lg">
               <img
                 src="https://therapy-rebrand-hub.lovable.app/logo.svg"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement
-                  if (target.src.includes('logo.svg')) {
+                  if (target.src.includes('logo.svg'))
                     target.src = 'https://therapy-rebrand-hub.lovable.app/logo.png'
-                  } else if (target.src.includes('logo.png')) {
-                    target.src = 'https://img.usecurling.com/i?q=therapy&shape=outline&color=navy'
-                  }
                 }}
                 alt="Espaço Fisio"
                 className="h-14 w-auto object-contain"
@@ -41,7 +52,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h3 className="text-white text-xl font-bold font-sans mb-8 flex items-center gap-2">
               <span className="w-2 h-2 bg-gold-500 rounded-full"></span>
@@ -53,23 +63,22 @@ export function Footer() {
                   {item.isMega || item.items ? (
                     <span className="text-white font-medium block mb-2">{item.name}</span>
                   ) : (
-                    <Link
-                      to={item.href}
+                    <NavItem
+                      href={item.href}
                       className="text-gray-400 hover:text-gold-500 transition-colors font-medium"
                     >
                       {item.name}
-                    </Link>
+                    </NavItem>
                   )}
                   {(item.isMega || item.items) && (
                     <ul className="pl-4 border-l-2 border-white/10 space-y-2 mt-2">
-                      {/* Just link to the main sections to keep it clean */}
                       <li>
-                        <Link
-                          to="/#servicos"
+                        <a
+                          href="#servicos"
                           className="text-gray-400 hover:text-gold-500 transition-colors text-sm"
                         >
                           Ver todas especialidades
-                        </Link>
+                        </a>
                       </li>
                     </ul>
                   )}
@@ -78,7 +87,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h3 className="text-white text-xl font-bold font-sans mb-8 flex items-center gap-2">
               <span className="w-2 h-2 bg-gold-500 rounded-full"></span>
@@ -141,7 +149,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Units */}
           <div>
             <h3 className="text-white text-xl font-bold font-sans mb-8 flex items-center gap-2">
               <span className="w-2 h-2 bg-gold-500 rounded-full"></span>

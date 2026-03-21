@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { Card, CardContent } from '@/components/ui/card'
 import {
   Select,
@@ -12,15 +11,14 @@ import { Button } from '@/components/ui/button'
 import { Search } from 'lucide-react'
 
 export function QuickSearch() {
-  const navigate = useNavigate()
   const [dor, setDor] = useState('')
   const [esp, setEsp] = useState('')
   const [trat, setTrat] = useState('')
 
   const handleSearch = () => {
-    if (trat) navigate(`/servico/${trat}`)
-    else if (esp) navigate(`/servico/${esp}`)
-    else if (dor) navigate(`/servico/${dor}`)
+    if (trat) window.location.hash = `#servico-${trat}`
+    else if (esp) window.location.hash = `#servico-${esp}`
+    else if (dor) window.location.hash = `#servico-${dor}`
     else document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' })
   }
 

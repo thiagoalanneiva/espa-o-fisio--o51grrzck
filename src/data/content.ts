@@ -20,34 +20,34 @@ export const navigation = [
       {
         title: 'Fisioterapia',
         items: [
-          { name: 'Ortopédica', href: '/servico/fisioterapia-ortopedica' },
-          { name: 'Neurológica', href: '/servico/fisioterapia-neurologica' },
-          { name: 'Pélvica', href: '/servico/fisioterapia-pelvica' },
-          { name: 'Pediátrica', href: '/servico/fisioterapia-pediatrica' },
-          { name: 'Geriátrica', href: '/servico/fisioterapia-geriatrica' },
-          { name: 'Gestante', href: '/servico/fisioterapia-gestante' },
-          { name: 'Esportiva', href: '/servico/fisioterapia-esportiva' },
+          { name: 'Ortopédica', href: '#servico-fisioterapia-ortopedica' },
+          { name: 'Neurológica', href: '#servico-fisioterapia-neurologica' },
+          { name: 'Pélvica', href: '#servico-fisioterapia-pelvica' },
+          { name: 'Pediátrica', href: '#servico-fisioterapia-pediatrica' },
+          { name: 'Geriátrica', href: '#servico-fisioterapia-geriatrica' },
+          { name: 'Gestante', href: '#servico-fisioterapia-gestante' },
+          { name: 'Esportiva', href: '#servico-fisioterapia-esportiva' },
         ],
       },
       {
         title: 'Acupuntura & Pilates',
         items: [
-          { name: 'Acupuntura Sistêmica', href: '/servico/acupuntura-sistemica' },
-          { name: 'Acupuntura Auricular', href: '/servico/acupuntura-auricular' },
-          { name: 'Dryneedling', href: '/servico/dryneedling' },
-          { name: 'Pilates Postural', href: '/servico/pilates-postural' },
-          { name: 'Pilates Gestante', href: '/servico/pilates-gestante' },
-          { name: 'Pilates Idoso', href: '/servico/pilates-idoso' },
-          { name: 'Pilates Kids', href: '/servico/pilates-kids' },
+          { name: 'Acupuntura Sistêmica', href: '#servico-acupuntura-sistemica' },
+          { name: 'Acupuntura Auricular', href: '#servico-acupuntura-auricular' },
+          { name: 'Dryneedling', href: '#servico-dryneedling' },
+          { name: 'Pilates Postural', href: '#servico-pilates-postural' },
+          { name: 'Pilates Gestante', href: '#servico-pilates-gestante' },
+          { name: 'Pilates Idoso', href: '#servico-pilates-idoso' },
+          { name: 'Pilates Kids', href: '#servico-pilates-kids' },
         ],
       },
       {
         title: 'Especialidades',
         items: [
-          { name: 'RPG', href: '/servico/rpg' },
-          { name: 'Liberação Miofascial', href: '/servico/liberacao-miofascial' },
-          { name: 'Ventosa', href: '/servico/ventosa' },
-          { name: 'Quiropraxia', href: '/servico/quiropraxia' },
+          { name: 'RPG', href: '#servico-rpg' },
+          { name: 'Liberação Miofascial', href: '#servico-liberacao-miofascial' },
+          { name: 'Ventosa', href: '#servico-ventosa' },
+          { name: 'Quiropraxia', href: '#servico-quiropraxia' },
         ],
       },
     ],
@@ -56,12 +56,12 @@ export const navigation = [
     name: 'Tratamentos',
     isMega: false,
     items: [
-      { name: 'Laser', href: '/servico/laser' },
-      { name: 'Recupero', href: '/servico/recupero' },
-      { name: 'Ondas de Choque', href: '/servico/ondas-de-choque' },
-      { name: 'Infra Vermelho', href: '/servico/infra-vermelho' },
-      { name: 'Terapia Manual', href: '/servico/terapia-manual' },
-      { name: 'Bandagens', href: '/servico/bandagens' },
+      { name: 'Laser', href: '#servico-laser' },
+      { name: 'Recupero', href: '#servico-recupero' },
+      { name: 'Ondas de Choque', href: '#servico-ondas-de-choque' },
+      { name: 'Infra Vermelho', href: '#servico-infra-vermelho' },
+      { name: 'Terapia Manual', href: '#servico-terapia-manual' },
+      { name: 'Bandagens', href: '#servico-bandagens' },
     ],
   },
   { name: 'Unidades', href: '/#unidades' },
@@ -75,7 +75,6 @@ const baseBenefits = [
 ]
 
 export const services = [
-  // Fisioterapia
   {
     id: 'fisioterapia-ortopedica',
     title: 'Fisioterapia Ortopédica',
@@ -83,7 +82,7 @@ export const services = [
       'Reabilitação especializada para lesões musculoesqueléticas, fraturas e dores articulares.',
     fullDescription:
       'Focada no tratamento de disfunções do sistema musculoesquelético. Ideal para recuperação de cirurgias, fraturas, tendinites, bursites, lombalgias e outras dores que limitam o seu dia a dia. Utilizamos técnicas manuais e exercícios específicos para restaurar a função normal.',
-    image: 'https://img.usecurling.com/p/800/600?q=physiotherapy%20clinic&color=blue',
+    image: '/fisioterapia-3b965.jpg',
     benefits: baseBenefits,
     icon: 'Bone',
   },
@@ -178,8 +177,6 @@ export const services = [
     ],
     icon: 'Zap',
   },
-
-  // Acupuntura
   {
     id: 'acupuntura-sistemica',
     title: 'Acupuntura Sistêmica',
@@ -226,8 +223,6 @@ export const services = [
     ],
     icon: 'Zap',
   },
-
-  // Pilates
   {
     id: 'pilates-postural',
     title: 'Pilates Postural',
@@ -288,8 +283,6 @@ export const services = [
     ],
     icon: 'Sparkles',
   },
-
-  // Specialties
   {
     id: 'rpg',
     title: 'RPG (Reeducação Postural Global)',
@@ -354,8 +347,6 @@ export const services = [
     ],
     icon: 'Dna',
   },
-
-  // Tratamentos
   {
     id: 'laser',
     title: 'Laserterapia',

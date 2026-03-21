@@ -5,7 +5,6 @@ import { contact } from '@/data/content'
 export function Hero() {
   return (
     <section className="relative w-full overflow-hidden bg-navy-900 pt-32 pb-20 md:pt-40 md:pb-32">
-      {/* Background elegant gradient/texture */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-navy-800 via-navy-900 to-black opacity-80" />
       <div className="absolute inset-0 opacity-[0.05] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
 
@@ -38,7 +37,6 @@ export function Hero() {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </a>
             </Button>
-
             <p className="text-sm text-gray-400 font-medium">Avaliação presencial criteriosa.</p>
           </div>
         </div>
@@ -47,21 +45,18 @@ export function Hero() {
           className="flex-1 w-full max-w-[600px] relative mt-12 lg:mt-0 hidden md:block animate-fade-in-up"
           style={{ animationDelay: '0.2s' }}
         >
-          {/* Aesthetic decorators */}
           <div className="absolute -inset-4 bg-gold-500/20 rounded-[3rem] transform rotate-3 -z-10 blur-xl"></div>
           <div className="absolute top-1/2 -right-8 w-32 h-32 bg-health-500/30 rounded-full blur-3xl -z-10"></div>
 
           <div className="relative aspect-[4/5] h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 group mx-auto">
             <img
-              src="https://img.usecurling.com/p/800/1000?q=female%20physiotherapist%20doctor%20professional&color=blue"
+              src="/draluananeivaeidoso-3747b.jpg"
               alt="Dra. Luana Neiva"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            {/* Subtle overlay gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent"></div>
           </div>
 
-          {/* Floating badge */}
           <div
             className="absolute -bottom-6 left-0 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce"
             style={{ animationDuration: '3s' }}

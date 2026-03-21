@@ -1,21 +1,11 @@
-import { Link } from 'react-router-dom'
 import { ArrowRight, Activity, Bone, Heart, Zap, Sparkles, Feather, Dna } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { services } from '@/data/content'
 
-const iconMap: Record<string, any> = {
-  Activity,
-  Bone,
-  Heart,
-  Zap,
-  Sparkles,
-  Feather,
-  Dna,
-}
+const iconMap: Record<string, any> = { Activity, Bone, Heart, Zap, Sparkles, Feather, Dna }
 
 export function Specialties() {
-  // Take a curated list of top level specialties to show on the main page grid
   const highlights = [
     'fisioterapia-ortopedica',
     'fisioterapia-neurologica',
@@ -51,7 +41,7 @@ export function Specialties() {
                 key={service.id}
                 className="group hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 border border-gray-100 bg-white overflow-hidden rounded-2xl cursor-pointer"
               >
-                <Link to={`/servico/${service.id}`} className="block h-full">
+                <a href={`#servico-${service.id}`} className="block h-full">
                   <CardHeader className="p-8 pb-4 relative">
                     <div className="w-16 h-16 rounded-2xl bg-gray-50 flex items-center justify-center text-navy-900 mb-6 group-hover:bg-navy-900 group-hover:text-gold-500 transition-colors duration-300 shadow-sm border border-gray-100 group-hover:border-navy-800">
                       <Icon className="w-8 h-8" />
@@ -69,7 +59,7 @@ export function Specialties() {
                       <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform" />
                     </div>
                   </CardContent>
-                </Link>
+                </a>
               </Card>
             )
           })}
@@ -82,7 +72,7 @@ export function Specialties() {
             className="rounded-full border-2 border-navy-900 text-navy-900 font-bold px-8 h-14 hover:bg-navy-900 hover:text-white"
             asChild
           >
-            <Link to="/#servicos">Ver todas as opções</Link>
+            <a href="#servicos">Ver todas as opções</a>
           </Button>
         </div>
       </div>

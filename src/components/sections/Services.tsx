@@ -1,11 +1,9 @@
-import { Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { services } from '@/data/content'
 
 export function Services() {
-  // Select a compact list of prominent services to feature
   const featuredIds = [
     'fisioterapia-ortopedica',
     'pilates-postural',
@@ -70,10 +68,10 @@ export function Services() {
                   className="w-full font-bold font-sans border-2 border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white rounded-full h-12 transition-all flex items-center justify-center gap-2 group/btn mt-auto"
                   asChild
                 >
-                  <Link to={`/servico/${service.id}`}>
+                  <a href={`#servico-${service.id}`}>
                     Ver Tratamento
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </Link>
+                  </a>
                 </Button>
               </CardContent>
             </Card>
@@ -89,7 +87,7 @@ export function Services() {
             className="rounded-full font-sans font-bold text-lg h-14 px-10 shadow-lg bg-gold-500 hover:bg-gold-600 text-navy-900 transition-all hover:-translate-y-1"
             asChild
           >
-            <Link to="/#especialidades">Consultar todas as opções</Link>
+            <a href="#especialidades">Consultar todas as opções</a>
           </Button>
         </div>
       </div>

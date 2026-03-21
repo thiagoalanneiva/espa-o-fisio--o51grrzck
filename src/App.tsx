@@ -5,7 +5,6 @@ import { TooltipProvider } from '@/components/ui/tooltip'
 import Index from './pages/Index'
 import NotFound from './pages/NotFound'
 import Layout from './components/Layout'
-import ServiceDetail from './pages/ServiceDetail'
 
 const App = () => (
   <BrowserRouter future={{ v7_startTransition: false, v7_relativeSplatPath: false }}>
@@ -15,7 +14,6 @@ const App = () => (
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Index />} />
-          <Route path="/servico/:slug" element={<ServiceDetail />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
