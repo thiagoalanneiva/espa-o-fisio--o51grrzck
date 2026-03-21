@@ -41,7 +41,15 @@ export function Header() {
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 z-50">
           <img
-            src="https://img.usecurling.com/i?q=health%20clinic&shape=outline&color=navy"
+            src="https://therapy-rebrand-hub.lovable.app/logo.svg"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement
+              if (target.src.includes('logo.svg')) {
+                target.src = 'https://therapy-rebrand-hub.lovable.app/logo.png'
+              } else if (target.src.includes('logo.png')) {
+                target.src = 'https://img.usecurling.com/i?q=therapy&shape=outline&color=navy'
+              }
+            }}
             alt="Espaço Fisio Logo"
             className="h-10 md:h-12 w-auto object-contain"
           />

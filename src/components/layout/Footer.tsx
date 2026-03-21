@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import { Instagram, MapPin } from 'lucide-react'
-import logoUrl from '@/assets/espacofisio_logo-fd933.png'
 import { contact, units, navigation } from '@/data/content'
 
 export function Footer() {
@@ -11,7 +10,19 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-8">
             <div className="bg-white p-4 rounded-xl inline-block shadow-lg">
-              <img src={logoUrl} alt="Espaço Fisio" className="h-14 w-auto object-contain" />
+              <img
+                src="https://therapy-rebrand-hub.lovable.app/logo.svg"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement
+                  if (target.src.includes('logo.svg')) {
+                    target.src = 'https://therapy-rebrand-hub.lovable.app/logo.png'
+                  } else if (target.src.includes('logo.png')) {
+                    target.src = 'https://img.usecurling.com/i?q=therapy&shape=outline&color=navy'
+                  }
+                }}
+                alt="Espaço Fisio"
+                className="h-14 w-auto object-contain"
+              />
             </div>
             <p className="text-gray-400 leading-relaxed">
               Referência em reabilitação avançada, proporcionando qualidade de vida e bem-estar
